@@ -1,0 +1,8 @@
+{
+  "name": "gurutzetapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "792d53cf"
+}
