@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { TranslateService } from '@ngx-translate/core';
+import { IStorage, ITranslator, IState, IData } from '../domain';
+import { AppPresenter } from './app.presenter';
 
 @Component({
   selector: 'app-root',
@@ -14,22 +15,17 @@ export class AppComponent {
     private readonly platform: Platform,
     private readonly splashScreen: SplashScreen,
     private readonly statusBar: StatusBar,
-    private readonly translate: TranslateService
+    storage: IStorage,
+    translator: ITranslator,
+    state: IState,
+    data: IData
   ) {
-    this.initializeApp();
-    this.loadLanguage();
-  }
-
-  private initializeApp(): void {
-    this.platform.ready().then(() => {
+    const presenter = new AppPresenter(state, storage, translator, data);
+    presenter.onLoad();
+    this.platform.ready().then(async () => {
       this.statusBar.styleDefault();
+      await presenter.onPlatformReady();
       this.splashScreen.hide();
     });
-  }
-
-  private loadLanguage(): void {
-    let userLang = navigator.language.split('-')[0];
-    userLang = /(es|eu)/gi.test(userLang) ? userLang : 'es';
-    this.translate.use(userLang);
   }
 }

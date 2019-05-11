@@ -1,0 +1,439 @@
+{
+  "version": "2016.1.0",
+  "venues": [
+    {
+      "name": "Recinto festivo",
+      "lat": 43.2815037,
+      "lng": -2.9872217,
+      "category": "red"
+    },
+    {
+      "name": "Bar Santi, Batzoki y Bar La Isla",
+      "lat": 43.2804184,
+      "lng": -2.9832192,
+      "category": "blue"
+    },
+    {
+      "name": "Bar Parada y Salón de Juego To Play",
+      "lat": 43.2847769,
+      "lng": -2.9839872,
+      "category": "blue"
+    },
+    {
+      "name": "IES La Siebe",
+      "lat": 43.2793155,
+      "lng": -2.988685,
+      "category": "green"
+    },
+    {
+      "name": "Bar Luber y JIMARSA",
+      "lat": 43.2840614,
+      "lng": -2.9834853,
+      "category": "blue"
+    },
+    {
+      "name": "Kulunka",
+      "lat": 43.2845724,
+      "lng": -2.9830704,
+      "category": "blue"
+    },
+    {
+      "name": "Colegio Juan Ramón Jiménez",
+      "lat": 43.2842439,
+      "lng": -2.9816765,
+      "category": "green"
+    },
+    {
+      "name": "Casa de Cultura",
+      "lat": 43.2830038,
+      "lng": -2.9828397,
+      "category": "green"
+    },
+    {
+      "name": "Bar Mosku",
+      "lat": 43.2815948,
+      "lng": -2.9937862,
+      "category": "blue"
+    },
+    {
+      "name": "Restaurante King's Cross",
+      "lat": 43.2824315,
+      "lng": -2.9837902,
+      "category": "blue"
+    },
+    {
+      "name": "Bar Zubia",
+      "lat": 43.2818114,
+      "lng": -2.9820383,
+      "category": "blue"
+    },
+    {
+      "name": "Bar Bizkaia",
+      "lat": 43.2848492,
+      "lng": -2.9840499,
+      "category": "blue"
+    },
+    {
+      "name": "Bar Vista Alegre",
+      "lat": 43.2801041,
+      "lng": -2.9832996,
+      "category": "blue"
+    },
+    {
+      "name": "ZITIBIKE",
+      "lat": 43.2844038,
+      "lng": -2.9859615,
+      "category": "blue"
+    },
+    {
+      "name": "Frontón",
+      "lat": 43.279039,
+      "lng": -2.9878162,
+      "category": "green"
+    },
+    {
+      "name": "El Cerco",
+      "lat": 43.2849173,
+      "lng": -2.9830229,
+      "category": "green"
+    },
+    {
+      "name": "Degustación La Paz",
+      "lat": 43.2801217,
+      "lng": -2.9854713,
+      "category": "blue"
+    },
+    {
+      "name": "Bar Sport",
+      "lat": 43.2805952,
+      "lng": -2.9881169,
+      "category": "blue"
+    },
+    {
+      "name": "BAR LA TOBERA, BAR LA HERRADURA, BAR GURE LEKU y BODEGA RAMON",
+      "lat": 43.2851338,
+      "lng": -2.9833224,
+      "category": "blue"
+    },
+    {
+      "name": "IES Gurutzeta",
+      "lat": 43.2820858,
+      "lng": -2.9870321,
+      "category": "green"
+    },
+    {
+      "name": "Bar Román y Bar Rosario",
+      "lat": 43.2808177,
+      "lng": -2.9832291,
+      "category": "blue"
+    }
+  ],
+  "schedule": [
+    {
+      "title": {
+        "es": "Viernes",
+        "eu": "Ostirala"
+      },
+      "description": {
+        "es": "10 de mayo",
+        "eu": "Maiatzak 10"
+      },
+      "schedule": [
+        {
+          "id": 1,
+          "time": "21.00",
+          "description": {
+            "es": "Concierto Mercado Negro Blues Band en las inmediaciones del Bar Bombea y el Batzoki.",
+            "eu": "Mercado Negro Blues Bandren kontzertua Bombea taberna eta Batzokiaren ingurutik. "
+          },
+          "category": "music"
+        }
+      ]
+    },
+    {
+      "title": {
+        "es": "Sábado",
+        "eu": "Larunbata"
+      },
+      "description": {
+        "es": "11 de mayo",
+        "eu": "Maiatzak 11"
+      },
+      "schedule": [
+        {
+          "id": 2,
+          "time": "9.00 - 17.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Feria Agrícola y Artesana en la plaza de la iglesia.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Mercadillo solidario de la Asociación Ascaan en Barandiaran.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Degustación de productos extremeños en las inmediaciones de la Cafetería Netxe.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Final del Campeonato  de Frontenis en el frontón de Cruces.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        },
+        {
+          "id": 2,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "sdf"
+          },
+          "category": "ice-cream"
+        }
+      ]
+    },
+    {
+      "title": {
+        "es": "Domingo",
+        "eu": "Igandea"
+      },
+      "description": {
+        "es": "12 de mayo",
+        "eu": "Maiatzak 12"
+      },
+      "schedule": []
+    },
+    {
+      "title": {
+        "es": "Martes",
+        "eu": "Asteartea"
+      },
+      "description": {
+        "es": "14 de mayo",
+        "eu": "Maiatzak 14"
+      },
+      "schedule": []
+    },
+    {
+      "title": {
+        "es": "Jueves",
+        "eu": "Osteguna"
+      },
+      "description": {
+        "es": "16 de mayo",
+        "eu": "Maiatzak 16"
+      },
+      "schedule": []
+    },
+    {
+      "title": {
+        "es": "Viernes",
+        "eu": "Ostirala"
+      },
+      "description": {
+        "es": "17 de mayo",
+        "eu": "Maiatzak 17"
+      },
+      "schedule": []
+    },
+    {
+      "title": {
+        "es": "Sábado",
+        "eu": "Larunbata"
+      },
+      "description": {
+        "es": "18 de mayo",
+        "eu": "Maiatzak 18"
+      },
+      "schedule": []
+    },
+    {
+      "title": {
+        "es": "Domingo",
+        "eu": "Igandea"
+      },
+      "description": {
+        "es": "19 de mayo",
+        "eu": "Maiatzak 19"
+      },
+      "schedule": []
+    }
+  ]
+}
