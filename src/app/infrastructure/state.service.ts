@@ -5,14 +5,15 @@ import {
   favouritesReducer,
   mapReducer,
   scheduleReducer,
-  ApplicationActionTypes,
   setSchedule,
   EventDay,
+  Event,
   setVenues,
   Venue,
-  setFavourites
+  setFavourites,
+  toggleFavourite
 } from '../domain';
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { IState } from '../domain';
 import { map } from 'rxjs/operators';
 
@@ -30,6 +31,7 @@ export class StateService implements OnDestroy, IState {
   public readonly onStateChanged$: Observable<IAppState>;
   public readonly schedule$: Observable<EventDay[]>;
   public readonly venues$: Observable<Venue[]>;
+  public readonly favourites$: Observable<EventDay[]>;
 
   private readonly store: Store<IAppState, AnyAction>;
   private readonly onStateChangedSubject: BehaviorSubject<IAppState>;
@@ -52,6 +54,23 @@ export class StateService implements OnDestroy, IState {
     this.onStateChanged$ =  this.onStateChangedSubject;
     this.schedule$ = this.onStateChanged$.pipe(map((state) => state.schedule.days));
     this.venues$ = this.onStateChanged$.pipe(map((state) => state.map.venues));
+    this.favourites$ = this.onStateChanged$.pipe(map((state) => {
+      const favourites = state.favourites.eventIds;
+      const days: EventDay[] = [];
+      state.schedule.days.forEach((day) => {
+        const dayEvents: Event[] = [];
+        day.schedule.forEach((event) => {
+          if (favourites.indexOf(event.id) >= 0) {
+            dayEvents.push(event);
+          }
+        });
+        if (dayEvents.length > 0) {
+          days.push(new EventDay(day.title, day.description, dayEvents));
+        }
+      });
+
+      return days;
+    }));
   }
 
   public get schedule(): EventDay[] {
@@ -76,6 +95,10 @@ export class StateService implements OnDestroy, IState {
 
   public setFavourites(eventIds: number[]): void {
     this.store.dispatch(setFavourites(eventIds));
+  }
+
+  public toggleFavourite(event: Event): void {
+    this.store.dispatch(toggleFavourite(event));
   }
 
   public ngOnDestroy(): void {

@@ -42,14 +42,12 @@
   <ion-list>
       <ion-item-divider *ngIf="category" light>{{ category | translate }}</ion-item-divider>
       <ion-item *ngFor="let event of (day$ | async)?.schedule">
-        <div>
-          <ion-label text-wrap>
-            <div>{{ event.time }} <ion-icon name="{{ event.category | appEventCategory }}" left></ion-icon></div>
-            <p>{{ event.description | appTranslate }}</p>
-          </ion-label>
-        </div>
+        <ion-label text-wrap>
+          <div>{{ event.time }} <ion-icon name="{{ event.category | appEventCategory }}" left></ion-icon></div>
+          <p>{{ event.description | appTranslate }}</p>
+        </ion-label>
         <div slot="end">
-          <ion-icon color="danger" [name]="event.favourite ? 'heart' : 'heart-empty'" size="large" app-favourite ></ion-icon>
+          <ion-icon color="danger" size="large" [appFavourite]="event" ></ion-icon>
         </div>
       </ion-item>
       <ion-item  *ngIf="(day$ | async)?.schedule.length === 0">

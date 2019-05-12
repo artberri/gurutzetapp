@@ -52,9 +52,7 @@ export class MapPage implements AfterViewInit {
   }
 
   private loadMarkers(): void {
-    console.log('loadMarkers');
     this.presenter.venues$.subscribe((venues) => {
-      console.log('venuessssssssssssssssssss', venues);
       if (this.map) {
         this.map.clear();
         venues.forEach((venue) => {

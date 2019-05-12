@@ -1,16 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>gurutzetapp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="info.gurutzeta.app" version="2019.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Gurutzeta</name>
+    <description>Aplicación de las fiestas de Cruces/Gurutzeta.</description>
+    <author email="alberto@berriart.com" href="http://www.berriart.com/">Alberto Varela</author>
     <content src="index.html" />
-    <access origin="*" />
+    <access origin="http://app.gurutzeta.info" />
+    <access origin="https://*.google.com" />
+    <access origin="https://*.gstatic.com" />
+    <access origin="https://*.googleapis.com" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <preference name="Orientation" value="portrait" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
@@ -82,6 +86,6 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyBlPpTlqjC8D1mjWjiGID9IVO4JFVqO_sM" />
-    <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyBlPpTlqjC8D1mjWjiGID9IVO4JFVqO_sM" />
+    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyAe3jr2l5Fmo36u9R2lJ6ALgBzKTEmsBgM" />
+    <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyAe3jr2l5Fmo36u9R2lJ6ALgBzKTEmsBgM" />
 </widget>

@@ -19,8 +19,6 @@ export class DayPresenter {
             this.filterCategory = filter;
 
             if (this.filterCategory) {
-                console.log(day.schedule);
-                console.log(day.title, day.schedule.filter(d => d.category === this.filterCategory));
                 return new EventDay(day.title, day.description, day.schedule.filter(d => d.category === this.filterCategory));
             }
 
