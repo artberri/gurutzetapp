@@ -7,6 +7,7 @@ import {
 } from '@ionic-native/google-maps';
 import { IState, VenueCategory } from 'src/app/domain';
 import { MapPresenter } from './map.presenter';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-map',
@@ -19,12 +20,14 @@ export class MapPage implements AfterViewInit {
   private readonly presenter: MapPresenter;
 
   constructor(
+    private readonly platform: Platform,
     state: IState
   ) {
     this.presenter = new MapPresenter(state);
   }
 
-  public ngAfterViewInit(): void {
+  public async ngAfterViewInit(): Promise<void> {
+    await this.platform.ready();
     this.loadMap();
   }
 
@@ -32,8 +35,8 @@ export class MapPage implements AfterViewInit {
 
     // This code is necessary for browser
     Environment.setEnv({
-      API_KEY_FOR_BROWSER_RELEASE: 'AIzaSyAe3jr2l5Fmo36u9R2lJ6ALgBzKTEmsBgM',
-      API_KEY_FOR_BROWSER_DEBUG: 'AIzaSyAe3jr2l5Fmo36u9R2lJ6ALgBzKTEmsBgM'
+      API_KEY_FOR_BROWSER_RELEASE: 'AIzaSyBlPpTlqjC8D1mjWjiGID9IVO4JFVqO_sM',
+      API_KEY_FOR_BROWSER_DEBUG: 'AIzaSyBlPpTlqjC8D1mjWjiGID9IVO4JFVqO_sM'
     });
 
     const mapOptions: GoogleMapOptions = {

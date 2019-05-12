@@ -4,7 +4,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SchedulePage } from './schedule.page';
 
 describe('SchedulePage', () => {
-  let component: SchedulePage;
+  /*let component: SchedulePage;
   let fixture: ComponentFixture<SchedulePage>;
 
   beforeEach(async(() => {
@@ -22,5 +22,5 @@ describe('SchedulePage', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  });*/
 });
