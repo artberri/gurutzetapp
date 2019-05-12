@@ -3,7 +3,8 @@ import {
   GoogleMaps,
   GoogleMap,
   GoogleMapOptions,
-  Environment
+  Environment,
+  ILatLng
 } from '@ionic-native/google-maps';
 import { IState, VenueCategory } from 'src/app/domain';
 import { MapPresenter } from './map.presenter';
@@ -45,7 +46,7 @@ export class MapPage implements AfterViewInit {
           lat: 43.2815794,
           lng: -2.9856639
         },
-        zoom: 18,
+        zoom: 15,
         tilt: 30
       }
     };
@@ -57,10 +58,11 @@ export class MapPage implements AfterViewInit {
   private loadMarkers(): void {
     this.presenter.venues$.subscribe((venues) => {
       if (this.map) {
+        const bounds: ILatLng[] = [];
         this.map.clear();
         venues.forEach((venue) => {
           if (this.map) {
-            this.map.addMarkerSync({
+            const marker = this.map.addMarkerSync({
               title: venue.name,
               icon: this.getIcon(venue.category),
               animation: 'DROP',
@@ -69,7 +71,11 @@ export class MapPage implements AfterViewInit {
                 lng: venue.longitude
               }
             });
+            bounds.push(marker.getPosition());
           }
+        });
+        this.map.moveCamera({
+          target: bounds
         });
       }
     });
