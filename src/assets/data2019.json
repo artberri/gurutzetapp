@@ -1,0 +1,1316 @@
+{
+  "version": "2016.1.0",
+  "venues": [
+    {
+      "name": "Recinto festivo",
+      "lat": 43.2815037,
+      "lng": -2.9872217,
+      "category": "red"
+    },
+    {
+      "name": "Bar Santi, Batzoki y Bar La Isla",
+      "lat": 43.2804184,
+      "lng": -2.9832192,
+      "category": "blue"
+    },
+    {
+      "name": "Bar Parada y Salón de Juego To Play",
+      "lat": 43.2847769,
+      "lng": -2.9839872,
+      "category": "blue"
+    },
+    {
+      "name": "IES La Siebe",
+      "lat": 43.2793155,
+      "lng": -2.988685,
+      "category": "green"
+    },
+    {
+      "name": "Bar Luber y JIMARSA",
+      "lat": 43.2840614,
+      "lng": -2.9834853,
+      "category": "blue"
+    },
+    {
+      "name": "Kulunka",
+      "lat": 43.2845724,
+      "lng": -2.9830704,
+      "category": "blue"
+    },
+    {
+      "name": "Colegio Juan Ramón Jiménez",
+      "lat": 43.2842439,
+      "lng": -2.9816765,
+      "category": "green"
+    },
+    {
+      "name": "Casa de Cultura",
+      "lat": 43.2830038,
+      "lng": -2.9828397,
+      "category": "green"
+    },
+    {
+      "name": "Bar Mosku",
+      "lat": 43.2815948,
+      "lng": -2.9937862,
+      "category": "blue"
+    },
+    {
+      "name": "Restaurante King's Cross",
+      "lat": 43.2824315,
+      "lng": -2.9837902,
+      "category": "blue"
+    },
+    {
+      "name": "Bar Zubia",
+      "lat": 43.2818114,
+      "lng": -2.9820383,
+      "category": "blue"
+    },
+    {
+      "name": "Bar Bizkaia",
+      "lat": 43.2848492,
+      "lng": -2.9840499,
+      "category": "blue"
+    },
+    {
+      "name": "Bar Vista Alegre",
+      "lat": 43.2801041,
+      "lng": -2.9832996,
+      "category": "blue"
+    },
+    {
+      "name": "ZITIBIKE",
+      "lat": 43.2844038,
+      "lng": -2.9859615,
+      "category": "blue"
+    },
+    {
+      "name": "Frontón",
+      "lat": 43.279039,
+      "lng": -2.9878162,
+      "category": "green"
+    },
+    {
+      "name": "El Cerco",
+      "lat": 43.2849173,
+      "lng": -2.9830229,
+      "category": "green"
+    },
+    {
+      "name": "Degustación La Paz",
+      "lat": 43.2801217,
+      "lng": -2.9854713,
+      "category": "blue"
+    },
+    {
+      "name": "Bar Sport",
+      "lat": 43.2805952,
+      "lng": -2.9881169,
+      "category": "blue"
+    },
+    {
+      "name": "BAR LA TOBERA, BAR LA HERRADURA, BAR GURE LEKU y BODEGA RAMON",
+      "lat": 43.2851338,
+      "lng": -2.9833224,
+      "category": "blue"
+    },
+    {
+      "name": "IES Gurutzeta",
+      "lat": 43.2820858,
+      "lng": -2.9870321,
+      "category": "green"
+    },
+    {
+      "name": "Bar Román y Bar Rosario",
+      "lat": 43.2808177,
+      "lng": -2.9832291,
+      "category": "blue"
+    }
+  ],
+  "schedule": [
+    {
+      "title": {
+        "es": "Viernes",
+        "eu": "Ostirala"
+      },
+      "description": {
+        "es": "10 de mayo",
+        "eu": "Maiatzak 10"
+      },
+      "schedule": [
+        {
+          "id": 1,
+          "time": "21.00",
+          "description": {
+            "es": "Concierto Mercado Negro Blues Band en las inmediaciones del Bar Bombea y el Batzoki.",
+            "eu": "Mercado Negro Blues Bandren kontzertua Bombea taberna eta Batzokiaren ingurutik. "
+          },
+          "category": "music"
+        }
+      ]
+    },
+    {
+      "title": {
+        "es": "Sábado",
+        "eu": "Larunbata"
+      },
+      "description": {
+        "es": "11 de mayo",
+        "eu": "Maiatzak 11"
+      },
+      "schedule": [
+        {
+          "id": 2,
+          "time": "9.00 - 17.00",
+          "description": {
+            "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
+            "eu": "Putxera lehiaketa Remar aldean hurrengoko saltokiak eskainia: Herradura Taberna, Vizcaya Taberna, Parada Taberna, To Play Joko Aretoa, Izarra Taberna,  Marpe Taberna, Gure Leku Taberna, Taska la Fraska, La Tobera Taberna, Lali Okindegia eta Villahoz Dietetika Zentrua."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 3,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Feria Agrícola y Artesana en la plaza de la iglesia.",
+            "eu": "Nekazaritza eta Artisautza azoka elizako plazan."
+          },
+          "category": "show"
+        },
+        {
+          "id": 4,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Mercadillo solidario de la Asociación Ascaan en Barandiaran.",
+            "eu": "Azoka txiki solidarioa Ascaan Elkarteak eskainia Barandiaran aldean. "
+          },
+          "category": "show"
+        },
+        {
+          "id": 5,
+          "time": "10.00",
+          "description": {
+            "es": "Degustación de productos extremeños en las inmediaciones de la Cafetería Netxe.",
+            "eu": "Extremadurako produktuen dastaketa Netxe Kafetegiaren inguruan. "
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 6,
+          "time": "10.30",
+          "description": {
+            "es": "Final del Campeonato  de Frontenis en el frontón de Cruces.",
+            "eu": "Frontenis Txapelketaren finala Gurutzetako frontoian. "
+          },
+          "category": "championship"
+        },
+        {
+          "id": 7,
+          "time": "11.00 a 14.00",
+          "description": {
+            "es": "Talleres en las inmediaciones de la academia Mirenglish.",
+            "eu": "Tailerrak Mirenglish akademiaren inguruan."
+          },
+          "category": "children"
+        },
+        {
+          "id": 8,
+          "time": "11.00 a 12.30",
+          "description": {
+            "es": "Carrera Oztopo MINI en el frontón. 11.15 a 11.45 txikis de 5 a 8 años (Inscripción a las 11.00). 12.00 a 12.30 handiak de 9 a 12 años. (Inscripción a las 11.45)",
+            "eu": "Oztopo Mini lasterketa frontoian: 11.15etatik 11.45etara 5-8 urte bitarteko umeak (Izen-ematea 11.00etan). 12.00etatik 12.30etara 9 -12 urte bitarteko umeak  (Izen-ematea 11.45etan)"
+          },
+          "category": "children"
+        },
+        {
+          "id": 9,
+          "time": "12.00 a 14.00",
+          "description": {
+            "es": "Simultáneas de ajedrez en el bar Esla.",
+            "eu": "Aldibereko Xake partidak Esla tabernan."
+          },
+          "category": "championship"
+        },
+        {
+          "id": 10,
+          "time": "12.00 a 15.00",
+          "description": {
+            "es": "Vermuth flamenco de la mano de Akais en el Bar Sport.",
+            "eu": "Vermuth flamenkoa Akaisen eskutik Sport tabernan."
+          },
+          "category": "music"
+        },
+        {
+          "id": 11,
+          "time": "13.00 a 15.00",
+          "description": {
+            "es": "Pintxo pote en los siguientes bares: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra, Bar Gure Leku y Bar La Tobera.",
+            "eu": "Pintxopoteoa hurrengo tabernetan: Herradura Taberna, Vizcaya Taberna, Parada Taberna, To Play Joko Aretoa, Izarra Taberna, Gure Leku Taberna eta La Tobera Taberna."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 12,
+          "time": "14.00",
+          "description": {
+            "es": "Entrega de las Putxeras en la zona de Remar.",
+            "eu": "Putxeren entrega-epea Remarren. "
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 13,
+          "time": "17.00 a 18.00",
+          "description": {
+            "es": "Gymkhana para familias en la zona de Remar de la mano de Ilazki taldea.",
+            "eu": "Familiarteko gymkhana Ilazki taldearen eskutik Remar aldean."
+          },
+          "category": "people"
+        },
+        {
+          "id": 14,
+          "time": "18.00 a 20.00",
+          "description": {
+            "es": "Teatro en el Centro Cívico de Cruces con la Asociación Teatral Luna Nueva representando “Paco Jones”.",
+            "eu": "'Paco Jones' antzezlana Luna Nueva antzerki-taldearen eskutik Gurutzetako Zentro Zibikoan. "
+          },
+          "category": "show"
+        },
+        {
+          "id": 15,
+          "time": "18.00",
+          "description": {
+            "es": "Talleres en las inmediaciones de la academia Mirenglish.",
+            "eu": "Tailerrak Mirenglish akademiaren inguruan."
+          },
+          "category": "children"
+        },
+        {
+          "id": 16,
+          "time": "18.30 a 00.00",
+          "description": {
+            "es": "GURUTZEROCK: Conciertos en las inmediaciones del Bar Berria",
+            "eu": "GURUTZEROCK: kontzertuak Berria tabernaren"
+          },
+          "category": "music"
+        },
+        {
+          "id": 17,
+          "time": "19.00 a 22.00",
+          "description": {
+            "es": "Txitxarrillo en la zona del Cerco.",
+            "eu": "Txitxarrilloa El Cercon. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 18,
+          "time": "19.00 a 00.00",
+          "description": {
+            "es": "Discoteca móvil en las inmediaciones del Bar Vizcaya y Bar Parada.",
+            "eu": "Diskoteka higikorra Bizkaia eta Parada tabernen inguruan. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 19,
+          "time": "19.00",
+          "description": {
+            "es": "Campeonato de Poker en el Bar Isla y con la consumición pintxo gratis.",
+            "eu": "Poker txapelketa Isla tabernan. Edariarekin pintxoa dohainik. "
+          },
+          "category": "championship"
+        },
+        {
+          "id": 20,
+          "time": "19.30",
+          "description": {
+            "es": "Parrillada en las inmediaciones del Bar Bombea y el Batzoki.",
+            "eu": "Parrillada Bombea taberna eta Batzokiaren ingurutik."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 21,
+          "time": "19.45",
+          "description": {
+            "es": "Coro Gure Nahiak y Amigos en la parroquia de Cruces.",
+            "eu": "Gure Nahiak eta Amigos abesbatzak Gurutzetako parrokian. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 22,
+          "time": "20.00",
+          "description": {
+            "es": "Concierto Duo Distancia & Iñaki Nadal en la inmediaciones del Batzoki y Bar Bombea.",
+            "eu": "Duo Distancia eta Iñaki Nadalen kontzertuak Bombea tabernan eta Batzokiaren ingurutik."
+          },
+          "category": "music"
+        },
+        {
+          "id": 23,
+          "time": "21.00",
+          "description": {
+            "es": "Concierto Peri&Gros en el Bar California.",
+            "eu": "Peri&Grosen kontzertua California tabernan. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 24,
+          "time": "21.00",
+          "description": {
+            "es": "Actuación de La Chane Show en el Bar Sport.",
+            "eu": "La Chane Showen emanaldia Sport tabernan. "
+          },
+          "category": "music"
+        }
+      ]
+    },
+    {
+      "title": {
+        "es": "Domingo",
+        "eu": "Igandea"
+      },
+      "description": {
+        "es": "12 de mayo",
+        "eu": "Maiatzak 12"
+      },
+      "schedule": [
+        {
+          "id": 25,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Feria Agrícola y Artesana en la plaza de la iglesia.",
+            "eu": "Nekazaritza eta artisautza azoka elizako plazan. "
+          },
+          "category": "show"
+        },
+        {
+          "id": 26,
+          "time": "12.30 a 14.00",
+          "description": {
+            "es": "Actuación del grupo de gaiteros Recunchos Das Pontes.",
+            "eu": "Recunchos Das Pontes gaiteroen emanaldia."
+          },
+          "category": "music"
+        },
+        {
+          "id": 27,
+          "time": "10.30",
+          "description": {
+            "es": "II Bajada de Goitiberas en Basatxu",
+            "eu": "II. Goitibera Jaitsiera Basatxun."
+          },
+          "category": "championship"
+        },
+        {
+          "id": 28,
+          "time": "10.30 a 14.00",
+          "description": {
+            "es": "Exhibición de partidas rápidas de ajedrez entre los clubs “Xake Gurutzeta” y “Club de Ajedrez Barakaldo” en el Bar Esla, de la mano de Xake Gurutzeta y Bar Esla.",
+            "eu": "Xake partida azkarren erakusketa 'Xake Gurutzeta' eta 'Club de Ajedrez Barakaldo' elkarteen artean Esla tabernan.  Xake Gurutzetak eta Esla tabernak eskainia. "
+          },
+          "category": "show"
+        },
+        {
+          "id": 29,
+          "time": "11.00 a 14.00",
+          "description": {
+            "es": "Talleres en las inmediaciones de la Academia Mirenglish.",
+            "eu": "Tailerrak Mirenglish akademiaren inguruan."
+          },
+          "category": "children"
+        },
+        {
+          "id": 30,
+          "time": "11.00 a 12.00",
+          "description": {
+            "es": "Yoga para txikis de entre 5 a 12 años en la tienda Biokolmado (8 maximo)",
+            "eu": "Yoga 5-12 urte bitarteko umeentzat Biokolmado dendan (8 ume gehienez)."
+          },
+          "category": "children"
+        },
+        {
+          "id": 31,
+          "time": "12.00 a 13.00",
+          "description": {
+            "es": "Yoga para txikis de entre 5 a 12 años en la tienda Biokolmado (8 maximo)",
+            "eu": "Yoga 5-12 urte bitarteko umeentzat Biokolmado dendan (8 ume gehienez)."
+          },
+          "category": "children"
+        },
+        {
+          "id": 32,
+          "time": "12.30",
+          "description": {
+            "es": "Banda Municipal en la plaza de Cruces.",
+            "eu": "Udal Musika Banda Gurutzetako plazan."
+          },
+          "category": "music"
+        },
+        {
+          "id": 33,
+          "time": "13.00 a 15.00",
+          "description": {
+            "es": "Charanga en Remar organizada por: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético Villahoz  y Bar La Tobera.",
+            "eu": "Musika-txaranga Remarren hurrengo saltokiak eskainia: Herradura taberna, Vizcaya taberna, Parada taberna, To Play Joko Aretoa, Izarra taberna, Gure Leku taberna, Taska la Fraska, Lali okindegia, Villahoz dietetika zentroa eta La Tobera taberna."
+          },
+          "category": "music"
+        },
+        {
+          "id": 34,
+          "time": "13.30 a 16.00",
+          "description": {
+            "es": "Cazuelita en los siguientes bares: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra, Bar Marpe, Bar Gure Leku y Bar La Tobera.",
+            "eu": "Kazolatxoak hurrengoko tabernetan: Herradura taberna, Vizcaya taberna, Parada taberna, To Play Joko Aretoa, Izarra taberna, Marpe taberna, Gure Leku taberna eta La Tobera taberna."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 35,
+          "time": "14.30",
+          "description": {
+            "es": "Paella popular en el Bar Berria.",
+            "eu": "Paella herrikoia Berria tabernan."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 36,
+          "time": "18.00",
+          "description": {
+            "es": "Talleres en las inmediaciones de la Academia Mirenglish.",
+            "eu": "Tailerrak Mirenglish akademiaren inguruan."
+          },
+          "category": "children"
+        },
+        {
+          "id": 37,
+          "time": "18.00",
+          "description": {
+            "es": "Campeonato de Rana en el Bar Sport.",
+            "eu": "Igel-txapelketa Sport tabernan. "
+          },
+          "category": "championship"
+        }
+      ]
+    },
+    {
+      "title": {
+        "es": "Martes",
+        "eu": "Asteartea"
+      },
+      "description": {
+        "es": "14 de mayo",
+        "eu": "Maiatzak 14"
+      },
+      "schedule": [{
+        "id": 38,
+        "time": "19.30",
+        "description": {
+          "es": "Semifinal del Campeonato FUTSAL en el Colegio Gurutzeta.",
+          "eu": "Futsal txapelketaren semifinala Gurutzeta eskola publikoan."
+        },
+        "category": "championship"
+      }]
+    },
+    {
+      "title": {
+        "es": "Jueves",
+        "eu": "Osteguna"
+      },
+      "description": {
+        "es": "16 de mayo",
+        "eu": "Maiatzak 16"
+      },
+      "schedule": [
+        {
+          "id": 39,
+          "time": "18.00 a 19.00",
+          "description": {
+            "es": "Teatro para niño/as de los payasos Antxo ta Pantxa representando “Ahaztuen Distira”  en el parking.",
+            "eu": "Antxo ta Pantxa pailazoen  “Ahaztuen Distira” antzerkia parkinean."
+          },
+          "category": "children"
+        },
+        {
+          "id": 40,
+          "time": "18.00",
+          "description": {
+            "es": "Talleres en las inmediaciones de la Academia Mirenglish.",
+            "eu": "Tailerrak Mirenglish akademiaren inguruan."
+          },
+          "category": "children"
+        },
+        {
+          "id": 41,
+          "time": "19.00 a 20.30",
+          "description": {
+            "es": "Actividad infantil para hacer pompas de jabón para los más txikis en el parking.",
+            "eu": "Xaboi ponpak egiteko tailerra haurrentzat parkinean."
+          },
+          "category": "children"
+        },
+        {
+          "id": 42,
+          "time": "19.00",
+          "description": {
+            "es": "Pintxos Morunos con la consumición el Bar Sport.",
+            "eu": "Txitxi-burruntziak edariarekin batera Sport tabernan."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 43,
+          "time": "19.30",
+          "description": {
+            "es": "Final del Campeonato FUTSAL en el Colegio Gurutzeta.",
+            "eu": "Futsal txapelketaren finala Gurutzeta eskola publikoan."
+          },
+          "category": "championship"
+        },
+        {
+          "id": 44,
+          "time": "19.30 a 20.30",
+          "description": {
+            "es": "Exhibición y clase de Zumba de la mano de Senti2 en el parking.",
+            "eu": "Zumba erakustaldia eta klasea Senti2en eskutik parkinean."
+          },
+          "category": "people"
+        },
+        {
+          "id": 45,
+          "time": "20.30",
+          "description": {
+            "es": "Barbacoa popular en el recinto festivo. Cortesía  de Carnicería ELENA. Apta para celiac@s.",
+            "eu": "Barbakoa herrikoia parkinean. Elena harategiak eskainia. Zeliakoentzat egokia. "
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 46,
+          "time": "20.00 a 22.00",
+          "description": {
+            "es": "Pintxopote en Bar Berria y en el Mesón Baytur.",
+            "eu": "Pintxopoteoa Berria tabernan eta Baytur jatetxean."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 47,
+          "time": "22.00 a 00.00",
+          "description": {
+            "es": "Concierto  de Enrockecidos  en el parking. Presentación de su primer disco.",
+            "eu": "Enrockecidosen kontzertua parkinean, euren lehenengo diska aurkezten.  "
+          },
+          "category": "music"
+        },
+        {
+          "id": 48,
+          "time": "00.00 a 01.00",
+          "description": {
+            "es": "Karaoke en la Txosna",
+            "eu": "Karaokea txosnan."
+          },
+          "category": "music"
+        }
+      ]
+    },
+    {
+      "title": {
+        "es": "Viernes",
+        "eu": "Ostirala"
+      },
+      "description": {
+        "es": "17 de mayo",
+        "eu": "Maiatzak 17"
+      },
+      "schedule": [
+        {
+          "id": 49,
+          "time": "11:30",
+          "description": {
+            "es": "Visita de  Matxin al Centro de Día de la Paz.",
+            "eu": "Matxinen bisita La Paz Eguneko Zentroan. "
+          },
+          "category": "show"
+        },
+        {
+          "id": 50,
+          "time": "17.00 a 19.00",
+          "description": {
+            "es": "Taller de Huerto Urbano las cuatro RS (Reducir, reutilizar, reciclar, reinventar) en la tienda Biokolmado para los txikis de entre 5 y 12 años. Imprescindible llevar delantal y apuntarse con anterioridad en elbiokolmado@gmail.com.",
+            "eu": "Hiri ortuak egiteko tailerra ingurugiro-ohiturak sustatuz (murriztu, birziklatu, berrerabili eta sortu) Biokolmado dendan 5-12 urte bitarteko umeentzat. Beharrezkoa da mantala eramatea eta izena aldez aurretik ematea elbiokolmado@gmail.com helbidean."
+          },
+          "category": "children"
+        },
+        {
+          "id": 51,
+          "time": "18.00",
+          "description": {
+            "es": "Talleres para niños/as en la plaza de Cruces con la colaboración de Ilazki Taldea. Se realizarán adornos para la bajada.",
+            "eu": "Umeentzako tailerrak Gurutzetako plazan Ilazki taldearen laguntzarekin. Jaitsierarako apaingarriak egingo dira. "
+          },
+          "category": "children"
+        },
+        {
+          "id": 52,
+          "time": "18.30",
+          "description": {
+            "es": "Sardinada en el Bar Gure Izarra donado por la pescadería Izaro (12 kilos de sardinas).",
+            "eu": "Sardina-dastaketa Gure Izarra tabernan Izaro arraindegiak 12 kilo sardina dohaintza emana. "
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 53,
+          "time": "19.00",
+          "description": {
+            "es": "Bajada tradicional desde la plaza de Cruces con Matxin. Contaremos con  la música de Primo Bayo e Ilazki taldea.",
+            "eu": "Jaitsiera Gurutzetako plazatik, Primo Bayok girotuta eta Ilazki taldeak lagunduta. "
+          },
+          "category": "people"
+        },
+        {
+          "id": 54,
+          "time": "19.00",
+          "description": {
+            "es": "Tradicional Pintxo Pote en el Bar La Isla, habrá varios txoripanes con sorpresa y si te toca 'Ronda Gratis'.",
+            "eu": "Pintxopoteoa La Isla tabernan. Txoripanak 'Erronda dohan' opariekin batera etorriko dira."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 55,
+          "time": "19.00 a 22.00",
+          "description": {
+            "es": "Degustación de pintxos y música en el Bar Rosario.",
+            "eu": "Pintxo dastaketa eta musika Rosario tabernan."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 56,
+          "time": "19.00",
+          "description": {
+            "es": "Pintxo Pote en el Bar Roman.",
+            "eu": "Pintxopoteoa Roman tabernan. "
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 57,
+          "time": "19.00",
+          "description": {
+            "es": "Parrillada  en la zona de Cerco a cargo de: Bar Herradura, Bar Parada, Bar Izarra, Bar Marpe, Bar Gure Leku, Taska la Fraska y Bar La Tobera.",
+            "eu": "Parrillada El Cerco aldean hurrengoko tabernak eskainia: Herradura taberna, Parada taberna, Izarra taberna, Marpe taberna, Gure Leku taberna, Taska la Fraska eta La Tobera taberna."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 58,
+          "time": "19.00",
+          "description": {
+            "es": "Talo con la consumición en la Cafetería Dos Mundos.",
+            "eu": "Talo dastaketa edariarekin Dos Mundos kafetegian. "
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 59,
+          "time": "20.15",
+          "description": {
+            "es": "Txupin y  Pregón, entrega de makila y premio de dibujos. Además se presentará la nueva canción de Fiestas en Euskara creada por las/os alumnos/as de 6º de primaria de Gurutzeta y de Juán Ramón Jimenez.",
+            "eu": "Txupina, pregoia, makilaren entrega eta Matxin marrazketa lehiaketaren sari banaketa. Gainera, Gurutzeta eta Juan Ramón Jiménez eskoletako 6. mailako ikasleek euskaraz egindako jaietako abesti berria  aurkeztuko da."
+          },
+          "category": "show"
+        },
+        {
+          "id": 60,
+          "time": "20.00 a 23.00",
+          "description": {
+            "es": "Pintxos morunos con la consumición en las inmediaciones de la Cafeteria Netxe.",
+            "eu": "Txitxi-burruntziak edariarekin Netxe kafetegian."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 61,
+          "time": "21.00",
+          "description": {
+            "es": "Concurso lanzamiento de felpudo para los participantes en el concurso de kuadrillas.",
+            "eu": "Lanpas jaurtiketa kuadrilla txapelketaren partehartzaileentzat."
+          },
+          "category": "championship"
+        },
+        {
+          "id": 62,
+          "time": "21.00",
+          "description": {
+            "es": "Concierto Sótano 54 en las inmediaciones el Bar Bombea y el Batzoki.",
+            "eu": "Sótano 54ren kontzertua Bombea tabernan eta Batzokiaren ingurutik. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 63,
+          "time": "21.30 a 23.30",
+          "description": {
+            "es": "Concierto “Cowboy” en la Cafeteria Netxe.",
+            "eu": "“Cowboy” kontzertua Netxe kafetegian. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 64,
+          "time": "22.30 a 1.30",
+          "description": {
+            "es": "Txitxarrillo con Mikel Rodrigo en la zona de Remar.",
+            "eu": "Txitxarrilloa Mikel Rodrigorekin Remar aldean. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 65,
+          "time": "23:00 a 02.00",
+          "description": {
+            "es": "Actuación con BAK en el parking.",
+            "eu": "BAKen emanaldia parkinean. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 66,
+          "time": "02.30 a cierre",
+          "description": {
+            "es": "DJ Set Barrenol en el parking.",
+            "eu": "DJ Set Barrenol parkinean."
+          },
+          "category": "music"
+        }
+      ]
+    },
+    {
+      "title": {
+        "es": "Sábado",
+        "eu": "Larunbata"
+      },
+      "description": {
+        "es": "18 de mayo",
+        "eu": "Maiatzak 18"
+      },
+      "schedule": [
+        {
+          "id": 67,
+          "time": "09:30",
+          "description": {
+            "es": "Diana y  Txupinazo en la plaza.",
+            "eu": "Diana eta txupina plazan. "
+          },
+          "category": "show"
+        },
+        {
+          "id": 68,
+          "time": "10.00 a 14.00",
+          "description": {
+            "es": "Mercadillo de segunda mano en el Parking.",
+            "eu": "Bigarren eskuko azoka txikia parkinean."
+          },
+          "category": "people"
+        },
+        {
+          "id": 69,
+          "time": "10.00 a 14.00",
+          "description": {
+            "es": "En las inmediaciones del Bar Urkia de la mano de Boskozaleak para las/os más peques: - II Basket txapelketa (nacidas entre 2006-2011). Street futbol 3X3 (nacidas entre 2006- 2012).",
+            "eu": "Urkia tabernaren inguruan Boskozaleen eskutik: II. Basket txapelketa (2006-2011 bitartetan jaiotako umeak). Street futbola 3X3 ( 2006- 2012 bitartean jaiotako umeak)."
+          },
+          "category": "championship"
+        },
+        {
+          "id": 70,
+          "time": "10.30",
+          "description": {
+            "es": "Yoga en Familia en el parking de la mano de Senti2. Importante llevar ropa cómoda y una esterilla.",
+            "eu": "Yoga familian klasea Senti2 eskutik parkinean. Ekarri arropa erosoa eta esteratxoa.  "
+          },
+          "category": "people"
+        },
+        {
+          "id": 71,
+          "time": "11.00 a 14.00",
+          "description": {
+            "es": "Talleres en las inmediaciones de la academia Mirenglish.",
+            "eu": "Tailerrak Mirenglish akademiaren inguruan."
+          },
+          "category": "children"
+        },
+        {
+          "id": 72,
+          "time": "11.30 a 12.30",
+          "description": {
+            "es": "Clase de Aerodance con Arantxa en Barandiaran.",
+            "eu": "Aerodance klasea Barandiaran aldean Arantxaren eskutik. "
+          },
+          "category": "people"
+        },
+        {
+          "id": 73,
+          "time": "10.30 a 19.00",
+          "description": {
+            "es": "Feria Artesanal frente al Hospital de la mano de Burubika.",
+            "eu": "Artisautza azoka Burubikaren eskutik ospitalaren aurrean."
+          },
+          "category": "show"
+        },
+        {
+          "id": 74,
+          "time": "11.00 a 14.00",
+          "description": {
+            "es": "Juegos hinchables y actividades infantiles en el Colegio Gurutzeta.",
+            "eu": "Jolas puzgarriak eta umeentzako jarduerak Gurutzeta eskolan.  "
+          },
+          "category": "children"
+        },
+        {
+          "id": 75,
+          "time": "11. 00 a 12.00",
+          "description": {
+            "es": "Taller de cocina para los txikis de entre 5 y 12 años. (8 participantes máximo) en la tienda Biokolmado. Imprescindible apuntarse con anterioridad en elbiokolmado@gmail.com.",
+            "eu": "Sukaldaritza tailerra 5-12 urte bitarteko umeentzat Biokolmado dendan (8 partehartzaile gehienez). Ezinbestekoa da izena ematea elbiokolmado@gmail.com helbidean. "
+          },
+          "category": "children"
+        },
+        {
+          "id": 76,
+          "time": "11.30",
+          "description": {
+            "es": "Martxa canina organizada por Peluquería Canina Susana. Se saldrá desde la Peluquería Canina Susana y se hará un recorrido hasta terminar en el parking.",
+            "eu": "Txakur-martxa Susana Txakur Ileapaindegiak antolatuta. Ibilbidea ileapaindegian hasi eta parkinean amaituko da. "
+          },
+          "category": "people"
+        },
+        {
+          "id": 77,
+          "time": "12.00 a 14.00",
+          "description": {
+            "es": "Actuación de La Banda de Cartón por la zona de Remar.",
+            "eu": "La Banda de Cartónen musika emanaldia Remar aldean. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 78,
+          "time": "12.30 a 20.00",
+          "description": {
+            "es": "Piscina con barcas para los más peques en las inmediaciones del King Cross (en caso de lluvia habrá otra actividad).",
+            "eu": "Haurrentzako igerilekutxoa txalupekin King Cross tabernaren inguruan (euria eginez gero beste jarduera bat egingo da)."
+          },
+          "category": "children"
+        },
+        {
+          "id": 79,
+          "time": "13.00 a 15.00",
+          "description": {
+            "es": "Pintxo pote en los siguientes bares: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra, Bar Gure Leku y Bar La Tobera.",
+            "eu": "Pintxopoteoa hurrengo tabernetan: Herradura taberna, Vizcaya taberna, Parada taberna, To Play Joko Aretoa, Izarra taberna, Gure Leku taberna eta La Tobera taberna."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 80,
+          "time": "17.00",
+          "description": {
+            "es": "Campeonato Mixto de 3X3 en el IES Cruces.",
+            "eu": "3X3 Txapelketa Mistoa Cruces BHIn. "
+          },
+          "category": "championship"
+        },
+        {
+          "id": 81,
+          "time": "17.00",
+          "description": {
+            "es": "Final del Campeonato de Mus en la Parrilla Bermeotarrak.",
+            "eu": "Mus Txapelketaren finala Bermeotarrak Parrillan. "
+          },
+          "category": "championship"
+        },
+        {
+          "id": 82,
+          "time": "17.00 a 20.00",
+          "description": {
+            "es": "Juegos hinchables y actividades infantiles en el Colegio Gurutzeta.",
+            "eu": "Jolas puzgarriak eta umeentzako jarduerak Gurutzeta eskolan."
+          },
+          "category": "children"
+        },
+        {
+          "id": 83,
+          "time": "17.00 a 19.00",
+          "description": {
+            "es": "Taller de Mandalas en la tienda Biokolmado para los txikis de entre 5 y 12 años (5 a 7 participantes máximo). Imprescindible apuntarse con anterioridad en elbiokolmado@gmail.com.",
+            "eu": "Mandalak egiteko tailerra Biokolmado dendan 5-12 urte bitarteko umeentzat (7 partehartzaile gehienez). Beharrezkoa da izena aldez aurretik ematea elbiokolmado@gmail.com helbidean. "
+          },
+          "category": "children"
+        },
+        {
+          "id": 84,
+          "time": "17.00 a 19.00",
+          "description": {
+            "es": "Taller pintura en el parking de la mano de Colorama.",
+            "eu": "Haurrentzako pintura tailerra parkinean Coloramaren eskutik. "
+          },
+          "category": "children"
+        },
+        {
+          "id": 85,
+          "time": "17.00 a 19.00",
+          "description": {
+            "es": "Orfeón Barakaldes en el parking y pase por la zona de La Paz y Remar.",
+            "eu": "Barakaldotar Orfeioa parkinean. Emanaldiaren ostean pase bat emango dute La Paz eta Remar aldetik. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 86,
+          "time": "17.30",
+          "description": {
+            "es": "Concurso de Rana en el Bar La Tobera.",
+            "eu": "Igel Txapelketa La Tobera tabernan."
+          },
+          "category": "championship"
+        },
+        {
+          "id": 87,
+          "time": "18.00",
+          "description": {
+            "es": "Talleres en las inmediaciones de la Academia Mirenglish.",
+            "eu": "Tailerrak Mirenglish akademiaren inguruan."
+          },
+          "category": "children"
+        },
+        {
+          "id": 88,
+          "time": "19.00",
+          "description": {
+            "es": "Euskal dantzak con Errekaortu Dantza Taldea en la plaza.",
+            "eu": "Euskal dantzak Errekaortu Dantza Taldearekin plazan."
+          },
+          "category": "show"
+        },
+        {
+          "id": 89,
+          "time": "19.00 a 21.00",
+          "description": {
+            "es": "Herri Kirolak en el parking. ",
+            "eu": "Herri Kirolak parkinean. "
+          },
+          "category": "show"
+        },
+        {
+          "id": 90,
+          "time": "19.00 a 21.00",
+          "description": {
+            "es": "Concierto de Zubi el Ransero en el Bar Berria. ",
+            "eu": "Zubi el Ranseroren kontzertua Berria tabernan. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 91,
+          "time": "19.00",
+          "description": {
+            "es": "Barbacoa con la consumición en el Bar La Isla y Bar Santi.",
+            "eu": "Barbakoa dastaketa edariarekin La Isla eta Santi tabernetan."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 92,
+          "time": "19.00",
+          "description": {
+            "es": "Barbacoa con la consumición en el Bar Roman.",
+            "eu": "Barbakoa dastaketa edariarekin Roman tabernan. "
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 93,
+          "time": "19.00 a 00.00",
+          "description": {
+            "es": "Discoteca móvil en las inmediaciones del Bar Vizcaya y Bar Parada.",
+            "eu": "Diskoteka higikorra Vizcaya eta Parada tabernen inguruan. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 94,
+          "time": "20.00 a 22.30",
+          "description": {
+            "es": "Actuación de Primo Bayo  por la zona de la Paz.",
+            "eu": "Primo Bayoren musika emanaldia La Paz aldean."
+          },
+          "category": "music"
+        },
+        {
+          "id": 95,
+          "time": "20.00 a 22.00",
+          "description": {
+            "es": "Concierto de Jorge Cánovas en la terraza del Bar Zubia.",
+            "eu": "Jorge Cánovasen kontzertua Zubia tabernaren terrazan."
+          },
+          "category": "music"
+        },
+        {
+          "id": 96,
+          "time": "20.00 a 23.00",
+          "description": {
+            "es": "Pintxos morunos con la consumición en las inmediaciones de la Cafeteria Netxe.",
+            "eu": "Txitxi-burruntziak doan edariarekin batera Netxe kafetegian."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 97,
+          "time": "21.30",
+          "description": {
+            "es": "Concierto de SK Live y talo con la consumición en la Cafeteria Dos Mundos.",
+            "eu": "SK Liven kontzertua eta taloa doan edariarekin Dos Mundos kafetegian.  "
+          },
+          "category": "music"
+        },
+        {
+          "id": 98,
+          "time": "22.00",
+          "description": {
+            "es": "Karaoke en el Bar La Tobera.",
+            "eu": "Karaokea La Tobera tabernan."
+          },
+          "category": "music"
+        },
+        {
+          "id": 99,
+          "time": "22.30 a 01.30",
+          "description": {
+            "es": "Txitxarrillo con Mikel Rodrigo en El Cerco.",
+            "eu": "Txitxarrilloa Mikel Rodrigorekin El Cercon. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 100,
+          "time": "23.00",
+          "description": {
+            "es": "Sorteo de un móvil (ticket con la consumición) en el Bar Sport.",
+            "eu": "Mugikor baten zozketa (edariarekin batera tiketa) Sport tabernan."
+          },
+          "category": "championship"
+        },
+        {
+          "id": 101,
+          "time": "23.30 a 04.00",
+          "description": {
+            "es": "Actuación ORQUESTA REMIX en el parking.",
+            "eu": "REMIX orkestraren musika emanaldia parkinean. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 102,
+          "time": "01.00",
+          "description": {
+            "es": "Sorteo de un móvil (ticket con la consumición) en el Bar Sport.",
+            "eu": "Mugikor baten zozketa (edariarekin batera tiketa) Sport tabernan."
+          },
+          "category": "championship"
+        },
+        {
+          "id": 103,
+          "time": "04.00 a cierre",
+          "description": {
+            "es": "Música en la Txosna.",
+            "eu": "Musika txosnan."
+          },
+          "category": "music"
+        }
+      ]
+    },
+    {
+      "title": {
+        "es": "Domingo",
+        "eu": "Igandea"
+      },
+      "description": {
+        "es": "19 de mayo",
+        "eu": "Maiatzak 19"
+      },
+      "schedule": [
+        {
+          "id": 104,
+          "time": "10.00",
+          "description": {
+            "es": "Txupinazo en el parking.",
+            "eu": "Txupinazoa parkinean"
+          },
+          "category": "show"
+        },
+        {
+          "id": 105,
+          "time": "10.00 a 20.00",
+          "description": {
+            "es": "Mercadillo solidario en el parking de la mano de la Asociación Ascaan.",
+            "eu": "Azoka txiki solidarioa parkinean Ascaan Elkartearen eskutik."
+          },
+          "category": "show"
+        },
+        {
+          "id": 106,
+          "time": "10.00",
+          "description": {
+            "es": "Inscripciones de  la Exhibición de Baile y en los encuentros  gastronómicos en la txosna.",
+            "eu": "Haur eta nerabeentzako dantzaldirako eta topaketa gastronomikoetarako izen-emateak txosnan. "
+          },
+          "category": "championship"
+        },
+        {
+          "id": 107,
+          "time": "10:30",
+          "description": {
+            "es": "Banda Municipal de Txistus por el barrio.",
+            "eu": "Txistu Udal Musika Banda auzotik."
+          },
+          "category": "music"
+        },
+        {
+          "id": 108,
+          "time": "10.30 a 15.00",
+          "description": {
+            "es": "Fería Artesanal de la mano de Burubika y venta de libros de segunda de mano organizada por Eguzki frente al Hospital.",
+            "eu": "Artisautza azoka Burubikaren eskutik eta bigarren eskuko liburuen salmenta Eguzki taldeak eskainita ospitalaren aurrean."
+          },
+          "category": "show"
+        },
+        {
+          "id": 109,
+          "time": "11.00 a 14.00",
+          "description": {
+            "es": "Talleres en las inmediaciones de la academia Mirenglish.",
+            "eu": "Tailerrak Mirenglish akademiaren inguruan."
+          },
+          "category": "children"
+        },
+        {
+          "id": 110,
+          "time": "12.00 a 14.00",
+          "description": {
+            "es": "Actuación de La Banda de Cartón por la zona de Remar.",
+            "eu": "La Banda de Cartónen musika emanaldia Remar aldean. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 111,
+          "time": "12.00 a 14.00",
+          "description": {
+            "es": "Exhibiciones de Baile de niños/as y adolescentes (con sorteo de premios) con la colaboración de Senti2.",
+            "eu": "Haur eta nerabeentzako dantzaldi erakusketa  (sariak zozketatuko dira) Senti2en laguntzarekin.  "
+          },
+          "category": "children"
+        },
+        {
+          "id": 112,
+          "time": "12.00 a 15.00",
+          "description": {
+            "es": "Servicio de corte a cuchillo de jamón ibérico en el Bar Zubia.",
+            "eu": "Iberiar urdaiazpikoaren laban bidezko mozketa Zubia tabernan. "
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 113,
+          "time": "13.30 a 16.00",
+          "description": {
+            "es": "Cazuelita en los siguientes bares: Bar Herradura, Bar Bizkaia, Bar Parada, Salón de juegos To Play, Bar Izarra, Bar Gure Leku y Bar La Tobera.",
+            "eu": "Kazolatxoak hurrengoko tabernetan: Herradura taberna, Vizcaya taberna, Parada taberna, To Play Joko Aretoa, Izarra taberna, Gure Leku taberna eta La Tobera taberna."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 114,
+          "time": "14.30",
+          "description": {
+            "es": "Sorteo de los  Encuentros Gastronómicos.",
+            "eu": "Topaketa gastronomikoen sarien zozketa."
+          },
+          "category": "championship"
+        },
+        {
+          "id": 115,
+          "time": "14.30",
+          "description": {
+            "es": "Talo con la consumición en la Cafeteria Dos Mundos.",
+            "eu": "Talo dastaketa edariarekin Dos Mundos kafetegian."
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 116,
+          "time": "15.30",
+          "description": {
+            "es": "Si el tiempo lo permite fiesta de la espuma para los más pequeños. ",
+            "eu": "Apar festa txikientzat parkinean, eguraldia lagun. "
+          },
+          "category": "children"
+        },
+        {
+          "id": 117,
+          "time": "17.00 a 18.30",
+          "description": {
+            "es": "Entrega de premios de los campeonatos y el concurso de kuadrillas en el parking.",
+            "eu": "Txapelketa ezberdinen sari-banaketak parkinean. "
+          },
+          "category": "championship"
+        },
+        {
+          "id": 118,
+          "time": "18.00",
+          "description": {
+            "es": "Talleres en las inmediaciones de la academia Mirenglish.",
+            "eu": "Tailerrak Mirenglish akademiaren inguruan."
+          },
+          "category": "children"
+        },
+        {
+          "id": 119,
+          "time": "18.30 a 20.30",
+          "description": {
+            "es": "Diskofesta para las/os más pequeñas/os de la mano de BAK en el parking.",
+            "eu": "Diskofesta haurrentzat parkinean BAKen eskutik. "
+          },
+          "category": "music"
+        },
+        {
+          "id": 120,
+          "time": "20.00",
+          "description": {
+            "es": "Chocolatada en el parking.",
+            "eu": "Txokolate dastaketa parkinean. "
+          },
+          "category": "restaurant"
+        },
+        {
+          "id": 121,
+          "time": "20.30",
+          "description": {
+            "es": "Txupinazo Fin de Fiestas en el parking.",
+            "eu": "Jai amaierako txupinazoa. "
+          },
+          "category": "show"
+        }
+      ]
+    }
+  ]
+}
