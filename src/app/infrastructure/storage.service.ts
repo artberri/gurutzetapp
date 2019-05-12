@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { IStorage, Venue, EventDay, Language, ExternalData } from '../domain';
 
-const LANGUAGE = 'language';
-const MAP = 'map';
-const SCHEDULE = 'schedule';
-const FAVOURITES = 'favourites';
+const LANGUAGE = 'language2019';
+const MAP = 'map2019';
+const SCHEDULE = 'schedule2019';
+const FAVOURITES = 'favourites2019';
 
 @Injectable()
 export class StorageService implements IStorage {

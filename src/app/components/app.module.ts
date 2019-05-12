@@ -11,10 +11,18 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { httpTranslateLoaderFactory, StorageService, TranslatorService, StateService, DataService } from '../infrastructure';
-import { IStorage, ITranslator, IState, IData } from '../domain';
+import {
+  httpTranslateLoaderFactory,
+  StorageService,
+  TranslatorService,
+  StateService,
+  DataService,
+  NotificationsService
+} from '../infrastructure';
+import { IStorage, ITranslator, IState, IData, INotifications } from '../domain';
 import { Network } from '@ionic-native/network/ngx';
 import { SharedModule } from './shared/shared.module';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,11 +46,13 @@ import { SharedModule } from './shared/shared.module';
     Network,
     StatusBar,
     SplashScreen,
+    LocalNotifications,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: IStorage, useClass: StorageService },
     { provide: IState, useClass: StateService },
     { provide: ITranslator, useClass: TranslatorService },
-    { provide: IData, useClass: DataService }
+    { provide: IData, useClass: DataService },
+    { provide: INotifications, useClass: NotificationsService }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
 import { HostListener, Directive, Input, HostBinding, OnInit } from '@angular/core';
-import { Event, IState, IStorage } from '../../../domain';
+import { Event, IState, IStorage, INotifications } from '../../../domain';
 import { FavouritePresenter } from './favourite.presenter';
 
 @Directive({
@@ -16,9 +16,10 @@ export class FavouriteDirective implements OnInit {
 
   constructor(
     state: IState,
-    storage: IStorage
+    storage: IStorage,
+    notifications: INotifications
   ) {
-    this.presenter = new FavouritePresenter(state, storage);
+    this.presenter = new FavouritePresenter(state, storage, notifications);
   }
 
   public ngOnInit(): void {

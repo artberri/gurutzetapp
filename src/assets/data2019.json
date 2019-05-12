@@ -122,7 +122,7 @@
       },
       "schedule": [
         {
-          "id": 1,
+          "id": 201905101,
           "time": "21.00",
           "description": {
             "es": "Concierto Mercado Negro Blues Band en las inmediaciones del Bar Bombea y el Batzoki.",
@@ -143,7 +143,7 @@
       },
       "schedule": [
         {
-          "id": 2,
+          "id": 201905112,
           "time": "9.00 - 17.00",
           "description": {
             "es": "Concurso de Putxeras en Remar Patrocinado por los siguientes comercios: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra,  Bar Marpe, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético  Villahoz,  y Bar La Tobera.",
@@ -152,7 +152,7 @@
           "category": "restaurant"
         },
         {
-          "id": 3,
+          "id": 201905113,
           "time": "10.00 - 20.00",
           "description": {
             "es": "Feria Agrícola y Artesana en la plaza de la iglesia.",
@@ -161,7 +161,7 @@
           "category": "show"
         },
         {
-          "id": 4,
+          "id": 201905114,
           "time": "10.00 - 20.00",
           "description": {
             "es": "Mercadillo solidario de la Asociación Ascaan en Barandiaran.",
@@ -170,7 +170,7 @@
           "category": "show"
         },
         {
-          "id": 5,
+          "id": 201905115,
           "time": "10.00",
           "description": {
             "es": "Degustación de productos extremeños en las inmediaciones de la Cafetería Netxe.",
@@ -179,7 +179,7 @@
           "category": "restaurant"
         },
         {
-          "id": 6,
+          "id": 201905116,
           "time": "10.30",
           "description": {
             "es": "Final del Campeonato  de Frontenis en el frontón de Cruces.",
@@ -188,7 +188,7 @@
           "category": "championship"
         },
         {
-          "id": 7,
+          "id": 201905117,
           "time": "11.00 - 14.00",
           "description": {
             "es": "Talleres en las inmediaciones de la academia Mirenglish.",
@@ -197,7 +197,7 @@
           "category": "children"
         },
         {
-          "id": 8,
+          "id": 201905118,
           "time": "11.00 - 12.30",
           "description": {
             "es": "Carrera Oztopo MINI en el frontón. 11.15 a 11.45 txikis de 5 a 8 años (Inscripción a las 11.00). 12.00 - 12.30 handiak de 9 a 12 años. (Inscripción a las 11.45)",
@@ -206,7 +206,7 @@
           "category": "children"
         },
         {
-          "id": 9,
+          "id": 201905119,
           "time": "12.00 - 14.00",
           "description": {
             "es": "Simultáneas de ajedrez en el bar Esla.",
@@ -215,7 +215,7 @@
           "category": "championship"
         },
         {
-          "id": 10,
+          "id": 2019051110,
           "time": "12.00 - 15.00",
           "description": {
             "es": "Vermuth flamenco de la mano de Akais en el Bar Sport.",
@@ -224,7 +224,7 @@
           "category": "music"
         },
         {
-          "id": 11,
+          "id": 2019051111,
           "time": "13.00 - 15.00",
           "description": {
             "es": "Pintxo pote en los siguientes bares: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra, Bar Gure Leku y Bar La Tobera.",
@@ -233,7 +233,7 @@
           "category": "restaurant"
         },
         {
-          "id": 12,
+          "id": 2019051112,
           "time": "14.00",
           "description": {
             "es": "Entrega de las Putxeras en la zona de Remar.",
@@ -242,7 +242,7 @@
           "category": "restaurant"
         },
         {
-          "id": 13,
+          "id": 2019051113,
           "time": "17.00 - 18.00",
           "description": {
             "es": "Gymkhana para familias en la zona de Remar de la mano de Ilazki taldea.",
@@ -251,7 +251,7 @@
           "category": "people"
         },
         {
-          "id": 14,
+          "id": 2019051114,
           "time": "18.00 - 20.00",
           "description": {
             "es": "Teatro en el Centro Cívico de Cruces con la Asociación Teatral Luna Nueva representando “Paco Jones”.",
@@ -260,7 +260,7 @@
           "category": "show"
         },
         {
-          "id": 15,
+          "id": 2019051115,
           "time": "18.00",
           "description": {
             "es": "Talleres en las inmediaciones de la academia Mirenglish.",
@@ -269,7 +269,7 @@
           "category": "children"
         },
         {
-          "id": 16,
+          "id": 2019051116,
           "time": "18.30 - 00.00",
           "description": {
             "es": "GURUTZEROCK: Conciertos en las inmediaciones del Bar Berria",
@@ -278,7 +278,7 @@
           "category": "music"
         },
         {
-          "id": 17,
+          "id": 2019051117,
           "time": "19.00 - 22.00",
           "description": {
             "es": "Txitxarrillo en la zona del Cerco.",
@@ -287,7 +287,7 @@
           "category": "music"
         },
         {
-          "id": 18,
+          "id": 2019051118,
           "time": "19.00 - 00.00",
           "description": {
             "es": "Discoteca móvil en las inmediaciones del Bar Vizcaya y Bar Parada.",
@@ -296,7 +296,7 @@
           "category": "music"
         },
         {
-          "id": 19,
+          "id": 2019051119,
           "time": "19.00",
           "description": {
             "es": "Campeonato de Poker en el Bar Isla y con la consumición pintxo gratis.",
@@ -305,7 +305,7 @@
           "category": "championship"
         },
         {
-          "id": 20,
+          "id": 2019051120,
           "time": "19.30",
           "description": {
             "es": "Parrillada en las inmediaciones del Bar Bombea y el Batzoki.",
@@ -314,7 +314,7 @@
           "category": "restaurant"
         },
         {
-          "id": 21,
+          "id": 2019051121,
           "time": "19.45",
           "description": {
             "es": "Coro Gure Nahiak y Amigos en la parroquia de Cruces.",
@@ -323,7 +323,7 @@
           "category": "music"
         },
         {
-          "id": 22,
+          "id": 2019051122,
           "time": "20.00",
           "description": {
             "es": "Concierto Duo Distancia & Iñaki Nadal en la inmediaciones del Batzoki y Bar Bombea.",
@@ -332,7 +332,7 @@
           "category": "music"
         },
         {
-          "id": 23,
+          "id": 2019051123,
           "time": "21.00",
           "description": {
             "es": "Concierto Peri&Gros en el Bar California.",
@@ -341,7 +341,7 @@
           "category": "music"
         },
         {
-          "id": 24,
+          "id": 2019051124,
           "time": "21.00",
           "description": {
             "es": "Actuación de La Chane Show en el Bar Sport.",
@@ -362,7 +362,7 @@
       },
       "schedule": [
         {
-          "id": 25,
+          "id": 2019051225,
           "time": "10.00 - 20.00",
           "description": {
             "es": "Feria Agrícola y Artesana en la plaza de la iglesia.",
@@ -371,7 +371,7 @@
           "category": "show"
         },
         {
-          "id": 26,
+          "id": 2019051226,
           "time": "12.30 - 14.00",
           "description": {
             "es": "Actuación del grupo de gaiteros Recunchos Das Pontes.",
@@ -380,7 +380,7 @@
           "category": "music"
         },
         {
-          "id": 27,
+          "id": 2019051227,
           "time": "10.30",
           "description": {
             "es": "II Bajada de Goitiberas en Basatxu",
@@ -389,7 +389,7 @@
           "category": "championship"
         },
         {
-          "id": 28,
+          "id": 2019051228,
           "time": "10.30 - 14.00",
           "description": {
             "es": "Exhibición de partidas rápidas de ajedrez entre los clubs “Xake Gurutzeta” y “Club de Ajedrez Barakaldo” en el Bar Esla, de la mano de Xake Gurutzeta y Bar Esla.",
@@ -398,7 +398,7 @@
           "category": "show"
         },
         {
-          "id": 29,
+          "id": 2019051229,
           "time": "11.00 - 14.00",
           "description": {
             "es": "Talleres en las inmediaciones de la Academia Mirenglish.",
@@ -407,7 +407,7 @@
           "category": "children"
         },
         {
-          "id": 30,
+          "id": 2019051230,
           "time": "11.00 - 12.00",
           "description": {
             "es": "Yoga para txikis de entre 5 a 12 años en la tienda Biokolmado (8 maximo)",
@@ -416,7 +416,7 @@
           "category": "children"
         },
         {
-          "id": 31,
+          "id": 2019051231,
           "time": "12.00 - 13.00",
           "description": {
             "es": "Yoga para txikis de entre 5 a 12 años en la tienda Biokolmado (8 maximo)",
@@ -425,7 +425,7 @@
           "category": "children"
         },
         {
-          "id": 32,
+          "id": 2019051232,
           "time": "12.30",
           "description": {
             "es": "Banda Municipal en la plaza de Cruces.",
@@ -434,7 +434,7 @@
           "category": "music"
         },
         {
-          "id": 33,
+          "id": 2019051233,
           "time": "13.00 - 15.00",
           "description": {
             "es": "Charanga en Remar organizada por: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra, Bar Gure Leku, Taska la Fraska, Panaderia Lali, Centro Dietético Villahoz  y Bar La Tobera.",
@@ -443,7 +443,7 @@
           "category": "music"
         },
         {
-          "id": 34,
+          "id": 2019051234,
           "time": "13.30 - 16.00",
           "description": {
             "es": "Cazuelita en los siguientes bares: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra, Bar Marpe, Bar Gure Leku y Bar La Tobera.",
@@ -452,7 +452,7 @@
           "category": "restaurant"
         },
         {
-          "id": 35,
+          "id": 2019051235,
           "time": "14.30",
           "description": {
             "es": "Paella popular en el Bar Berria.",
@@ -461,7 +461,7 @@
           "category": "restaurant"
         },
         {
-          "id": 36,
+          "id": 2019051236,
           "time": "18.00",
           "description": {
             "es": "Talleres en las inmediaciones de la Academia Mirenglish.",
@@ -470,7 +470,7 @@
           "category": "children"
         },
         {
-          "id": 37,
+          "id": 2019051237,
           "time": "18.00",
           "description": {
             "es": "Campeonato de Rana en el Bar Sport.",
@@ -490,7 +490,7 @@
         "eu": "Maiatzak 14"
       },
       "schedule": [{
-        "id": 38,
+        "id": 2019051438,
         "time": "19.30",
         "description": {
           "es": "Semifinal del Campeonato FUTSAL en el Colegio Gurutzeta.",
@@ -510,7 +510,7 @@
       },
       "schedule": [
         {
-          "id": 39,
+          "id": 2019051639,
           "time": "18.00 - 19.00",
           "description": {
             "es": "Teatro para niño/as de los payasos Antxo ta Pantxa representando “Ahaztuen Distira”  en el parking.",
@@ -519,7 +519,7 @@
           "category": "children"
         },
         {
-          "id": 40,
+          "id": 2019051640,
           "time": "18.00",
           "description": {
             "es": "Talleres en las inmediaciones de la Academia Mirenglish.",
@@ -528,7 +528,7 @@
           "category": "children"
         },
         {
-          "id": 41,
+          "id": 2019051641,
           "time": "19.00 - 20.30",
           "description": {
             "es": "Actividad infantil para hacer pompas de jabón para los más txikis en el parking.",
@@ -537,7 +537,7 @@
           "category": "children"
         },
         {
-          "id": 42,
+          "id": 2019051642,
           "time": "19.00",
           "description": {
             "es": "Pintxos Morunos con la consumición el Bar Sport.",
@@ -546,7 +546,7 @@
           "category": "restaurant"
         },
         {
-          "id": 43,
+          "id": 2019051643,
           "time": "19.30",
           "description": {
             "es": "Final del Campeonato FUTSAL en el Colegio Gurutzeta.",
@@ -555,7 +555,7 @@
           "category": "championship"
         },
         {
-          "id": 44,
+          "id": 2019051644,
           "time": "19.30 - 20.30",
           "description": {
             "es": "Exhibición y clase de Zumba de la mano de Senti2 en el parking.",
@@ -564,7 +564,7 @@
           "category": "people"
         },
         {
-          "id": 45,
+          "id": 2019051645,
           "time": "20.30",
           "description": {
             "es": "Barbacoa popular en el recinto festivo. Cortesía  de Carnicería ELENA. Apta para celiac@s.",
@@ -573,7 +573,7 @@
           "category": "restaurant"
         },
         {
-          "id": 46,
+          "id": 2019051646,
           "time": "20.00 - 22.00",
           "description": {
             "es": "Pintxopote en Bar Berria y en el Mesón Baytur.",
@@ -582,7 +582,7 @@
           "category": "restaurant"
         },
         {
-          "id": 47,
+          "id": 2019051647,
           "time": "22.00 - 00.00",
           "description": {
             "es": "Concierto  de Enrockecidos  en el parking. Presentación de su primer disco.",
@@ -591,7 +591,7 @@
           "category": "music"
         },
         {
-          "id": 48,
+          "id": 2019051648,
           "time": "00.00 - 01.00",
           "description": {
             "es": "Karaoke en la Txosna",
@@ -612,7 +612,7 @@
       },
       "schedule": [
         {
-          "id": 49,
+          "id": 2019051749,
           "time": "11:30",
           "description": {
             "es": "Visita de  Matxin al Centro de Día de la Paz.",
@@ -621,7 +621,7 @@
           "category": "show"
         },
         {
-          "id": 50,
+          "id": 2019051750,
           "time": "17.00 - 19.00",
           "description": {
             "es": "Taller de Huerto Urbano las cuatro RS (Reducir, reutilizar, reciclar, reinventar) en la tienda Biokolmado para los txikis de entre 5 y 12 años. Imprescindible llevar delantal y apuntarse con anterioridad en elbiokolmado@gmail.com.",
@@ -630,7 +630,7 @@
           "category": "children"
         },
         {
-          "id": 51,
+          "id": 2019051751,
           "time": "18.00",
           "description": {
             "es": "Talleres para niños/as en la plaza de Cruces con la colaboración de Ilazki Taldea. Se realizarán adornos para la bajada.",
@@ -639,7 +639,7 @@
           "category": "children"
         },
         {
-          "id": 52,
+          "id": 2019051752,
           "time": "18.30",
           "description": {
             "es": "Sardinada en el Bar Gure Izarra donado por la pescadería Izaro (12 kilos de sardinas).",
@@ -648,7 +648,7 @@
           "category": "restaurant"
         },
         {
-          "id": 53,
+          "id": 2019051753,
           "time": "19.00",
           "description": {
             "es": "Bajada tradicional desde la plaza de Cruces con Matxin. Contaremos con  la música de Primo Bayo e Ilazki taldea.",
@@ -657,7 +657,7 @@
           "category": "people"
         },
         {
-          "id": 54,
+          "id": 2019051754,
           "time": "19.00",
           "description": {
             "es": "Tradicional Pintxo Pote en el Bar La Isla, habrá varios txoripanes con sorpresa y si te toca 'Ronda Gratis'.",
@@ -666,7 +666,7 @@
           "category": "restaurant"
         },
         {
-          "id": 55,
+          "id": 2019051755,
           "time": "19.00 - 22.00",
           "description": {
             "es": "Degustación de pintxos y música en el Bar Rosario.",
@@ -675,7 +675,7 @@
           "category": "restaurant"
         },
         {
-          "id": 56,
+          "id": 2019051756,
           "time": "19.00",
           "description": {
             "es": "Pintxo Pote en el Bar Roman.",
@@ -684,7 +684,7 @@
           "category": "restaurant"
         },
         {
-          "id": 57,
+          "id": 2019051757,
           "time": "19.00",
           "description": {
             "es": "Parrillada  en la zona de Cerco a cargo de: Bar Herradura, Bar Parada, Bar Izarra, Bar Marpe, Bar Gure Leku, Taska la Fraska y Bar La Tobera.",
@@ -693,7 +693,7 @@
           "category": "restaurant"
         },
         {
-          "id": 58,
+          "id": 2019051758,
           "time": "19.00",
           "description": {
             "es": "Talo con la consumición en la Cafetería Dos Mundos.",
@@ -702,7 +702,7 @@
           "category": "restaurant"
         },
         {
-          "id": 59,
+          "id": 2019051759,
           "time": "20.15",
           "description": {
             "es": "Txupin y  Pregón, entrega de makila y premio de dibujos. Además se presentará la nueva canción de Fiestas en Euskara creada por las/os alumnos/as de 6º de primaria de Gurutzeta y de Juán Ramón Jimenez.",
@@ -711,7 +711,7 @@
           "category": "show"
         },
         {
-          "id": 60,
+          "id": 2019051760,
           "time": "20.00 - 23.00",
           "description": {
             "es": "Pintxos morunos con la consumición en las inmediaciones de la Cafeteria Netxe.",
@@ -720,7 +720,7 @@
           "category": "restaurant"
         },
         {
-          "id": 61,
+          "id": 2019051761,
           "time": "21.00",
           "description": {
             "es": "Concurso lanzamiento de felpudo para los participantes en el concurso de kuadrillas.",
@@ -729,7 +729,7 @@
           "category": "championship"
         },
         {
-          "id": 62,
+          "id": 2019051762,
           "time": "21.00",
           "description": {
             "es": "Concierto Sótano 54 en las inmediaciones el Bar Bombea y el Batzoki.",
@@ -738,7 +738,7 @@
           "category": "music"
         },
         {
-          "id": 63,
+          "id": 2019051763,
           "time": "21.30 - 23.30",
           "description": {
             "es": "Concierto “Cowboy” en la Cafeteria Netxe.",
@@ -747,7 +747,7 @@
           "category": "music"
         },
         {
-          "id": 64,
+          "id": 2019051764,
           "time": "22.30 - 1.30",
           "description": {
             "es": "Txitxarrillo con Mikel Rodrigo en la zona de Remar.",
@@ -756,7 +756,7 @@
           "category": "music"
         },
         {
-          "id": 65,
+          "id": 2019051765,
           "time": "23:00 - 02.00",
           "description": {
             "es": "Actuación con BAK en el parking.",
@@ -765,7 +765,7 @@
           "category": "music"
         },
         {
-          "id": 66,
+          "id": 2019051766,
           "time": "02.30 - cierre",
           "description": {
             "es": "DJ Set Barrenol en el parking.",
@@ -786,7 +786,7 @@
       },
       "schedule": [
         {
-          "id": 67,
+          "id": 2019051867,
           "time": "09:30",
           "description": {
             "es": "Diana y  Txupinazo en la plaza.",
@@ -795,7 +795,7 @@
           "category": "show"
         },
         {
-          "id": 68,
+          "id": 2019051868,
           "time": "10.00 - 14.00",
           "description": {
             "es": "Mercadillo de segunda mano en el Parking.",
@@ -804,7 +804,7 @@
           "category": "people"
         },
         {
-          "id": 69,
+          "id": 2019051869,
           "time": "10.00 - 14.00",
           "description": {
             "es": "En las inmediaciones del Bar Urkia de la mano de Boskozaleak para las/os más peques: - II Basket txapelketa (nacidas entre 2006-2011). Street futbol 3X3 (nacidas entre 2006- 2012).",
@@ -813,7 +813,7 @@
           "category": "championship"
         },
         {
-          "id": 70,
+          "id": 2019051870,
           "time": "10.30",
           "description": {
             "es": "Yoga en Familia en el parking de la mano de Senti2. Importante llevar ropa cómoda y una esterilla.",
@@ -822,7 +822,7 @@
           "category": "people"
         },
         {
-          "id": 71,
+          "id": 2019051871,
           "time": "11.00 - 14.00",
           "description": {
             "es": "Talleres en las inmediaciones de la academia Mirenglish.",
@@ -831,7 +831,7 @@
           "category": "children"
         },
         {
-          "id": 72,
+          "id": 2019051872,
           "time": "11.30 - 12.30",
           "description": {
             "es": "Clase de Aerodance con Arantxa en Barandiaran.",
@@ -840,7 +840,7 @@
           "category": "people"
         },
         {
-          "id": 73,
+          "id": 2019051873,
           "time": "10.30 - 19.00",
           "description": {
             "es": "Feria Artesanal frente al Hospital de la mano de Burubika.",
@@ -849,7 +849,7 @@
           "category": "show"
         },
         {
-          "id": 74,
+          "id": 2019051874,
           "time": "11.00 - 14.00",
           "description": {
             "es": "Juegos hinchables y actividades infantiles en el Colegio Gurutzeta.",
@@ -858,7 +858,7 @@
           "category": "children"
         },
         {
-          "id": 75,
+          "id": 2019051875,
           "time": "11. 00 - 12.00",
           "description": {
             "es": "Taller de cocina para los txikis de entre 5 y 12 años. (8 participantes máximo) en la tienda Biokolmado. Imprescindible apuntarse con anterioridad en elbiokolmado@gmail.com.",
@@ -867,7 +867,7 @@
           "category": "children"
         },
         {
-          "id": 76,
+          "id": 2019051876,
           "time": "11.30",
           "description": {
             "es": "Martxa canina organizada por Peluquería Canina Susana. Se saldrá desde la Peluquería Canina Susana y se hará un recorrido hasta terminar en el parking.",
@@ -876,7 +876,7 @@
           "category": "people"
         },
         {
-          "id": 77,
+          "id": 2019051877,
           "time": "12.00 - 14.00",
           "description": {
             "es": "Actuación de La Banda de Cartón por la zona de Remar.",
@@ -885,7 +885,7 @@
           "category": "music"
         },
         {
-          "id": 78,
+          "id": 2019051878,
           "time": "12.30 - 20.00",
           "description": {
             "es": "Piscina con barcas para los más peques en las inmediaciones del King Cross (en caso de lluvia habrá otra actividad).",
@@ -894,7 +894,7 @@
           "category": "children"
         },
         {
-          "id": 79,
+          "id": 2019051879,
           "time": "13.00 - 15.00",
           "description": {
             "es": "Pintxo pote en los siguientes bares: Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra, Bar Gure Leku y Bar La Tobera.",
@@ -903,7 +903,7 @@
           "category": "restaurant"
         },
         {
-          "id": 80,
+          "id": 2019051880,
           "time": "17.00",
           "description": {
             "es": "Campeonato Mixto de 3X3 en el IES Cruces.",
@@ -912,7 +912,7 @@
           "category": "championship"
         },
         {
-          "id": 81,
+          "id": 2019051881,
           "time": "17.00",
           "description": {
             "es": "Final del Campeonato de Mus en la Parrilla Bermeotarrak.",
@@ -921,7 +921,7 @@
           "category": "championship"
         },
         {
-          "id": 82,
+          "id": 2019051882,
           "time": "17.00 - 20.00",
           "description": {
             "es": "Juegos hinchables y actividades infantiles en el Colegio Gurutzeta.",
@@ -930,7 +930,7 @@
           "category": "children"
         },
         {
-          "id": 83,
+          "id": 2019051883,
           "time": "17.00 - 19.00",
           "description": {
             "es": "Taller de Mandalas en la tienda Biokolmado para los txikis de entre 5 y 12 años (5 a 7 participantes máximo). Imprescindible apuntarse con anterioridad en elbiokolmado@gmail.com.",
@@ -939,7 +939,7 @@
           "category": "children"
         },
         {
-          "id": 84,
+          "id": 2019051884,
           "time": "17.00 - 19.00",
           "description": {
             "es": "Taller pintura en el parking de la mano de Colorama.",
@@ -948,7 +948,7 @@
           "category": "children"
         },
         {
-          "id": 85,
+          "id": 2019051885,
           "time": "17.00 - 19.00",
           "description": {
             "es": "Orfeón Barakaldes en el parking y pase por la zona de La Paz y Remar.",
@@ -957,7 +957,7 @@
           "category": "music"
         },
         {
-          "id": 86,
+          "id": 2019051886,
           "time": "17.30",
           "description": {
             "es": "Concurso de Rana en el Bar La Tobera.",
@@ -966,7 +966,7 @@
           "category": "championship"
         },
         {
-          "id": 87,
+          "id": 2019051887,
           "time": "18.00",
           "description": {
             "es": "Talleres en las inmediaciones de la Academia Mirenglish.",
@@ -975,7 +975,7 @@
           "category": "children"
         },
         {
-          "id": 88,
+          "id": 2019051888,
           "time": "19.00",
           "description": {
             "es": "Euskal dantzak con Errekaortu Dantza Taldea en la plaza.",
@@ -984,7 +984,7 @@
           "category": "show"
         },
         {
-          "id": 89,
+          "id": 2019051889,
           "time": "19.00 - 21.00",
           "description": {
             "es": "Herri Kirolak en el parking. ",
@@ -993,7 +993,7 @@
           "category": "show"
         },
         {
-          "id": 90,
+          "id": 2019051890,
           "time": "19.00 - 21.00",
           "description": {
             "es": "Concierto de Zubi el Ransero en el Bar Berria. ",
@@ -1002,7 +1002,7 @@
           "category": "music"
         },
         {
-          "id": 91,
+          "id": 2019051891,
           "time": "19.00",
           "description": {
             "es": "Barbacoa con la consumición en el Bar La Isla y Bar Santi.",
@@ -1011,7 +1011,7 @@
           "category": "restaurant"
         },
         {
-          "id": 92,
+          "id": 2019051892,
           "time": "19.00",
           "description": {
             "es": "Barbacoa con la consumición en el Bar Roman.",
@@ -1020,7 +1020,7 @@
           "category": "restaurant"
         },
         {
-          "id": 93,
+          "id": 2019051893,
           "time": "19.00 - 00.00",
           "description": {
             "es": "Discoteca móvil en las inmediaciones del Bar Vizcaya y Bar Parada.",
@@ -1029,7 +1029,7 @@
           "category": "music"
         },
         {
-          "id": 94,
+          "id": 2019051894,
           "time": "20.00 - 22.30",
           "description": {
             "es": "Actuación de Primo Bayo  por la zona de la Paz.",
@@ -1038,7 +1038,7 @@
           "category": "music"
         },
         {
-          "id": 95,
+          "id": 2019051895,
           "time": "20.00 - 22.00",
           "description": {
             "es": "Concierto de Jorge Cánovas en la terraza del Bar Zubia.",
@@ -1047,7 +1047,7 @@
           "category": "music"
         },
         {
-          "id": 96,
+          "id": 2019051896,
           "time": "20.00 - 23.00",
           "description": {
             "es": "Pintxos morunos con la consumición en las inmediaciones de la Cafeteria Netxe.",
@@ -1056,7 +1056,7 @@
           "category": "restaurant"
         },
         {
-          "id": 97,
+          "id": 2019051897,
           "time": "21.30",
           "description": {
             "es": "Concierto de SK Live y talo con la consumición en la Cafeteria Dos Mundos.",
@@ -1065,7 +1065,7 @@
           "category": "music"
         },
         {
-          "id": 98,
+          "id": 2019051898,
           "time": "22.00",
           "description": {
             "es": "Karaoke en el Bar La Tobera.",
@@ -1074,7 +1074,7 @@
           "category": "music"
         },
         {
-          "id": 99,
+          "id": 2019051899,
           "time": "22.30 - 01.30",
           "description": {
             "es": "Txitxarrillo con Mikel Rodrigo en El Cerco.",
@@ -1083,7 +1083,7 @@
           "category": "music"
         },
         {
-          "id": 100,
+          "id": 20190518100,
           "time": "23.00",
           "description": {
             "es": "Sorteo de un móvil (ticket con la consumición) en el Bar Sport.",
@@ -1092,7 +1092,7 @@
           "category": "championship"
         },
         {
-          "id": 101,
+          "id": 20190518101,
           "time": "23.30 - 04.00",
           "description": {
             "es": "Actuación ORQUESTA REMIX en el parking.",
@@ -1101,7 +1101,7 @@
           "category": "music"
         },
         {
-          "id": 102,
+          "id": 20190518102,
           "time": "01.00",
           "description": {
             "es": "Sorteo de un móvil (ticket con la consumición) en el Bar Sport.",
@@ -1110,7 +1110,7 @@
           "category": "championship"
         },
         {
-          "id": 103,
+          "id": 20190518103,
           "time": "04.00 - cierre",
           "description": {
             "es": "Música en la Txosna.",
@@ -1131,7 +1131,7 @@
       },
       "schedule": [
         {
-          "id": 104,
+          "id": 20190519104,
           "time": "10.00",
           "description": {
             "es": "Txupinazo en el parking.",
@@ -1140,7 +1140,7 @@
           "category": "show"
         },
         {
-          "id": 105,
+          "id": 20190519105,
           "time": "10.00 - 20.00",
           "description": {
             "es": "Mercadillo solidario en el parking de la mano de la Asociación Ascaan.",
@@ -1149,7 +1149,7 @@
           "category": "show"
         },
         {
-          "id": 106,
+          "id": 20190519106,
           "time": "10.00",
           "description": {
             "es": "Inscripciones de  la Exhibición de Baile y en los encuentros  gastronómicos en la txosna.",
@@ -1158,7 +1158,7 @@
           "category": "championship"
         },
         {
-          "id": 107,
+          "id": 20190519107,
           "time": "10:30",
           "description": {
             "es": "Banda Municipal de Txistus por el barrio.",
@@ -1167,7 +1167,7 @@
           "category": "music"
         },
         {
-          "id": 108,
+          "id": 20190519108,
           "time": "10.30 - 15.00",
           "description": {
             "es": "Fería Artesanal de la mano de Burubika y venta de libros de segunda de mano organizada por Eguzki frente al Hospital.",
@@ -1176,7 +1176,7 @@
           "category": "show"
         },
         {
-          "id": 109,
+          "id": 20190519109,
           "time": "11.00 - 14.00",
           "description": {
             "es": "Talleres en las inmediaciones de la academia Mirenglish.",
@@ -1185,7 +1185,7 @@
           "category": "children"
         },
         {
-          "id": 110,
+          "id": 20190519110,
           "time": "12.00 - 14.00",
           "description": {
             "es": "Actuación de La Banda de Cartón por la zona de Remar.",
@@ -1194,7 +1194,7 @@
           "category": "music"
         },
         {
-          "id": 111,
+          "id": 20190519111,
           "time": "12.00 - 14.00",
           "description": {
             "es": "Exhibiciones de Baile de niños/as y adolescentes (con sorteo de premios) con la colaboración de Senti2.",
@@ -1203,7 +1203,7 @@
           "category": "children"
         },
         {
-          "id": 112,
+          "id": 20190519112,
           "time": "12.00 - 15.00",
           "description": {
             "es": "Servicio de corte a cuchillo de jamón ibérico en el Bar Zubia.",
@@ -1212,7 +1212,7 @@
           "category": "restaurant"
         },
         {
-          "id": 113,
+          "id": 20190519113,
           "time": "13.30 - 16.00",
           "description": {
             "es": "Cazuelita en los siguientes bares: Bar Herradura, Bar Bizkaia, Bar Parada, Salón de juegos To Play, Bar Izarra, Bar Gure Leku y Bar La Tobera.",
@@ -1221,7 +1221,7 @@
           "category": "restaurant"
         },
         {
-          "id": 114,
+          "id": 20190519114,
           "time": "14.30",
           "description": {
             "es": "Sorteo de los  Encuentros Gastronómicos.",
@@ -1230,7 +1230,7 @@
           "category": "championship"
         },
         {
-          "id": 115,
+          "id": 20190519115,
           "time": "14.30",
           "description": {
             "es": "Talo con la consumición en la Cafeteria Dos Mundos.",
@@ -1239,7 +1239,7 @@
           "category": "restaurant"
         },
         {
-          "id": 116,
+          "id": 20190519116,
           "time": "15.30",
           "description": {
             "es": "Si el tiempo lo permite fiesta de la espuma para los más pequeños. ",
@@ -1248,7 +1248,7 @@
           "category": "children"
         },
         {
-          "id": 117,
+          "id": 20190519117,
           "time": "17.00 - 18.30",
           "description": {
             "es": "Entrega de premios de los campeonatos y el concurso de kuadrillas en el parking.",
@@ -1257,7 +1257,7 @@
           "category": "championship"
         },
         {
-          "id": 118,
+          "id": 20190519118,
           "time": "18.00",
           "description": {
             "es": "Talleres en las inmediaciones de la academia Mirenglish.",
@@ -1266,7 +1266,7 @@
           "category": "children"
         },
         {
-          "id": 119,
+          "id": 20190519119,
           "time": "18.30 - 20.30",
           "description": {
             "es": "Diskofesta para las/os más pequeñas/os de la mano de BAK en el parking.",
@@ -1275,7 +1275,7 @@
           "category": "music"
         },
         {
-          "id": 120,
+          "id": 20190519120,
           "time": "20.00",
           "description": {
             "es": "Chocolatada en el parking.",
@@ -1284,7 +1284,7 @@
           "category": "restaurant"
         },
         {
-          "id": 121,
+          "id": 20190519121,
           "time": "20.30",
           "description": {
             "es": "Txupinazo Fin de Fiestas en el parking.",

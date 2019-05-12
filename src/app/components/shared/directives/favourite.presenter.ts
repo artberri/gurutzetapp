@@ -1,9 +1,10 @@
-import { Event, IState, IStorage } from '../../../domain';
+import { Event, IState, IStorage, INotifications } from '../../../domain';
 
 export class FavouritePresenter {
     constructor(
         private readonly state: IState,
-        private readonly storage: IStorage
+        private readonly storage: IStorage,
+        private readonly notifications: INotifications,
     ) {}
 
     public isFavourite(event: Event): boolean {
@@ -13,5 +14,10 @@ export class FavouritePresenter {
     public onClick(event: Event): void {
         this.state.toggleFavourite(event);
         this.storage.setFavourites(this.state.favourites);
+        if (this.isFavourite(event)) {
+            this.notifications.schedule(event);
+        } else {
+            this.notifications.cancel(event);
+        }
     }
 }
