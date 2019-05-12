@@ -34,8 +34,8 @@ export class StorageService implements IStorage {
     const venueObjects = await this.storage.set(MAP, JSON.stringify(externalData.venues)) || [];
     const dayObjects = await this.storage.set(SCHEDULE, JSON.stringify(externalData.schedule)) || [];
     return {
-      venues: Venue.parseCollection(venueObjects),
-      schedule: EventDay.parseCollection(dayObjects)
+      venues: Venue.parseCollection(JSON.parse(venueObjects)),
+      schedule: EventDay.parseCollection(JSON.parse(dayObjects))
     };
   }
 

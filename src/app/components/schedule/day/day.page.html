@@ -1,45 +1,59 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <ion-toolbar color="tertiary">
+  <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-back"></ion-back-button>
+    </ion-buttons>
     <ion-title>
-      Gurutzetako Jaiak 2019
+      {{ (day$ | async)?.title | appTranslate }} {{ (day$ | async)?.description | appTranslate }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-header>
+  <ion-segment scrollable (ionChange)="setFilter($event)">
+      <ion-segment-button [value]="EventCategory.Children">
+      <ion-icon name="ice-cream"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button [value]="EventCategory.Championship">
+      <ion-icon name="trophy"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button [value]="EventCategory.Restaurant">
+      <ion-icon name="restaurant"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button [value]="EventCategory.Music">
+      <ion-icon name="musical-notes"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button [value]="EventCategory.Show">
+      <ion-icon name="eye"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button [value]="EventCategory.People">
+      <ion-icon name="md-contacts"></ion-icon>
+      </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
 <ion-content class="schedule-details">
-
-    <ion-title>{{ (day$ | async)?.title | appTranslate }} {{ (day$ | async)?.description | appTranslate }}</ion-title>
-
-    <ion-segment scrollable (ionChange)="setFilter($event)">
-        <ion-segment-button [value]="EventCategory.Show">
-        <ion-icon name="eye"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button [value]="EventCategory.Children">
-        <ion-icon name="ice-cream"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button [value]="EventCategory.Championship">
-        <ion-icon name="trophy"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button [value]="EventCategory.People">
-        <ion-icon name="md-contacts"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button [value]="EventCategory.Restaurant">
-        <ion-icon name="restaurant"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button [value]="EventCategory.Music">
-        <ion-icon name="musical-notes"></ion-icon>
-        </ion-segment-button>
-    </ion-segment>
-
-    <ion-list>
-        <ion-item-divider *ngIf="category" light>{{ category | translate }}</ion-item-divider>
-        <ion-item *ngFor="let event of (day$ | async)?.schedule">
-        <h2>{{ event.time }} <ion-icon name="{{ event.category | appEventCategory }}" left></ion-icon></h2>
-        <p>{{ event.description | appTranslate }}</p>
-        <ion-icon [name]="event.favourite ? 'star' : 'star-outline'" item-right app-favourite ></ion-icon>
-        </ion-item>
-        <ion-item  *ngIf="(day$ | async)?.schedule.length === 0">
+  <ion-list>
+      <ion-item-divider *ngIf="category" light>{{ category | translate }}</ion-item-divider>
+      <ion-item *ngFor="let event of (day$ | async)?.schedule">
+        <div>
+          <ion-label text-wrap>
+            <div>{{ event.time }} <ion-icon name="{{ event.category | appEventCategory }}" left></ion-icon></div>
+            <p>{{ event.description | appTranslate }}</p>
+          </ion-label>
+        </div>
+        <div slot="end">
+          <ion-icon color="danger" [name]="event.favourite ? 'heart' : 'heart-empty'" size="large" app-favourite ></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item  *ngIf="(day$ | async)?.schedule.length === 0">
         <p>{{ 'NO_RESULTS' | translate }}</p>
-        </ion-item>
-    </ion-list>
+      </ion-item>
+  </ion-list>
 </ion-content>

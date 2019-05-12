@@ -1,113 +1,113 @@
 {
-  "version": "2016.1.0",
+  "version": "2019.1.0",
   "venues": [
     {
       "name": "Recinto festivo",
-      "lat": 43.2815037,
-      "lng": -2.9872217,
-      "category": "red"
+      "latitude": 43.2815037,
+      "longitude": -2.9872217,
+      "category": "official"
     },
     {
       "name": "Bar Santi y Bar La Isla",
-      "lat": 43.2804845,
-      "lng": -2.9832101,
-      "category": "blue"
+      "latitude": 43.2804845,
+      "longitude": -2.9832101,
+      "category": "business"
     },
     {
       "name": "Batzoki y Bar Bombea",
-      "lat": 43.280011,
-      "lng": -2.9832222,
-      "category": "blue"
+      "latitude": 43.280011,
+      "longitude": -2.9832222,
+      "category": "business"
     },
     {
       "name": "Bar Herradura, Bar Vizcaya, Bar Parada, Salón de juegos To Play, Bar Izarra, Bar Gure Leku y Bar La Tobera",
-      "lat": 43.2847769,
-      "lng": -2.9839872,
-      "category": "blue"
+      "latitude": 43.2847769,
+      "longitude": -2.9839872,
+      "category": "business"
     },
     {
       "name": "IES La Siebe",
-      "lat": 43.2793155,
-      "lng": -2.988685,
-      "category": "green"
+      "latitude": 43.2793155,
+      "longitude": -2.988685,
+      "category": "public"
     },
     {
       "name": "Restaurante King's Cross",
-      "lat": 43.2824315,
-      "lng": -2.9837902,
-      "category": "blue"
+      "latitude": 43.2824315,
+      "longitude": -2.9837902,
+      "category": "business"
     },
     {
       "name": "Bar Zubia",
-      "lat": 43.2818114,
-      "lng": -2.9820383,
-      "category": "blue"
+      "latitude": 43.2818114,
+      "longitude": -2.9820383,
+      "category": "business"
     },
     {
       "name": "Frontón",
-      "lat": 43.279039,
-      "lng": -2.9878162,
-      "category": "green"
+      "latitude": 43.279039,
+      "longitude": -2.9878162,
+      "category": "public"
     },
     {
       "name": "El Cerco",
-      "lat": 43.2849173,
-      "lng": -2.9830229,
-      "category": "green"
+      "latitude": 43.2849173,
+      "longitude": -2.9830229,
+      "category": "public"
     },
     {
       "name": "Bar Sport",
-      "lat": 43.2805952,
-      "lng": -2.9881169,
-      "category": "blue"
+      "latitude": 43.2805952,
+      "longitude": -2.9881169,
+      "category": "business"
     },
     {
       "name": "IES Gurutzeta",
-      "lat": 43.2820858,
-      "lng": -2.9870321,
-      "category": "green"
+      "latitude": 43.2820858,
+      "longitude": -2.9870321,
+      "category": "public"
     },
     {
       "name": "Bar Rosario",
-      "lat": 43.2808177,
-      "lng": -2.9832291,
-      "category": "blue"
+      "latitude": 43.2808177,
+      "longitude": -2.9832291,
+      "category": "business"
     },
     {
       "name": "Centro Cívico",
-      "lat": 43.2830038,
-      "lng": -2.9828397,
-      "category": "green"
+      "latitude": 43.2830038,
+      "longitude": -2.9828397,
+      "category": "public"
     },
     {
       "name": "Cafetería Netxe",
-      "lat": 43.2841698,
-      "lng": -2.9830654,
-      "category": "blue"
+      "latitude": 43.2841698,
+      "longitude": -2.9830654,
+      "category": "business"
     },
     {
       "name": "Mirenglish",
-      "lat": 43.2853437,
-      "lng": -2.983759,
-      "category": "blue"
+      "latitude": 43.2853437,
+      "longitude": -2.983759,
+      "category": "business"
     },
     {
       "name": "Bar Esla",
-      "lat": 43.2822675,
-      "lng": -2.9806122,
-      "category": "blue"
+      "latitude": 43.2822675,
+      "longitude": -2.9806122,
+      "category": "business"
     },
     {
       "name": "Bar Berria",
-      "lat": 43.2799157,
-      "lng": -2.9857887,
-      "category": "blue"
+      "latitude": 43.2799157,
+      "longitude": -2.9857887,
+      "category": "business"
     },
     {
       "name": "Cafeteria Dos Mundos",
-      "lat": 43.2811572,
-      "lng": -2.9821722,
-      "category": "blue"
+      "latitude": 43.2811572,
+      "longitude": -2.9821722,
+      "category": "business"
     }
   ],
   "schedule": [

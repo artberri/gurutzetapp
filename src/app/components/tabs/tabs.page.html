@@ -1,6 +1,19 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Gurutzetako Jaiak 2019
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="secondary" fill="solid" appToggleLanguage>
+        <ion-icon slot="start" name="map"></ion-icon>
+        {{ 'LANGUAGE_SWITCH' | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-tabs>
 
-  <ion-tab-bar slot="bottom">
+  <ion-tab-bar slot="bottom" color="primary">
     <ion-tab-button tab="schedule">
       <ion-icon name="information-circle-outline"></ion-icon>
       <ion-label>{{ 'SCHEDULE' | translate }}</ion-label>

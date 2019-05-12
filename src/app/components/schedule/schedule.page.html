@@ -1,23 +1,16 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
-    <ion-title>
-      Gurutzetako Jaiak 2019
-    </ion-title>
-    <ion-buttons slot="end">
-      <ion-button appToggleLanguage>
-        {{ 'LANGUAGE_SWITCH' | translate }}
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
 
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let day of (schedule$ | async); let i = index" [routerLink]="['day', i]">
-      <h2>{{ day.title | appTranslate }}</h2>
-      <p>{{ day.description | appTranslate }}</p>
-      <ion-icon name="arrow-forward" item-right></ion-icon>
+    <ion-item *ngFor="let day of (schedule$ | async); let i = index" [routerLink]="['day', i]" detail>
+      <ion-label>
+        <h2 class="subtitle">{{ day.description | appTranslate }}</h2>
+        <div class="subsubtitle">{{ day.title | appTranslate }}</div>
+      </ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
