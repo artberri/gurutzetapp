@@ -1,0 +1,15 @@
+{
+    "SCHEDULE": "Egitaraua",
+    "FAVOURITES": "Gogokoenak",
+    "MAP": "Mapa",
+    "MAP_NO_CONNECTION": "Internet konexioa behar duzu mapa ikusteko",
+    "NO_FAVOURITES_YET": "Oraindik ekintzarik ez duzu gorde. Ikusi egitaraua eta bihotza sakatu gustoko duzun ekintzetan hemen ikusteko.",
+    "CATEGORY_SHOW": "Ikuskizunak",
+    "CATEGORY_KIDS": "Umeentzako ekintzak",
+    "CATEGORY_CHAMPIONSHIP": "Lehiaketak",
+    "CATEGORY_PARTICIPATE": "Parte hartzeko ekintzak",
+    "CATEGORY_GASTRONOMIC": "Ekintza gastronomikoak",
+    "CATEGORY_MUSIC": "Musika eta kontsertuak",
+    "NO_RESULTS": "Ez dago ekintzarik",
+    "LANGUAGE_SWITCH": "CAS"
+}
