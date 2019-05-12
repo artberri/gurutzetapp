@@ -37,6 +37,10 @@ export class MultilanguagePipe implements PipeTransform, OnDestroy {
   }
 
   private getText(value: MultilanguageText): string {
+    if (!value) {
+      return '';
+    }
+
     if (this.translator.getCurrentLanguage() === 'eu') {
       return value.eu;
     }

@@ -8,8 +8,7 @@
 
 <ion-content class="schedule-details">
 
-        <ion-title>{{ (day$ | async)?.title | appTranslate }} {{ (day$ | async)?.description | appTranslate }}</ion-title>
-
+    <ion-title>{{ (day$ | async)?.title | appTranslate }} {{ (day$ | async)?.description | appTranslate }}</ion-title>
 
     <ion-segment scrollable (ionChange)="setFilter($event)">
         <ion-segment-button [value]="EventCategory.Show">
