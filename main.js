@@ -1058,7 +1058,8 @@ var AppModule = /** @class */ (function () {
                 { provide: _domain__WEBPACK_IMPORTED_MODULE_13__["IStorage"], useClass: _infrastructure__WEBPACK_IMPORTED_MODULE_12__["StorageService"] },
                 { provide: _domain__WEBPACK_IMPORTED_MODULE_13__["IState"], useClass: _infrastructure__WEBPACK_IMPORTED_MODULE_12__["StateService"] },
                 { provide: _domain__WEBPACK_IMPORTED_MODULE_13__["ITranslator"], useClass: _infrastructure__WEBPACK_IMPORTED_MODULE_12__["TranslatorService"] },
-                { provide: _domain__WEBPACK_IMPORTED_MODULE_13__["IData"], useClass: _infrastructure__WEBPACK_IMPORTED_MODULE_12__["DataService"] }
+                { provide: _domain__WEBPACK_IMPORTED_MODULE_13__["IData"], useClass: _infrastructure__WEBPACK_IMPORTED_MODULE_12__["DataService"] },
+                { provide: _domain__WEBPACK_IMPORTED_MODULE_13__["INotifications"], useClass: _infrastructure__WEBPACK_IMPORTED_MODULE_12__["NotificationsService"] }
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]]
         })
@@ -1228,9 +1229,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var FavouriteDirective = /** @class */ (function () {
-    function FavouriteDirective(state, storage) {
+    function FavouriteDirective(state, storage, notifications) {
         this.elementClass = 'heart-empty';
-        this.presenter = new _favourite_presenter__WEBPACK_IMPORTED_MODULE_3__["FavouritePresenter"](state, storage);
+        this.presenter = new _favourite_presenter__WEBPACK_IMPORTED_MODULE_3__["FavouritePresenter"](state, storage, notifications);
     }
     FavouriteDirective.prototype.ngOnInit = function () {
         this.setClass();
@@ -1265,7 +1266,8 @@ var FavouriteDirective = /** @class */ (function () {
             selector: '[appFavourite]'
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_domain__WEBPACK_IMPORTED_MODULE_2__["IState"],
-            _domain__WEBPACK_IMPORTED_MODULE_2__["IStorage"]])
+            _domain__WEBPACK_IMPORTED_MODULE_2__["IStorage"],
+            _domain__WEBPACK_IMPORTED_MODULE_2__["INotifications"]])
     ], FavouriteDirective);
     return FavouriteDirective;
 }());
@@ -1285,9 +1287,10 @@ var FavouriteDirective = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FavouritePresenter", function() { return FavouritePresenter; });
 var FavouritePresenter = /** @class */ (function () {
-    function FavouritePresenter(state, storage) {
+    function FavouritePresenter(state, storage, notifications) {
         this.state = state;
         this.storage = storage;
+        this.notifications = notifications;
     }
     FavouritePresenter.prototype.isFavourite = function (event) {
         return this.state.favourites.indexOf(event.id) >= 0;
@@ -1295,6 +1298,12 @@ var FavouritePresenter = /** @class */ (function () {
     FavouritePresenter.prototype.onClick = function (event) {
         this.state.toggleFavourite(event);
         this.storage.setFavourites(this.state.favourites);
+        if (this.isFavourite(event)) {
+            this.notifications.schedule(event);
+        }
+        else {
+            this.notifications.cancel(event);
+        }
     };
     return FavouritePresenter;
 }());
@@ -1583,7 +1592,7 @@ var SharedModule = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CONFIG_EXTERNAL_DATA_URL", function() { return CONFIG_EXTERNAL_DATA_URL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CONFIG_LOCAL_DATA_URL", function() { return CONFIG_LOCAL_DATA_URL; });
-var CONFIG_EXTERNAL_DATA_URL = 'http://app.gurutzeta.info/data2019.json';
+var CONFIG_EXTERNAL_DATA_URL = 'http://app.gurutzeta.info/assets/data2019.json';
 var CONFIG_LOCAL_DATA_URL = 'assets/data2019.json';
 
 
@@ -1773,7 +1782,7 @@ var VenueCategory;
 /*!*********************************!*\
   !*** ./src/app/domain/index.ts ***!
   \*********************************/
-/*! exports provided: Event, EventDay, Venue, VenueCategory, EventCategory, IStorage, IState, ITranslator, IData, scheduleReducer, favouritesReducer, mapReducer, SET_MAP_VENUES, SET_SCHEDULE, SET_FAVOURITES, TOGGLE_FAVOURITE, setVenues, setSchedule, setFavourites, toggleFavourite */
+/*! exports provided: Event, EventDay, Venue, VenueCategory, EventCategory, IStorage, IState, ITranslator, IData, INotifications, scheduleReducer, favouritesReducer, mapReducer, SET_MAP_VENUES, SET_SCHEDULE, SET_FAVOURITES, TOGGLE_FAVOURITE, setVenues, setSchedule, setFavourites, toggleFavourite */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1798,6 +1807,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ITranslator", function() { return _services__WEBPACK_IMPORTED_MODULE_2__["ITranslator"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IData", function() { return _services__WEBPACK_IMPORTED_MODULE_2__["IData"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INotifications", function() { return _services__WEBPACK_IMPORTED_MODULE_2__["INotifications"]; });
 
 /* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./state */ "./src/app/domain/state/index.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "scheduleReducer", function() { return _state__WEBPACK_IMPORTED_MODULE_3__["scheduleReducer"]; });
@@ -1854,7 +1865,7 @@ var IData = /** @class */ (function () {
 /*!******************************************!*\
   !*** ./src/app/domain/services/index.ts ***!
   \******************************************/
-/*! exports provided: IStorage, IState, ITranslator, IData */
+/*! exports provided: IStorage, IState, ITranslator, IData, INotifications */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1871,9 +1882,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./data */ "./src/app/domain/services/data.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IData", function() { return _data__WEBPACK_IMPORTED_MODULE_3__["IData"]; });
 
+/* harmony import */ var _notifications__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./notifications */ "./src/app/domain/services/notifications.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INotifications", function() { return _notifications__WEBPACK_IMPORTED_MODULE_4__["INotifications"]; });
 
 
 
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/domain/services/notifications.ts":
+/*!**************************************************!*\
+  !*** ./src/app/domain/services/notifications.ts ***!
+  \**************************************************/
+/*! exports provided: INotifications */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INotifications", function() { return INotifications; });
+var INotifications = /** @class */ (function () {
+    function INotifications() {
+    }
+    return INotifications;
+}());
 
 
 
@@ -2394,7 +2429,7 @@ function httpTranslateLoaderFactory(http) {
 /*!*****************************************!*\
   !*** ./src/app/infrastructure/index.ts ***!
   \*****************************************/
-/*! exports provided: httpTranslateLoaderFactory, StorageService, TranslatorService, StateService, DataService */
+/*! exports provided: httpTranslateLoaderFactory, StorageService, TranslatorService, StateService, DataService, NotificationsService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2414,10 +2449,65 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./data.service */ "./src/app/infrastructure/data.service.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataService", function() { return _data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"]; });
 
+/* harmony import */ var _notifications_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./notifications.service */ "./src/app/infrastructure/notifications.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NotificationsService", function() { return _notifications_service__WEBPACK_IMPORTED_MODULE_5__["NotificationsService"]; });
 
 
 
 
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/infrastructure/notifications.service.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/infrastructure/notifications.service.ts ***!
+  \*********************************************************/
+/*! exports provided: NotificationsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationsService", function() { return NotificationsService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/local-notifications/ngx */ "./node_modules/@ionic-native/local-notifications/ngx/index.js");
+/* harmony import */ var _domain__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../domain */ "./src/app/domain/index.ts");
+
+
+
+
+var NotificationsService = /** @class */ (function () {
+    function NotificationsService(localNotifications, translator) {
+        this.localNotifications = localNotifications;
+        this.translator = translator;
+    }
+    NotificationsService.prototype.schedule = function (event) {
+        var offset = new Date().getTimezoneOffset(), scheduleDate = (event.id + '').substring(0, 8), year = scheduleDate.substring(0, 4), month = scheduleDate.substring(4, 6), day = scheduleDate.substring(6, 8), time = event.time.split(' ')[0].replace('.', ':'), dateString = year + '-' + month + '-' + day + 'T' + time + ':00', scheduleDateTime = new Date(new Date(dateString).getTime() - 30 * 60 * 1000 + offset * 60 * 1000);
+        var text = this.translator.getCurrentLanguage() === 'eu' ? event.description.eu : event.description.es;
+        this.localNotifications.schedule({
+            id: event.id,
+            text: text,
+            led: '00FF00',
+            vibrate: true,
+            trigger: {
+                at: scheduleDateTime
+            },
+        });
+    };
+    NotificationsService.prototype.cancel = function (event) {
+        this.localNotifications.cancel(event.id);
+    };
+    NotificationsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_2__["LocalNotifications"],
+            _domain__WEBPACK_IMPORTED_MODULE_3__["ITranslator"]])
+    ], NotificationsService);
+    return NotificationsService;
+}());
 
 
 
@@ -2552,10 +2642,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var LANGUAGE = 'language';
-var MAP = 'map';
-var SCHEDULE = 'schedule';
-var FAVOURITES = 'favourites';
+var LANGUAGE = 'language2019';
+var MAP = 'map2019';
+var SCHEDULE = 'schedule2019';
+var FAVOURITES = 'favourites2019';
 var StorageService = /** @class */ (function () {
     function StorageService(storage) {
         this.storage = storage;

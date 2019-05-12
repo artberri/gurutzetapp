@@ -44,6 +44,9 @@ MIT
 @ionic-native/google-maps
 MIT
 
+@ionic-native/local-notifications
+MIT
+
 @ionic-native/network
 MIT
 

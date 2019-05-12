@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="info.gurutzeta.app" version="2019.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="201900000" id="info.gurutzeta.app" version="2019.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Gurutzeta</name>
     <description>Aplicación de las fiestas de Cruces/Gurutzeta.</description>
     <author email="alberto@berriart.com" href="http://www.berriart.com/">Alberto Varela</author>
