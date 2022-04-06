@@ -2,3 +2,7 @@ build
 node_modules
 package.json
 pnpm-lock.yaml
+*.svg
+*.png
+*.txt
+.*ignore
