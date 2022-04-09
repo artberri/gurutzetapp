@@ -19,6 +19,7 @@ module.exports = {
   rules: {
     "no-void": ["error", { allowAsStatement: true }],
     "react/react-in-jsx-scope": ["off"],
+    "react/require-default-props": ["off"],
     "react/function-component-definition": [
       "error",
       {
@@ -39,6 +40,7 @@ module.exports = {
       {
         replacements: {
           env: false,
+          fn: false,
         },
       },
     ],
