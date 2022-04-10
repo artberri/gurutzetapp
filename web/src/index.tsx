@@ -1,46 +1,37 @@
-import "@fontsource/ubuntu/400.css";
-import "@fontsource/ubuntu/500.css";
-import "@fontsource/ubuntu/700.css";
-import i18n from "i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
+import "reflect-metadata";
+import "@fontsource/ubuntu/latin-400.css";
+import "@fontsource/ubuntu/latin-500.css";
+import "@fontsource/ubuntu/latin-700.css";
 import { createRoot } from "react-dom/client";
-import { initReactI18next } from "react-i18next";
+import { ErrorBoundary } from "@sentry/react";
+import { container as diContainer } from "./config/DependencyInjection";
+import { configTracing } from "./config/Tracing";
+import { configI18n } from "./config/I18n";
 import { App } from "./App";
 import "./index.css";
-import es from "./locales/es.json";
-import eu from "./locales/eu.json";
 import { reportWebVitals } from "./ReportWebVitals";
 import * as serviceWorkerRegistration from "./ServiceWorkerRegistration";
 import { OnlineStatusProvider } from "./utils/OnlineStatus";
+import { ServiceGetter, ServiceGetterContext } from "./utils/Services";
+import { FatalError } from "./components/FatalError/FatalError";
 
-void i18n
-  .use(initReactI18next)
-  .use(LanguageDetector)
-  .init({
-    supportedLngs: ["eu", "es"],
-    nonExplicitSupportedLngs: true,
-    resources: {
-      es: {
-        translation: es,
-      },
-      eu: {
-        translation: eu,
-      },
-    },
-    fallbackLng: "eu",
-    interpolation: {
-      escapeValue: false,
-    },
-  });
+configTracing();
+configI18n();
 
+// eslint-disable-next-line react/jsx-no-constructed-context-values
+const serviceGetter: ServiceGetter = (service) => diContainer.get(service);
 const container = document.querySelector("#root") as Element;
 const root = createRoot(container);
 
 // React.StrictMode
 root.render(
-  <OnlineStatusProvider>
-    <App />
-  </OnlineStatusProvider>
+  <ErrorBoundary fallback={<FatalError />} showDialog>
+    <ServiceGetterContext.Provider value={serviceGetter}>
+      <OnlineStatusProvider>
+        <App />
+      </OnlineStatusProvider>
+    </ServiceGetterContext.Provider>
+  </ErrorBoundary>
 );
 
 // If you want your app to work offline and load faster, you can change

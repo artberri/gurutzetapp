@@ -51,6 +51,12 @@ class Either<L, R> {
       ? fn(this.data.left)
       : this.data.right;
   }
+
+  public fold<T>(leftFn: (left: L) => T, rightFn: (right: R) => T): T {
+    return this.data.type === EitherType.Left
+      ? leftFn(this.data.left)
+      : rightFn(this.data.right);
+  }
 }
 
 export const left = <R, L = Error>(value: L): Either<L, R> =>
@@ -70,22 +76,22 @@ export const isRight = <L, R>(either: Either<L, R>): boolean =>
   either.isRight();
 
 export const chain =
-  <L, R, T>(fn: (wrapped: R) => Either<L, T>) =>
+  <R, T, L = Error>(fn: (wrapped: R) => Either<L, T>) =>
   (either: Either<L, R>): Either<L, T> =>
     either.chain(fn);
 
 export const chainLeft =
-  <L, R, T>(fn: (wrapped: L) => Either<T, R>) =>
+  <R, T, L = Error>(fn: (wrapped: L) => Either<T, R>) =>
   (either: Either<L, R>): Either<T, R> =>
     either.chainLeft(fn);
 
 export const map =
-  <L, R, T>(fn: (wrapped: R) => T) =>
+  <R, T, L = Error>(fn: (wrapped: R) => T) =>
   (either: Either<L, R>): Either<L, T> =>
     either.map((v) => fn(v));
 
 export const mapLeft =
-  <L, R, T>(fn: (wrapped: L) => T) =>
+  <R, T, L = Error>(fn: (wrapped: L) => T) =>
   (either: Either<L, R>): Either<T, R> =>
     either.mapLeft(fn);
 
@@ -93,5 +99,10 @@ export const option =
   <R, L = Error>(fn: (wrapped: L) => R) =>
   (either: Either<L, R>): R =>
     either.option(fn);
+
+export const fold =
+  <T, R, L = Error>(leftFn: (left: L) => T, rightFn: (right: R) => T) =>
+  (either: Either<L, R>): T =>
+    either.fold(leftFn, rightFn);
 
 export type { Either };

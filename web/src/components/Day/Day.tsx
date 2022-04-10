@@ -20,7 +20,7 @@ export const Day = ({ date }: DayProperties) => {
           {translateWeekDay(date)}
         </div>
       </div>
-      <div className="w-5 text-slate-500">
+      <div className="w-5 text-primary">
         <ChevronRightIcon />
       </div>
     </div>
