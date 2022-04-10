@@ -5,7 +5,7 @@ import {
   GlobeIcon as GlobeIconSelected,
   HeartIcon as HeartIconSelected,
 } from "@heroicons/react/solid";
-import Future, { fork } from "fluture";
+import { fork } from "fluture";
 import { pipe } from "ramda";
 import { useCallback, useEffect, useState } from "react";
 import "./App.css";
@@ -15,26 +15,15 @@ import { Logo } from "./components/Logo/Logo";
 import { Schedule } from "./components/Schedule/Schedule";
 import { TabPage, Tabs } from "./components/Tabs/Tabs";
 import { noop } from "./cross-cutting/Noop";
+import { Syncronizer } from "./domain/Syncronizer";
 import { useOnlineStatus } from "./utils/OnlineStatus";
-
-export const sync = () =>
-  Future<Error, void>((reject) => {
-    const timeoutId = setTimeout(() => {
-      reject(new Error("ss"));
-    }, 3000);
-
-    // Here is how we handle cancellation. This signal is received when nobody
-    // is interested in the answer any more.
-    return function onCancel() {
-      // Clearing the timeout releases the resources we were holding.
-      clearTimeout(timeoutId);
-    };
-  });
+import { useService } from "./utils/Services";
 
 export const App = () => {
   const isOnline = useOnlineStatus();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error>();
+  const syncronizer = useService(Syncronizer);
 
   const syncronizeData = useCallback(() => {
     if (!isOnline) {
@@ -43,13 +32,14 @@ export const App = () => {
     }
 
     return pipe(
-      sync,
       fork<Error>((syncError) => {
         setError(syncError);
         setIsLoading(false);
-      })(() => setIsLoading(false))
-    )();
-  }, [isOnline]);
+      })(() => {
+        setIsLoading(false);
+      })
+    )(syncronizer.sync());
+  }, [isOnline, syncronizer]);
 
   useEffect(() => {
     const cancel = syncronizeData();

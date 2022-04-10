@@ -5,6 +5,9 @@ import { ActivityRepository } from "../domain/ActivityRepository";
 import { StorageActivityRepository } from "../infrastructure/StorageActivityRepository";
 import { SentryTracer } from "../infrastructure/SentryTracer";
 import { Tracer } from "../domain/Tracer";
+import { DataFetcher } from "../domain/DataFetcher";
+import { ContentfulDataFetcher } from "../infrastructure/ContentfulDataFetcher";
+import { Syncronizer } from "../domain/Syncronizer";
 
 const builder = new ContainerBuilder();
 
@@ -14,6 +17,11 @@ builder
   .register(ActivityRepository)
   .use(StorageActivityRepository)
   .withDependencies([Storage])
+  .asSingleton();
+builder.register(DataFetcher).use(ContentfulDataFetcher).asSingleton();
+builder
+  .registerAndUse(Syncronizer)
+  .withDependencies([DataFetcher, ActivityRepository])
   .asSingleton();
 
 export const container = builder.build();

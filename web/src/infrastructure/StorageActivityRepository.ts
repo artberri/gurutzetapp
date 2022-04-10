@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { pipe, map, sort, uniq } from "ramda";
+import { pipe, map, sort, uniq, evolve } from "ramda";
 import { map as mapE } from "../cross-cutting/Either";
 import { Activity } from "../domain/Activity";
 import { ActivityRepository } from "../domain/ActivityRepository";
@@ -18,8 +18,20 @@ export class StorageActivityRepository implements ActivityRepository {
   public constructor(private readonly storage: Storage) {}
 
   public getActivityDays() {
-    const activities = this.storage.getItem<Activity[]>(activityStorageKey);
+    const activities = this.getActivitiesWithDate();
 
     return mapE(getUniqueSortedDates)(activities);
+  }
+
+  public save(activities: readonly Activity[]) {
+    this.storage.setItem(activityStorageKey, activities);
+  }
+
+  private getActivitiesWithDate() {
+    const activities = this.storage.getItem<Activity[]>(activityStorageKey);
+    // date field is serialized to string, so we need to convert it back to Date
+    return mapE(map(evolve({ date: (date: Date) => new Date(date) })))(
+      activities
+    );
   }
 }

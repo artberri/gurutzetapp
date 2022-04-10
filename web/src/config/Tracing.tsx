@@ -11,6 +11,7 @@ export interface BoundaryProperties {
 export const configTracing = () =>
   fold(
     () => {
+      // eslint-disable-next-line no-console
       console.log("Sentry is not configured");
       return false;
     },
