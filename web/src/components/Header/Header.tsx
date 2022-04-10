@@ -1,3 +1,4 @@
+import { LanguageSwitch } from "../LanguageSwitch/LanguageSwitch";
 import { Logo } from "../Logo/Logo";
 
 export interface HeaderProperties {
@@ -6,8 +7,9 @@ export interface HeaderProperties {
 
 export const Header = ({ className = "" }: HeaderProperties) => (
   <header
-    className={`bg-white flex text-primary p-3 font-heading ${className}`}
+    className={`bg-white flex justify-between text-primary p-3 font-heading ${className}`}
   >
     <Logo color="primary" width={30} />
+    <LanguageSwitch />
   </header>
 );

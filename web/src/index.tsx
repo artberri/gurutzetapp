@@ -17,7 +17,7 @@ void i18n
   .use(initReactI18next)
   .use(LanguageDetector)
   .init({
-    supportedLngs: ["es", "eu"],
+    supportedLngs: ["eu", "es"],
     nonExplicitSupportedLngs: true,
     resources: {
       es: {
@@ -27,7 +27,7 @@ void i18n
         translation: eu,
       },
     },
-    fallbackLng: "es",
+    fallbackLng: "eu",
     interpolation: {
       escapeValue: false,
     },
