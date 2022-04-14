@@ -1,5 +1,5 @@
-import { LanguageSwitch } from "../LanguageSwitch/LanguageSwitch";
-import { Logo } from "../Logo/Logo";
+import { LanguageSwitch } from "./LanguageSwitch";
+import { Logo } from "./Logo";
 
 export interface HeaderProperties {
   className?: string;

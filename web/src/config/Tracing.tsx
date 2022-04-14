@@ -13,7 +13,6 @@ export const configTracing = () =>
     () => {
       // eslint-disable-next-line no-console
       console.log("Sentry is not configured");
-      return false;
     },
     (dsn: string) => {
       init({
@@ -27,6 +26,5 @@ export const configTracing = () =>
           tags: { app: "gurutzetapp" },
         },
       });
-      return true;
     }
   )(getEnv("REACT_APP_SENTRY_DSN"));

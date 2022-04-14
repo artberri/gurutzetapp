@@ -1,8 +1,8 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
-import { noop } from "../../cross-cutting/Noop";
-import { Button } from "../Button/Button";
+import { noop } from "../cross-cutting/Noop";
+import { Button } from "./Button";
 
 export interface FatalErrorDialogProperties {
   isOpen: boolean;

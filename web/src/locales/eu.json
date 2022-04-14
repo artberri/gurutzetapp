@@ -3,6 +3,7 @@
   "error.fatal.title": "Ups! Zerbait gaizki dago",
   "error.fatal.description": "Ezin izan dira jaietako datuak kargatu. Mesedez, egiaztatu zure konexioa eta saiatu berriro geroago.",
   "error.fatal.button": "Saiatu berriro",
+
   "SCHEDULE": "Egitaraua",
   "FAVOURITES": "Gogokoenak",
   "MAP": "Mapa",
@@ -14,6 +15,5 @@
   "CATEGORY_PARTICIPATE": "Parte hartzeko ekintzak",
   "CATEGORY_GASTRONOMIC": "Ekintza gastronomikoak",
   "CATEGORY_MUSIC": "Musika eta kontsertuak",
-  "NO_RESULTS": "Ez dago ekintzarik",
-  "LANGUAGE_SWITCH": "CAS"
+  "NO_RESULTS": "Ez dago ekintzarik"
 }

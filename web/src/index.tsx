@@ -13,7 +13,7 @@ import { reportWebVitals } from "./ReportWebVitals";
 import * as serviceWorkerRegistration from "./ServiceWorkerRegistration";
 import { OnlineStatusProvider } from "./utils/OnlineStatus";
 import { ServiceGetter, ServiceGetterContext } from "./utils/Services";
-import { FatalError } from "./components/FatalError/FatalError";
+import { FatalError } from "./components/FatalError";
 
 configTracing();
 configI18n();

@@ -10,6 +10,7 @@ import { ContentfulActivityEntry } from "./ContentfulActivityEntry";
 const mapActivity = (entry: ContentfulActivityEntry): Activity => ({
   id: entry.sys.id,
   date: new Date(entry.fields.date.es),
+  dateEnd: entry.fields.dateEnd ? new Date(entry.fields.dateEnd.es) : undefined,
   description: {
     es: entry.fields.description.es,
     eu: entry.fields.description.eu,
@@ -61,6 +62,8 @@ export class ContentfulDataFetcher implements DataFetcher {
             readonly entries: any[];
           };
           const { entries } = responseObject;
+
+          console.log(getActivities(entries));
 
           return {
             modified: {

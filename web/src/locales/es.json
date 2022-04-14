@@ -3,6 +3,7 @@
   "error.fatal.title": "¡Ups! Algo salió mal",
   "error.fatal.description": "No se han podido cargar los datos de las fiestas. Por favor, comprueba tu conexión e inténtalo de nuevo más tarde.",
   "error.fatal.button": "Reintentar",
+
   "SCHEDULE": "Programa",
   "FAVOURITES": "Favoritos",
   "MAP": "Mapa",
@@ -14,6 +15,5 @@
   "CATEGORY_PARTICIPATE": "Actividades participativas",
   "CATEGORY_GASTRONOMIC": "Actividades gastronónicas",
   "CATEGORY_MUSIC": "Música y conciertos",
-  "NO_RESULTS": "No hay resultados",
-  "LANGUAGE_SWITCH": "EUS"
+  "NO_RESULTS": "No hay resultados"
 }

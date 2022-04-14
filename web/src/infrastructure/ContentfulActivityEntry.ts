@@ -17,6 +17,9 @@ export interface ContentfulActivityEntry {
     date: {
       es: string;
     };
+    dateEnd?: {
+      es: string;
+    };
     category: {
       es: {
         readonly sys: {
