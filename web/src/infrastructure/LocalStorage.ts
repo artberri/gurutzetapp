@@ -1,4 +1,5 @@
 import { left, right } from "../cross-cutting/Either";
+import { parseError } from "../utils/Error";
 import { Storage } from "./Storage";
 
 export class LocalStorage implements Storage {
@@ -19,7 +20,7 @@ export class LocalStorage implements Storage {
     try {
       return right(JSON.parse(value) as T);
     } catch (error) {
-      return left<T>(error instanceof Error ? error : new Error(String(error)));
+      return left<T>(parseError(error));
     }
   }
 

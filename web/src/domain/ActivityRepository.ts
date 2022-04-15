@@ -7,4 +7,5 @@ export abstract class ActivityRepository {
     date: Date
   ): Either<Error, ReadonlyArray<Activity>>;
   public abstract save(activities: readonly Activity[]): void;
+  public abstract remove(activities: readonly Activity[]): void;
 }

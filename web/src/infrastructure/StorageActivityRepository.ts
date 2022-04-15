@@ -1,10 +1,10 @@
-import "reflect-metadata";
-import { pipe, map, sort, uniq, evolve, filter } from "ramda";
-import { Either, map as mapE } from "../cross-cutting/Either";
+import { pipe, map, sort, uniq, evolve, filter, concat } from "ramda";
+import { map as mapE, option, right } from "../cross-cutting/Either";
 import { Activity } from "../domain/Activity";
 import { ActivityRepository } from "../domain/ActivityRepository";
 import { Storage } from "./Storage";
 import { getYYYYMMDD } from "../utils/Date";
+import { just, nothing, fold } from "../cross-cutting/Maybe";
 
 const activityStorageKey = "GURUTZETAPP_ACTIVITIES";
 
@@ -22,9 +22,11 @@ const getUniqueSortedDates = pipe(
 );
 
 export class StorageActivityRepository implements ActivityRepository {
+  private activities = nothing<Activity[]>();
+
   public constructor(private readonly storage: Storage) {}
 
-  public getActivities(date: Date): Either<Error, readonly Activity[]> {
+  public getActivities(date: Date) {
     const activities = this.getActivitiesWithDate();
 
     return mapE(getSortedDayActivities(date))(activities);
@@ -36,20 +38,45 @@ export class StorageActivityRepository implements ActivityRepository {
     return mapE(getUniqueSortedDates)(activities);
   }
 
-  public save(activities: readonly Activity[]) {
-    this.storage.setItem(activityStorageKey, activities);
+  public save(activities: Activity[]) {
+    const newActivityIds = map((a: Activity) => a.id)(activities);
+    const updateActivities = pipe(
+      option<Activity[]>(() => []),
+      filter<Activity>((a) => !newActivityIds.includes(a.id)),
+      concat<Activity[]>(activities)
+    );
+
+    const toSave = updateActivities(this.getActivitiesWithDate());
+    this.activities = just(toSave);
+    this.storage.setItem(activityStorageKey, toSave);
+  }
+
+  public remove(activities: Activity[]) {
+    const toRemoveActivityIds = map((a: Activity) => a.id)(activities);
+    const removeActivities = pipe(
+      option<Activity[]>(() => []),
+      filter<Activity>((a) => !toRemoveActivityIds.includes(a.id))
+    );
+    const toSave = removeActivities(this.getActivitiesWithDate());
+    this.activities = just(toSave);
+    this.storage.setItem(activityStorageKey, toSave);
   }
 
   private getActivitiesWithDate() {
-    const activities = this.storage.getItem<Activity[]>(activityStorageKey);
-    // date fields are serialized to string, so we need to convert it back to Date
-    return mapE(
-      map(
-        evolve({
-          date: (date: Date) => new Date(date),
-          dateEnd: (date?: Date) => (date ? new Date(date) : undefined),
-        })
-      )
-    )(activities);
+    return fold(
+      () => {
+        const activities = this.storage.getItem<Activity[]>(activityStorageKey);
+        // date fields are serialized to string, so we need to convert it back to Date
+        return mapE(
+          map(
+            evolve({
+              date: (date: Date) => new Date(date),
+              dateEnd: (date?: Date) => (date ? new Date(date) : undefined),
+            })
+          )
+        )(activities);
+      },
+      (activities: Activity[]) => right(activities)
+    )(this.activities);
   }
 }

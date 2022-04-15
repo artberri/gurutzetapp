@@ -1,8 +1,13 @@
 import { HeartIcon } from "@heroicons/react/outline";
 import { useTranslation } from "react-i18next";
+import { fold } from "../cross-cutting/Either";
 import { Activity as A } from "../domain/Activity";
+import { Category } from "../domain/Category";
+import { CategoryRepository } from "../domain/CategoryRepository";
 import { LocalizedText } from "../domain/LocalizedText";
+import { Tracer } from "../domain/Tracer";
 import { getHHmm } from "../utils/Date";
+import { useService } from "../utils/Services";
 
 export interface ActivityProperties {
   activity: A;
@@ -10,8 +15,11 @@ export interface ActivityProperties {
 
 export const Activity = ({ activity }: ActivityProperties) => {
   const { i18n } = useTranslation();
+  const categoryRepository = useService(CategoryRepository);
+  const tracer = useService(Tracer);
+  const category = categoryRepository.getCategory(activity.categoryId);
   const language = i18n.language as keyof LocalizedText;
-  console.log(activity);
+
   return (
     <div className="flex p-3 justify-between items-start text-slate-700">
       <div className="w-14 flex-none flex flex-col text-center pr-2">
@@ -27,9 +35,18 @@ export const Activity = ({ activity }: ActivityProperties) => {
         <div className="font-medium text-slate-700 first-letter:capitalize">
           {activity.description[language]}
         </div>
-        <div className="text-slate-500 first-letter:capitalize">
-          {activity.category.name[language]}
-        </div>
+        {fold(
+          (error: Error) => {
+            tracer.trace(error);
+            // eslint-disable-next-line unicorn/no-null
+            return null;
+          },
+          (c: Category) => (
+            <div className="text-slate-500 first-letter:capitalize">
+              {c.name[language]}
+            </div>
+          )
+        )(category)}
       </div>
       <div className="w-10 flex-none text-primary cursor-pointer pl-2">
         <HeartIcon />
