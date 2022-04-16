@@ -1,11 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { map } from "ramda";
-import { useState, useEffect } from "react";
 import { Day } from "./Day";
 import { StackedList } from "./StackedList";
-import { useService } from "../utils/Services";
-import { ActivityRepository } from "../domain/ActivityRepository";
-import { fold } from "../cross-cutting/Either";
+import { useActivities } from "../utils/ActivityUtils";
+import { FatalErrorDialog } from "./FatalErrorDialog";
 
 const mapDays = (handleClick: (date: Date) => () => void) =>
   map((date: Date) => (
@@ -17,26 +15,22 @@ const mapDays = (handleClick: (date: Date) => () => void) =>
   ));
 
 export interface DaysProperties {
-  onError: (error: Error) => void;
   onClick: (day: Date) => void;
 }
 
-export const Days = ({ onError, onClick }: DaysProperties) => {
+export const Days = ({ onClick }: DaysProperties) => {
   const { t } = useTranslation();
-  const activityRepository = useService(ActivityRepository);
-  const [days, setDays] = useState<readonly Date[]>([]);
+  const { getActivityDays } = useActivities();
+  const days = getActivityDays();
 
   const handleDayClick = (date: Date) => () => {
     onClick(date);
   };
 
-  useEffect(() => {
-    fold((error) => {
-      onError(error);
-    }, setDays)(activityRepository.getActivityDays());
-  }, [activityRepository, onError]);
-
   return (
-    <StackedList title={t("title")} items={mapDays(handleDayClick)(days)} />
+    <>
+      <StackedList title={t("title")} items={mapDays(handleDayClick)(days)} />
+      <FatalErrorDialog isOpen={days.length === 0} />
+    </>
   );
 };

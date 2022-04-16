@@ -13,7 +13,7 @@ import {
   ContentfulVenueEntry,
   DeletedEntry,
 } from "./ContentfulModels";
-import { parseError } from "../utils/Error";
+import { parseError } from "../utils/ErrorUtils";
 import { Category } from "../domain/Category";
 import { Venue } from "../domain/Venue";
 
@@ -223,5 +223,9 @@ export class ContentfulDataFetcher implements DataFetcher {
       this.storage.setItem(nextTokenKey, token);
       return data;
     })(fetchLoop(this.client)(nextToken));
+  }
+
+  public clear() {
+    this.storage.removeItem(nextTokenKey);
   }
 }

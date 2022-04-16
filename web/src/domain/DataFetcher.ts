@@ -16,4 +16,5 @@ export interface Data {
 
 export abstract class DataFetcher {
   public abstract fetch(): FutureInstance<Error, Data>;
+  public abstract clear(): void;
 }

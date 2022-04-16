@@ -1,7 +1,7 @@
 import { ChevronRightIcon } from "@heroicons/react/outline";
 import { KeyboardEventHandler, MouseEventHandler } from "react";
 import { useTranslation } from "react-i18next";
-import { monthDay, weekDay } from "../utils/Date";
+import { monthDay, weekDay } from "../utils/DateUtils";
 
 export interface DayProperties {
   date: Date;

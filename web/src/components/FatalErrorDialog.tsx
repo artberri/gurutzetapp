@@ -1,19 +1,23 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+import { Fragment, MouseEventHandler } from "react";
 import { useTranslation } from "react-i18next";
 import { noop } from "../cross-cutting/Noop";
+import { Syncronizer } from "../domain/Syncronizer";
+import { useService } from "../utils/ServiceUtils";
 import { Button } from "./Button";
 
 export interface FatalErrorDialogProperties {
   isOpen: boolean;
-  onButtonClick: () => void;
 }
 
-export const FatalErrorDialog = ({
-  isOpen,
-  onButtonClick,
-}: FatalErrorDialogProperties) => {
+export const FatalErrorDialog = ({ isOpen }: FatalErrorDialogProperties) => {
   const { t } = useTranslation();
+  const syncronizer = useService(Syncronizer);
+
+  const onButtonClick: MouseEventHandler<HTMLButtonElement> = () => {
+    syncronizer.clear();
+    window?.location.reload();
+  };
 
   return (
     <Transition appear show={isOpen} as={Fragment}>

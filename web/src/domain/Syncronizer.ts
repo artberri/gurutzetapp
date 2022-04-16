@@ -1,18 +1,18 @@
 import { map } from "fluture";
-import { ActivityRepository } from "./ActivityRepository";
-import { CategoryRepository } from "./CategoryRepository";
+import { ActivityStorage } from "./ActivityStorage";
+import { CategoryStorage } from "./CategoryStorage";
 import { Data, DataFetcher } from "./DataFetcher";
-import { VenueRepository } from "./VenueRepository";
+import { VenueStorage } from "./VenueStorage";
 
 const sync =
   ({
-    activityRepository,
-    categoryRepository,
-    venueRepository,
+    activityStorage,
+    categoryStorage,
+    venueStorage,
   }: {
-    activityRepository: ActivityRepository;
-    categoryRepository: CategoryRepository;
-    venueRepository: VenueRepository;
+    activityStorage: ActivityStorage;
+    categoryStorage: CategoryStorage;
+    venueStorage: VenueStorage;
   }) =>
   (data: Data) => {
     const { modified, removed } = data;
@@ -23,29 +23,36 @@ const sync =
       venues: removedVenues,
     } = removed;
 
-    activityRepository.remove(removedActivities);
-    activityRepository.save(activities);
-    categoryRepository.remove(removedCategories);
-    categoryRepository.save(categories);
-    venueRepository.remove(removedVenues);
-    venueRepository.save(venues);
+    activityStorage.remove(removedActivities);
+    activityStorage.save(activities);
+    categoryStorage.remove(removedCategories);
+    categoryStorage.save(categories);
+    venueStorage.remove(removedVenues);
+    venueStorage.save(venues);
   };
 
 export class Syncronizer {
   public constructor(
     private readonly fetcher: DataFetcher,
-    private readonly activityRepository: ActivityRepository,
-    private readonly categoryRepository: CategoryRepository,
-    private readonly venueRepository: VenueRepository,
+    private readonly activityStorage: ActivityStorage,
+    private readonly categoryStorage: CategoryStorage,
+    private readonly venueStorage: VenueStorage,
   ) {}
 
   public sync() {
     return map(
       sync({
-        activityRepository: this.activityRepository,
-        categoryRepository: this.categoryRepository,
-        venueRepository: this.venueRepository,
+        activityStorage: this.activityStorage,
+        categoryStorage: this.categoryStorage,
+        venueStorage: this.venueStorage,
       }),
     )(this.fetcher.fetch());
+  }
+
+  public clear() {
+    this.activityStorage.clear();
+    this.categoryStorage.clear();
+    this.venueStorage.clear();
+    this.fetcher.clear();
   }
 }

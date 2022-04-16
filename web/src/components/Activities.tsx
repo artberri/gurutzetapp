@@ -1,19 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { ArrowLeftIcon } from "@heroicons/react/outline";
 import { map } from "ramda";
-import {
-  useState,
-  useEffect,
-  MouseEventHandler,
-  KeyboardEventHandler,
-} from "react";
+import { MouseEventHandler, KeyboardEventHandler } from "react";
 import { Activity as A } from "../domain/Activity";
 import { Activity } from "./Activity";
-import { monthDay, weekDay } from "../utils/Date";
+import { monthDay, weekDay } from "../utils/DateUtils";
 import { StackedList } from "./StackedList";
-import { useService } from "../utils/Services";
-import { ActivityRepository } from "../domain/ActivityRepository";
-import { fold } from "../cross-cutting/Either";
+import { useActivities } from "../utils/ActivityUtils";
 
 const mapActivities = map((activity: A) => (
   <Activity key={activity.id} activity={activity} />
@@ -22,21 +15,14 @@ const mapActivities = map((activity: A) => (
 export interface ActivitiesProperties {
   date: Date;
   onBack: () => void;
-  onError: (error: Error) => void;
 }
 
-export const Activities = ({ onBack, date, onError }: ActivitiesProperties) => {
+export const Activities = ({ onBack, date }: ActivitiesProperties) => {
   const { i18n } = useTranslation();
   const translateMonthDay = monthDay(i18n.language);
   const translateWeekDay = weekDay(i18n.language);
-  const activityRepository = useService(ActivityRepository);
-  const [activities, setActivities] = useState<readonly A[]>([]);
-
-  useEffect(() => {
-    fold((error) => {
-      onError(error);
-    }, setActivities)(activityRepository.getActivities(date));
-  }, [activityRepository, date, onError]);
+  const { getActivities } = useActivities();
+  const activities = getActivities(date);
 
   const handleBackClick: MouseEventHandler<HTMLDivElement> = (event) => {
     event.preventDefault();

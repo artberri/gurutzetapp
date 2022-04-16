@@ -2,7 +2,7 @@ import { HeartIcon } from "@heroicons/react/outline";
 import { HeartIcon as SolidHeartIcon } from "@heroicons/react/solid";
 import { KeyboardEventHandler } from "react";
 import { Activity } from "../domain/Activity";
-import { useFavorites } from "../utils/Favorites";
+import { useFavorites } from "../utils/FavoriteUtils";
 
 export interface FavoriteButtonProperties {
   activity: Activity;

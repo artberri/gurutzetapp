@@ -1,5 +1,5 @@
 import { left, right } from "../cross-cutting/Either";
-import { parseError } from "../utils/Error";
+import { parseError } from "../utils/ErrorUtils";
 import { Storage } from "../domain/Storage";
 
 export class LocalStorage implements Storage {

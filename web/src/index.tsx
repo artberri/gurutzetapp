@@ -11,10 +11,8 @@ import { App } from "./App";
 import "./index.css";
 import { reportWebVitals } from "./ReportWebVitals";
 import * as serviceWorkerRegistration from "./ServiceWorkerRegistration";
-import { OnlineStatusProvider } from "./utils/OnlineStatus";
-import { ServiceGetter, ServiceGetterProvider } from "./utils/Services";
+import { ServiceGetter, ServiceGetterProvider } from "./utils/ServiceUtils";
 import { FatalError } from "./components/FatalError";
-import { FavoritesProvider } from "./utils/Favorites";
 
 configTracing();
 configI18n();
@@ -28,11 +26,7 @@ const root = createRoot(container);
 root.render(
   <ErrorBoundary fallback={<FatalError />} showDialog>
     <ServiceGetterProvider serviceGetter={serviceGetter}>
-      <OnlineStatusProvider>
-        <FavoritesProvider>
-          <App />
-        </FavoritesProvider>
-      </OnlineStatusProvider>
+      <App />
     </ServiceGetterProvider>
   </ErrorBoundary>,
 );

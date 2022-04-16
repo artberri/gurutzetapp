@@ -2,11 +2,11 @@ import { useTranslation } from "react-i18next";
 import { fold } from "../cross-cutting/Either";
 import { Activity as A } from "../domain/Activity";
 import { Category } from "../domain/Category";
-import { CategoryRepository } from "../domain/CategoryRepository";
 import { LocalizedText } from "../domain/LocalizedText";
 import { Tracer } from "../domain/Tracer";
-import { getHHmm } from "../utils/Date";
-import { useService } from "../utils/Services";
+import { useCategories } from "../utils/CategoryUtils";
+import { getHHmm } from "../utils/DateUtils";
+import { useService } from "../utils/ServiceUtils";
 import { FavoriteButton } from "./FavoriteButton";
 
 export interface ActivityProperties {
@@ -15,9 +15,9 @@ export interface ActivityProperties {
 
 export const Activity = ({ activity }: ActivityProperties) => {
   const { i18n } = useTranslation();
-  const categoryRepository = useService(CategoryRepository);
+  const { getCategory } = useCategories();
   const tracer = useService(Tracer);
-  const category = categoryRepository.getCategory(activity.categoryId);
+  const category = getCategory(activity.categoryId);
   const language = i18n.language as keyof LocalizedText;
 
   return (

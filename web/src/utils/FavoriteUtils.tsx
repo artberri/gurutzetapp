@@ -9,7 +9,7 @@ import {
 } from "react";
 import { noop } from "../cross-cutting/Noop";
 import { FavoriteStorage } from "../domain/FavoriteStorage";
-import { useService } from "./Services";
+import { useService } from "./ServiceUtils";
 
 const FavoritesContext = createContext<{
   favorites: string[];

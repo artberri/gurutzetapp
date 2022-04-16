@@ -16,8 +16,9 @@ import { Schedule } from "./components/Schedule";
 import { TabPage, Tabs } from "./components/Tabs";
 import { noop } from "./cross-cutting/Noop";
 import { Syncronizer } from "./domain/Syncronizer";
-import { useOnlineStatus } from "./utils/OnlineStatus";
-import { useService } from "./utils/Services";
+import { useOnlineStatus } from "./utils/OnlineStatusUtils";
+import { useService } from "./utils/ServiceUtils";
+import { AppProviders } from "./AppProviders";
 
 export const App = () => {
   const isOnline = useOnlineStatus();
@@ -96,9 +97,11 @@ export const App = () => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Layout>
-          <Tabs pages={pages} />
-        </Layout>
+        <AppProviders>
+          <Layout>
+            <Tabs pages={pages} />
+          </Layout>
+        </AppProviders>
       </Transition>
     </>
   );
