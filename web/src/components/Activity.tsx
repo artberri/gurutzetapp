@@ -1,4 +1,3 @@
-import { HeartIcon } from "@heroicons/react/outline";
 import { useTranslation } from "react-i18next";
 import { fold } from "../cross-cutting/Either";
 import { Activity as A } from "../domain/Activity";
@@ -8,6 +7,7 @@ import { LocalizedText } from "../domain/LocalizedText";
 import { Tracer } from "../domain/Tracer";
 import { getHHmm } from "../utils/Date";
 import { useService } from "../utils/Services";
+import { FavoriteButton } from "./FavoriteButton";
 
 export interface ActivityProperties {
   activity: A;
@@ -48,8 +48,8 @@ export const Activity = ({ activity }: ActivityProperties) => {
           ),
         )(category)}
       </div>
-      <div className="w-10 flex-none text-primary cursor-pointer pl-2">
-        <HeartIcon />
+      <div className="w-10 flex-none pl-2">
+        <FavoriteButton activity={activity} />
       </div>
     </div>
   );

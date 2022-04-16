@@ -1,6 +1,6 @@
 import { left, right } from "../cross-cutting/Either";
 import { parseError } from "../utils/Error";
-import { Storage } from "./Storage";
+import { Storage } from "../domain/Storage";
 
 export class LocalStorage implements Storage {
   private readonly localStorage = localStorage;

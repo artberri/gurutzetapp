@@ -13,12 +13,14 @@ import { useService } from "./Services";
 
 const FavoritesContext = createContext<{
   favorites: string[];
-  addFavorite: (favorite: string) => void;
-  removeFavorite: (favorite: string) => void;
+  addFavorite: (activityId: string) => void;
+  removeFavorite: (activityId: string) => void;
+  isFavorite: (activityId: string) => boolean;
 }>({
   favorites: [],
   addFavorite: noop,
   removeFavorite: noop,
+  isFavorite: () => false,
 });
 
 export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
@@ -28,9 +30,9 @@ export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
   );
 
   const addFavorite = useCallback(
-    (favorite: string) => {
+    (activityId: string) => {
       setFavorites((favs) => {
-        const newFavs = uniq([...favs, favorite]);
+        const newFavs = uniq([...favs, activityId]);
         favoritesStorage.save(newFavs);
         return newFavs;
       });
@@ -39,9 +41,9 @@ export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
   );
 
   const removeFavorite = useCallback(
-    (favorite: string) => {
+    (activityId: string) => {
       setFavorites((favs) => {
-        const newFavs = filter((s: string) => s !== favorite)(favs);
+        const newFavs = filter((s: string) => s !== activityId)(favs);
         favoritesStorage.save(newFavs);
         return newFavs;
       });
@@ -49,9 +51,14 @@ export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
     [favoritesStorage],
   );
 
+  const isFavorite = useCallback(
+    (activityId: string) => favorites.includes(activityId),
+    [favorites],
+  );
+
   const value = useMemo(
-    () => ({ favorites, addFavorite, removeFavorite }),
-    [favorites, addFavorite, removeFavorite],
+    () => ({ favorites, addFavorite, removeFavorite, isFavorite }),
+    [favorites, addFavorite, removeFavorite, isFavorite],
   );
 
   return (

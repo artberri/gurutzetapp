@@ -12,8 +12,9 @@ import "./index.css";
 import { reportWebVitals } from "./ReportWebVitals";
 import * as serviceWorkerRegistration from "./ServiceWorkerRegistration";
 import { OnlineStatusProvider } from "./utils/OnlineStatus";
-import { ServiceGetter, ServiceGetterContext } from "./utils/Services";
+import { ServiceGetter, ServiceGetterProvider } from "./utils/Services";
 import { FatalError } from "./components/FatalError";
+import { FavoritesProvider } from "./utils/Favorites";
 
 configTracing();
 configI18n();
@@ -26,11 +27,13 @@ const root = createRoot(container);
 // React.StrictMode
 root.render(
   <ErrorBoundary fallback={<FatalError />} showDialog>
-    <ServiceGetterContext.Provider value={serviceGetter}>
+    <ServiceGetterProvider serviceGetter={serviceGetter}>
       <OnlineStatusProvider>
-        <App />
+        <FavoritesProvider>
+          <App />
+        </FavoritesProvider>
       </OnlineStatusProvider>
-    </ServiceGetterContext.Provider>
+    </ServiceGetterProvider>
   </ErrorBoundary>,
 );
 
