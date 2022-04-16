@@ -2,7 +2,7 @@ import { pipe, map, sort, uniq, evolve, filter, concat } from "ramda";
 import { map as mapE, option, right } from "../cross-cutting/Either";
 import { Activity } from "../domain/Activity";
 import { ActivityRepository } from "../domain/ActivityRepository";
-import { Storage } from "./Storage";
+import { Storage } from "../domain/Storage";
 import { getYYYYMMDD } from "../utils/Date";
 import { just, nothing, fold } from "../cross-cutting/Maybe";
 
@@ -11,14 +11,14 @@ const activityStorageKey = "GURUTZETAPP_ACTIVITIES";
 const getSortedDayActivities = (date: Date) =>
   pipe(
     filter((a: Activity) => getYYYYMMDD(a.date) === getYYYYMMDD(date)),
-    sort((a, b) => a.date.getTime() - b.date.getTime())
+    sort((a, b) => a.date.getTime() - b.date.getTime()),
   );
 
 const getUniqueSortedDates = pipe(
   map((a: Activity) => getYYYYMMDD(a.date)),
   uniq,
   map((dateString) => new Date(dateString)),
-  sort((a, b) => a.getTime() - b.getTime())
+  sort((a, b) => a.getTime() - b.getTime()),
 );
 
 export class StorageActivityRepository implements ActivityRepository {
@@ -43,7 +43,7 @@ export class StorageActivityRepository implements ActivityRepository {
     const updateActivities = pipe(
       option<Activity[]>(() => []),
       filter<Activity>((a) => !newActivityIds.includes(a.id)),
-      concat<Activity[]>(activities)
+      concat(activities),
     );
 
     const toSave = updateActivities(this.getActivitiesWithDate());
@@ -55,7 +55,7 @@ export class StorageActivityRepository implements ActivityRepository {
     const toRemoveActivityIds = map((a: Activity) => a.id)(activities);
     const removeActivities = pipe(
       option<Activity[]>(() => []),
-      filter<Activity>((a) => !toRemoveActivityIds.includes(a.id))
+      filter<Activity>((a) => !toRemoveActivityIds.includes(a.id)),
     );
     const toSave = removeActivities(this.getActivitiesWithDate());
     this.activities = just(toSave);
@@ -72,11 +72,11 @@ export class StorageActivityRepository implements ActivityRepository {
             evolve({
               date: (date: Date) => new Date(date),
               dateEnd: (date?: Date) => (date ? new Date(date) : undefined),
-            })
-          )
+            }),
+          ),
         )(activities);
       },
-      (activities: Activity[]) => right(activities)
+      (activities: Activity[]) => right(activities),
     )(this.activities);
   }
 }

@@ -2,7 +2,7 @@ import { attemptP, map as mapF, chain, resolve, FutureInstance } from "fluture";
 import { ContentfulClientApi, createClient, SyncCollection } from "contentful";
 import { concat, filter, map, mergeDeepWith, pipe } from "ramda";
 import { getEnv } from "./GetEnv";
-import { Storage } from "./Storage";
+import { Storage } from "../domain/Storage";
 import { Either, fold, option, right } from "../cross-cutting/Either";
 import { Data, DataFetcher } from "../domain/DataFetcher";
 import { Activity } from "../domain/Activity";
@@ -85,7 +85,7 @@ const mapRemovedVenue = (entry: DeletedEntry): Venue => ({
 });
 
 const isActivity = (
-  entry: ContentfulEntry
+  entry: ContentfulEntry,
 ): entry is ContentfulActivityEntry => {
   const activity = entry as ContentfulActivityEntry;
   return (
@@ -95,7 +95,7 @@ const isActivity = (
 };
 
 const isCategory = (
-  entry: ContentfulEntry
+  entry: ContentfulEntry,
 ): entry is ContentfulCategoryEntry => {
   const category = entry as ContentfulCategoryEntry;
   return (
@@ -113,17 +113,17 @@ const isVenue = (entry: ContentfulEntry): entry is ContentfulVenueEntry => {
 
 const getActivities = pipe(
   (entries: ContentfulEntry[]) => filter(isActivity)(entries),
-  map(mapActivity)
+  map(mapActivity),
 );
 
 const getCategories = pipe(
   (entries: ContentfulEntry[]) => filter(isCategory)(entries),
-  map(mapCategory)
+  map(mapCategory),
 );
 
 const getVenues = pipe(
   (entries: ContentfulEntry[]) => filter(isVenue)(entries),
-  map(mapVenue)
+  map(mapVenue),
 );
 
 const parseData = (response: SyncCollection): Data => {
@@ -159,7 +159,7 @@ const fetchInitial = (client: ContentfulClientApi) => () =>
       }))
       .catch((error) => {
         throw parseError(error);
-      })
+      }),
   );
 
 const fetchNext = (client: ContentfulClientApi) => (token: string) =>
@@ -174,7 +174,7 @@ const fetchNext = (client: ContentfulClientApi) => (token: string) =>
       }))
       .catch((error) => {
         throw parseError(error);
-      })
+      }),
   );
 
 const fetchOnce =
@@ -185,7 +185,7 @@ const fetchLoop =
   (client: ContentfulClientApi) =>
   (
     nextToken: Either<Error, string>,
-    previousData: Data = {} as Data
+    previousData: Data = {} as Data,
   ): FutureInstance<
     Error,
     {
@@ -202,7 +202,7 @@ const fetchLoop =
         }
 
         return fetchLoop(client)(right(token), mergedData);
-      }
+      },
     )(fetchOnce(client)(nextToken));
 
 export class ContentfulDataFetcher implements DataFetcher {
@@ -212,7 +212,7 @@ export class ContentfulDataFetcher implements DataFetcher {
     this.client = createClient({
       space: option(() => "")(getEnv("REACT_APP_CONTENTFUL_SPACE_ID")),
       accessToken: option(() => "")(
-        getEnv("REACT_APP_CONTENTFUL_ACCESS_TOKEN")
+        getEnv("REACT_APP_CONTENTFUL_ACCESS_TOKEN"),
       ),
     });
   }

@@ -2,7 +2,7 @@ import { pipe, map, filter, concat } from "ramda";
 import { chain, option, right, left } from "../cross-cutting/Either";
 import { Category } from "../domain/Category";
 import { CategoryRepository } from "../domain/CategoryRepository";
-import { Storage } from "./Storage";
+import { Storage } from "../domain/Storage";
 import { just, nothing, fold } from "../cross-cutting/Maybe";
 
 const categoryStorageKey = "GURUTZETAPP_CATEGORIES";
@@ -30,7 +30,7 @@ export class StorageCategoryRepository implements CategoryRepository {
     const updateCategories = pipe(
       option<Category[]>(() => []),
       filter<Category>((a) => !newCategoryIds.includes(a.id)),
-      concat<Category[]>(categories)
+      concat(categories),
     );
 
     const toSave = updateCategories(this.getCachedCategories());
@@ -42,7 +42,7 @@ export class StorageCategoryRepository implements CategoryRepository {
     const toRemoveCategoryIds = map((a: Category) => a.id)(categories);
     const removeCategories = pipe(
       option<Category[]>(() => []),
-      filter<Category>((a) => !toRemoveCategoryIds.includes(a.id))
+      filter<Category>((a) => !toRemoveCategoryIds.includes(a.id)),
     );
     const toSave = removeCategories(this.getCachedCategories());
     this.categories = just(toSave);
@@ -52,7 +52,7 @@ export class StorageCategoryRepository implements CategoryRepository {
   private getCachedCategories() {
     return fold(
       () => this.storage.getItem<Category[]>(categoryStorageKey),
-      (categories: Category[]) => right(categories)
+      (categories: Category[]) => right(categories),
     )(this.categories);
   }
 }

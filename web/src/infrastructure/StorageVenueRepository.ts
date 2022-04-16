@@ -2,7 +2,7 @@ import { pipe, map, filter, concat } from "ramda";
 import { chain, option, right, left } from "../cross-cutting/Either";
 import { Venue } from "../domain/Venue";
 import { VenueRepository } from "../domain/VenueRepository";
-import { Storage } from "./Storage";
+import { Storage } from "../domain/Storage";
 import { just, nothing, fold } from "../cross-cutting/Maybe";
 
 const venueStorageKey = "GURUTZETAPP_VENUES";
@@ -28,7 +28,7 @@ export class StorageVenueRepository implements VenueRepository {
     const updateVenues = pipe(
       option<Venue[]>(() => []),
       filter<Venue>((a) => !newVenueIds.includes(a.id)),
-      concat<Venue[]>(venues)
+      concat(venues),
     );
 
     const toSave = updateVenues(this.getCachedVenues());
@@ -40,7 +40,7 @@ export class StorageVenueRepository implements VenueRepository {
     const toRemoveVenueIds = map((a: Venue) => a.id)(venues);
     const removeVenues = pipe(
       option<Venue[]>(() => []),
-      filter<Venue>((a) => !toRemoveVenueIds.includes(a.id))
+      filter<Venue>((a) => !toRemoveVenueIds.includes(a.id)),
     );
     const toSave = removeVenues(this.getCachedVenues());
     this.venues = just(toSave);
@@ -50,7 +50,7 @@ export class StorageVenueRepository implements VenueRepository {
   private getCachedVenues() {
     return fold(
       () => this.storage.getItem<Venue[]>(venueStorageKey),
-      (venues: Venue[]) => right(venues)
+      (venues: Venue[]) => right(venues),
     )(this.venues);
   }
 }

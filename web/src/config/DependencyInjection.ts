@@ -1,5 +1,5 @@
 import { ContainerBuilder } from "diod";
-import { Storage } from "../infrastructure/Storage";
+import { Storage } from "../domain/Storage";
 import { LocalStorage } from "../infrastructure/LocalStorage";
 import { ActivityRepository } from "../domain/ActivityRepository";
 import { StorageActivityRepository } from "../infrastructure/StorageActivityRepository";
@@ -12,6 +12,7 @@ import { CategoryRepository } from "../domain/CategoryRepository";
 import { StorageCategoryRepository } from "../infrastructure/StorageCategoryRepository";
 import { VenueRepository } from "../domain/VenueRepository";
 import { StorageVenueRepository } from "../infrastructure/StorageVenueRepository";
+import { FavoriteStorage } from "../domain/FavoriteStorage";
 
 const builder = new ContainerBuilder();
 
@@ -30,6 +31,10 @@ builder
 builder
   .register(VenueRepository)
   .use(StorageVenueRepository)
+  .withDependencies([Storage])
+  .asSingleton();
+builder
+  .registerAndUse(FavoriteStorage)
   .withDependencies([Storage])
   .asSingleton();
 builder
