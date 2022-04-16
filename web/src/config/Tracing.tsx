@@ -26,5 +26,5 @@ export const configTracing = () =>
           tags: { app: "gurutzetapp" },
         },
       });
-    }
+    },
   )(getEnv("REACT_APP_SENTRY_DSN"));

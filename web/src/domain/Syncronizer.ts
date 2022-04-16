@@ -36,7 +36,7 @@ export class Syncronizer {
     private readonly fetcher: DataFetcher,
     private readonly activityRepository: ActivityRepository,
     private readonly categoryRepository: CategoryRepository,
-    private readonly venueRepository: VenueRepository
+    private readonly venueRepository: VenueRepository,
   ) {}
 
   public sync() {
@@ -45,7 +45,7 @@ export class Syncronizer {
         activityRepository: this.activityRepository,
         categoryRepository: this.categoryRepository,
         venueRepository: this.venueRepository,
-      })
+      }),
     )(this.fetcher.fetch());
   }
 }

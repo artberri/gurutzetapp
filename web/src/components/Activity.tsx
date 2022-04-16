@@ -45,7 +45,7 @@ export const Activity = ({ activity }: ActivityProperties) => {
             <div className="text-slate-500 first-letter:capitalize">
               {c.name[language]}
             </div>
-          )
+          ),
         )(category)}
       </div>
       <div className="w-10 flex-none text-primary cursor-pointer pl-2">

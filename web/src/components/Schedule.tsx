@@ -32,7 +32,7 @@ export const Schedule = () => {
           () => <Days onClick={handleDayClick} onError={handleError} />,
           (date: Date) => (
             <Activities date={date} onBack={handleBack} onError={handleError} />
-          )
+          ),
         )(selectedDate)}
 
         <FatalErrorDialog isOpen={hasError} onButtonClick={() => {}} />

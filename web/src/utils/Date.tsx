@@ -3,7 +3,7 @@ export const weekDay = (locale: string) => (date: Date) =>
 
 export const monthDay = (locale: string) => (date: Date) =>
   new Intl.DateTimeFormat(locale, { day: "numeric", month: "long" }).format(
-    date
+    date,
   );
 
 export const getYYYYMMDD = (date: Date) => date.toISOString().slice(0, 10);

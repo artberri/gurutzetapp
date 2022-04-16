@@ -10,7 +10,7 @@ export class SentryTracer implements Tracer {
   public constructor() {
     this.isActive = fold(
       () => false,
-      (value) => !!value
+      (value) => !!value,
     )(getEnv("REACT_APP_SENTRY_DSN"));
   }
 

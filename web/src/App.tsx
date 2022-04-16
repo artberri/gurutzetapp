@@ -37,7 +37,7 @@ export const App = () => {
         setIsLoading(false);
       })(() => {
         setIsLoading(false);
-      })
+      }),
     )(syncronizer.sync());
   }, [isOnline, syncronizer]);
 
