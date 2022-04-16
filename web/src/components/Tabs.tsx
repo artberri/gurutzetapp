@@ -12,10 +12,12 @@ export interface TabPage {
 
 export interface TabsProperties {
   pages: TabPage[];
+  selectedIndex: number;
+  onChange?: (index: number) => void;
 }
 
-export const Tabs = ({ pages }: TabsProperties) => (
-  <Tab.Group defaultIndex={0}>
+export const Tabs = ({ pages, selectedIndex, onChange }: TabsProperties) => (
+  <Tab.Group selectedIndex={selectedIndex} onChange={onChange}>
     <Tab.Panels className=" grow flex flex-col overflow-y-auto">
       {pages.map(({ id, content }) => (
         <Tab.Panel key={id} className="w-full h-full">

@@ -18,6 +18,12 @@ const getSortedDayActivities = (date: Date) =>
     sort((a, b) => a.date.getTime() - b.date.getTime()),
   );
 
+const getSortedByIdsActivities = (ids: string[]) =>
+  pipe(
+    filter((a: Activity) => ids.includes(a.id)),
+    sort((a, b) => a.date.getTime() - b.date.getTime()),
+  );
+
 const getUniqueSortedDates = pipe(
   map((a: Activity) => getYYYYMMDD(a.date)),
   uniq,
@@ -28,9 +34,11 @@ const getUniqueSortedDates = pipe(
 export const ActivityContext = createContext<{
   getActivityDays: () => Date[];
   getActivities: (date: Date) => Activity[];
+  getActivitiesByIds: (ids: string[]) => Activity[];
 }>({
   getActivityDays: () => [],
   getActivities: () => [],
+  getActivitiesByIds: () => [],
 });
 
 export const ActivityProvider = ({ children }: { children: ReactNode }) => {
@@ -47,9 +55,14 @@ export const ActivityProvider = ({ children }: { children: ReactNode }) => {
     [activities],
   );
 
+  const getActivitiesByIds = useCallback(
+    (ids: string[]) => getSortedByIdsActivities(ids)(activities),
+    [activities],
+  );
+
   const value = useMemo(
-    () => ({ getActivityDays, getActivities }),
-    [getActivityDays, getActivities],
+    () => ({ getActivityDays, getActivities, getActivitiesByIds }),
+    [getActivityDays, getActivities, getActivitiesByIds],
   );
 
   return (

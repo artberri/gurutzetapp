@@ -19,8 +19,10 @@ import { Syncronizer } from "./domain/Syncronizer";
 import { useOnlineStatus } from "./utils/OnlineStatusUtils";
 import { useService } from "./utils/ServiceUtils";
 import { AppProviders } from "./AppProviders";
+import { Favorites } from "./components/Favorites";
 
 export const App = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const isOnline = useOnlineStatus();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error>();
@@ -59,7 +61,7 @@ export const App = () => {
     },
     {
       id: "favourites",
-      content: <Loader />,
+      content: <Favorites onBack={() => setSelectedIndex(0)} />,
       icon: <HeartIcon className="text-white" />,
       iconSelected: <HeartIconSelected className="text-white" />,
     },
@@ -99,7 +101,11 @@ export const App = () => {
       >
         <AppProviders>
           <Layout>
-            <Tabs pages={pages} />
+            <Tabs
+              pages={pages}
+              selectedIndex={selectedIndex}
+              onChange={setSelectedIndex}
+            />
           </Layout>
         </AppProviders>
       </Transition>
