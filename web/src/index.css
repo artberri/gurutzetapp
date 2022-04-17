@@ -6,4 +6,12 @@
   html {
     font-family: "Ubuntu", system-ui, sans-serif;
   }
+
+  a {
+    @apply text-primary;
+  }
+}
+
+.leaflet-container a {
+  @apply text-primary;
 }

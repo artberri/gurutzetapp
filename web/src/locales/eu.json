@@ -6,10 +6,11 @@
   "favorites": "Gogokoenak",
   "favorites.noresults": "Oraindik ekintzarik ez duzu gorde. Ikusi egitaraua eta bihotza sakatu gustoko duzun ekintzetan.",
   "favorites.back": "Ikusi egitaraua",
+  "map.offline": "Internet konexioa behar duzu mapa ikusteko",
+  "map.error": "Ezin izan da mapa kargatu. Mesedez, egiaztatu zure konexioa eta saiatu berriro geroago.",
 
   "SCHEDULE": "Egitaraua",
   "MAP": "Mapa",
-  "MAP_NO_CONNECTION": "Internet konexioa behar duzu mapa ikusteko",
   "CATEGORY_SHOW": "Ikuskizunak",
   "CATEGORY_KIDS": "Umeentzako ekintzak",
   "CATEGORY_CHAMPIONSHIP": "Lehiaketak",

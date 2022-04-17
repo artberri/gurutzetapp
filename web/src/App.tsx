@@ -20,6 +20,7 @@ import { useOnlineStatus } from "./utils/OnlineStatusUtils";
 import { useService } from "./utils/ServiceUtils";
 import { AppProviders } from "./AppProviders";
 import { Favorites } from "./components/Favorites";
+import { Map } from "./components/Map";
 
 export const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -67,7 +68,7 @@ export const App = () => {
     },
     {
       id: "map",
-      content: <Loader />,
+      content: <Map />,
       icon: <GlobeIcon className="text-white" />,
       iconSelected: <GlobeIconSelected className="text-white" />,
     },
