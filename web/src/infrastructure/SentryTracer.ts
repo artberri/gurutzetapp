@@ -16,7 +16,11 @@ export class SentryTracer implements Tracer {
 
   public trace(error: Error) {
     if (this.isActive) {
-      captureException(error);
+      try {
+        captureException(error);
+      } catch (sentryError) {
+        console.error(sentryError);
+      }
     } else {
       console.error(error);
     }
