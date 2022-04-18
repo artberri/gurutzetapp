@@ -1,8 +1,10 @@
 name: Build and Deploy to Netlify
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["qa"]
+    branches: [main]
+    types:
+      - completed
 jobs:
   build:
     runs-on: ubuntu-latest

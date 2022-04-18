@@ -21,13 +21,14 @@ import { useService } from "./utils/ServiceUtils";
 import { AppProviders } from "./AppProviders";
 import { Favorites } from "./components/Favorites";
 import { Map } from "./components/Map";
+import { Tracer } from "./domain/Tracer";
 
 export const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const isOnline = useOnlineStatus();
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<Error>();
   const syncronizer = useService(Syncronizer);
+  const tracer = useService(Tracer);
 
   const syncronizeData = useCallback(() => {
     if (!isOnline) {
@@ -37,21 +38,19 @@ export const App = () => {
 
     return pipe(
       fork<Error>((syncError) => {
-        setError(syncError);
+        tracer.trace(syncError);
         setIsLoading(false);
       })(() => {
         setIsLoading(false);
       }),
     )(syncronizer.sync());
-  }, [isOnline, syncronizer]);
+  }, [isOnline, syncronizer, tracer]);
 
   useEffect(() => {
     const cancel = syncronizeData();
 
     return () => cancel();
   }, [syncronizeData]);
-
-  console.log(error);
 
   const [pages] = useState<TabPage[]>([
     {
