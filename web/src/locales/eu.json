@@ -8,14 +8,5 @@
   "favorites.back": "Ikusi egitaraua",
   "map.offline": "Internet konexioa behar duzu mapa ikusteko",
   "map.error": "Ezin izan da mapa kargatu. Mesedez, egiaztatu zure konexioa eta saiatu berriro geroago.",
-
-  "SCHEDULE": "Egitaraua",
-  "MAP": "Mapa",
-  "CATEGORY_SHOW": "Ikuskizunak",
-  "CATEGORY_KIDS": "Umeentzako ekintzak",
-  "CATEGORY_CHAMPIONSHIP": "Lehiaketak",
-  "CATEGORY_PARTICIPATE": "Parte hartzeko ekintzak",
-  "CATEGORY_GASTRONOMIC": "Ekintza gastronomikoak",
-  "CATEGORY_MUSIC": "Musika eta kontsertuak",
-  "NO_RESULTS": "Ez dago ekintzarik"
+  "nofilters": "Kategoria guztiak"
 }

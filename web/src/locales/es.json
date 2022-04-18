@@ -8,14 +8,5 @@
   "favorites.back": "Ver programa",
   "map.offline": "Necesitas conexión a internet para poder ver el mapa",
   "map.error": "No se han podido cargar los datos del mapa. Por favor, comprueba tu conexión e inténtalo de nuevo más tarde.",
-
-  "SCHEDULE": "Programa",
-  "MAP": "Mapa",
-  "CATEGORY_SHOW": "Espectáculos",
-  "CATEGORY_KIDS": "Actividades para niños",
-  "CATEGORY_CHAMPIONSHIP": "Torneos",
-  "CATEGORY_PARTICIPATE": "Actividades participativas",
-  "CATEGORY_GASTRONOMIC": "Actividades gastronónicas",
-  "CATEGORY_MUSIC": "Música y conciertos",
-  "NO_RESULTS": "No hay resultados"
+  "nofilters": "Todas las categorías"
 }

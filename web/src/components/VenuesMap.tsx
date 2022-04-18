@@ -37,11 +37,9 @@ const mapActivities = (lang: "es" | "eu") =>
 export const VenuesMap = () => {
   const { i18n } = useTranslation();
   const { venues } = useVenues();
-  const [center, setCenter] = useState<[lat: number, lng: number]>([
+  const [center] = useState<[lat: number, lng: number]>([
     43.281_579_4, -2.985_663_9,
   ]);
-
-  console.log(setCenter);
 
   return (
     <MapContainer className="w-full h-full" center={center} zoom={15}>

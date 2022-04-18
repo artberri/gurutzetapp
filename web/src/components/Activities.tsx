@@ -1,12 +1,15 @@
 import { useTranslation } from "react-i18next";
 import { ArrowLeftIcon } from "@heroicons/react/outline";
 import { map } from "ramda";
-import { MouseEventHandler, KeyboardEventHandler } from "react";
+import { MouseEventHandler, KeyboardEventHandler, useState } from "react";
 import { Activity as A } from "../domain/Activity";
 import { Activity } from "./Activity";
 import { monthDay, weekDay } from "../utils/DateUtils";
 import { StackedList } from "./StackedList";
 import { useActivities } from "../utils/ActivityUtils";
+import { ActivityFilter } from "./ActivityFilter";
+import { fold, Maybe } from "../cross-cutting/Maybe";
+import { Category } from "../domain/Category";
 
 const mapActivities = map((activity: A) => (
   <Activity key={activity.id} activity={activity} />
@@ -22,7 +25,9 @@ export const Activities = ({ onBack, date }: ActivitiesProperties) => {
   const translateMonthDay = monthDay(i18n.language);
   const translateWeekDay = weekDay(i18n.language);
   const { getActivities } = useActivities();
-  const activities = getActivities(date);
+  const allDateActivities = getActivities(date);
+  const categoryIds = allDateActivities.map((a) => a.categoryId);
+  const [activities, setActivities] = useState<A[]>(allDateActivities);
 
   const handleBackClick: MouseEventHandler<HTMLDivElement> = (event) => {
     event.preventDefault();
@@ -37,18 +42,29 @@ export const Activities = ({ onBack, date }: ActivitiesProperties) => {
     event.stopPropagation();
     onBack();
   };
+  const onFilterChange = (category: Maybe<Category>) => {
+    fold(
+      () => setActivities(allDateActivities),
+      (c: Category) => {
+        setActivities(allDateActivities.filter((a) => a.categoryId === c.id));
+      },
+    )(category);
+  };
 
   return (
     <>
-      <div className="flex flex-row justify-between align-center bg-white rounded-xl shadow-lg divide-x mb-6">
+      <div className="flex flex-row justify-between align-center  mb-6">
         <div
           role="button"
           tabIndex={0}
           onKeyUp={handleBackKeyUp}
           onClick={handleBackClick}
-          className="text-primary w-12 p-3 flex justify-center align-center"
+          className="mr-5 text-primary w-12 px-3 flex justify-center align-center bg-white rounded-xl shadow-lg divide-x"
         >
           <ArrowLeftIcon />
+        </div>
+        <div className="text-primary w-12 p-2 flex flex-grow justify-center align-center bg-white rounded-xl shadow-lg divide-x">
+          <ActivityFilter categoryIds={categoryIds} onChange={onFilterChange} />
         </div>
       </div>
       <StackedList
