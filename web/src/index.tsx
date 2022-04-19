@@ -4,6 +4,7 @@ import "@fontsource/ubuntu/latin-500.css";
 import "@fontsource/ubuntu/latin-700.css";
 import { createRoot } from "react-dom/client";
 import { ErrorBoundary } from "@sentry/react";
+import { attemptP } from "fluture";
 import { container as diContainer } from "./config/DependencyInjection";
 import { configTracing } from "./config/Tracing";
 import { configI18n } from "./config/I18n";
@@ -15,7 +16,7 @@ import { ServiceGetter, ServiceGetterProvider } from "./utils/ServiceUtils";
 import { FatalError } from "./components/FatalError";
 
 configTracing();
-configI18n();
+const i18nReady = configI18n().then(() => {});
 
 // eslint-disable-next-line react/jsx-no-constructed-context-values
 const serviceGetter: ServiceGetter = (service) => diContainer.get(service);
@@ -26,7 +27,7 @@ const root = createRoot(container);
 root.render(
   <ErrorBoundary fallback={<FatalError />} showDialog>
     <ServiceGetterProvider serviceGetter={serviceGetter}>
-      <App />
+      <App getReady={attemptP<Error, void>(() => i18nReady)} />
     </ServiceGetterProvider>
   </ErrorBoundary>,
 );

@@ -5,8 +5,7 @@ import {
   GlobeIcon as GlobeIconSelected,
   HeartIcon as HeartIconSelected,
 } from "@heroicons/react/solid";
-import { fork } from "fluture";
-import { pipe } from "ramda";
+import { fork, FutureInstance } from "fluture";
 import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import { Layout } from "./components/Layout";
@@ -23,12 +22,28 @@ import { Favorites } from "./components/Favorites";
 import { Map } from "./components/Map";
 import { Tracer } from "./domain/Tracer";
 
-export const App = () => {
+export interface AppProperties {
+  getReady: FutureInstance<Error, void>;
+}
+
+export const App = ({ getReady }: AppProperties) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const isOnline = useOnlineStatus();
   const [isLoading, setIsLoading] = useState(true);
+  const [isReady, setIsReady] = useState(false);
   const syncronizer = useService(Syncronizer);
   const tracer = useService(Tracer);
+
+  useEffect(() => {
+    const cancel = fork<Error>((readyError) => {
+      tracer.trace(readyError);
+      setIsReady(true);
+    })(() => {
+      setIsReady(true);
+    })(getReady);
+
+    return () => cancel();
+  }, [getReady, tracer]);
 
   const syncronizeData = useCallback(() => {
     if (!isOnline) {
@@ -36,14 +51,12 @@ export const App = () => {
       return noop;
     }
 
-    return pipe(
-      fork<Error>((syncError) => {
-        tracer.trace(syncError);
-        setIsLoading(false);
-      })(() => {
-        setIsLoading(false);
-      }),
-    )(syncronizer.sync());
+    return fork<Error>((syncError) => {
+      tracer.trace(syncError);
+      setIsLoading(false);
+    })(() => {
+      setIsLoading(false);
+    })(syncronizer.sync());
   }, [isOnline, syncronizer, tracer]);
 
   useEffect(() => {
@@ -73,13 +86,15 @@ export const App = () => {
     },
   ]);
 
+  const showApp = !isLoading && isReady;
+
   // eslint-disable-next-line unicorn/no-null
   return (
     <>
       <Transition
         className="App__Loader absolute h-100 w-100 flex flex-col items-center justify-center bg-black inset-0 z-20 "
         appear
-        show={isLoading}
+        show={!showApp}
         enter="transition-opacity duration-200"
         enterFrom="opacity-0"
         enterTo="opacity-100"
@@ -91,7 +106,7 @@ export const App = () => {
         <Loader />
       </Transition>
       <Transition
-        show={!isLoading}
+        show={showApp}
         enter="transition-opacity duration-200"
         enterFrom="opacity-0"
         enterTo="opacity-100"

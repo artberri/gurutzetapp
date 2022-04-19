@@ -1,7 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { ArrowLeftIcon } from "@heroicons/react/outline";
 import { map } from "ramda";
-import { MouseEventHandler, KeyboardEventHandler, useState } from "react";
+import {
+  MouseEventHandler,
+  KeyboardEventHandler,
+  useState,
+  useMemo,
+} from "react";
 import { Activity as A } from "../domain/Activity";
 import { Activity } from "./Activity";
 import { monthDay, weekDay } from "../utils/DateUtils";
@@ -25,8 +30,14 @@ export const Activities = ({ onBack, date }: ActivitiesProperties) => {
   const translateMonthDay = monthDay(i18n.language);
   const translateWeekDay = weekDay(i18n.language);
   const { getActivities } = useActivities();
-  const allDateActivities = getActivities(date);
-  const categoryIds = allDateActivities.map((a) => a.categoryId);
+  const allDateActivities = useMemo(
+    () => getActivities(date),
+    [date, getActivities],
+  );
+  const categoryIds = useMemo(
+    () => allDateActivities.map((a) => a.categoryId),
+    [allDateActivities],
+  );
   const [activities, setActivities] = useState<A[]>(allDateActivities);
 
   const handleBackClick: MouseEventHandler<HTMLDivElement> = (event) => {

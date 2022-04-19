@@ -4,8 +4,8 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import es from "../locales/es.json";
 import eu from "../locales/eu.json";
 
-export const configI18n = () => {
-  void i18n
+export const configI18n = () =>
+  i18n
     .use(initReactI18next)
     .use(LanguageDetector)
     .init({
@@ -24,4 +24,3 @@ export const configI18n = () => {
         escapeValue: false,
       },
     });
-};
