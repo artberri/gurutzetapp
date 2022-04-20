@@ -5,5 +5,5 @@ pnpm-lock.yaml
 *.svg
 *.png
 *.ico
-*.txt
+*.toml
 .*ignore

@@ -11,9 +11,9 @@ import { configI18n } from "./config/I18n";
 import { App } from "./App";
 import "./index.css";
 import { reportWebVitals } from "./ReportWebVitals";
-import * as serviceWorkerRegistration from "./ServiceWorkerRegistration";
 import { ServiceGetter, ServiceGetterProvider } from "./utils/ServiceUtils";
 import { FatalError } from "./components/FatalError";
+import { RegisterServiceWorker } from "./utils/ServiceWorkerUtils";
 
 configTracing();
 const i18nReady = configI18n().then(() => {});
@@ -26,16 +26,13 @@ const root = createRoot(container);
 // React.StrictMode
 root.render(
   <ErrorBoundary fallback={<FatalError />} showDialog>
-    <ServiceGetterProvider serviceGetter={serviceGetter}>
-      <App getReady={attemptP<Error, void>(() => i18nReady)} />
-    </ServiceGetterProvider>
+    <RegisterServiceWorker>
+      <ServiceGetterProvider serviceGetter={serviceGetter}>
+        <App getReady={attemptP<Error, void>(() => i18nReady)} />
+      </ServiceGetterProvider>
+    </RegisterServiceWorker>
   </ErrorBoundary>,
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://cra.link/PWA
-serviceWorkerRegistration.register();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

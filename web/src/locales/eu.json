@@ -8,5 +8,7 @@
   "favorites.back": "Ikusi egitaraua",
   "map.offline": "Internet konexioa behar duzu mapa ikusteko",
   "map.error": "Ezin izan da mapa kargatu. Mesedez, egiaztatu zure konexioa eta saiatu berriro geroago.",
-  "nofilters": "Kategoria guztiak"
+  "nofilters": "Kategoria guztiak",
+  "update.message": "Bertsio berri bat dago",
+  "update.button": "Eguneratu"
 }

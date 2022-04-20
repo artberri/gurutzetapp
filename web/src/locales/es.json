@@ -8,5 +8,7 @@
   "favorites.back": "Ver programa",
   "map.offline": "Necesitas conexión a internet para poder ver el mapa",
   "map.error": "No se han podido cargar los datos del mapa. Por favor, comprueba tu conexión e inténtalo de nuevo más tarde.",
-  "nofilters": "Todas las categorías"
+  "nofilters": "Todas las categorías",
+  "update.message": "Nueva versión disponible",
+  "update.button": "Actualiza"
 }
