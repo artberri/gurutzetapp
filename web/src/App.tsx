@@ -99,6 +99,7 @@ export const App = ({ getReady }: AppProperties) => {
       console.log("handleTabChange", index);
       setSelectedIndex(index);
       forceUpdate();
+      // eslint-disable-next-line no-console
       console.log("forceUpdate called", index);
     },
     [forceUpdate],
