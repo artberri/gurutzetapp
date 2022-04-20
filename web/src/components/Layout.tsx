@@ -12,6 +12,9 @@ export const Layout = ({ children }: LayoutProperties) => {
   const { t } = useTranslation();
   const { waitingWorker, showReload, reloadPage } = useServiceWorker();
 
+  // eslint-disable-next-line no-console
+  console.log({ waitingWorker, showReload });
+
   return (
     <div className="bg-white h-screen w-screen flex flex-col">
       <Header className="flex-none  shadow-lg z-10" />
