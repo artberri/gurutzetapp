@@ -4,7 +4,6 @@ import {
   useCallback,
   useContext,
   useMemo,
-  useState,
 } from "react";
 import { Either, left, right } from "../cross-cutting/Either";
 import { Venue } from "../domain/Venue";
@@ -21,7 +20,7 @@ export const VenueContext = createContext<{
 
 export const VenueProvider = ({ children }: { children: ReactNode }) => {
   const storage = useService(VenueStorage);
-  const [venues] = useState<Venue[]>(() => storage.get());
+  const venues = useMemo<Venue[]>(() => storage.get(), [storage]);
 
   const getVenue = useCallback(
     (id: string) => {

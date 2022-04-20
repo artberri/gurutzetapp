@@ -5,7 +5,6 @@ import {
   useCallback,
   useContext,
   useMemo,
-  useState,
 } from "react";
 import { Activity } from "../domain/Activity";
 import { ActivityStorage } from "../domain/ActivityStorage";
@@ -43,7 +42,7 @@ export const ActivityContext = createContext<{
 
 export const ActivityProvider = ({ children }: { children: ReactNode }) => {
   const storage = useService(ActivityStorage);
-  const [activities] = useState<Activity[]>(() => storage.get());
+  const activities = useMemo<Activity[]>(() => storage.get(), [storage]);
 
   const getActivityDays = useCallback(
     () => getUniqueSortedDates(activities),

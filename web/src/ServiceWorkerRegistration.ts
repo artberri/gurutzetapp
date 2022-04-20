@@ -11,6 +11,8 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://cra.link/PWA
 
+const noop = () => {};
+
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
     // [::1] is the IPv6 localhost address.
@@ -21,20 +23,21 @@ const isLocalhost = Boolean(
     ),
 );
 
-type Config = {
-  onSuccess?: (registration: ServiceWorkerRegistration) => void;
-  onUpdate?: (registration: ServiceWorkerRegistration) => void;
-};
+interface Config {
+  onSuccess: (registration: ServiceWorkerRegistration) => void;
+  onUpdate: (registration: ServiceWorkerRegistration) => void;
+  setForceUpdate: (forceUpdateFunction: () => void) => void;
+}
 
-function registerValidSW(swUrl: string, config?: Config) {
+function registerValidSW(swUrl: string, config: Config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
       // check for updates periodically
-      setInterval(() => {
+      config.setForceUpdate(() => {
         void registration.update();
         console.debug("Checked for update...");
-      }, 1000 * 60 * 60);
+      });
 
       registration.addEventListener("updatefound", () => {
         const installingWorker = registration.installing;
@@ -53,9 +56,7 @@ function registerValidSW(swUrl: string, config?: Config) {
               );
 
               // Execute callback
-              if (config && config.onUpdate) {
-                config.onUpdate(registration);
-              }
+              config.onUpdate(registration);
             } else {
               // At this point, everything has been precached.
               // It's the perfect time to display a
@@ -63,9 +64,7 @@ function registerValidSW(swUrl: string, config?: Config) {
               console.log("Content is cached for offline use.");
 
               // Execute callback
-              if (config && config.onSuccess) {
-                config.onSuccess(registration);
-              }
+              config.onSuccess(registration);
             }
           }
         });
@@ -76,7 +75,7 @@ function registerValidSW(swUrl: string, config?: Config) {
     });
 }
 
-function checkValidServiceWorker(swUrl: string, config?: Config) {
+function checkValidServiceWorker(swUrl: string, config: Config) {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl, {
     headers: { "Service-Worker": "script" },
@@ -106,7 +105,13 @@ function checkValidServiceWorker(swUrl: string, config?: Config) {
     });
 }
 
-export function register(config?: Config) {
+export function register(inputConfig: Partial<Config> = {}) {
+  const config: Config = {
+    setForceUpdate: inputConfig.setForceUpdate ?? noop,
+    onSuccess: inputConfig.onSuccess ?? noop,
+    onUpdate: inputConfig.onUpdate ?? noop,
+  };
+
   if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);

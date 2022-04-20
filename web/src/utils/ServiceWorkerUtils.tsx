@@ -1,12 +1,15 @@
 import { useState, useCallback, ReactNode, useEffect } from "react";
 import * as serviceWorkerRegistration from "../ServiceWorkerRegistration";
 
+const noop = () => {};
+
 export const useServiceWorker = () => {
   const [waitingWorker, setWaitingWorker] = useState<ServiceWorker | null>(
     // eslint-disable-next-line unicorn/no-null
     null,
   );
   const [showReload, setShowReload] = useState(false);
+  const [forceUpdate, setForceUpdate] = useState(() => noop);
 
   const onSWUpdate = useCallback((registration: ServiceWorkerRegistration) => {
     setShowReload(true);
@@ -19,7 +22,14 @@ export const useServiceWorker = () => {
     window.location.reload();
   }, [waitingWorker]);
 
-  return { showReload, waitingWorker, reloadPage, onSWUpdate };
+  return {
+    showReload,
+    waitingWorker,
+    reloadPage,
+    onSWUpdate,
+    forceUpdate,
+    setForceUpdate,
+  };
 };
 
 export const RegisterServiceWorker = ({
@@ -27,13 +37,14 @@ export const RegisterServiceWorker = ({
 }: {
   children: ReactNode;
 }) => {
-  const { onSWUpdate } = useServiceWorker();
+  const { onSWUpdate, setForceUpdate } = useServiceWorker();
 
   useEffect(() => {
     serviceWorkerRegistration.register({
       onUpdate: onSWUpdate,
+      setForceUpdate,
     });
-  }, [onSWUpdate]);
+  }, [onSWUpdate, setForceUpdate]);
 
   // eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{children}</>;

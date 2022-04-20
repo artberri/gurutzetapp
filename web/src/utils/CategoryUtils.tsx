@@ -4,7 +4,6 @@ import {
   useCallback,
   useContext,
   useMemo,
-  useState,
 } from "react";
 import { Either, left, right } from "../cross-cutting/Either";
 import { Category } from "../domain/Category";
@@ -19,7 +18,7 @@ export const CategoryContext = createContext<{
 
 export const CategoryProvider = ({ children }: { children: ReactNode }) => {
   const storage = useService(CategoryStorage);
-  const [categories] = useState<Category[]>(() => storage.get());
+  const categories = useMemo<Category[]>(() => storage.get(), [storage]);
 
   const getCategory = useCallback(
     (id: string) => {

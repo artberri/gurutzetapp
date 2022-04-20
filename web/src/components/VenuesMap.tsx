@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { divIcon } from "leaflet";
@@ -37,9 +37,10 @@ const mapActivities = (lang: "es" | "eu") =>
 export const VenuesMap = () => {
   const { i18n } = useTranslation();
   const { venues } = useVenues();
-  const [center] = useState<[lat: number, lng: number]>([
-    43.281_579_4, -2.985_663_9,
-  ]);
+  const center = useMemo<[lat: number, lng: number]>(
+    () => [43.281_579_4, -2.985_663_9],
+    [],
+  );
 
   return (
     <MapContainer className="w-full h-full" center={center} zoom={15}>

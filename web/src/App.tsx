@@ -6,7 +6,7 @@ import {
   HeartIcon as HeartIconSelected,
 } from "@heroicons/react/solid";
 import { fork, FutureInstance } from "fluture";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import "./App.css";
 import { Layout } from "./components/Layout";
 import { Loader } from "./components/Loader";
@@ -21,6 +21,7 @@ import { AppProviders } from "./AppProviders";
 import { Favorites } from "./components/Favorites";
 import { Map } from "./components/Map";
 import { Tracer } from "./domain/Tracer";
+import { useServiceWorker } from "./utils/ServiceWorkerUtils";
 
 export interface AppProperties {
   getReady: FutureInstance<Error, void>;
@@ -33,6 +34,7 @@ export const App = ({ getReady }: AppProperties) => {
   const [isReady, setIsReady] = useState(false);
   const syncronizer = useService(Syncronizer);
   const tracer = useService(Tracer);
+  const { forceUpdate } = useServiceWorker();
 
   useEffect(() => {
     const cancel = fork<Error>((readyError) => {
@@ -65,28 +67,39 @@ export const App = ({ getReady }: AppProperties) => {
     return () => cancel();
   }, [syncronizeData]);
 
-  const [pages] = useState<TabPage[]>([
-    {
-      id: "schedule",
-      content: <Schedule />,
-      icon: <CalendarIcon className="text-white" />,
-      iconSelected: <CalendarIconSelected className="text-white" />,
-    },
-    {
-      id: "favourites",
-      content: <Favorites onBack={() => setSelectedIndex(0)} />,
-      icon: <HeartIcon className="text-white" />,
-      iconSelected: <HeartIconSelected className="text-white" />,
-    },
-    {
-      id: "map",
-      content: <Map />,
-      icon: <GlobeIcon className="text-white" />,
-      iconSelected: <GlobeIconSelected className="text-white" />,
-    },
-  ]);
+  const pages = useMemo<TabPage[]>(
+    () => [
+      {
+        id: "schedule",
+        content: <Schedule />,
+        icon: <CalendarIcon className="text-white" />,
+        iconSelected: <CalendarIconSelected className="text-white" />,
+      },
+      {
+        id: "favourites",
+        content: <Favorites onBack={() => setSelectedIndex(0)} />,
+        icon: <HeartIcon className="text-white" />,
+        iconSelected: <HeartIconSelected className="text-white" />,
+      },
+      {
+        id: "map",
+        content: <Map />,
+        icon: <GlobeIcon className="text-white" />,
+        iconSelected: <GlobeIconSelected className="text-white" />,
+      },
+    ],
+    [],
+  );
 
   const showApp = !isLoading && isReady;
+
+  const handleTabChange = useCallback(
+    (index: number) => {
+      setSelectedIndex(index);
+      forceUpdate();
+    },
+    [forceUpdate],
+  );
 
   // eslint-disable-next-line unicorn/no-null
   return (
@@ -119,7 +132,7 @@ export const App = ({ getReady }: AppProperties) => {
             <Tabs
               pages={pages}
               selectedIndex={selectedIndex}
-              onChange={setSelectedIndex}
+              onChange={handleTabChange}
             />
           </Layout>
         </AppProviders>
