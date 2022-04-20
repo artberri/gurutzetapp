@@ -5,7 +5,11 @@ export const useServiceWorker = () => {
   const [showReload, setShowReload] = useState(false);
 
   const onSWUpdate = useCallback(() => {
+    // eslint-disable-next-line no-console
+    console.log("onSWUpdate");
     setShowReload(true);
+    // eslint-disable-next-line no-console
+    console.log("setShowReload true");
   }, []);
 
   const reloadPage = useCallback(() => {
