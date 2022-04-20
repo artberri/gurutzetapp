@@ -14,6 +14,7 @@ import { reportWebVitals } from "./ReportWebVitals";
 import { ServiceGetter, ServiceGetterProvider } from "./utils/ServiceUtils";
 import { FatalError } from "./components/FatalError";
 import { RegisterServiceWorker } from "./utils/ServiceWorkerUtils";
+import { OnlineStatusProvider } from "./utils/OnlineStatusUtils";
 
 configTracing();
 const i18nReady = configI18n().then(() => {});
@@ -26,11 +27,13 @@ const root = createRoot(container);
 // React.StrictMode
 root.render(
   <ErrorBoundary fallback={<FatalError />} showDialog>
-    <RegisterServiceWorker>
-      <ServiceGetterProvider serviceGetter={serviceGetter}>
-        <App getReady={attemptP<Error, void>(() => i18nReady)} />
-      </ServiceGetterProvider>
-    </RegisterServiceWorker>
+    <OnlineStatusProvider online={navigator.onLine ?? true}>
+      <RegisterServiceWorker>
+        <ServiceGetterProvider serviceGetter={serviceGetter}>
+          <App getReady={attemptP<Error, void>(() => i18nReady)} />
+        </ServiceGetterProvider>
+      </RegisterServiceWorker>
+    </OnlineStatusProvider>
   </ErrorBoundary>,
 );
 

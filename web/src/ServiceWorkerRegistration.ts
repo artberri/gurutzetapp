@@ -36,7 +36,7 @@ function registerValidSW(swUrl: string, config: Config) {
       // check for updates periodically
       config.setForceUpdate(() => {
         void registration.update();
-        console.debug("Checked for update...");
+        console.log("Checked for update...");
       });
 
       registration.addEventListener("updatefound", () => {
