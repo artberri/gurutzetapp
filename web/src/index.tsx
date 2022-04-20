@@ -5,6 +5,7 @@ import "@fontsource/ubuntu/latin-700.css";
 import { createRoot } from "react-dom/client";
 import { ErrorBoundary } from "@sentry/react";
 import { attemptP } from "fluture";
+import * as serviceWorkerRegistration from "./ServiceWorkerRegistration";
 import { container as diContainer } from "./config/DependencyInjection";
 import { configTracing } from "./config/Tracing";
 import { configI18n } from "./config/I18n";
@@ -13,7 +14,6 @@ import "./index.css";
 import { reportWebVitals } from "./ReportWebVitals";
 import { ServiceGetter, ServiceGetterProvider } from "./utils/ServiceUtils";
 import { FatalError } from "./components/FatalError";
-import { RegisterServiceWorker } from "./utils/ServiceWorkerUtils";
 import { OnlineStatusProvider } from "./utils/OnlineStatusUtils";
 
 configTracing();
@@ -28,11 +28,9 @@ const root = createRoot(container);
 root.render(
   <ErrorBoundary fallback={<FatalError />} showDialog>
     <OnlineStatusProvider online={navigator.onLine ?? true}>
-      <RegisterServiceWorker>
-        <ServiceGetterProvider serviceGetter={serviceGetter}>
-          <App getReady={attemptP<Error, void>(() => i18nReady)} />
-        </ServiceGetterProvider>
-      </RegisterServiceWorker>
+      <ServiceGetterProvider serviceGetter={serviceGetter}>
+        <App getReady={attemptP<Error, void>(() => i18nReady)} />
+      </ServiceGetterProvider>
     </OnlineStatusProvider>
   </ErrorBoundary>,
 );
@@ -41,3 +39,18 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+serviceWorkerRegistration.register({
+  onUpdate: (registration) => {
+    const waitingServiceWorker = registration.waiting;
+
+    if (waitingServiceWorker) {
+      waitingServiceWorker.addEventListener("statechange", (event) => {
+        if ((event.target as ServiceWorker)?.state === "activated") {
+          window.location.reload();
+        }
+      });
+      waitingServiceWorker.postMessage({ type: "SKIP_WAITING" });
+    }
+  },
+});
