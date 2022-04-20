@@ -10,16 +10,13 @@ export interface LayoutProperties {
 
 export const Layout = ({ children }: LayoutProperties) => {
   const { t } = useTranslation();
-  const { waitingWorker, showReload, reloadPage } = useServiceWorker();
-
-  // eslint-disable-next-line no-console
-  console.log({ waitingWorker, showReload });
+  const { showReload, reloadPage } = useServiceWorker();
 
   return (
     <div className="bg-white h-screen w-screen flex flex-col">
       <Header className="flex-none  shadow-lg z-10" />
       <Transition
-        show={!!waitingWorker && showReload}
+        show={showReload}
         enter="transition-height duration-300"
         enterFrom="h-0"
         enterTo="h-15"

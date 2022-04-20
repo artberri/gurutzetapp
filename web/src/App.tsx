@@ -21,7 +21,6 @@ import { AppProviders } from "./AppProviders";
 import { Favorites } from "./components/Favorites";
 import { Map } from "./components/Map";
 import { Tracer } from "./domain/Tracer";
-import { useServiceWorker } from "./utils/ServiceWorkerUtils";
 
 export interface AppProperties {
   getReady: FutureInstance<Error, void>;
@@ -34,7 +33,6 @@ export const App = ({ getReady }: AppProperties) => {
   const [isReady, setIsReady] = useState(false);
   const syncronizer = useService(Syncronizer);
   const tracer = useService(Tracer);
-  const { forceUpdate } = useServiceWorker();
 
   useEffect(() => {
     const cancel = fork<Error>((readyError) => {
@@ -93,18 +91,6 @@ export const App = ({ getReady }: AppProperties) => {
 
   const showApp = !isLoading && isReady;
 
-  const handleTabChange = useCallback(
-    (index: number) => {
-      // eslint-disable-next-line no-console
-      console.log("handleTabChange", index);
-      setSelectedIndex(index);
-      forceUpdate();
-      // eslint-disable-next-line no-console
-      console.log("forceUpdate called", index);
-    },
-    [forceUpdate],
-  );
-
   // eslint-disable-next-line unicorn/no-null
   return (
     <>
@@ -136,7 +122,7 @@ export const App = ({ getReady }: AppProperties) => {
             <Tabs
               pages={pages}
               selectedIndex={selectedIndex}
-              onChange={handleTabChange}
+              onChange={setSelectedIndex}
             />
           </Layout>
         </AppProviders>

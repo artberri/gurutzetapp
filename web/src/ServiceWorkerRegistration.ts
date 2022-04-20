@@ -26,19 +26,12 @@ const isLocalhost = Boolean(
 interface Config {
   onSuccess: (registration: ServiceWorkerRegistration) => void;
   onUpdate: (registration: ServiceWorkerRegistration) => void;
-  setForceUpdate: (forceUpdateFunction: () => void) => void;
 }
 
 function registerValidSW(swUrl: string, config: Config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
-      // check for updates periodically
-      config.setForceUpdate(() => {
-        void registration.update();
-        console.log("Checked for update...");
-      });
-
       registration.addEventListener("updatefound", () => {
         const installingWorker = registration.installing;
         if (!installingWorker) {
@@ -107,7 +100,6 @@ function checkValidServiceWorker(swUrl: string, config: Config) {
 
 export function register(inputConfig: Partial<Config> = {}) {
   const config: Config = {
-    setForceUpdate: inputConfig.setForceUpdate ?? noop,
     onSuccess: inputConfig.onSuccess ?? noop,
     onUpdate: inputConfig.onUpdate ?? noop,
   };
