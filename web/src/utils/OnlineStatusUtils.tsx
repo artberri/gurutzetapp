@@ -9,7 +9,9 @@ import {
 const OnlineStatusContext = createContext(true);
 
 export const OnlineStatusProvider = ({ children }: { children: ReactNode }) => {
-  const [onlineStatus, setOnlineStatus] = useState<boolean>(true);
+  const [onlineStatus, setOnlineStatus] = useState<boolean>(
+    () => navigator.onLine,
+  );
 
   useEffect(() => {
     const offline = () => setOnlineStatus(false);
