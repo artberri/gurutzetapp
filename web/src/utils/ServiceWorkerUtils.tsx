@@ -14,6 +14,8 @@ export const useServiceWorker = () => {
   const [showReload, setShowReload] = useState(false);
   const [forceUpdate, setForceUpdate] = useState(() => noop);
 
+  console.log("useServiceWorker forceUpdate", forceUpdate);
+
   const onSWUpdate = useCallback((registration: ServiceWorkerRegistration) => {
     setShowReload(true);
     setWaitingWorker(registration.waiting);

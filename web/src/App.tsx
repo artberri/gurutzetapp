@@ -95,6 +95,8 @@ export const App = ({ getReady }: AppProperties) => {
 
   const handleTabChange = useCallback(
     (index: number) => {
+      // eslint-disable-next-line no-console
+      console.log("handleTabChange", index);
       setSelectedIndex(index);
       forceUpdate();
     },
