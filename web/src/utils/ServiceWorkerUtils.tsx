@@ -32,6 +32,8 @@ export const RegisterServiceWorker = ({
   const { onSWUpdate } = useServiceWorker();
 
   useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log("serviceWorkerRegistration.register", onSWUpdate);
     serviceWorkerRegistration.register({
       onUpdate: onSWUpdate,
     });

@@ -99,6 +99,7 @@ function checkValidServiceWorker(swUrl: string, config: Config) {
 }
 
 export function register(inputConfig: Partial<Config> = {}) {
+  console.log(inputConfig);
   const config: Config = {
     onSuccess: inputConfig.onSuccess ?? noop,
     onUpdate: inputConfig.onUpdate ?? noop,
