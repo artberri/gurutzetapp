@@ -18,7 +18,7 @@ export const ActivityFilter = ({
   onChange,
 }: ActivityFilterProperties) => {
   const { i18n, t } = useTranslation();
-  const lang = i18n.language as "es" | "eu";
+  const lang = i18n.resolvedLanguage as "es" | "eu";
   const { getCategory } = useCategories();
 
   const categories = useMemo(

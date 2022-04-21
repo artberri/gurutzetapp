@@ -10,8 +10,8 @@ export interface DayProperties {
 
 export const Day = ({ date, onClick }: DayProperties) => {
   const { i18n } = useTranslation();
-  const translateMonthDay = monthDay(i18n.language);
-  const translateWeekDay = weekDay(i18n.language);
+  const translateMonthDay = monthDay(i18n.resolvedLanguage);
+  const translateWeekDay = weekDay(i18n.resolvedLanguage);
   const handleClick: MouseEventHandler<HTMLDivElement> = (event) => {
     event.preventDefault();
     event.stopPropagation();

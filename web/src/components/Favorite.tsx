@@ -25,11 +25,11 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
   const { getCategory } = useCategories();
   const { removeFavorite } = useFavorites();
   const { getVenue } = useVenues();
-  const translateMonthDay = monthDay(i18n.language);
-  const translateWeekDay = weekDay(i18n.language);
+  const translateMonthDay = monthDay(i18n.resolvedLanguage);
+  const translateWeekDay = weekDay(i18n.resolvedLanguage);
   const tracer = useService(Tracer);
   const category = getCategory(categoryId);
-  const language = i18n.language as keyof LocalizedText;
+  const language = i18n.resolvedLanguage as keyof LocalizedText;
   const venue = foldM(
     () => left<Venue>(new Error("Activity withou venue")),
     getVenue,

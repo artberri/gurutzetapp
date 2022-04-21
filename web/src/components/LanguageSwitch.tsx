@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 export const LanguageSwitch = () => {
   const { i18n } = useTranslation();
-  const checked = i18n.language === "es";
+  const checked = i18n.resolvedLanguage === "es";
 
   const toggleLanguage = () => {
     if (checked) {

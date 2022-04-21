@@ -23,7 +23,7 @@ export const Activity = ({ activity }: ActivityProperties) => {
   const { getVenue } = useVenues();
   const tracer = useService(Tracer);
   const category = getCategory(activity.categoryId);
-  const language = i18n.language as keyof LocalizedText;
+  const language = i18n.resolvedLanguage as keyof LocalizedText;
   const venue = fold(
     () => left<Venue>(new Error("Activity withou venue")),
     getVenue,
