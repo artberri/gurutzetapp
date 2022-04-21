@@ -20,13 +20,19 @@ export const OnlineStatusProvider = ({
   useEffect(() => {
     const setOffline = () => setOnlineStatus(false);
     const setOnline = () => setOnlineStatus(true);
+    const popstate = () => {
+      // eslint-disable-next-line no-alert
+      alert("You message");
+    };
 
     window.addEventListener("offline", setOffline);
     window.addEventListener("online", setOnline);
+    window.addEventListener("popstate", popstate);
 
     return () => {
       window.removeEventListener("offline", setOffline);
       window.removeEventListener("online", setOnline);
+      window.removeEventListener("popstate", popstate);
     };
   }, []);
 

@@ -16,6 +16,7 @@ import {
 import { parseError } from "../utils/ErrorUtils";
 import { Category } from "../domain/Category";
 import { Venue } from "../domain/Venue";
+import { just, nothing } from "../cross-cutting/Maybe";
 
 const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN";
 
@@ -28,6 +29,9 @@ const mapActivity = (entry: ContentfulActivityEntry): Activity => ({
     eu: entry.fields.description.eu,
   },
   categoryId: entry.fields.category.es.sys.id,
+  venueId: entry.fields.venue?.es.sys.id
+    ? just(entry.fields.venue?.es.sys.id)
+    : nothing(),
 });
 
 const mapRemovedActivity = (entry: DeletedEntry): Activity => ({
@@ -38,6 +42,7 @@ const mapRemovedActivity = (entry: DeletedEntry): Activity => ({
     eu: "",
   },
   categoryId: "",
+  venueId: nothing(),
 });
 
 const mapCategory = (entry: ContentfulCategoryEntry): Category => ({

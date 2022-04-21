@@ -1,3 +1,4 @@
+import { Maybe } from "../cross-cutting/Maybe";
 import { LocalizedText } from "./LocalizedText";
 
 export interface Activity {
@@ -6,4 +7,5 @@ export interface Activity {
   readonly dateEnd?: Date;
   readonly description: LocalizedText;
   readonly categoryId: string;
+  readonly venueId: Maybe<string>;
 }

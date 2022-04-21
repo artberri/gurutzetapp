@@ -1,14 +1,19 @@
 import { pipe, map, evolve } from "ramda";
 import { option } from "../cross-cutting/Either";
+import { just, nothing } from "../cross-cutting/Maybe";
 import { Activity } from "./Activity";
 import { Storage } from "./Storage";
 
 const activityStorageKey = "GURUTZETAPP_ACTIVITIES";
 
-const fixActivityDate = (activity: Activity) =>
+const fixActivityData = (activity: Activity) =>
   evolve({
     date: (date: Date) => new Date(date),
     dateEnd: (date?: Date) => (date ? new Date(date) : undefined),
+    venueId: (venueId?: unknown) => {
+      const id = venueId as { data?: { value: string } } | undefined;
+      return id?.data?.value ? just(id.data.value) : nothing<string>();
+    },
   })(activity) as Activity;
 
 export class ActivityStorage {
@@ -18,7 +23,7 @@ export class ActivityStorage {
     const activities = this.storage.getItem<Activity[]>(activityStorageKey);
     return pipe(
       option<Activity[]>(() => []),
-      map(fixActivityDate),
+      map(fixActivityData),
     )(activities);
   }
 

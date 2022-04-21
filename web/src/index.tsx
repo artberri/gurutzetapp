@@ -15,6 +15,7 @@ import { reportWebVitals } from "./ReportWebVitals";
 import { ServiceGetter, ServiceGetterProvider } from "./utils/ServiceUtils";
 import { FatalError } from "./components/FatalError";
 import { OnlineStatusProvider } from "./utils/OnlineStatusUtils";
+import { AppStateProvider } from "./utils/AppStateUtils";
 
 configTracing();
 const i18nReady = configI18n().then(() => {});
@@ -29,7 +30,9 @@ root.render(
   <ErrorBoundary fallback={<FatalError />} showDialog>
     <OnlineStatusProvider online={navigator.onLine ?? true}>
       <ServiceGetterProvider serviceGetter={serviceGetter}>
-        <App getReady={attemptP<Error, void>(() => i18nReady)} />
+        <AppStateProvider>
+          <App getReady={attemptP<Error, void>(() => i18nReady)} />
+        </AppStateProvider>
       </ServiceGetterProvider>
     </OnlineStatusProvider>
   </ErrorBoundary>,

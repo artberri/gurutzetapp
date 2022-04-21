@@ -1,11 +1,12 @@
-import { useMemo } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { divIcon } from "leaflet";
 import { map } from "ramda";
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 import { useVenues } from "../utils/VenueUtils";
 import { Venue, VenueCategory } from "../domain/Venue";
+import { useAppState } from "../utils/AppStateUtils";
 
 const iconColor: Record<VenueCategory, string> = {
   official: "#25B750",
@@ -37,13 +38,20 @@ const mapActivities = (lang: "es" | "eu") =>
 export const VenuesMap = () => {
   const { i18n } = useTranslation();
   const { venues } = useVenues();
-  const center = useMemo<[lat: number, lng: number]>(
-    () => [43.281_579_4, -2.985_663_9],
-    [],
+  const {
+    map: { center, zoom },
+    setDefaultMap,
+  } = useAppState();
+
+  useEffect(
+    () => () => {
+      setDefaultMap();
+    },
+    [setDefaultMap],
   );
 
   return (
-    <MapContainer className="w-full h-full" center={center} zoom={15}>
+    <MapContainer className="w-full h-full" center={center} zoom={zoom}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

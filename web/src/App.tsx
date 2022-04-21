@@ -21,13 +21,14 @@ import { AppProviders } from "./AppProviders";
 import { Favorites } from "./components/Favorites";
 import { Map } from "./components/Map";
 import { Tracer } from "./domain/Tracer";
+import { useAppState } from "./utils/AppStateUtils";
 
 export interface AppProperties {
   getReady: FutureInstance<Error, void>;
 }
 
 export const App = ({ getReady }: AppProperties) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const { tab, setTab, goToScheduleTab } = useAppState();
   const isOnline = useOnlineStatus();
   const [isLoading, setIsLoading] = useState(true);
   const [isReady, setIsReady] = useState(false);
@@ -75,7 +76,7 @@ export const App = ({ getReady }: AppProperties) => {
       },
       {
         id: "favourites",
-        content: <Favorites onBack={() => setSelectedIndex(0)} />,
+        content: <Favorites onBack={() => goToScheduleTab()} />,
         icon: <HeartIcon className="text-white" />,
         iconSelected: <HeartIconSelected className="text-white" />,
       },
@@ -86,7 +87,7 @@ export const App = ({ getReady }: AppProperties) => {
         iconSelected: <GlobeIconSelected className="text-white" />,
       },
     ],
-    [],
+    [goToScheduleTab],
   );
 
   const showApp = !isLoading && isReady;
@@ -119,11 +120,7 @@ export const App = ({ getReady }: AppProperties) => {
       >
         <AppProviders>
           <Layout>
-            <Tabs
-              pages={pages}
-              selectedIndex={selectedIndex}
-              onChange={setSelectedIndex}
-            />
+            <Tabs pages={pages} selectedIndex={tab} onChange={setTab} />
           </Layout>
         </AppProviders>
       </Transition>
