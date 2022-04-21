@@ -55,6 +55,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="white" />
     <title>Gurutzetako Jaiak 2022</title>
     <style>
+      html {
+        height: 100%;
+        overflow: hidden;
+      }
       body {
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -70,16 +74,12 @@
           rgba(38, 149, 71, 1) 100%
         );
         overflow: hidden;
-        height: 100vh;
+        height: 100%;
         width: 100%;
       }
 
       #root {
-        position: fixed;
-        top: env(safe-area-inset-top);
-        bottom: env(safe-area-inset-bottom);
-        left: 0;
-        right: 0;
+        height: 100%;
         display: flex;
         flex-direction: column;
         width: 100%;

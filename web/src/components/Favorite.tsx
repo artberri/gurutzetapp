@@ -78,7 +78,7 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
           ),
         )(category)}
       </div>
-      <div className="w-10 flex-none pl-2 flex h-100 flex-col justify-between">
+      <div className="w-10 flex-none pl-2 flex flex-col justify-between">
         <div
           role="button"
           tabIndex={0}

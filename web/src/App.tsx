@@ -96,7 +96,7 @@ export const App = ({ getReady }: AppProperties) => {
   return (
     <>
       <Transition
-        className="App__Loader absolute h-100 w-100 flex flex-col items-center justify-center bg-black inset-0 z-20 "
+        className="App__Loader absolute h-full w-full flex flex-col items-center justify-center bg-black inset-0 z-20 "
         appear
         show={!showApp}
         enter="transition-opacity duration-200"
@@ -110,6 +110,7 @@ export const App = ({ getReady }: AppProperties) => {
         <Loader />
       </Transition>
       <Transition
+        className="h-full w-full"
         show={showApp}
         enter="transition-opacity duration-200"
         enterFrom="opacity-0"

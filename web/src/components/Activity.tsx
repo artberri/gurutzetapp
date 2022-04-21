@@ -57,7 +57,7 @@ export const Activity = ({ activity }: ActivityProperties) => {
           ),
         )(category)}
       </div>
-      <div className="w-10 flex-none pl-2 flex h-100 flex-col justify-between">
+      <div className="w-10 flex-none pl-2 flex flex-col justify-between">
         <FavoriteButton activity={activity} />
         {foldE(
           // eslint-disable-next-line unicorn/no-null
