@@ -52,7 +52,7 @@
   "
     />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="white" />
     <title>Gurutzetako Jaiak 2022</title>
     <style>
       body {
@@ -76,11 +76,12 @@
 
       #root {
         position: fixed;
-        top: 0;
+        top: env(safe-area-inset-top);
+        bottom: env(safe-area-inset-bottom);
         left: 0;
+        right: 0;
         display: flex;
         flex-direction: column;
-        height: 100vh;
         width: 100%;
         justify-content: center;
         align-items: center;

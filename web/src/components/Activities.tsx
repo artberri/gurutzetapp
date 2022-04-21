@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { ArrowLeftIcon } from "@heroicons/react/outline";
-import { map } from "ramda";
+import { map, pipe, uniq } from "ramda";
 import {
   MouseEventHandler,
   KeyboardEventHandler,
@@ -35,7 +35,11 @@ export const Activities = ({ onBack, date }: ActivitiesProperties) => {
     [date, getActivities],
   );
   const categoryIds = useMemo(
-    () => allDateActivities.map((a) => a.categoryId),
+    () =>
+      pipe(
+        map((a: A) => a.categoryId),
+        uniq,
+      )(allDateActivities),
     [allDateActivities],
   );
   const [activities, setActivities] = useState<A[]>(allDateActivities);
