@@ -44,7 +44,7 @@ export const Favorites = ({ onBack }: FavoritesProperties) => {
           title={t("favorites")}
           items={
             activities.length === 0
-              ? [<NoResults onBack={onBack} />]
+              ? [<NoResults key="noresults" onBack={onBack} />]
               : mapFavorites(activities)
           }
         />
