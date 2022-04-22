@@ -6,3 +6,15 @@
   no-cache,
   no-store,
   must-revalidate'''
+
+[[redirects]]
+  from = "https://gurutzeta.info/*"
+  to = "https://app.gurutzeta.info/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.gurutzeta.info/*"
+  to = "https://app.gurutzeta.info/:splat"
+  status = 301
+  force = true
