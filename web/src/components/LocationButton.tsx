@@ -8,11 +8,10 @@ export interface LocationButtonProperties {
 }
 
 export const LocationButton = ({ venue }: LocationButtonProperties) => {
-  const { zoomMapTo, goToMapTab } = useAppState();
+  const { zoomMapTo } = useAppState();
 
   const goToVenue = () => {
     zoomMapTo([venue.location.lat, venue.location.lng]);
-    goToMapTab();
   };
 
   const handleGoToVenueClick = () => {

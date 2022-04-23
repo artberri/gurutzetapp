@@ -28,7 +28,7 @@ export interface AppProperties {
 }
 
 export const App = ({ getReady }: AppProperties) => {
-  const { tab, setTab, goToScheduleTab } = useAppState();
+  const { tab, goToTab, goToScheduleTab } = useAppState();
   const isOnline = useOnlineStatus();
   const [isLoading, setIsLoading] = useState(true);
   const [isReady, setIsReady] = useState(false);
@@ -121,7 +121,7 @@ export const App = ({ getReady }: AppProperties) => {
       >
         <AppProviders>
           <Layout>
-            <Tabs pages={pages} selectedIndex={tab} onChange={setTab} />
+            <Tabs pages={pages} selectedIndex={tab} onChange={goToTab} />
           </Layout>
         </AppProviders>
       </Transition>

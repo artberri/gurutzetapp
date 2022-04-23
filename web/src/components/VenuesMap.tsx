@@ -3,7 +3,6 @@ import "leaflet/dist/leaflet.css";
 import { divIcon } from "leaflet";
 import { map } from "ramda";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
 import { useVenues } from "../utils/VenueUtils";
 import { Venue, VenueCategory } from "../domain/Venue";
 import { useAppState } from "../utils/AppStateUtils";
@@ -40,15 +39,7 @@ export const VenuesMap = () => {
   const { venues } = useVenues();
   const {
     map: { center, zoom },
-    setDefaultMap,
   } = useAppState();
-
-  useEffect(
-    () => () => {
-      setDefaultMap();
-    },
-    [setDefaultMap],
-  );
 
   return (
     <MapContainer className="w-full h-full" center={center} zoom={zoom}>

@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { just, nothing, fold } from "../cross-cutting/Maybe";
+import { fold } from "../cross-cutting/Maybe";
+import { useAppState } from "../utils/AppStateUtils";
 import { Activities } from "./Activities";
 import { Days } from "./Days";
 
 export const Schedule = () => {
-  const [selectedDate, selectDate] = useState(nothing<Date>());
+  const { date, goBack, goToDay } = useAppState();
 
-  const handleDayClick = (date: Date) => {
-    selectDate(just(date));
+  const handleDayClick = (day: Date) => {
+    goToDay(day);
   };
 
   const handleBack = () => {
-    selectDate(nothing());
+    goBack();
   };
 
   return (
@@ -19,8 +19,8 @@ export const Schedule = () => {
       <div className=" py-8">
         {fold(
           () => <Days onClick={handleDayClick} />,
-          (date: Date) => <Activities date={date} onBack={handleBack} />,
-        )(selectedDate)}
+          (day: Date) => <Activities date={day} onBack={handleBack} />,
+        )(date)}
       </div>
     </div>
   );
