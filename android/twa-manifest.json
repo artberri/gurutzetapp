@@ -4,7 +4,7 @@
   "name": "Gurutzetako Jaiak 2022",
   "launcherName": "Gurutzeta",
   "display": "standalone",
-  "themeColor": "#FFFFFF",
+  "themeColor": "#25B750",
   "navigationColor": "#000000",
   "navigationColorDark": "#000000",
   "navigationDividerColor": "#000000",
@@ -13,13 +13,14 @@
   "enableNotifications": true,
   "startUrl": "/",
   "iconUrl": "https://app.gurutzeta.info/icon-512.png",
+  "maskableIconUrl": "https://app.gurutzeta.info/maskable-icon-192.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
-    "path": "./gurutzeta.keystore",
-    "alias": "gurutze"
+    "path": "./berriart.jks",
+    "alias": "gurutzeta"
   },
-  "appVersionName": "202200004",
-  "appVersionCode": 202200004,
+  "appVersionName": "202200006",
+  "appVersionCode": 202200006,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://app.gurutzeta.info/manifest.json",
@@ -34,5 +35,5 @@
   "fingerprints": [],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "202200004"
+  "appVersion": "202200006"
 }
