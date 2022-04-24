@@ -27,6 +27,11 @@
       "purpose": "maskable"
     }
   ],
+  "url_handlers": [
+    {
+      "origin": "https://app.gurutzeta.info"
+    }
+  ],
   "start_url": ".",
   "scope": "/",
   "display": "standalone",

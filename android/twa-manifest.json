@@ -19,8 +19,8 @@
     "path": "./berriart.jks",
     "alias": "gurutzeta"
   },
-  "appVersionName": "202200006",
-  "appVersionCode": 202200006,
+  "appVersionName": "202200007",
+  "appVersionCode": 202200007,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://app.gurutzeta.info/manifest.json",
@@ -32,8 +32,12 @@
   "enableSiteSettingsShortcut": true,
   "isChromeOSOnly": false,
   "orientation": "default",
-  "fingerprints": [],
+  "fingerprints": [
+    {
+      "value": "38:7A:4E:47:F7:A6:CA:A3:63:C6:0C:47:94:2C:12:EB:0A:D2:48:FA:9C:99:34:2B:FC:F1:F1:6A:12:29:8A:25"
+    }
+  ],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "202200006"
+  "appVersion": "202200007"
 }
