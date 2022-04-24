@@ -9,7 +9,7 @@
   "navigationColorDark": "#000000",
   "navigationDividerColor": "#000000",
   "navigationDividerColorDark": "#000000",
-  "backgroundColor": "#1bb559",
+  "backgroundColor": "#1BB559",
   "enableNotifications": true,
   "startUrl": "/",
   "iconUrl": "https://app.gurutzeta.info/icon-512.png",
@@ -19,8 +19,8 @@
     "path": "./berriart.jks",
     "alias": "gurutzeta"
   },
-  "appVersionName": "202200007",
-  "appVersionCode": 202200007,
+  "appVersionName": "202200008",
+  "appVersionCode": 202200008,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://app.gurutzeta.info/manifest.json",
@@ -39,5 +39,5 @@
   ],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "202200007"
+  "appVersion": "202200008"
 }
