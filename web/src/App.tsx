@@ -8,6 +8,7 @@ import {
 import { fork, FutureInstance } from "fluture";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import "./App.css";
+import { useTranslation } from "react-i18next";
 import { Layout } from "./components/Layout";
 import { Loader } from "./components/Loader";
 import { Logo } from "./components/Logo";
@@ -28,12 +29,17 @@ export interface AppProperties {
 }
 
 export const App = ({ getReady }: AppProperties) => {
+  const { i18n } = useTranslation();
   const { tab, goToTab, goToScheduleTab } = useAppState();
   const isOnline = useOnlineStatus();
   const [isLoading, setIsLoading] = useState(true);
   const [isReady, setIsReady] = useState(false);
   const syncronizer = useService(Syncronizer);
   const tracer = useService(Tracer);
+
+  useEffect(() => {
+    document.documentElement.lang = i18n.resolvedLanguage;
+  }, [i18n.resolvedLanguage]);
 
   useEffect(() => {
     const cancel = fork<Error>((readyError) => {
