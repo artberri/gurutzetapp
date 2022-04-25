@@ -4,7 +4,7 @@ import { CategoryProvider } from "./utils/CategoryUtils";
 import { FavoritesProvider } from "./utils/FavoriteUtils";
 import { VenueProvider } from "./utils/VenueUtils";
 
-export const AppProviders = ({ children }: { children: ReactNode }) => (
+export const ContentProviders = ({ children }: { children: ReactNode }) => (
   <FavoritesProvider>
     <ActivityProvider>
       <VenueProvider>

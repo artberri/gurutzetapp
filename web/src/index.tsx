@@ -9,13 +9,11 @@ import * as serviceWorkerRegistration from "./ServiceWorkerRegistration";
 import { container as diContainer } from "./config/DependencyInjection";
 import { configTracing } from "./config/Tracing";
 import { configI18n } from "./config/I18n";
-import { App } from "./App";
 import "./index.css";
 import { reportWebVitals } from "./ReportWebVitals";
-import { ServiceGetter, ServiceGetterProvider } from "./utils/ServiceUtils";
+import { ServiceGetter } from "./utils/ServiceUtils";
 import { FatalError } from "./components/FatalError";
-import { OnlineStatusProvider } from "./utils/OnlineStatusUtils";
-import { AppStateProvider } from "./utils/AppStateUtils";
+import { App } from "./App";
 
 configTracing();
 const i18nReady = configI18n().then(() => {});
@@ -28,13 +26,10 @@ const root = createRoot(container);
 // React.StrictMode
 root.render(
   <ErrorBoundary fallback={<FatalError />} showDialog>
-    <OnlineStatusProvider online={navigator.onLine ?? true}>
-      <ServiceGetterProvider serviceGetter={serviceGetter}>
-        <AppStateProvider>
-          <App getReady={attemptP<Error, void>(() => i18nReady)} />
-        </AppStateProvider>
-      </ServiceGetterProvider>
-    </OnlineStatusProvider>
+    <App
+      getReady={attemptP<Error, void>(() => i18nReady)}
+      serviceGetter={serviceGetter}
+    />
   </ErrorBoundary>,
 );
 

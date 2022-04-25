@@ -10,6 +10,8 @@ import { Syncronizer } from "../domain/Syncronizer";
 import { VenueStorage } from "../domain/VenueStorage";
 import { FavoriteStorage } from "../domain/FavoriteStorage";
 import { CategoryStorage } from "../domain/CategoryStorage";
+import { NetworkDetector } from "../domain/NetworkDetector";
+import { BrowserNetworkDetector } from "../infrastructure/BrowserNetworkDetector";
 
 const builder = new ContainerBuilder();
 
@@ -31,6 +33,11 @@ builder
 builder
   .register(DataFetcher)
   .use(ContentfulDataFetcher)
+  .withDependencies([Storage])
+  .asSingleton();
+builder
+  .register(NetworkDetector)
+  .use(BrowserNetworkDetector)
   .withDependencies([Storage])
   .asSingleton();
 builder

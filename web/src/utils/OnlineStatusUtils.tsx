@@ -5,30 +5,21 @@ import {
   useEffect,
   useState,
 } from "react";
+import { NetworkDetector } from "../domain/NetworkDetector";
+import { useService } from "./ServiceUtils";
 
 const OnlineStatusContext = createContext(true);
 
-export const OnlineStatusProvider = ({
-  children,
-  online,
-}: {
-  children: ReactNode;
-  online: boolean;
-}) => {
-  const [onlineStatus, setOnlineStatus] = useState<boolean>(online);
+export const OnlineStatusProvider = ({ children }: { children: ReactNode }) => {
+  const networkDetector = useService(NetworkDetector);
+  const [onlineStatus, setOnlineStatus] = useState<boolean>(() =>
+    networkDetector.isOnLine(),
+  );
 
-  useEffect(() => {
-    const setOffline = () => setOnlineStatus(false);
-    const setOnline = () => setOnlineStatus(true);
-
-    window.addEventListener("offline", setOffline);
-    window.addEventListener("online", setOnline);
-
-    return () => {
-      window.removeEventListener("offline", setOffline);
-      window.removeEventListener("online", setOnline);
-    };
-  }, []);
+  useEffect(
+    () => networkDetector.watchOnlineStatus(setOnlineStatus),
+    [networkDetector],
+  );
 
   return (
     <OnlineStatusContext.Provider value={onlineStatus}>
