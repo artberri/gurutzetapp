@@ -5,12 +5,6 @@ import { Storage } from "../domain/Storage";
 export class LocalStorage implements Storage {
   private readonly localStorage = localStorage;
 
-  public hasItem(key: string) {
-    const value = this.localStorage.getItem(key);
-
-    return !!value;
-  }
-
   public getItem<T>(key: string) {
     const value = this.localStorage.getItem(key);
     if (!value) {
@@ -25,7 +19,7 @@ export class LocalStorage implements Storage {
   }
 
   public setItem<T>(key: string, value: T) {
-    return this.localStorage.setItem(key, JSON.stringify(value));
+    this.localStorage.setItem(key, JSON.stringify(value));
   }
 
   public removeItem(key: string) {

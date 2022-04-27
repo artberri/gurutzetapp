@@ -32,7 +32,7 @@ module.exports = {
       "error",
       {
         case: "pascalCase",
-        ignore: ["\\.d\\.ts$", "service-worker\\.ts$"],
+        ignore: ["\\.d\\.ts$", "service-worker\\.ts$", "\\.spec\\.ts$"],
       },
     ],
     "unicorn/prevent-abbreviations": [
@@ -45,4 +45,15 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ["src/specs/**"],
+      rules: {
+        "import/no-extraneous-dependencies": [
+          "error",
+          { devDependencies: true },
+        ],
+      },
+    },
+  ],
 };
