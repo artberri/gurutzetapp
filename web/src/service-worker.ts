@@ -45,7 +45,7 @@ registerRoute(
 
 		// If this looks like a URL for a resource, because it contains
 		// a file extension, skip.
-		if (fileExtensionRegexp.test(url.pathname)) {
+		if (url.pathname.match(fileExtensionRegexp)) {
 			return false
 		}
 
