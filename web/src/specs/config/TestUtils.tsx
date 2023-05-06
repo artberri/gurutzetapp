@@ -45,6 +45,8 @@ jest.mock("@headlessui/react", () => {
 	}
 })
 
+jest.mock("react-leaflet", () => ({}))
+
 void i18n.use(initReactI18next).init({
 	supportedLngs: ["eu", "es"],
 	nonExplicitSupportedLngs: true,
