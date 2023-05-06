@@ -1,7 +1,7 @@
 {
   "packageId": "info.gurutzeta.app",
   "host": "app.gurutzeta.info",
-  "name": "Gurutzetako Jaiak 2022",
+  "name": "Gurutzetako Jaiak 2023",
   "launcherName": "Gurutzeta",
   "display": "standalone",
   "themeColor": "#25B750",
@@ -19,8 +19,8 @@
     "path": "./berriart.jks",
     "alias": "gurutzeta"
   },
-  "appVersionName": "202200008",
-  "appVersionCode": 202200008,
+  "appVersionName": "202300001",
+  "appVersionCode": 202300001,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://app.gurutzeta.info/manifest.json",
@@ -39,5 +39,5 @@
   ],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "202200008"
+  "appVersion": "202300001"
 }
