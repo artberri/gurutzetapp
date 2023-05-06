@@ -47,7 +47,6 @@ export const Activity = ({ activity }: ActivityProperties) => {
         {foldE(
           (error: Error) => {
             tracer.trace(error);
-            // eslint-disable-next-line unicorn/no-null
             return null;
           },
           (c: Category) => (
@@ -60,7 +59,6 @@ export const Activity = ({ activity }: ActivityProperties) => {
       <div className="w-10 flex-none pl-2 flex flex-col justify-between">
         <FavoriteButton activity={activity} />
         {foldE(
-          // eslint-disable-next-line unicorn/no-null
           () => null,
           (v: Venue) => <LocationButton venue={v} />,
         )(venue)}

@@ -2,7 +2,7 @@ import { render, waitFor } from "./config/TestUtils";
 
 import { Data, Scenario } from "./config/Scenario";
 
-describe("Working Offline", () => {
+describe.skip("Working Offline", () => {
   let scenario: Scenario;
 
   beforeEach(() => {

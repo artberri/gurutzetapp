@@ -1,18 +1,20 @@
 import "reflect-metadata";
+
 import "@fontsource/ubuntu/latin-400.css";
 import "@fontsource/ubuntu/latin-500.css";
 import "@fontsource/ubuntu/latin-700.css";
-import { createRoot } from "react-dom/client";
 import { ErrorBoundary } from "@sentry/react";
 import { attemptP } from "fluture";
-import * as serviceWorkerRegistration from "./ServiceWorkerRegistration";
-import { container as diContainer } from "./config/DependencyInjection";
-import { configTracing } from "./config/Tracing";
-import { configI18n } from "./config/I18n";
-import "./index.css";
+import { createRoot } from "react-dom/client";
 import { reportWebVitals } from "./ReportWebVitals";
-import { ServiceGetter } from "./utils/ServiceUtils";
+import * as serviceWorkerRegistration from "./ServiceWorkerRegistration";
 import { FatalError } from "./components/FatalError";
+import { container as diContainer } from "./config/DependencyInjection";
+import { configI18n } from "./config/I18n";
+import { configTracing } from "./config/Tracing";
+import "./index.css";
+import { ServiceGetter } from "./utils/ServiceUtils";
+
 import { App } from "./App";
 
 configTracing();

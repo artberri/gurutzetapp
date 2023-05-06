@@ -27,9 +27,7 @@ export const ActivityFilter = ({
         map((id: string) => getCategory(id)),
         filter<Either<Error, Category>>((c) => isRight(c)),
         map(
-          (c) =>
-            // eslint-disable-next-line unicorn/no-useless-undefined
-            option<Category | undefined>(() => undefined)(c) as Category,
+          (c) => option<Category | undefined>(() => undefined)(c) as Category,
         ),
         sort((a, b) => (a.name[lang] < b.name[lang] ? -1 : 1)),
         map(just),

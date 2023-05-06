@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/no-null */
 export function setupIntersectionObserverMock({
   root = null,
   rootMargin = "",

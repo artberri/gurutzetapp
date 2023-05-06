@@ -68,7 +68,6 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
         {fold(
           (error: Error) => {
             tracer.trace(error);
-            // eslint-disable-next-line unicorn/no-null
             return null;
           },
           (c: Category) => (
@@ -89,7 +88,6 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
           <TrashIcon />
         </div>
         {fold(
-          // eslint-disable-next-line unicorn/no-null
           () => null,
           (v: Venue) => <LocationButton venue={v} />,
         )(venue)}

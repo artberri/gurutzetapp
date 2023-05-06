@@ -9,7 +9,6 @@ module.exports = {
     "airbnb-typescript",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:unicorn/recommended",
     "prettier",
   ],
   parserOptions: {
@@ -28,22 +27,6 @@ module.exports = {
     ],
     "import/prefer-default-export": ["off"],
     "import/no-default-export": ["error"],
-    "unicorn/filename-case": [
-      "error",
-      {
-        case: "pascalCase",
-        ignore: ["\\.d\\.ts$", "service-worker\\.ts$", "\\.spec\\.ts$"],
-      },
-    ],
-    "unicorn/prevent-abbreviations": [
-      "error",
-      {
-        replacements: {
-          env: false,
-          fn: false,
-        },
-      },
-    ],
   },
   overrides: [
     {

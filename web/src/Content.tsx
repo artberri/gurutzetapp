@@ -98,7 +98,6 @@ export const Content = ({ getReady }: ContentProperties) => {
 
   const showApp = !isLoading && isReady;
 
-  // eslint-disable-next-line unicorn/no-null
   return (
     <>
       <Transition

@@ -1,13 +1,49 @@
 import "reflect-metadata";
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import { render } from "@testing-library/react";
+/* eslint-disable class-methods-use-this */
 import "@testing-library/jest-dom";
+import { render } from "@testing-library/react";
 import { resolve } from "fluture";
-import { ServiceGetter } from "../../utils/ServiceUtils";
+import i18n from "i18next";
+import { ReactNode } from "react";
+import { initReactI18next } from "react-i18next";
 import { App } from "../../App";
+import { ServiceGetter } from "../../utils/ServiceUtils";
 import { setupIntersectionObserverMock } from "../infrastructure/IntersectionObserverMock";
 import { Scenario } from "./Scenario";
+
+global.ResizeObserver = class ResizeObserver {
+  observe() {
+    // do nothing
+  }
+
+  unobserve() {
+    // do nothing
+  }
+
+  disconnect() {
+    // do nothing
+  }
+};
+const FakeTransition = ({
+  children,
+  show,
+}: {
+  children: ReactNode;
+  show: boolean;
+}) => (
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  <>{show ? children : null}</>
+);
+jest.mock("@headlessui/react", () => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const library = jest.requireActual("@headlessui/react");
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+  return {
+    ...library,
+    Transition: FakeTransition,
+  };
+});
 
 void i18n.use(initReactI18next).init({
   supportedLngs: ["eu", "es"],
@@ -24,7 +60,6 @@ const TestApp = ({ scenario: { container } }: { scenario: Scenario }) => {
   const serviceGetter: ServiceGetter = (service) => container.get(service);
 
   return (
-    // eslint-disable-next-line unicorn/no-useless-undefined
     <App getReady={resolve<void>(undefined)} serviceGetter={serviceGetter} />
   );
 };
