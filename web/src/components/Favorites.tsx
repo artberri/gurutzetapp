@@ -1,11 +1,11 @@
-import { useTranslation } from "react-i18next"
 import { map } from "ramda"
+import { useTranslation } from "react-i18next"
 import { Activity as A } from "../domain/Activity"
-import { Favorite } from "./Favorite"
-import { StackedList } from "./StackedList"
-import { Button } from "./Button"
 import { useActivities } from "../utils/ActivityUtils"
 import { useFavorites } from "../utils/FavoriteUtils"
+import { Button } from "./Button"
+import { Favorite } from "./Favorite"
+import { StackedList } from "./StackedList"
 
 const mapFavorites = map((activity: A) => (
 	<Favorite key={activity.id} activity={activity} />
@@ -41,7 +41,7 @@ export const Favorites = ({ onBack }: FavoritesProperties) => {
 		<div className="w-full h-full px-3 flex flex-col">
 			<div className=" py-8">
 				<StackedList
-					title={t("favorites")}
+					title={t("favorites") ?? "Gogokoak"}
 					items={
 						activities.length === 0
 							? [<NoResults key="noresults" onBack={onBack} />]

@@ -1,9 +1,9 @@
-import { useTranslation } from "react-i18next"
 import { map } from "ramda"
-import { Day } from "./Day"
-import { StackedList } from "./StackedList"
+import { useTranslation } from "react-i18next"
 import { useActivities } from "../utils/ActivityUtils"
+import { Day } from "./Day"
 import { FatalErrorDialog } from "./FatalErrorDialog"
+import { StackedList } from "./StackedList"
 
 const mapDays = (handleClick: (date: Date) => () => void) =>
 	map((date: Date) => (
@@ -29,7 +29,10 @@ export const Days = ({ onClick }: DaysProperties) => {
 
 	return (
 		<>
-			<StackedList title={t("title")} items={mapDays(handleDayClick)(days)} />
+			<StackedList
+				title={t("title") ?? "Gurutzetako Jaiak"}
+				items={mapDays(handleDayClick)(days)}
+			/>
 			<FatalErrorDialog isOpen={days.length === 0} />
 		</>
 	)
