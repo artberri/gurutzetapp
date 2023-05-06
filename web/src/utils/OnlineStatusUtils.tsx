@@ -1,34 +1,34 @@
 import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-import { NetworkDetector } from "../domain/NetworkDetector";
-import { useService } from "./ServiceUtils";
+	createContext,
+	ReactNode,
+	useContext,
+	useEffect,
+	useState,
+} from "react"
+import { NetworkDetector } from "../domain/NetworkDetector"
+import { useService } from "./ServiceUtils"
 
-const OnlineStatusContext = createContext(true);
+const OnlineStatusContext = createContext(true)
 
 export const OnlineStatusProvider = ({ children }: { children: ReactNode }) => {
-  const networkDetector = useService(NetworkDetector);
-  const [onlineStatus, setOnlineStatus] = useState<boolean>(() =>
-    networkDetector.isOnLine(),
-  );
+	const networkDetector = useService(NetworkDetector)
+	const [onlineStatus, setOnlineStatus] = useState<boolean>(() =>
+		networkDetector.isOnLine()
+	)
 
-  useEffect(
-    () => networkDetector.watchOnlineStatus(setOnlineStatus),
-    [networkDetector],
-  );
+	useEffect(
+		() => networkDetector.watchOnlineStatus(setOnlineStatus),
+		[networkDetector]
+	)
 
-  return (
-    <OnlineStatusContext.Provider value={onlineStatus}>
-      {children}
-    </OnlineStatusContext.Provider>
-  );
-};
+	return (
+		<OnlineStatusContext.Provider value={onlineStatus}>
+			{children}
+		</OnlineStatusContext.Provider>
+	)
+}
 
 export const useOnlineStatus = () => {
-  const store = useContext(OnlineStatusContext);
-  return store;
-};
+	const store = useContext(OnlineStatusContext)
+	return store
+}

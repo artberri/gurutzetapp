@@ -1,7 +1,7 @@
-import { LocalizedText } from "./LocalizedText";
+import { LocalizedText } from "./LocalizedText"
 
 export interface Category {
-  readonly id: string;
-  readonly name: LocalizedText;
-  readonly label: string;
+	readonly id: string
+	readonly name: LocalizedText
+	readonly label: string
 }

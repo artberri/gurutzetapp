@@ -1,13 +1,13 @@
-import { LocalizedText } from "./LocalizedText";
+import { LocalizedText } from "./LocalizedText"
 
-export type VenueCategory = "public" | "official" | "business";
+export type VenueCategory = "public" | "official" | "business"
 
 export interface Venue {
-  readonly id: string;
-  readonly name: LocalizedText;
-  readonly category: VenueCategory;
-  readonly location: {
-    lat: number;
-    lng: number;
-  };
+	readonly id: string
+	readonly name: LocalizedText
+	readonly category: VenueCategory
+	readonly location: {
+		lat: number
+		lng: number
+	}
 }

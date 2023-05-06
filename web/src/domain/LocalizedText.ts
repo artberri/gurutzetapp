@@ -1,4 +1,4 @@
 export interface LocalizedText {
-  readonly eu: string;
-  readonly es: string;
+	readonly eu: string
+	readonly es: string
 }

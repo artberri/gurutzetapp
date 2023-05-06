@@ -1,4 +1,4 @@
 {
-  "*": ["prettier --write"],
-  "*.{ts,tsx}": ["eslint --quiet"]
+	"*": ["prettier --write"],
+	"*.{ts,tsx}": ["eslint --quiet"]
 }

@@ -1,12 +1,12 @@
 {
-  "title": "Gurutzetako Jaiak 2022",
-  "error.fatal.title": "Ups! Zerbait gaizki dago",
-  "error.fatal.description": "Ezin izan dira jaietako datuak kargatu. Mesedez, egiaztatu zure konexioa eta saiatu berriro geroago.",
-  "error.fatal.button": "Saiatu berriro",
-  "favorites": "Gogokoenak",
-  "favorites.noresults": "Oraindik ekintzarik ez duzu gorde. Ikusi egitaraua eta bihotza sakatu gustoko duzun ekintzetan.",
-  "favorites.back": "Ikusi egitaraua",
-  "map.offline": "Internet konexioa behar duzu mapa ikusteko",
-  "map.error": "Ezin izan da mapa kargatu. Mesedez, egiaztatu zure konexioa eta saiatu berriro geroago.",
-  "nofilters": "Kategoria guztiak"
+	"title": "Gurutzetako Jaiak 2022",
+	"error.fatal.title": "Ups! Zerbait gaizki dago",
+	"error.fatal.description": "Ezin izan dira jaietako datuak kargatu. Mesedez, egiaztatu zure konexioa eta saiatu berriro geroago.",
+	"error.fatal.button": "Saiatu berriro",
+	"favorites": "Gogokoenak",
+	"favorites.noresults": "Oraindik ekintzarik ez duzu gorde. Ikusi egitaraua eta bihotza sakatu gustoko duzun ekintzetan.",
+	"favorites.back": "Ikusi egitaraua",
+	"map.offline": "Internet konexioa behar duzu mapa ikusteko",
+	"map.error": "Ezin izan da mapa kargatu. Mesedez, egiaztatu zure konexioa eta saiatu berriro geroago.",
+	"nofilters": "Kategoria guztiak"
 }
