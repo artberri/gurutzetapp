@@ -15,3 +15,7 @@
 .leaflet-container a {
 	@apply text-primary;
 }
+
+:focus-visible {
+	outline: none;
+}

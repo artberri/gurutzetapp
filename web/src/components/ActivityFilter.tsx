@@ -1,5 +1,5 @@
 import { Listbox, Transition } from "@headlessui/react"
-import { CheckIcon, SelectorIcon } from "@heroicons/react/solid"
+import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/24/solid"
 import { filter, map, pipe, prepend, sort } from "ramda"
 import { Fragment, useMemo, useState } from "react"
 import { useTranslation } from "react-i18next"
@@ -59,7 +59,7 @@ export const ActivityFilter = ({
 				<Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg cursor-default focus:outline-none sm:text-sm">
 					<span className="block truncate">{getCategoryName(selected)}</span>
 					<span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-						<SelectorIcon
+						<ChevronUpDownIcon
 							className="w-5 h-5 text-gray-400"
 							aria-hidden="true"
 						/>

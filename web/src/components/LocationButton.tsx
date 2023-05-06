@@ -1,4 +1,4 @@
-import { GlobeIcon } from "@heroicons/react/outline"
+import { GlobeEuropeAfricaIcon as GlobeIcon } from "@heroicons/react/24/outline"
 import { KeyboardEventHandler } from "react"
 import { Venue } from "../domain/Venue"
 import { useAppState } from "../utils/AppStateUtils"

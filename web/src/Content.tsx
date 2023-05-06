@@ -1,28 +1,32 @@
 import { Transition } from "@headlessui/react"
-import { CalendarIcon, GlobeIcon, HeartIcon } from "@heroicons/react/outline"
+import {
+	CalendarIcon,
+	GlobeEuropeAfricaIcon as GlobeIcon,
+	HeartIcon,
+} from "@heroicons/react/24/outline"
 import {
 	CalendarIcon as CalendarIconSelected,
-	GlobeIcon as GlobeIconSelected,
+	GlobeEuropeAfricaIcon as GlobeIconSelected,
 	HeartIcon as HeartIconSelected,
-} from "@heroicons/react/solid"
-import { fork, FutureInstance } from "fluture"
+} from "@heroicons/react/24/solid"
+import { FutureInstance, fork } from "fluture"
 import { useCallback, useEffect, useMemo, useState } from "react"
-import "./Content.css"
 import { useTranslation } from "react-i18next"
+import "./Content.css"
+import { ContentProviders } from "./ContentProviders"
+import { Favorites } from "./components/Favorites"
 import { Layout } from "./components/Layout"
 import { Loader } from "./components/Loader"
 import { Logo } from "./components/Logo"
+import { Map } from "./components/Map"
 import { Schedule } from "./components/Schedule"
 import { TabPage, Tabs } from "./components/Tabs"
 import { noop } from "./cross-cutting/Noop"
 import { Syncronizer } from "./domain/Syncronizer"
-import { useOnlineStatus } from "./utils/OnlineStatusUtils"
-import { useService } from "./utils/ServiceUtils"
-import { ContentProviders } from "./ContentProviders"
-import { Favorites } from "./components/Favorites"
-import { Map } from "./components/Map"
 import { Tracer } from "./domain/Tracer"
 import { useAppState } from "./utils/AppStateUtils"
+import { useOnlineStatus } from "./utils/OnlineStatusUtils"
+import { useService } from "./utils/ServiceUtils"
 
 export interface ContentProperties {
 	getReady: FutureInstance<Error, void>

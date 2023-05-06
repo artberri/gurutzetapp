@@ -1,20 +1,20 @@
-import { useTranslation } from "react-i18next"
-import { ArrowLeftIcon } from "@heroicons/react/outline"
+import { ArrowLeftIcon } from "@heroicons/react/24/outline"
 import { map, pipe, uniq } from "ramda"
 import {
-	MouseEventHandler,
 	KeyboardEventHandler,
-	useState,
+	MouseEventHandler,
 	useMemo,
+	useState,
 } from "react"
+import { useTranslation } from "react-i18next"
+import { Maybe, fold } from "../cross-cutting/Maybe"
 import { Activity as A } from "../domain/Activity"
-import { Activity } from "./Activity"
-import { monthDay, weekDay } from "../utils/DateUtils"
-import { StackedList } from "./StackedList"
-import { useActivities } from "../utils/ActivityUtils"
-import { ActivityFilter } from "./ActivityFilter"
-import { fold, Maybe } from "../cross-cutting/Maybe"
 import { Category } from "../domain/Category"
+import { useActivities } from "../utils/ActivityUtils"
+import { monthDay, weekDay } from "../utils/DateUtils"
+import { Activity } from "./Activity"
+import { ActivityFilter } from "./ActivityFilter"
+import { StackedList } from "./StackedList"
 
 const mapActivities = map((activity: A) => (
 	<Activity key={activity.id} activity={activity} />

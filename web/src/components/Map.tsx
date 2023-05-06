@@ -1,4 +1,4 @@
-import { StatusOfflineIcon } from "@heroicons/react/outline"
+import { SignalSlashIcon } from "@heroicons/react/24/outline"
 import { useTranslation } from "react-i18next"
 import { useOnlineStatus } from "../utils/OnlineStatusUtils"
 import { VenuesMap } from "./VenuesMap"
@@ -15,7 +15,7 @@ export const Map = () => {
 	) : (
 		<Warning>
 			<div>
-				<StatusOfflineIcon className="w-14" />
+				<SignalSlashIcon className="w-14" />
 			</div>
 			<div>{t("map.offline")}</div>
 		</Warning>
