@@ -42,7 +42,8 @@
 		"eject": "react-scripts eject",
 		"test": "react-scripts test",
 		"lint": "eslint .",
-		"qa": "pnpm run lint --quiet && pnpm run test --watchAll=false --coverage"
+		"qa": "pnpm run lint --quiet && pnpm run test --watchAll=false --coverage",
+		"deploy": "wrangler pages publish public --project-name gurutzeta"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -90,7 +91,8 @@
 		"postcss": "^8.4.23",
 		"prettier": "2.8.8",
 		"tailwindcss": "^3.3.2",
-		"typescript": "^5.0.4"
+		"typescript": "^5.0.4",
+		"wrangler": "^2.19.0"
 	},
 	"pnpm": {
 		"overrides": {
