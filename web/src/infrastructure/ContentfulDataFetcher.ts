@@ -1,11 +1,14 @@
-import { attemptP, map as mapF, chain, resolve, FutureInstance } from "fluture"
-import { ContentfulClientApi, createClient, SyncCollection } from "contentful"
+import { ContentfulClientApi, SyncCollection, createClient } from "contentful"
+import { FutureInstance, attemptP, chain, map as mapF, resolve } from "fluture"
 import { concat, filter, map, mergeDeepWith, pipe } from "ramda"
-import { getEnv } from "./GetEnv"
-import { Storage } from "../domain/Storage"
 import { Either, fold, option, right } from "../cross-cutting/Either"
-import { Data, DataFetcher } from "../domain/DataFetcher"
+import { just, nothing } from "../cross-cutting/Maybe"
 import { Activity } from "../domain/Activity"
+import { Category } from "../domain/Category"
+import { Data, DataFetcher } from "../domain/DataFetcher"
+import { Storage } from "../domain/Storage"
+import { Venue } from "../domain/Venue"
+import { parseError } from "../utils/ErrorUtils"
 import {
 	ContentfulActivityEntry,
 	ContentfulCategoryEntry,
@@ -13,12 +16,9 @@ import {
 	ContentfulVenueEntry,
 	DeletedEntry,
 } from "./ContentfulModels"
-import { parseError } from "../utils/ErrorUtils"
-import { Category } from "../domain/Category"
-import { Venue } from "../domain/Venue"
-import { just, nothing } from "../cross-cutting/Maybe"
+import { getEnv } from "./GetEnv"
 
-const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN"
+const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2023"
 
 const mapActivity = (entry: ContentfulActivityEntry): Activity => ({
 	id: entry.sys.id,

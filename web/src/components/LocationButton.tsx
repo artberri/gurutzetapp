@@ -1,4 +1,4 @@
-import { GlobeEuropeAfricaIcon as GlobeIcon } from "@heroicons/react/24/outline"
+import { MapPinIcon } from "@heroicons/react/24/outline"
 import { KeyboardEventHandler } from "react"
 import { Venue } from "../domain/Venue"
 import { useAppState } from "../utils/AppStateUtils"
@@ -35,7 +35,7 @@ export const LocationButton = ({ venue }: LocationButtonProperties) => {
 			onKeyUp={handleGoToVenueKeyUp}
 			onClick={handleGoToVenueClick}
 		>
-			<GlobeIcon />
+			<MapPinIcon />
 		</div>
 	)
 }
