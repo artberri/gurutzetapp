@@ -43,7 +43,7 @@
 		"test": "react-scripts test",
 		"lint": "eslint .",
 		"qa": "pnpm run lint --quiet && pnpm run test --watchAll=false --coverage",
-		"deploy": "wrangler pages publish public --project-name gurutzeta"
+		"deploy": "wrangler pages publish build --project-name gurutzeta"
 	},
 	"eslintConfig": {
 		"extends": [
