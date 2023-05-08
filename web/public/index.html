@@ -33,6 +33,8 @@
         https://*.ingest.sentry.io
         https://*.openstreetmap.org
         https://cdn.contentful.com
+        https://*.cloudflareinsights.com
+        https://cloudflareinsights.com
         app.gurutzeta.info
         ;
       connect-src 'self'
@@ -41,6 +43,8 @@
         https://*.ingest.sentry.io
         https://*.openstreetmap.org
         https://cdn.contentful.com
+        https://*.cloudflareinsights.com
+        https://cloudflareinsights.com
         https://app.gurutzeta.info
         http://app.gurutzeta.info
                   ;
@@ -91,5 +95,12 @@
 	<body>
 		<noscript>Necesitas JavaScript para utilizar esta app.</noscript>
 		<div id="root"></div>
+		<!-- Cloudflare Web Analytics -->
+		<script
+			defer
+			src="https://static.cloudflareinsights.com/beacon.min.js"
+			data-cf-beacon='{"token": "0cf3360c364143cd87d88011be050aa6"}'
+		></script>
+		<!-- End Cloudflare Web Analytics -->
 	</body>
 </html>
