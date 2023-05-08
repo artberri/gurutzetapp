@@ -1,7 +1,7 @@
 {
   "packageId": "info.gurutzeta.app",
   "host": "app.gurutzeta.info",
-  "name": "Gurutzetako Jaiak 2023",
+  "name": "Gurutzetako Jaiak",
   "launcherName": "Gurutzeta",
   "display": "standalone",
   "themeColor": "#25B750",
@@ -19,8 +19,8 @@
     "path": "./berriart.jks",
     "alias": "gurutzeta"
   },
-  "appVersionName": "202300001",
-  "appVersionCode": 202300001,
+  "appVersionName": "202300002",
+  "appVersionCode": 202300002,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://app.gurutzeta.info/manifest.json",
@@ -31,6 +31,8 @@
   },
   "enableSiteSettingsShortcut": true,
   "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "minSdkVersion": 19,
   "orientation": "default",
   "fingerprints": [
     {
@@ -39,5 +41,5 @@
   ],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "202300001"
+  "appVersion": "202300002"
 }
