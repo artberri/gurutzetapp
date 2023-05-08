@@ -1,6 +1,7 @@
 build
 node_modules
 pnpm-lock.yaml
+*.txt
 *.svg
 *.png
 *.ico
