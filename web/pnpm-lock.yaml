@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 overrides:
   fork-ts-checker-webpack-plugin: ^6.5.3
   typescript: ^5.0.4
@@ -185,8 +189,8 @@ devDependencies:
     specifier: ^5.0.4
     version: 5.0.4
   wrangler:
-    specifier: ^2.19.0
-    version: 2.19.0
+    specifier: ^2.20.1
+    version: 2.20.1
 
 packages:
 
@@ -2395,7 +2399,7 @@ packages:
       loader-utils: 2.0.2
       react-refresh: 0.11.0
       schema-utils: 3.1.1
-      source-map: 0.7.3
+      source-map: 0.7.4
       webpack: 5.71.0(esbuild@0.16.3)
       webpack-dev-server: 4.7.4(webpack@5.71.0)
     dev: false
@@ -4379,7 +4383,7 @@ packages:
       postcss-modules-scope: 3.0.0(postcss@8.4.23)
       postcss-modules-values: 4.0.0(postcss@8.4.23)
       postcss-value-parser: 4.2.0
-      semver: 7.3.5
+      semver: 7.5.0
       webpack: 5.71.0(esbuild@0.16.3)
     dev: false
 
@@ -8458,7 +8462,7 @@ packages:
       cosmiconfig: 7.0.1
       klona: 2.0.5
       postcss: 8.4.23
-      semver: 7.3.5
+      semver: 7.5.0
       webpack: 5.71.0(esbuild@0.16.3)
     dev: false
 
@@ -9855,11 +9859,6 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
-  /source-map@0.7.3:
-    resolution: {integrity: sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==}
-    engines: {node: '>= 8'}
-    dev: false
-
   /source-map@0.7.4:
     resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
     engines: {node: '>= 8'}
@@ -11131,8 +11130,8 @@ packages:
       workbox-core: 6.5.2
     dev: false
 
-  /wrangler@2.19.0:
-    resolution: {integrity: sha512-/XykXkD7dtvBMWq2p84V/aHhkifZA15+HBD7nm/pV62s6MJrJ+DWd1QJB7CF2D7DqknBLxdWpmmZB6YCo0BtMw==}
+  /wrangler@2.20.1:
+    resolution: {integrity: sha512-5fl7xF7OkRHim0B0kVXtmSPMrRhRKZ3rqAdn9tKYgi6MnZOvWC+HesGKpNxpVUWsJYpPfJ5AU6gZ6gEL1OLmFQ==}
     engines: {node: '>=16.13.0'}
     hasBin: true
     dependencies:
