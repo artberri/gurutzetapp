@@ -26,7 +26,7 @@ const FavoritesContext = createContext<{
 export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
 	const favoritesStorage = useService(FavoriteStorage)
 	const [favorites, setFavorites] = useState<string[]>(() =>
-		favoritesStorage.getFavorites()
+		favoritesStorage.getFavorites(),
 	)
 
 	const addFavorite = useCallback(
@@ -37,7 +37,7 @@ export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
 				return newFavs
 			})
 		},
-		[favoritesStorage]
+		[favoritesStorage],
 	)
 
 	const removeFavorite = useCallback(
@@ -48,17 +48,17 @@ export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
 				return newFavs
 			})
 		},
-		[favoritesStorage]
+		[favoritesStorage],
 	)
 
 	const isFavorite = useCallback(
 		(activityId: string) => favorites.includes(activityId),
-		[favorites]
+		[favorites],
 	)
 
 	const value = useMemo(
 		() => ({ favorites, addFavorite, removeFavorite, isFavorite }),
-		[favorites, addFavorite, removeFavorite, isFavorite]
+		[favorites, addFavorite, removeFavorite, isFavorite],
 	)
 
 	return (

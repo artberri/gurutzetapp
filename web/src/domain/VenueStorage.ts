@@ -18,7 +18,7 @@ export class VenueStorage {
 		const updateVenues = pipe(
 			(previous: readonly Venue[]) =>
 				previous.filter((a) => !newVenueIds.includes(a.id)),
-			(previous: readonly Venue[]) => [...previous, ...venues]
+			(previous: readonly Venue[]) => [...previous, ...venues],
 		)
 
 		const toSave = updateVenues(this.get())

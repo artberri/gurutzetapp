@@ -36,7 +36,7 @@ export class Syncronizer {
 		private readonly fetcher: DataFetcher,
 		private readonly activityStorage: ActivityStorage,
 		private readonly categoryStorage: CategoryStorage,
-		private readonly venueStorage: VenueStorage
+		private readonly venueStorage: VenueStorage,
 	) {}
 
 	public sync() {
@@ -45,7 +45,7 @@ export class Syncronizer {
 				activityStorage: this.activityStorage,
 				categoryStorage: this.categoryStorage,
 				venueStorage: this.venueStorage,
-			})
+			}),
 		)(this.fetcher.fetch())
 	}
 

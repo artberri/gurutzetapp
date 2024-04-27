@@ -9,7 +9,7 @@ export const reportWebVitals = (onPerfEntry?: ReportCallback) => {
 				getFCP(onPerfEntry)
 				getLCP(onPerfEntry)
 				getTTFB(onPerfEntry)
-			}
+			},
 		)
 	}
 }

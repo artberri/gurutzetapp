@@ -14,7 +14,7 @@ import { NetworkDetector } from "../domain/NetworkDetector"
 import { BrowserNetworkDetector } from "../infrastructure/BrowserNetworkDetector"
 
 export const registerDomainDependencies = (
-	builder: ContainerBuilder
+	builder: ContainerBuilder,
 ): ContainerBuilder => {
 	builder
 		.registerAndUse(ActivityStorage)

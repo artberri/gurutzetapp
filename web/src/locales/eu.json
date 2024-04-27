@@ -6,7 +6,11 @@
 	"favorites": "Gogokoenak",
 	"favorites.noresults": "Oraindik ekintzarik ez duzu gorde. Ikusi egitaraua eta bihotza sakatu gustoko duzun ekintzetan.",
 	"favorites.back": "Ikusi egitaraua",
+	"favorites.remove": "Kendu",
+	"favorites.add": "Gehitu gogokoena",
+	"map.goto": "Mapan ikusi",
 	"map.offline": "Internet konexioa behar duzu mapa ikusteko",
 	"map.error": "Ezin izan da mapa kargatu. Mesedez, egiaztatu zure konexioa eta saiatu berriro geroago.",
-	"nofilters": "Kategoria guztiak"
+	"nofilters": "Kategoria guztiak",
+	"back": "Itzuli"
 }

@@ -23,7 +23,7 @@ export class ActivityStorage {
 		const activities = this.storage.getItem<Activity[]>(activityStorageKey)
 		return pipe(
 			option<Activity[]>(() => []),
-			map(fixActivityData)
+			map(fixActivityData),
 		)(activities)
 	}
 
@@ -32,7 +32,7 @@ export class ActivityStorage {
 		const updateActivities = pipe(
 			(previous: readonly Activity[]) =>
 				previous.filter((a) => !newActivityIds.includes(a.id)),
-			(previous: readonly Activity[]) => [...previous, ...activities]
+			(previous: readonly Activity[]) => [...previous, ...activities],
 		)
 
 		const toSave = updateActivities(this.get())

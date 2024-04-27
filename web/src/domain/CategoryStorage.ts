@@ -18,7 +18,7 @@ export class CategoryStorage {
 		const updateCategories = pipe(
 			(previous: readonly Category[]) =>
 				previous.filter((a) => !newCategoryIds.includes(a.id)),
-			(previous: readonly Category[]) => [...previous, ...categories]
+			(previous: readonly Category[]) => [...previous, ...categories],
 		)
 
 		const toSave = updateCategories(this.get())

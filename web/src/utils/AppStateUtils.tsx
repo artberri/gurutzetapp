@@ -56,10 +56,10 @@ const pushState = (historyState: HistoryState) => {
 			tab: historyState.tab,
 			date: historyState.date ? historyState.date.toISOString() : undefined,
 		},
-		document.title
+		document.title,
 	)
 	rootElement?.dispatchEvent(
-		new CustomEvent(historyEventName, { detail: historyState })
+		new CustomEvent(historyEventName, { detail: historyState }),
 	)
 }
 
@@ -115,7 +115,7 @@ export const AppStateProvider = ({ children }: { children: ReactNode }) => {
 					map: defaultMap,
 					date: undefined,
 				},
-				document.title
+				document.title,
 			)
 		}
 
@@ -160,7 +160,7 @@ export const AppStateProvider = ({ children }: { children: ReactNode }) => {
 			zoomMapTo: (center: Coordinates) => goToMapTab({ zoom: 18, center }),
 			goBack,
 		}),
-		[map, tab, date]
+		[map, tab, date],
 	)
 
 	return (

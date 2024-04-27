@@ -26,7 +26,7 @@ export const Activity = ({ activity }: ActivityProperties) => {
 	const language = i18n.resolvedLanguage as keyof LocalizedText
 	const venue = fold(
 		() => left<Venue>(new Error("Activity withou venue")),
-		getVenue
+		getVenue,
 	)(activity.venueId)
 
 	return (
@@ -53,14 +53,14 @@ export const Activity = ({ activity }: ActivityProperties) => {
 						<div className="text-slate-500 first-letter:capitalize">
 							{c.name[language]}
 						</div>
-					)
+					),
 				)(category)}
 			</div>
 			<div className="w-10 flex-none pl-2 flex flex-col justify-between">
 				<FavoriteButton activity={activity} />
 				{foldE(
 					() => null,
-					(v: Venue) => <LocationButton venue={v} />
+					(v: Venue) => <LocationButton venue={v} />,
 				)(venue)}
 			</div>
 		</div>

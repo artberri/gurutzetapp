@@ -6,7 +6,11 @@
 	"favorites": "Favoritos",
 	"favorites.noresults": "Todavía no tienes favoritos. Mira el programa y haz click en el corazón de los eventos que más te gusten para verlos aquí.",
 	"favorites.back": "Ver programa",
+	"favorites.remove": "Quitar favorito",
+	"favorites.add": "Añadir favorito",
+	"map.goto": "Ver en el mapa",
 	"map.offline": "Necesitas conexión a internet para poder ver el mapa",
 	"map.error": "No se han podido cargar los datos del mapa. Por favor, comprueba tu conexión e inténtalo de nuevo más tarde.",
-	"nofilters": "Todas las categorías"
+	"nofilters": "Todas las categorías",
+	"back": "Volver"
 }

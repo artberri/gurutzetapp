@@ -13,12 +13,12 @@ const OnlineStatusContext = createContext(true)
 export const OnlineStatusProvider = ({ children }: { children: ReactNode }) => {
 	const networkDetector = useService(NetworkDetector)
 	const [onlineStatus, setOnlineStatus] = useState<boolean>(() =>
-		networkDetector.isOnLine()
+		networkDetector.isOnLine(),
 	)
 
 	useEffect(
 		() => networkDetector.watchOnlineStatus(setOnlineStatus),
-		[networkDetector]
+		[networkDetector],
 	)
 
 	return (

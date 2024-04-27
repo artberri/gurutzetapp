@@ -48,7 +48,7 @@ export const buildActivities = ({
 				day: rand(days),
 				category: rand(categories),
 				venue: rand(venues),
-			})
+			}),
 		)
 	}
 	return activities

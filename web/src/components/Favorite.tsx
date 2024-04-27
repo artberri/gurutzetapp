@@ -21,18 +21,18 @@ export interface FavoriteProperties {
 
 export const Favorite = ({ activity }: FavoriteProperties) => {
 	const { id, date, dateEnd, description, categoryId, venueId } = activity
-	const { i18n } = useTranslation()
+	const { i18n, t } = useTranslation()
 	const { getCategory } = useCategories()
 	const { removeFavorite } = useFavorites()
 	const { getVenue } = useVenues()
-	const translateMonthDay = monthDay(i18n.resolvedLanguage)
-	const translateWeekDay = weekDay(i18n.resolvedLanguage)
+	const translateMonthDay = monthDay(i18n.resolvedLanguage ?? "es-ES")
+	const translateWeekDay = weekDay(i18n.resolvedLanguage ?? "es-ES")
 	const tracer = useService(Tracer)
 	const category = getCategory(categoryId)
 	const language = i18n.resolvedLanguage as keyof LocalizedText
 	const venue = foldM(
 		() => left<Venue>(new Error("Activity withou venue")),
-		getVenue
+		getVenue,
 	)(venueId)
 
 	const handleRemoveFavoriteClick = () => {
@@ -40,7 +40,7 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
 	}
 
 	const handleRemoveFavoriteKeyUp: KeyboardEventHandler<HTMLDivElement> = (
-		event
+		event,
 	) => {
 		if (event.key !== "Enter") {
 			return
@@ -74,11 +74,12 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
 						<div className="text-slate-500 first-letter:capitalize">
 							{c.name[language]}
 						</div>
-					)
+					),
 				)(category)}
 			</div>
 			<div className="w-10 flex-none pl-2 flex flex-col justify-between">
 				<div
+					aria-label={t("favorites.remove") ?? "Quitar de favoritos"}
 					role="button"
 					tabIndex={0}
 					className="text-slate-500 cursor-pointer"
@@ -89,7 +90,7 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
 				</div>
 				{fold(
 					() => null,
-					(v: Venue) => <LocationButton venue={v} />
+					(v: Venue) => <LocationButton venue={v} />,
 				)(venue)}
 			</div>
 		</div>

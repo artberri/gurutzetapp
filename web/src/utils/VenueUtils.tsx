@@ -27,7 +27,7 @@ export const VenueProvider = ({ children }: { children: ReactNode }) => {
 			const venue = venues.find((c) => c.id === id)
 			return venue ? right(venue) : left<Venue>(new Error("Venue not found"))
 		},
-		[venues]
+		[venues],
 	)
 
 	const value = useMemo(() => ({ getVenue, venues }), [getVenue, venues])

@@ -1,5 +1,6 @@
 import { MapPinIcon } from "@heroicons/react/24/outline"
 import { KeyboardEventHandler } from "react"
+import { useTranslation } from "react-i18next"
 import { Venue } from "../domain/Venue"
 import { useAppState } from "../utils/AppStateUtils"
 
@@ -8,6 +9,7 @@ export interface LocationButtonProperties {
 }
 
 export const LocationButton = ({ venue }: LocationButtonProperties) => {
+	const { t } = useTranslation()
 	const { zoomMapTo } = useAppState()
 
 	const goToVenue = () => {
@@ -19,7 +21,7 @@ export const LocationButton = ({ venue }: LocationButtonProperties) => {
 	}
 
 	const handleGoToVenueKeyUp: KeyboardEventHandler<HTMLDivElement> = (
-		event
+		event,
 	) => {
 		if (event.key !== "Enter") {
 			return
@@ -29,6 +31,7 @@ export const LocationButton = ({ venue }: LocationButtonProperties) => {
 
 	return (
 		<div
+			aria-label={t("map.goto") ?? "Ver en el mapa"}
 			role="button"
 			tabIndex={0}
 			className="w-8 text-slate-300 cursor-pointer"

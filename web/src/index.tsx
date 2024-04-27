@@ -32,7 +32,7 @@ root.render(
 			getReady={attemptP<Error, void>(() => i18nReady)}
 			serviceGetter={serviceGetter}
 		/>
-	</ErrorBoundary>
+	</ErrorBoundary>,
 )
 
 // If you want to start measuring performance in your app, pass a function

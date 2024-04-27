@@ -8,7 +8,7 @@ export class FavoriteStorage {
 
 	public getFavorites() {
 		return option<string[]>(() => [])(
-			this.storage.getItem<string[]>(favoriteStorageKey)
+			this.storage.getItem<string[]>(favoriteStorageKey),
 		)
 	}
 

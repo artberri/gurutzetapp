@@ -27,13 +27,13 @@ export const ActivityFilter = ({
 				map((id: string) => getCategory(id)),
 				filter<Either<Error, Category>>((c) => isRight(c)),
 				map(
-					(c) => option<Category | undefined>(() => undefined)(c) as Category
+					(c) => option<Category | undefined>(() => undefined)(c) as Category,
 				),
 				sort((a, b) => (a.name[lang] < b.name[lang] ? -1 : 1)),
 				map(just),
-				prepend(nothing())
+				prepend(nothing()),
 			)(categoryIds),
-		[categoryIds, getCategory, lang]
+		[categoryIds, getCategory, lang],
 	)
 
 	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -41,11 +41,11 @@ export const ActivityFilter = ({
 
 	const getCategoryId = fold(
 		() => "placeholder",
-		(category: Category) => category.id
+		(category: Category) => category.id,
 	)
 	const getCategoryName = fold(
 		() => t("nofilters"),
-		(category: Category) => category.name[lang]
+		(category: Category) => category.name[lang],
 	)
 
 	const handleChange = (category: Maybe<Category>) => {

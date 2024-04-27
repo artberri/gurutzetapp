@@ -1,6 +1,7 @@
 import { HeartIcon } from "@heroicons/react/24/outline"
 import { HeartIcon as SolidHeartIcon } from "@heroicons/react/24/solid"
 import { KeyboardEventHandler } from "react"
+import { useTranslation } from "react-i18next"
 import { Activity } from "../domain/Activity"
 import { useFavorites } from "../utils/FavoriteUtils"
 
@@ -10,6 +11,7 @@ export interface FavoriteButtonProperties {
 
 export const FavoriteButton = ({ activity }: FavoriteButtonProperties) => {
 	const { id } = activity
+	const { t } = useTranslation()
 	const { isFavorite, addFavorite, removeFavorite } = useFavorites()
 	const favorite = isFavorite(id)
 
@@ -18,7 +20,7 @@ export const FavoriteButton = ({ activity }: FavoriteButtonProperties) => {
 	}
 
 	const handleAddFavoriteKeyUp: KeyboardEventHandler<HTMLDivElement> = (
-		event
+		event,
 	) => {
 		if (event.key !== "Enter") {
 			return
@@ -31,7 +33,7 @@ export const FavoriteButton = ({ activity }: FavoriteButtonProperties) => {
 	}
 
 	const handleRemoveFavoriteKeyUp: KeyboardEventHandler<HTMLDivElement> = (
-		event
+		event,
 	) => {
 		if (event.key !== "Enter") {
 			return
@@ -41,6 +43,7 @@ export const FavoriteButton = ({ activity }: FavoriteButtonProperties) => {
 
 	return favorite ? (
 		<div
+			aria-label={t("back") ?? "Volver"}
 			role="button"
 			tabIndex={0}
 			className="text-primary cursor-pointer"
@@ -51,6 +54,7 @@ export const FavoriteButton = ({ activity }: FavoriteButtonProperties) => {
 		</div>
 	) : (
 		<div
+			aria-label={t("favorites.add") ?? "Añadir favorito"}
 			role="button"
 			tabIndex={0}
 			className="text-primary cursor-pointer"

@@ -97,7 +97,7 @@ export const Content = ({ getReady }: ContentProperties) => {
 				iconSelected: <GlobeIconSelected className="text-white" />,
 			},
 		],
-		[goToScheduleTab]
+		[goToScheduleTab],
 	)
 
 	const showApp = !isLoading && isReady

@@ -19,7 +19,7 @@ export const Schedule = () => {
 			<div className=" py-8">
 				{fold(
 					() => <Days onClick={handleDayClick} />,
-					(day: Date) => <Activities date={day} onBack={handleBack} />
+					(day: Date) => <Activities date={day} onBack={handleBack} />,
 				)(date)}
 			</div>
 		</div>

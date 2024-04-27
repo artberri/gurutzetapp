@@ -27,7 +27,7 @@ export const CategoryProvider = ({ children }: { children: ReactNode }) => {
 				? right(category)
 				: left<Category>(new Error("Category not found"))
 		},
-		[categories]
+		[categories],
 	)
 
 	const value = useMemo(() => ({ getCategory }), [getCategory])

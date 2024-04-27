@@ -26,21 +26,21 @@ export interface ActivitiesProperties {
 }
 
 export const Activities = ({ onBack, date }: ActivitiesProperties) => {
-	const { i18n } = useTranslation()
-	const translateMonthDay = monthDay(i18n.resolvedLanguage)
-	const translateWeekDay = weekDay(i18n.resolvedLanguage)
+	const { i18n, t } = useTranslation()
+	const translateMonthDay = monthDay(i18n.resolvedLanguage ?? "es-ES")
+	const translateWeekDay = weekDay(i18n.resolvedLanguage ?? "es-ES")
 	const { getActivities } = useActivities()
 	const allDateActivities = useMemo(
 		() => getActivities(date),
-		[date, getActivities]
+		[date, getActivities],
 	)
 	const categoryIds = useMemo(
 		() =>
 			pipe(
 				map((a: A) => a.categoryId),
-				uniq
+				uniq,
 			)(allDateActivities),
-		[allDateActivities]
+		[allDateActivities],
 	)
 	const [activities, setActivities] = useState<A[]>(allDateActivities)
 
@@ -62,7 +62,7 @@ export const Activities = ({ onBack, date }: ActivitiesProperties) => {
 			() => setActivities(allDateActivities),
 			(c: Category) => {
 				setActivities(allDateActivities.filter((a) => a.categoryId === c.id))
-			}
+			},
 		)(category)
 	}
 
@@ -70,6 +70,7 @@ export const Activities = ({ onBack, date }: ActivitiesProperties) => {
 		<>
 			<div className="flex flex-row justify-between align-center  mb-6">
 				<div
+					aria-label={t("back") ?? "Volver"}
 					role="button"
 					tabIndex={0}
 					onKeyUp={handleBackKeyUp}

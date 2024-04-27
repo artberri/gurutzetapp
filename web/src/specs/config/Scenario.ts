@@ -56,7 +56,7 @@ export class Scenario {
 					categories: [],
 					venues: [],
 				},
-			})
+			}),
 		)
 		this.setOnline()
 		const builder = new ContainerBuilder()
@@ -92,7 +92,7 @@ export class Scenario {
 					categories: [],
 					venues: [],
 				},
-			})
+			}),
 		)
 		return this
 	}
