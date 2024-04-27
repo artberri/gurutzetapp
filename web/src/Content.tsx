@@ -42,7 +42,7 @@ export const Content = ({ getReady }: ContentProperties) => {
 	const tracer = useService(Tracer)
 
 	useEffect(() => {
-		document.documentElement.lang = i18n.resolvedLanguage
+		document.documentElement.lang = i18n.resolvedLanguage ?? "es-ES"
 	}, [i18n.resolvedLanguage])
 
 	useEffect(() => {
