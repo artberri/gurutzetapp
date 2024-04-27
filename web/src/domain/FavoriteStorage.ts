@@ -1,7 +1,7 @@
 import { option } from "../cross-cutting/Either"
 import { Storage } from "./Storage"
 
-const favoriteStorageKey = "GURUTZETAPP_FAVORITES_2023"
+const favoriteStorageKey = "GURUTZETAPP_FAVORITES_2024_beta"
 
 export class FavoriteStorage {
 	public constructor(private readonly storage: Storage) {}

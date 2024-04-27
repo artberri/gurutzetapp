@@ -1,10 +1,10 @@
-import { pipe, map, evolve } from "ramda"
+import { evolve, map, pipe } from "ramda"
 import { option } from "../cross-cutting/Either"
 import { just, nothing } from "../cross-cutting/Maybe"
 import { Activity } from "./Activity"
 import { Storage } from "./Storage"
 
-const activityStorageKey = "GURUTZETAPP_ACTIVITIES_2023"
+const activityStorageKey = "GURUTZETAPP_ACTIVITIES_2024_beta"
 
 const fixActivityData = (activity: Activity) =>
 	evolve({

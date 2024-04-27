@@ -1,9 +1,9 @@
-import { pipe, map } from "ramda"
+import { map, pipe } from "ramda"
 import { option } from "../cross-cutting/Either"
-import { Venue } from "./Venue"
 import { Storage } from "./Storage"
+import { Venue } from "./Venue"
 
-const venueStorageKey = "GURUTZETAPP_VENUES_2023"
+const venueStorageKey = "GURUTZETAPP_VENUES_2024_beta"
 
 export class VenueStorage {
 	public constructor(private readonly storage: Storage) {}

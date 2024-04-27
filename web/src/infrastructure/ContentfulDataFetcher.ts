@@ -18,7 +18,7 @@ import {
 } from "./ContentfulModels"
 import { getEnv } from "./GetEnv"
 
-const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2023"
+const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2024_beta"
 
 const mapActivity = (entry: ContentfulActivityEntry): Activity => ({
 	id: entry.sys.id,

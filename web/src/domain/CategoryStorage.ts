@@ -1,9 +1,9 @@
-import { pipe, map } from "ramda"
+import { map, pipe } from "ramda"
 import { option } from "../cross-cutting/Either"
 import { Category } from "./Category"
 import { Storage } from "./Storage"
 
-const categoryStorageKey = "GURUTZETAPP_CATEGORIES_2023"
+const categoryStorageKey = "GURUTZETAPP_CATEGORIES_2024_beta"
 
 export class CategoryStorage {
 	public constructor(private readonly storage: Storage) {}
