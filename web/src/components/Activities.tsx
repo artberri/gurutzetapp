@@ -27,8 +27,8 @@ export interface ActivitiesProperties {
 
 export const Activities = ({ onBack, date }: ActivitiesProperties) => {
 	const { i18n, t } = useTranslation()
-	const translateMonthDay = monthDay(i18n.resolvedLanguage ?? "es-ES")
-	const translateWeekDay = weekDay(i18n.resolvedLanguage ?? "es-ES")
+	const translateMonthDay = monthDay(i18n.resolvedLanguage)
+	const translateWeekDay = weekDay(i18n.resolvedLanguage)
 	const { getActivities } = useActivities()
 	const allDateActivities = useMemo(
 		() => getActivities(date),

@@ -25,8 +25,8 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
 	const { getCategory } = useCategories()
 	const { removeFavorite } = useFavorites()
 	const { getVenue } = useVenues()
-	const translateMonthDay = monthDay(i18n.resolvedLanguage ?? "es-ES")
-	const translateWeekDay = weekDay(i18n.resolvedLanguage ?? "es-ES")
+	const translateMonthDay = monthDay(i18n.resolvedLanguage)
+	const translateWeekDay = weekDay(i18n.resolvedLanguage)
 	const tracer = useService(Tracer)
 	const category = getCategory(categoryId)
 	const language = i18n.resolvedLanguage as keyof LocalizedText
