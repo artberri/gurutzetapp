@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next"
-import { left, fold as foldE } from "../cross-cutting/Either"
+import { fold as foldE, left } from "../cross-cutting/Either"
 import { fold } from "../cross-cutting/Maybe"
 import { Activity as A } from "../domain/Activity"
 import { Category } from "../domain/Category"
@@ -29,8 +29,17 @@ export const Activity = ({ activity }: ActivityProperties) => {
 		getVenue,
 	)(activity.venueId)
 
+	let borderColor = "border-l-slate-200"
+	if (activity.type === "important") {
+		borderColor = "border-l-highlight"
+	} else if (activity.type === "official") {
+		borderColor = "border-l-primary"
+	}
+
 	return (
-		<div className="flex p-3 justify-between items-stretch text-slate-700 min-h-[100px]">
+		<div
+			className={`flex p-3 pl-2 justify-between items-stretch text-slate-700 min-h-[100px] border-l-2 ${borderColor}`}
+		>
 			<div className="w-14 flex-none flex flex-col justify-start text-center pr-2">
 				<span>{getHHmm(activity.date)}</span>
 				{activity.dateEnd && (

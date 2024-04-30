@@ -18,7 +18,7 @@ import {
 } from "./ContentfulModels"
 import { getEnv } from "./GetEnv"
 
-const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2024_beta"
+const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2024"
 
 const mapActivity = (entry: ContentfulActivityEntry): Activity => ({
 	id: entry.sys.id,
@@ -32,6 +32,7 @@ const mapActivity = (entry: ContentfulActivityEntry): Activity => ({
 	venueId: entry.fields.venue?.es.sys.id
 		? just(entry.fields.venue?.es.sys.id)
 		: nothing(),
+	type: entry.fields.type?.es ?? "normal",
 })
 
 const mapRemovedActivity = (entry: DeletedEntry): Activity => ({
@@ -43,6 +44,7 @@ const mapRemovedActivity = (entry: DeletedEntry): Activity => ({
 	},
 	categoryId: "",
 	venueId: nothing(),
+	type: "normal",
 })
 
 const mapCategory = (entry: ContentfulCategoryEntry): Category => ({

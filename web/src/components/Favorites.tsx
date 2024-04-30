@@ -39,7 +39,7 @@ export const Favorites = ({ onBack }: FavoritesProperties) => {
 
 	return (
 		<div className="w-full h-full px-3 flex flex-col">
-			<div className=" py-8">
+			<div className=" py-4">
 				<StackedList
 					title={t("favorites") ?? "Gogokoak"}
 					items={

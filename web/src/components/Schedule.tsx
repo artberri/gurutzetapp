@@ -16,7 +16,7 @@ export const Schedule = () => {
 
 	return (
 		<div className="w-full h-full px-3 flex flex-col">
-			<div className=" py-8">
+			<div className=" py-4">
 				{fold(
 					() => <Days onClick={handleDayClick} />,
 					(day: Date) => <Activities date={day} onBack={handleBack} />,

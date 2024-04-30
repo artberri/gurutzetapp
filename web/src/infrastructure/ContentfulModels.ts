@@ -91,6 +91,9 @@ export interface ContentfulActivityEntry {
 				}
 			}
 		}
+		type?: {
+			es: "normal" | "official" | "important"
+		}
 	}
 }
 

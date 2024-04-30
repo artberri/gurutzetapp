@@ -15,6 +15,9 @@ module.exports = {
 					800: "#51c573",
 					900: "#3bbe62",
 				},
+				highlight: {
+					DEFAULT: "#742a97",
+				},
 			},
 		},
 	},

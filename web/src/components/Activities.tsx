@@ -68,7 +68,7 @@ export const Activities = ({ onBack, date }: ActivitiesProperties) => {
 
 	return (
 		<>
-			<div className="flex flex-row justify-between align-center  mb-6">
+			<div className="flex flex-row justify-between align-center mb-4">
 				<div
 					aria-label={t("back") ?? "Volver"}
 					role="button"

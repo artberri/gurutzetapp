@@ -8,4 +8,5 @@ export interface Activity {
 	readonly description: LocalizedText
 	readonly categoryId: string
 	readonly venueId: Maybe<string>
+	readonly type: "normal" | "official" | "important"
 }
