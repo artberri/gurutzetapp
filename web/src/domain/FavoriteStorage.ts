@@ -1,7 +1,7 @@
-import { option } from "../cross-cutting/Either"
-import { Storage } from "./Storage"
+import { option } from "../cross-cutting/Either";
+import type { Storage } from "./Storage";
 
-const favoriteStorageKey = "GURUTZETAPP_FAVORITES_2024"
+const favoriteStorageKey = "GURUTZETAPP_FAVORITES_2024";
 
 export class FavoriteStorage {
 	public constructor(private readonly storage: Storage) {}
@@ -9,10 +9,10 @@ export class FavoriteStorage {
 	public getFavorites() {
 		return option<string[]>(() => [])(
 			this.storage.getItem<string[]>(favoriteStorageKey),
-		)
+		);
 	}
 
 	public save(favorites: string[]) {
-		this.storage.setItem(favoriteStorageKey, favorites)
+		this.storage.setItem(favoriteStorageKey, favorites);
 	}
 }

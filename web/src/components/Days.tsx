@@ -1,9 +1,9 @@
-import { map } from "ramda"
-import { useTranslation } from "react-i18next"
-import { useActivities } from "../utils/ActivityUtils"
-import { Day } from "./Day"
-import { FatalErrorDialog } from "./FatalErrorDialog"
-import { StackedList } from "./StackedList"
+import { map } from "ramda";
+import { useTranslation } from "react-i18next";
+import { useActivities } from "../utils/ActivityUtils";
+import { Day } from "./Day";
+import { FatalErrorDialog } from "./FatalErrorDialog";
+import { StackedList } from "./StackedList";
 
 const mapDays = (handleClick: (date: Date) => () => void) =>
 	map((date: Date) => (
@@ -12,20 +12,20 @@ const mapDays = (handleClick: (date: Date) => () => void) =>
 			date={date}
 			onClick={handleClick(date)}
 		/>
-	))
+	));
 
 export interface DaysProperties {
-	onClick: (day: Date) => void
+	onClick: (day: Date) => void;
 }
 
 export const Days = ({ onClick }: DaysProperties) => {
-	const { t } = useTranslation()
-	const { getActivityDays } = useActivities()
-	const days = getActivityDays()
+	const { t } = useTranslation();
+	const { getActivityDays } = useActivities();
+	const days = getActivityDays();
 
 	const handleDayClick = (date: Date) => () => {
-		onClick(date)
-	}
+		onClick(date);
+	};
 
 	return (
 		<>
@@ -35,5 +35,5 @@ export const Days = ({ onClick }: DaysProperties) => {
 			/>
 			<FatalErrorDialog isOpen={days.length === 0} />
 		</>
-	)
-}
+	);
+};

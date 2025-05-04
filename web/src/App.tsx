@@ -1,13 +1,16 @@
-import { FutureInstance } from "fluture"
+import type { FutureInstance } from "fluture";
 
-import { Content } from "./Content"
-import { ServiceGetter, ServiceGetterProvider } from "./utils/ServiceUtils"
-import { OnlineStatusProvider } from "./utils/OnlineStatusUtils"
-import { AppStateProvider } from "./utils/AppStateUtils"
+import { Content } from "./Content";
+import { AppStateProvider } from "./utils/AppStateUtils";
+import { OnlineStatusProvider } from "./utils/OnlineStatusUtils";
+import {
+	type ServiceGetter,
+	ServiceGetterProvider,
+} from "./utils/ServiceUtils";
 
 export interface AppProperties {
-	serviceGetter: ServiceGetter
-	getReady: FutureInstance<Error, void>
+	serviceGetter: ServiceGetter;
+	getReady: FutureInstance<Error, void>;
 }
 
 export const App = ({ serviceGetter, getReady }: AppProperties) => (
@@ -18,4 +21,4 @@ export const App = ({ serviceGetter, getReady }: AppProperties) => (
 			</AppStateProvider>
 		</OnlineStatusProvider>
 	</ServiceGetterProvider>
-)
+);

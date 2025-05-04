@@ -14,15 +14,9 @@ jobs:
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v3
+      - uses: moonrepo/setup-toolchain@v0
         with:
-          version: "9.x"
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20.x"
-          registry-url: "https://registry.npmjs.org"
-          cache: "pnpm"
-          cache-dependency-path: "./web/pnpm-lock.yaml"
+          auto-install: true
       - name: Install dependencies
         working-directory: ./web
         run: pnpm install --frozen-lockfile --strict-peer-dependencies

@@ -1,18 +1,17 @@
-import { init } from "@sentry/react"
-import { BrowserTracing } from "@sentry/tracing"
-import { ReactNode } from "react"
-import { fold, option } from "../cross-cutting/Either"
-import { getEnv } from "../infrastructure/GetEnv"
+import { init } from "@sentry/react";
+import { BrowserTracing } from "@sentry/tracing";
+import type { ReactNode } from "react";
+import { fold, option } from "../cross-cutting/Either";
+import { getEnv } from "../infrastructure/GetEnv";
 
 export interface BoundaryProperties {
-	children: ReactNode
+	children: ReactNode;
 }
 
 export const configTracing = () =>
 	fold(
 		() => {
-			// eslint-disable-next-line no-console
-			console.log("Sentry is not configured")
+			console.log("Sentry is not configured");
 		},
 		(dsn: string) => {
 			init({
@@ -25,6 +24,6 @@ export const configTracing = () =>
 				initialScope: {
 					tags: { app: "gurutzetapp" },
 				},
-			})
+			});
 		},
-	)(getEnv("REACT_APP_SENTRY_DSN"))
+	)(getEnv("REACT_APP_SENTRY_DSN"));

@@ -1,80 +1,80 @@
-import { Transition } from "@headlessui/react"
+import { Transition } from "@headlessui/react";
 import {
 	CalendarIcon,
 	GlobeEuropeAfricaIcon as GlobeIcon,
 	HeartIcon,
-} from "@heroicons/react/24/outline"
+} from "@heroicons/react/24/outline";
 import {
 	CalendarIcon as CalendarIconSelected,
 	GlobeEuropeAfricaIcon as GlobeIconSelected,
 	HeartIcon as HeartIconSelected,
-} from "@heroicons/react/24/solid"
-import { FutureInstance, fork } from "fluture"
-import { useCallback, useEffect, useMemo, useState } from "react"
-import { useTranslation } from "react-i18next"
-import "./Content.css"
-import { ContentProviders } from "./ContentProviders"
-import { Favorites } from "./components/Favorites"
-import { Layout } from "./components/Layout"
-import { Loader } from "./components/Loader"
-import { Logo } from "./components/Logo"
-import { Map } from "./components/Map"
-import { Schedule } from "./components/Schedule"
-import { TabPage, Tabs } from "./components/Tabs"
-import { noop } from "./cross-cutting/Noop"
-import { Syncronizer } from "./domain/Syncronizer"
-import { Tracer } from "./domain/Tracer"
-import { useAppState } from "./utils/AppStateUtils"
-import { useOnlineStatus } from "./utils/OnlineStatusUtils"
-import { useService } from "./utils/ServiceUtils"
+} from "@heroicons/react/24/solid";
+import { type FutureInstance, fork } from "fluture";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
+import "./Content.css";
+import { ContentProviders } from "./ContentProviders";
+import { Favorites } from "./components/Favorites";
+import { Layout } from "./components/Layout";
+import { Loader } from "./components/Loader";
+import { Logo } from "./components/Logo";
+import { MapComponent } from "./components/MapComponent";
+import { Schedule } from "./components/Schedule";
+import { type TabPage, Tabs } from "./components/Tabs";
+import { noop } from "./cross-cutting/Noop";
+import { Syncronizer } from "./domain/Syncronizer";
+import { Tracer } from "./domain/Tracer";
+import { useAppState } from "./utils/AppStateUtils";
+import { useOnlineStatus } from "./utils/OnlineStatusUtils";
+import { useService } from "./utils/ServiceUtils";
 
 export interface ContentProperties {
-	getReady: FutureInstance<Error, void>
+	getReady: FutureInstance<Error, void>;
 }
 
 export const Content = ({ getReady }: ContentProperties) => {
-	const { i18n } = useTranslation()
-	const { tab, goToTab, goToScheduleTab } = useAppState()
-	const isOnline = useOnlineStatus()
-	const [isLoading, setIsLoading] = useState(true)
-	const [isReady, setIsReady] = useState(false)
-	const syncronizer = useService(Syncronizer)
-	const tracer = useService(Tracer)
+	const { i18n } = useTranslation();
+	const { tab, goToTab, goToScheduleTab } = useAppState();
+	const isOnline = useOnlineStatus();
+	const [isLoading, setIsLoading] = useState(true);
+	const [isReady, setIsReady] = useState(false);
+	const syncronizer = useService(Syncronizer);
+	const tracer = useService(Tracer);
 
 	useEffect(() => {
-		document.documentElement.lang = i18n.resolvedLanguage ?? "es-ES"
-	}, [i18n.resolvedLanguage])
+		document.documentElement.lang = i18n.resolvedLanguage ?? "es-ES";
+	}, [i18n.resolvedLanguage]);
 
 	useEffect(() => {
 		const cancel = fork<Error>((readyError) => {
-			tracer.trace(readyError)
-			setIsReady(true)
+			tracer.trace(readyError);
+			setIsReady(true);
 		})(() => {
-			setIsReady(true)
-		})(getReady)
+			setIsReady(true);
+		})(getReady);
 
-		return () => cancel()
-	}, [getReady, tracer])
+		return () => cancel();
+	}, [getReady, tracer]);
 
 	const syncronizeData = useCallback(() => {
 		if (!isOnline) {
-			setIsLoading(false)
-			return noop
+			setIsLoading(false);
+			return noop;
 		}
 
 		return fork<Error>((syncError) => {
-			tracer.trace(syncError)
-			setIsLoading(false)
+			tracer.trace(syncError);
+			setIsLoading(false);
 		})(() => {
-			setIsLoading(false)
-		})(syncronizer.sync())
-	}, [isOnline, syncronizer, tracer])
+			setIsLoading(false);
+		})(syncronizer.sync());
+	}, [isOnline, syncronizer, tracer]);
 
 	useEffect(() => {
-		const cancel = syncronizeData()
+		const cancel = syncronizeData();
 
-		return () => cancel()
-	}, [syncronizeData])
+		return () => cancel();
+	}, [syncronizeData]);
 
 	const pages = useMemo<TabPage[]>(
 		() => [
@@ -92,15 +92,15 @@ export const Content = ({ getReady }: ContentProperties) => {
 			},
 			{
 				id: "map",
-				content: <Map />,
+				content: <MapComponent />,
 				icon: <GlobeIcon className="text-white" />,
 				iconSelected: <GlobeIconSelected className="text-white" />,
 			},
 		],
 		[goToScheduleTab],
-	)
+	);
 
-	const showApp = !isLoading && isReady
+	const showApp = !isLoading && isReady;
 
 	return (
 		<>
@@ -135,5 +135,5 @@ export const Content = ({ getReady }: ContentProperties) => {
 				</ContentProviders>
 			</Transition>
 		</>
-	)
-}
+	);
+};

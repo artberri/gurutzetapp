@@ -1,33 +1,34 @@
-import { ChevronRightIcon } from "@heroicons/react/24/outline"
-import { KeyboardEventHandler, MouseEventHandler } from "react"
-import { useTranslation } from "react-i18next"
-import { monthDay, weekDay } from "../utils/DateUtils"
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
+import type { KeyboardEventHandler, MouseEventHandler } from "react";
+import { useTranslation } from "react-i18next";
+import { monthDay, weekDay } from "../utils/DateUtils";
 
 export interface DayProperties {
-	date: Date
-	onClick: () => void
+	date: Date;
+	onClick: () => void;
 }
 
 export const Day = ({ date, onClick }: DayProperties) => {
-	const { i18n } = useTranslation()
-	const translateMonthDay = monthDay(i18n.resolvedLanguage)
-	const translateWeekDay = weekDay(i18n.resolvedLanguage)
+	const { i18n } = useTranslation();
+	const translateMonthDay = monthDay(i18n.resolvedLanguage);
+	const translateWeekDay = weekDay(i18n.resolvedLanguage);
 	const handleClick: MouseEventHandler<HTMLDivElement> = (event) => {
-		event.preventDefault()
-		event.stopPropagation()
-		onClick()
-	}
+		event.preventDefault();
+		event.stopPropagation();
+		onClick();
+	};
 	const handleKeyUp: KeyboardEventHandler<HTMLDivElement> = (event) => {
 		if (event.key !== "Enter") {
-			return
+			return;
 		}
-		event.preventDefault()
-		event.stopPropagation()
-		onClick()
-	}
+		event.preventDefault();
+		event.stopPropagation();
+		onClick();
+	};
 
 	return (
 		<div
+			// biome-ignore lint/a11y/useSemanticElements: <explanation>
 			role="button"
 			tabIndex={0}
 			onKeyUp={handleKeyUp}
@@ -47,5 +48,5 @@ export const Day = ({ date, onClick }: DayProperties) => {
 				<ChevronRightIcon />
 			</div>
 		</div>
-	)
-}
+	);
+};

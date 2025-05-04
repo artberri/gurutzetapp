@@ -1,8 +1,8 @@
-import { map } from "fluture"
-import { ActivityStorage } from "./ActivityStorage"
-import { CategoryStorage } from "./CategoryStorage"
-import { Data, DataFetcher } from "./DataFetcher"
-import { VenueStorage } from "./VenueStorage"
+import { map } from "fluture";
+import type { ActivityStorage } from "./ActivityStorage";
+import type { CategoryStorage } from "./CategoryStorage";
+import type { Data, DataFetcher } from "./DataFetcher";
+import type { VenueStorage } from "./VenueStorage";
 
 const sync =
 	({
@@ -10,26 +10,26 @@ const sync =
 		categoryStorage,
 		venueStorage,
 	}: {
-		activityStorage: ActivityStorage
-		categoryStorage: CategoryStorage
-		venueStorage: VenueStorage
+		activityStorage: ActivityStorage;
+		categoryStorage: CategoryStorage;
+		venueStorage: VenueStorage;
 	}) =>
 	(data: Data) => {
-		const { modified, removed } = data
-		const { activities, categories, venues } = modified
+		const { modified, removed } = data;
+		const { activities, categories, venues } = modified;
 		const {
 			activities: removedActivities,
 			categories: removedCategories,
 			venues: removedVenues,
-		} = removed
+		} = removed;
 
-		activityStorage.remove(removedActivities)
-		activityStorage.save(activities)
-		categoryStorage.remove(removedCategories)
-		categoryStorage.save(categories)
-		venueStorage.remove(removedVenues)
-		venueStorage.save(venues)
-	}
+		activityStorage.remove(removedActivities);
+		activityStorage.save(activities);
+		categoryStorage.remove(removedCategories);
+		categoryStorage.save(categories);
+		venueStorage.remove(removedVenues);
+		venueStorage.save(venues);
+	};
 
 export class Syncronizer {
 	public constructor(
@@ -46,13 +46,13 @@ export class Syncronizer {
 				categoryStorage: this.categoryStorage,
 				venueStorage: this.venueStorage,
 			}),
-		)(this.fetcher.fetch())
+		)(this.fetcher.fetch());
 	}
 
 	public clear() {
-		this.activityStorage.clear()
-		this.categoryStorage.clear()
-		this.venueStorage.clear()
-		this.fetcher.clear()
+		this.activityStorage.clear();
+		this.categoryStorage.clear();
+		this.venueStorage.clear();
+		this.fetcher.clear();
 	}
 }

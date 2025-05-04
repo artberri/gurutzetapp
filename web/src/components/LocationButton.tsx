@@ -1,37 +1,38 @@
-import { MapPinIcon } from "@heroicons/react/24/outline"
-import { KeyboardEventHandler } from "react"
-import { useTranslation } from "react-i18next"
-import { Venue } from "../domain/Venue"
-import { useAppState } from "../utils/AppStateUtils"
+import { MapPinIcon } from "@heroicons/react/24/outline";
+import type { KeyboardEventHandler } from "react";
+import { useTranslation } from "react-i18next";
+import type { Venue } from "../domain/Venue";
+import { useAppState } from "../utils/AppStateUtils";
 
 export interface LocationButtonProperties {
-	venue: Venue
+	venue: Venue;
 }
 
 export const LocationButton = ({ venue }: LocationButtonProperties) => {
-	const { t } = useTranslation()
-	const { zoomMapTo } = useAppState()
+	const { t } = useTranslation();
+	const { zoomMapTo } = useAppState();
 
 	const goToVenue = () => {
-		zoomMapTo([venue.location.lat, venue.location.lng])
-	}
+		zoomMapTo([venue.location.lat, venue.location.lng]);
+	};
 
 	const handleGoToVenueClick = () => {
-		goToVenue()
-	}
+		goToVenue();
+	};
 
 	const handleGoToVenueKeyUp: KeyboardEventHandler<HTMLDivElement> = (
 		event,
 	) => {
 		if (event.key !== "Enter") {
-			return
+			return;
 		}
-		goToVenue()
-	}
+		goToVenue();
+	};
 
 	return (
 		<div
 			aria-label={t("map.goto") ?? "Ver en el mapa"}
+			// biome-ignore lint/a11y/useSemanticElements: <explanation>
 			role="button"
 			tabIndex={0}
 			className="w-8 text-slate-300 cursor-pointer"
@@ -40,5 +41,5 @@ export const LocationButton = ({ venue }: LocationButtonProperties) => {
 		>
 			<MapPinIcon />
 		</div>
-	)
-}
+	);
+};

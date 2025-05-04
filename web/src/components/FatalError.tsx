@@ -6,4 +6,4 @@ export const FatalError = () => (
 		<br />
 		Si el error persiste prueba borrando la caché de navegación.
 	</div>
-)
+);

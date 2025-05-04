@@ -1,7 +1,7 @@
-import { ReactNode } from "react"
+import type { ReactNode } from "react";
 
 export interface WarningProperties {
-	children: ReactNode
+	children: ReactNode;
 }
 
 export const Warning = ({ children }: WarningProperties) => (
@@ -10,4 +10,4 @@ export const Warning = ({ children }: WarningProperties) => (
 			{children}
 		</div>
 	</div>
-)
+);

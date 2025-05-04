@@ -1,24 +1,34 @@
-import { ContentfulClientApi, SyncCollection, createClient } from "contentful"
-import { FutureInstance, attemptP, chain, map as mapF, resolve } from "fluture"
-import { concat, filter, map, mergeDeepWith, pipe } from "ramda"
-import { Either, fold, option, right } from "../cross-cutting/Either"
-import { just, nothing } from "../cross-cutting/Maybe"
-import { Activity } from "../domain/Activity"
-import { Category } from "../domain/Category"
-import { Data, DataFetcher } from "../domain/DataFetcher"
-import { Storage } from "../domain/Storage"
-import { Venue } from "../domain/Venue"
-import { parseError } from "../utils/ErrorUtils"
 import {
+	type ContentfulClientApi,
+	type SyncCollection,
+	createClient,
+} from "contentful";
+import {
+	type FutureInstance,
+	attemptP,
+	chain,
+	map as mapF,
+	resolve,
+} from "fluture";
+import { concat, filter, map, mergeDeepWith, pipe } from "ramda";
+import { type Either, fold, option, right } from "../cross-cutting/Either";
+import { just, nothing } from "../cross-cutting/Maybe";
+import type { Activity } from "../domain/Activity";
+import type { Category } from "../domain/Category";
+import type { Data, DataFetcher } from "../domain/DataFetcher";
+import type { Storage } from "../domain/Storage";
+import type { Venue } from "../domain/Venue";
+import { parseError } from "../utils/ErrorUtils";
+import type {
 	ContentfulActivityEntry,
 	ContentfulCategoryEntry,
 	ContentfulEntry,
 	ContentfulVenueEntry,
 	DeletedEntry,
-} from "./ContentfulModels"
-import { getEnv } from "./GetEnv"
+} from "./ContentfulModels";
+import { getEnv } from "./GetEnv";
 
-const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2024"
+const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2024";
 
 const mapActivity = (entry: ContentfulActivityEntry): Activity => ({
 	id: entry.sys.id,
@@ -33,7 +43,7 @@ const mapActivity = (entry: ContentfulActivityEntry): Activity => ({
 		? just(entry.fields.venue?.es.sys.id)
 		: nothing(),
 	type: entry.fields.type?.es ?? "normal",
-})
+});
 
 const mapRemovedActivity = (entry: DeletedEntry): Activity => ({
 	id: entry.sys.id,
@@ -45,7 +55,7 @@ const mapRemovedActivity = (entry: DeletedEntry): Activity => ({
 	categoryId: "",
 	venueId: nothing(),
 	type: "normal",
-})
+});
 
 const mapCategory = (entry: ContentfulCategoryEntry): Category => ({
 	id: entry.sys.id,
@@ -54,7 +64,7 @@ const mapCategory = (entry: ContentfulCategoryEntry): Category => ({
 		es: entry.fields.name.es,
 		eu: entry.fields.name.eu,
 	},
-})
+});
 
 const mapRemovedCategory = (entry: DeletedEntry): Category => ({
 	id: entry.sys.id,
@@ -63,7 +73,7 @@ const mapRemovedCategory = (entry: DeletedEntry): Category => ({
 		eu: "",
 	},
 	label: "",
-})
+});
 
 const mapVenue = (entry: ContentfulVenueEntry): Venue => ({
 	id: entry.sys.id,
@@ -76,7 +86,7 @@ const mapVenue = (entry: ContentfulVenueEntry): Venue => ({
 		lat: entry.fields.location.es.lat,
 		lng: entry.fields.location.es.lon,
 	},
-})
+});
 
 const mapRemovedVenue = (entry: DeletedEntry): Venue => ({
 	id: entry.sys.id,
@@ -89,56 +99,56 @@ const mapRemovedVenue = (entry: DeletedEntry): Venue => ({
 		lat: 0,
 		lng: 0,
 	},
-})
+});
 
 const isActivity = (
 	entry: ContentfulEntry,
 ): entry is ContentfulActivityEntry => {
-	const activity = entry as ContentfulActivityEntry
+	const activity = entry as ContentfulActivityEntry;
 	return (
 		activity?.sys?.type === "Entry" &&
 		activity?.sys?.contentType?.sys?.id === "activity"
-	)
-}
+	);
+};
 
 const isCategory = (
 	entry: ContentfulEntry,
 ): entry is ContentfulCategoryEntry => {
-	const category = entry as ContentfulCategoryEntry
+	const category = entry as ContentfulCategoryEntry;
 	return (
 		category?.sys?.type === "Entry" &&
 		category?.sys?.contentType?.sys?.id === "category"
-	)
-}
+	);
+};
 
 const isVenue = (entry: ContentfulEntry): entry is ContentfulVenueEntry => {
-	const venue = entry as ContentfulVenueEntry
+	const venue = entry as ContentfulVenueEntry;
 	return (
 		venue?.sys?.type === "Entry" && venue?.sys?.contentType?.sys?.id === "venue"
-	)
-}
+	);
+};
 
 const getActivities = pipe(
 	(entries: ContentfulEntry[]) => filter(isActivity)(entries),
 	map(mapActivity),
-)
+);
 
 const getCategories = pipe(
 	(entries: ContentfulEntry[]) => filter(isCategory)(entries),
 	map(mapCategory),
-)
+);
 
 const getVenues = pipe(
 	(entries: ContentfulEntry[]) => filter(isVenue)(entries),
 	map(mapVenue),
-)
+);
 
 const parseData = (response: SyncCollection): Data => {
 	const responseObject = JSON.parse(response.stringifySafe()) as {
-		readonly entries: ContentfulEntry[]
-		readonly deletedEntries: DeletedEntry[]
-	}
-	const { entries, deletedEntries } = responseObject
+		readonly entries: ContentfulEntry[];
+		readonly deletedEntries: DeletedEntry[];
+	};
+	const { entries, deletedEntries } = responseObject;
 
 	return {
 		modified: {
@@ -151,8 +161,8 @@ const parseData = (response: SyncCollection): Data => {
 			categories: map(mapRemovedCategory)(deletedEntries),
 			venues: map(mapRemovedVenue)(deletedEntries),
 		},
-	}
-}
+	};
+};
 
 const fetchInitial = (client: ContentfulClientApi) => () =>
 	attemptP<Error, { data: Data; token: string }>(() =>
@@ -165,9 +175,9 @@ const fetchInitial = (client: ContentfulClientApi) => () =>
 				token: response.nextSyncToken,
 			}))
 			.catch((error) => {
-				throw parseError(error)
+				throw parseError(error);
 			}),
-	)
+	);
 
 const fetchNext = (client: ContentfulClientApi) => (token: string) =>
 	attemptP<Error, { data: Data; token: string }>(() =>
@@ -180,13 +190,13 @@ const fetchNext = (client: ContentfulClientApi) => (token: string) =>
 				token: response.nextSyncToken,
 			}))
 			.catch((error) => {
-				throw parseError(error)
+				throw parseError(error);
 			}),
-	)
+	);
 
 const fetchOnce =
 	(client: ContentfulClientApi) => (nextToken: Either<Error, string>) =>
-		fold(fetchInitial(client), fetchNext(client))(nextToken)
+		fold(fetchInitial(client), fetchNext(client))(nextToken);
 
 const fetchLoop =
 	(client: ContentfulClientApi) =>
@@ -196,24 +206,24 @@ const fetchLoop =
 	): FutureInstance<
 		Error,
 		{
-			data: Data
-			token: string
+			data: Data;
+			token: string;
 		}
 	> =>
 		chain<Error, { data: Data; token: string }, { data: Data; token: string }>(
 			({ data, token }) => {
-				const oldToken = option(() => "")(nextToken)
-				const mergedData = mergeDeepWith(concat, previousData, data) as Data
+				const oldToken = option(() => "")(nextToken);
+				const mergedData = mergeDeepWith(concat, previousData, data) as Data;
 				if (oldToken === token) {
-					return resolve({ data: mergedData, token })
+					return resolve({ data: mergedData, token });
 				}
 
-				return fetchLoop(client)(right(token), mergedData)
+				return fetchLoop(client)(right(token), mergedData);
 			},
-		)(fetchOnce(client)(nextToken))
+		)(fetchOnce(client)(nextToken));
 
 export class ContentfulDataFetcher implements DataFetcher {
-	private readonly client: ContentfulClientApi
+	private readonly client: ContentfulClientApi;
 
 	public constructor(private readonly storage: Storage) {
 		this.client = createClient({
@@ -221,18 +231,18 @@ export class ContentfulDataFetcher implements DataFetcher {
 			accessToken: option(() => "")(
 				getEnv("REACT_APP_CONTENTFUL_ACCESS_TOKEN"),
 			),
-		})
+		});
 	}
 
 	public fetch() {
-		const nextToken = this.storage.getItem<string>(nextTokenKey)
+		const nextToken = this.storage.getItem<string>(nextTokenKey);
 		return mapF(({ data, token }: { data: Data; token: string }) => {
-			this.storage.setItem(nextTokenKey, token)
-			return data
-		})(fetchLoop(this.client)(nextToken))
+			this.storage.setItem(nextTokenKey, token);
+			return data;
+		})(fetchLoop(this.client)(nextToken));
 	}
 
 	public clear() {
-		this.storage.removeItem(nextTokenKey)
+		this.storage.removeItem(nextTokenKey);
 	}
 }
