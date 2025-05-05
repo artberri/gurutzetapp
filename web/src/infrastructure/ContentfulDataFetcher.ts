@@ -31,7 +31,7 @@ import { getEnv } from "./GetEnv";
 
 type Client = ContentfulClientApi<undefined>;
 
-const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2024";
+const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2025";
 
 const mapActivity = (
 	entry: Entry<ActivityEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,
@@ -234,14 +234,14 @@ const fetchLoop =
 
 export class ContentfulDataFetcher implements DataFetcher {
 	private readonly client: Client;
+	private readonly storage: Storage;
 
-	public constructor(private readonly storage: Storage) {
+	public constructor(storage: Storage) {
 		this.client = createClient({
-			space: option(() => "")(getEnv("REACT_APP_CONTENTFUL_SPACE_ID")),
-			accessToken: option(() => "")(
-				getEnv("REACT_APP_CONTENTFUL_ACCESS_TOKEN"),
-			),
+			space: option(() => "")(getEnv("VITE_CONTENTFUL_SPACE_ID")),
+			accessToken: option(() => "")(getEnv("VITE_CONTENTFUL_ACCESS_TOKEN")),
 		});
+		this.storage = storage;
 	}
 
 	public fetch() {

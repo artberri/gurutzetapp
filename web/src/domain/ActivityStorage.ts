@@ -4,7 +4,7 @@ import { just, nothing } from "../cross-cutting/Maybe";
 import type { Activity } from "./Activity";
 import type { Storage } from "./Storage";
 
-const activityStorageKey = "GURUTZETAPP_ACTIVITIES_2024";
+const activityStorageKey = "GURUTZETAPP_ACTIVITIES_2025";
 
 const fixActivityData = (activity: Activity) =>
 	evolve({
@@ -17,7 +17,11 @@ const fixActivityData = (activity: Activity) =>
 	})(activity) as Activity;
 
 export class ActivityStorage {
-	public constructor(private readonly storage: Storage) {}
+	private readonly storage: Storage;
+
+	public constructor(storage: Storage) {
+		this.storage = storage;
+	}
 
 	public get() {
 		const activities = this.storage.getItem<Activity[]>(activityStorageKey);

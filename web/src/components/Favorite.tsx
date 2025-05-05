@@ -50,7 +50,7 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
 
 	return (
 		<div className="flex p-3 justify-between items-stretch text-slate-700 min-h-[100px]">
-			<div className="flex-grow">
+			<div className="grow">
 				<div className="text-xs">
 					<span>{translateMonthDay(date)}, </span>
 					<span>{translateWeekDay(date)} / </span>

@@ -11,7 +11,7 @@ export class SentryTracer implements Tracer {
 		this.isActive = fold(
 			() => false,
 			(value) => !!value,
-		)(getEnv("REACT_APP_SENTRY_DSN"));
+		)(getEnv("VITE_SENTRY_DSN"));
 	}
 
 	public trace(error: Error) {

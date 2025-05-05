@@ -9,11 +9,13 @@ import {
 import { type Maybe, just, nothing } from "../cross-cutting/Maybe";
 import { noop } from "../cross-cutting/Noop";
 
-export enum Tab {
-	Schedule = 0,
-	Favorites = 1,
-	Map = 2,
-}
+export const Tab = {
+	Schedule: 0,
+	Favorites: 1,
+	Map: 2,
+} as const;
+export type Tab = (typeof Tab)[keyof typeof Tab];
+
 export type Coordinates = [lat: number, lng: number];
 export type Map = {
 	center: Coordinates;
@@ -104,7 +106,7 @@ const AppStateContext = createContext<AppState>({
 
 export const AppStateProvider = ({ children }: { children: ReactNode }) => {
 	const [map, setMap] = useState(defaultMap);
-	const [tab, setTab] = useState(Tab.Schedule);
+	const [tab, setTab] = useState<Tab>(Tab.Schedule);
 	const [date, setDate] = useState(nothing<Date>());
 
 	useEffect(() => {

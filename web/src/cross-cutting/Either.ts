@@ -1,10 +1,11 @@
-export enum EitherType {
-	Left = "Left",
-	Right = "Right",
-}
+export const EitherType = {
+	Left: "Left",
+	Right: "Right",
+} as const;
+export type EitherType = (typeof EitherType)[keyof typeof EitherType];
 
-type Left<L> = { type: EitherType.Left; left: L };
-type Right<R> = { type: EitherType.Right; right: R };
+type Left<L> = { type: typeof EitherType.Left; left: L };
+type Right<R> = { type: typeof EitherType.Right; right: R };
 type EitherValue<L, R> = Left<L> | Right<R>;
 
 class Either<L, R> {
@@ -16,7 +17,11 @@ class Either<L, R> {
 		return new Either<TL, TR>({ type: EitherType.Right, right: value });
 	}
 
-	protected constructor(protected readonly data: EitherValue<L, R>) {}
+	protected readonly data: EitherValue<L, R>;
+
+	protected constructor(data: EitherValue<L, R>) {
+		this.data = data;
+	}
 
 	public isLeft(): boolean {
 		return this.data.type === EitherType.Left;

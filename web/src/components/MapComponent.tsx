@@ -1,8 +1,13 @@
 import { SignalSlashIcon } from "@heroicons/react/24/outline";
+import { Suspense, lazy } from "react";
 import { useTranslation } from "react-i18next";
 import { useOnlineStatus } from "../utils/OnlineStatusUtils";
-import { VenuesMap } from "./VenuesMap";
+import { Loader } from "./Loader";
 import { Warning } from "./Warning";
+
+const LazyVenuesMap = lazy(() =>
+	import("./VenuesMap").then((module) => ({ default: module.VenuesMap })),
+);
 
 export const MapComponent = () => {
 	const isOnline = useOnlineStatus();
@@ -10,7 +15,9 @@ export const MapComponent = () => {
 
 	return isOnline ? (
 		<div className="flex justify-center items-center w-full h-full">
-			<VenuesMap />
+			<Suspense fallback={<Loader />}>
+				<LazyVenuesMap />
+			</Suspense>
 		</div>
 	) : (
 		<Warning>

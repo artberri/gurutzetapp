@@ -24,7 +24,7 @@ import { type TabPage, Tabs } from "./components/Tabs";
 import { noop } from "./cross-cutting/Noop";
 import { Syncronizer } from "./domain/Syncronizer";
 import { Tracer } from "./domain/Tracer";
-import { useAppState } from "./utils/AppStateUtils";
+import { Tab, useAppState } from "./utils/AppStateUtils";
 import { useOnlineStatus } from "./utils/OnlineStatusUtils";
 import { useService } from "./utils/ServiceUtils";
 
@@ -40,6 +40,15 @@ export const Content = ({ getReady }: ContentProperties) => {
 	const [isReady, setIsReady] = useState(false);
 	const syncronizer = useService(Syncronizer);
 	const tracer = useService(Tracer);
+	const onTabChange = useCallback(
+		(tab: number) => {
+			const tabEnum = Object.values(Tab).find((t) => t === tab);
+			if (tabEnum !== undefined) {
+				goToTab(tabEnum);
+			}
+		},
+		[goToTab],
+	);
 
 	useEffect(() => {
 		document.documentElement.lang = i18n.resolvedLanguage ?? "es-ES";
@@ -105,6 +114,7 @@ export const Content = ({ getReady }: ContentProperties) => {
 	return (
 		<>
 			<Transition
+				as="div"
 				className="Content__Loader absolute h-full w-full flex flex-col items-center justify-center bg-black inset-0 z-20 "
 				appear
 				show={!showApp}
@@ -119,6 +129,7 @@ export const Content = ({ getReady }: ContentProperties) => {
 				<Loader />
 			</Transition>
 			<Transition
+				as="div"
 				className="h-full w-full"
 				show={showApp}
 				enter="transition-opacity duration-200"
@@ -130,7 +141,7 @@ export const Content = ({ getReady }: ContentProperties) => {
 			>
 				<ContentProviders>
 					<Layout>
-						<Tabs pages={pages} selectedIndex={tab} onChange={goToTab} />
+						<Tabs pages={pages} selectedIndex={tab} onChange={onTabChange} />
 					</Layout>
 				</ContentProviders>
 			</Transition>

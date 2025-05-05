@@ -32,12 +32,22 @@ const sync =
 	};
 
 export class Syncronizer {
+	private readonly fetcher: DataFetcher;
+	private readonly activityStorage: ActivityStorage;
+	private readonly categoryStorage: CategoryStorage;
+	private readonly venueStorage: VenueStorage;
+
 	public constructor(
-		private readonly fetcher: DataFetcher,
-		private readonly activityStorage: ActivityStorage,
-		private readonly categoryStorage: CategoryStorage,
-		private readonly venueStorage: VenueStorage,
-	) {}
+		fetcher: DataFetcher,
+		activityStorage: ActivityStorage,
+		categoryStorage: CategoryStorage,
+		venueStorage: VenueStorage,
+	) {
+		this.fetcher = fetcher;
+		this.activityStorage = activityStorage;
+		this.categoryStorage = categoryStorage;
+		this.venueStorage = venueStorage;
+	}
 
 	public sync() {
 		return map(

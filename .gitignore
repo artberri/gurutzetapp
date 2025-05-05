@@ -3,3 +3,4 @@ bkp/
 .pnpm-debug.log
 web/.env
 .DS_Store
+router/

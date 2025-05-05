@@ -29,7 +29,7 @@ export const Activity = ({ activity }: ActivityProperties) => {
 		getVenue,
 	)(activity.venueId);
 
-	let borderColor = "border-l-slate-200";
+	let borderColor = "border-l-white";
 	if (activity.type === "important") {
 		borderColor = "border-l-highlight";
 	} else if (activity.type === "official") {
@@ -49,7 +49,7 @@ export const Activity = ({ activity }: ActivityProperties) => {
 					</>
 				)}
 			</div>
-			<div className="flex-grow">
+			<div className="grow">
 				<div className="font-medium text-slate-700 first-letter:capitalize">
 					{activity.description[language]}
 				</div>

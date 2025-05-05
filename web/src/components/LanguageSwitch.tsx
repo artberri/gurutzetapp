@@ -19,7 +19,7 @@ export const LanguageSwitch = () => {
 			<Switch
 				checked={checked}
 				onChange={toggleLanguage}
-				className="bg-primary relative inline-flex flex-shrink-0 h-[26px] w-[50px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75"
+				className="bg-primary relative inline-flex shrink-0 h-[26px] w-[50px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-hidden focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75"
 			>
 				<span className="sr-only">Cambiar idioma (marcar es castellano)</span>
 				<span

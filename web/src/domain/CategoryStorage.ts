@@ -3,10 +3,14 @@ import { option } from "../cross-cutting/Either";
 import type { Category } from "./Category";
 import type { Storage } from "./Storage";
 
-const categoryStorageKey = "GURUTZETAPP_CATEGORIES_2024";
+const categoryStorageKey = "GURUTZETAPP_CATEGORIES_2025";
 
 export class CategoryStorage {
-	public constructor(private readonly storage: Storage) {}
+	private readonly storage: Storage;
+
+	public constructor(storage: Storage) {
+		this.storage = storage;
+	}
 
 	public get() {
 		const categories = this.storage.getItem<Category[]>(categoryStorageKey);

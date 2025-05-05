@@ -1,10 +1,14 @@
 import { option } from "../cross-cutting/Either";
 import type { Storage } from "./Storage";
 
-const favoriteStorageKey = "GURUTZETAPP_FAVORITES_2024";
+const favoriteStorageKey = "GURUTZETAPP_FAVORITES_2025";
 
 export class FavoriteStorage {
-	public constructor(private readonly storage: Storage) {}
+	private readonly storage: Storage;
+
+	public constructor(storage: Storage) {
+		this.storage = storage;
+	}
 
 	public getFavorites() {
 		return option<string[]>(() => [])(

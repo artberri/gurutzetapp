@@ -3,10 +3,14 @@ import { option } from "../cross-cutting/Either";
 import type { Storage } from "./Storage";
 import type { Venue } from "./Venue";
 
-const venueStorageKey = "GURUTZETAPP_VENUES_2024";
+const venueStorageKey = "GURUTZETAPP_VENUES_2025";
 
 export class VenueStorage {
-	public constructor(private readonly storage: Storage) {}
+	private readonly storage: Storage;
+
+	public constructor(storage: Storage) {
+		this.storage = storage;
+	}
 
 	public get() {
 		const venues = this.storage.getItem<Venue[]>(venueStorageKey);

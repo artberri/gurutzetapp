@@ -1,4 +1,10 @@
-import { Dialog, Transition } from "@headlessui/react";
+import {
+	Dialog,
+	DialogPanel,
+	DialogTitle,
+	Transition,
+	TransitionChild,
+} from "@headlessui/react";
 import { Fragment, type MouseEventHandler } from "react";
 import { useTranslation } from "react-i18next";
 import { noop } from "../cross-cutting/Noop";
@@ -27,7 +33,7 @@ export const FatalErrorDialog = ({ isOpen }: FatalErrorDialogProperties) => {
 				onClose={noop}
 			>
 				<div className="min-h-screen px-4 text-center">
-					<Transition.Child
+					<TransitionChild
 						as={Fragment}
 						enter="ease-out duration-300"
 						enterFrom="opacity-0"
@@ -36,8 +42,8 @@ export const FatalErrorDialog = ({ isOpen }: FatalErrorDialogProperties) => {
 						leaveFrom="opacity-100"
 						leaveTo="opacity-0"
 					>
-						<Dialog.Overlay className="fixed inset-0 bg-white opacity-50" />
-					</Transition.Child>
+						<div className="fixed inset-0 bg-white opacity-50" />
+					</TransitionChild>
 
 					{/* This element is to trick the browser into centering the modal contents. */}
 					<span
@@ -46,7 +52,7 @@ export const FatalErrorDialog = ({ isOpen }: FatalErrorDialogProperties) => {
 					>
 						&#8203;
 					</span>
-					<Transition.Child
+					<TransitionChild
 						as={Fragment}
 						enter="ease-out duration-300"
 						enterFrom="opacity-0 scale-95"
@@ -55,13 +61,13 @@ export const FatalErrorDialog = ({ isOpen }: FatalErrorDialogProperties) => {
 						leaveFrom="opacity-100 scale-100"
 						leaveTo="opacity-0 scale-95"
 					>
-						<div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-							<Dialog.Title
+						<DialogPanel className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+							<DialogTitle
 								as="h3"
 								className="text-lg font-medium leading-6 text-gray-900"
 							>
 								{t("error.fatal.title")}
-							</Dialog.Title>
+							</DialogTitle>
 							<div className="mt-2">
 								<p className="text-sm text-gray-500">
 									{t("error.fatal.description")}
@@ -70,14 +76,14 @@ export const FatalErrorDialog = ({ isOpen }: FatalErrorDialogProperties) => {
 
 							<div className="mt-4">
 								<Button
-									className="inline-flex justify-center px-4 py-2 text-sm font-medium text-primary-900 bg-primary-100 border border-transparent rounded-md hover:bg-primary-200 focus:outline-none ring-2 ring-offset-2 ring-primary-500"
+									className="inline-flex justify-center px-4 py-2 text-sm font-medium text-primary-900 bg-primary-100 border border-transparent rounded-md hover:bg-primary-200 focus:outline-hidden ring-2 ring-offset-2 ring-primary-500"
 									onClick={onButtonClick}
 								>
 									{t("error.fatal.button")}
 								</Button>
 							</div>
-						</div>
-					</Transition.Child>
+						</DialogPanel>
+					</TransitionChild>
 				</div>
 			</Dialog>
 		</Transition>

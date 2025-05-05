@@ -56,7 +56,7 @@ export const ActivityFilter = ({
 	return (
 		<Listbox value={selected} onChange={handleChange}>
 			<div className="relative w-full">
-				<Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg cursor-default focus:outline-none sm:text-sm">
+				<Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg cursor-default focus:outline-hidden sm:text-sm">
 					<span className="block truncate">{getCategoryName(selected)}</span>
 					<span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
 						<ChevronUpDownIcon
@@ -71,7 +71,7 @@ export const ActivityFilter = ({
 					leaveFrom="opacity-100"
 					leaveTo="opacity-0"
 				>
-					<Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+					<Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-hidden sm:text-sm">
 						{categories.map((category) => (
 							<Listbox.Option
 								key={getCategoryId(category)}
