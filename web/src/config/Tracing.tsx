@@ -1,5 +1,5 @@
+import { browserTracingIntegration } from "@sentry/browser";
 import { init } from "@sentry/react";
-import { BrowserTracing } from "@sentry/tracing";
 import type { ReactNode } from "react";
 import { fold, option } from "../cross-cutting/Either";
 import { getEnv } from "../infrastructure/GetEnv";
@@ -16,10 +16,9 @@ export const configTracing = () =>
 		(dsn: string) => {
 			init({
 				dsn,
-				integrations: [new BrowserTracing()],
+				integrations: [browserTracingIntegration()],
 				tracesSampleRate: 1,
 				debug: option(() => "none")(getEnv("NODE_ENV")) === "development",
-				autoSessionTracking: false,
 				release: option(() => "none")(getEnv("REACT_APP_SENTRY_RELEASE")),
 				initialScope: {
 					tags: { app: "gurutzetapp" },
