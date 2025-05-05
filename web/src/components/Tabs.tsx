@@ -1,19 +1,19 @@
-import { Tab } from "@headlessui/react"
-import { ReactNode } from "react"
+import { Tab } from "@headlessui/react";
+import type { ReactNode } from "react";
 
-const classNames = (...classes: string[]) => classes.filter(Boolean).join(" ")
+const classNames = (...classes: string[]) => classes.filter(Boolean).join(" ");
 
 export interface TabPage {
-	id: string
-	content: ReactNode
-	icon: JSX.Element
-	iconSelected: JSX.Element
+	id: string;
+	content: ReactNode;
+	icon: JSX.Element;
+	iconSelected: JSX.Element;
 }
 
 export interface TabsProperties {
-	pages: TabPage[]
-	selectedIndex: number
-	onChange?: (index: number) => void
+	pages: TabPage[];
+	selectedIndex: number;
+	onChange?: (index: number) => void;
 }
 
 export const Tabs = ({ pages, selectedIndex, onChange }: TabsProperties) => (
@@ -40,4 +40,4 @@ export const Tabs = ({ pages, selectedIndex, onChange }: TabsProperties) => (
 			))}
 		</Tab.List>
 	</Tab.Group>
-)
+);

@@ -1,52 +1,52 @@
-import { TrashIcon } from "@heroicons/react/24/outline"
-import { KeyboardEventHandler } from "react"
-import { useTranslation } from "react-i18next"
-import { fold, left } from "../cross-cutting/Either"
-import { fold as foldM } from "../cross-cutting/Maybe"
-import { Activity as A } from "../domain/Activity"
-import { Category } from "../domain/Category"
-import { LocalizedText } from "../domain/LocalizedText"
-import { Tracer } from "../domain/Tracer"
-import { Venue } from "../domain/Venue"
-import { useCategories } from "../utils/CategoryUtils"
-import { getHHmm, monthDay, weekDay } from "../utils/DateUtils"
-import { useFavorites } from "../utils/FavoriteUtils"
-import { useService } from "../utils/ServiceUtils"
-import { useVenues } from "../utils/VenueUtils"
-import { LocationButton } from "./LocationButton"
+import { TrashIcon } from "@heroicons/react/24/outline";
+import type { KeyboardEventHandler } from "react";
+import { useTranslation } from "react-i18next";
+import { fold, left } from "../cross-cutting/Either";
+import { fold as foldM } from "../cross-cutting/Maybe";
+import type { Activity as A } from "../domain/Activity";
+import type { Category } from "../domain/Category";
+import type { LocalizedText } from "../domain/LocalizedText";
+import { Tracer } from "../domain/Tracer";
+import type { Venue } from "../domain/Venue";
+import { useCategories } from "../utils/CategoryUtils";
+import { getHHmm, monthDay, weekDay } from "../utils/DateUtils";
+import { useFavorites } from "../utils/FavoriteUtils";
+import { useService } from "../utils/ServiceUtils";
+import { useVenues } from "../utils/VenueUtils";
+import { LocationButton } from "./LocationButton";
 
 export interface FavoriteProperties {
-	activity: A
+	activity: A;
 }
 
 export const Favorite = ({ activity }: FavoriteProperties) => {
-	const { id, date, dateEnd, description, categoryId, venueId } = activity
-	const { i18n, t } = useTranslation()
-	const { getCategory } = useCategories()
-	const { removeFavorite } = useFavorites()
-	const { getVenue } = useVenues()
-	const translateMonthDay = monthDay(i18n.resolvedLanguage)
-	const translateWeekDay = weekDay(i18n.resolvedLanguage)
-	const tracer = useService(Tracer)
-	const category = getCategory(categoryId)
-	const language = i18n.resolvedLanguage as keyof LocalizedText
+	const { id, date, dateEnd, description, categoryId, venueId } = activity;
+	const { i18n, t } = useTranslation();
+	const { getCategory } = useCategories();
+	const { removeFavorite } = useFavorites();
+	const { getVenue } = useVenues();
+	const translateMonthDay = monthDay(i18n.resolvedLanguage);
+	const translateWeekDay = weekDay(i18n.resolvedLanguage);
+	const tracer = useService(Tracer);
+	const category = getCategory(categoryId);
+	const language = i18n.resolvedLanguage as keyof LocalizedText;
 	const venue = foldM(
 		() => left<Venue>(new Error("Activity withou venue")),
 		getVenue,
-	)(venueId)
+	)(venueId);
 
 	const handleRemoveFavoriteClick = () => {
-		removeFavorite(id)
-	}
+		removeFavorite(id);
+	};
 
 	const handleRemoveFavoriteKeyUp: KeyboardEventHandler<HTMLDivElement> = (
 		event,
 	) => {
 		if (event.key !== "Enter") {
-			return
+			return;
 		}
-		removeFavorite(id)
-	}
+		removeFavorite(id);
+	};
 
 	return (
 		<div className="flex p-3 justify-between items-stretch text-slate-700 min-h-[100px]">
@@ -67,8 +67,8 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
 				</div>
 				{fold(
 					(error: Error) => {
-						tracer.trace(error)
-						return null
+						tracer.trace(error);
+						return null;
 					},
 					(c: Category) => (
 						<div className="text-slate-500 first-letter:capitalize">
@@ -80,6 +80,7 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
 			<div className="w-10 flex-none pl-2 flex flex-col justify-between">
 				<div
 					aria-label={t("favorites.remove") ?? "Quitar de favoritos"}
+					// biome-ignore lint/a11y/useSemanticElements: <explanation>
 					role="button"
 					tabIndex={0}
 					className="text-slate-500 cursor-pointer"
@@ -94,5 +95,5 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
 				)(venue)}
 			</div>
 		</div>
-	)
-}
+	);
+};

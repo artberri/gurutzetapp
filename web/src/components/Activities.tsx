@@ -1,39 +1,39 @@
-import { ArrowLeftIcon } from "@heroicons/react/24/outline"
-import { map, pipe, uniq } from "ramda"
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { map, pipe, uniq } from "ramda";
 import {
-	KeyboardEventHandler,
-	MouseEventHandler,
+	type KeyboardEventHandler,
+	type MouseEventHandler,
 	useMemo,
 	useState,
-} from "react"
-import { useTranslation } from "react-i18next"
-import { Maybe, fold } from "../cross-cutting/Maybe"
-import { Activity as A } from "../domain/Activity"
-import { Category } from "../domain/Category"
-import { useActivities } from "../utils/ActivityUtils"
-import { monthDay, weekDay } from "../utils/DateUtils"
-import { Activity } from "./Activity"
-import { ActivityFilter } from "./ActivityFilter"
-import { StackedList } from "./StackedList"
+} from "react";
+import { useTranslation } from "react-i18next";
+import { type Maybe, fold } from "../cross-cutting/Maybe";
+import type { Activity as A } from "../domain/Activity";
+import type { Category } from "../domain/Category";
+import { useActivities } from "../utils/ActivityUtils";
+import { monthDay, weekDay } from "../utils/DateUtils";
+import { Activity } from "./Activity";
+import { ActivityFilter } from "./ActivityFilter";
+import { StackedList } from "./StackedList";
 
 const mapActivities = map((activity: A) => (
 	<Activity key={activity.id} activity={activity} />
-))
+));
 
 export interface ActivitiesProperties {
-	date: Date
-	onBack: () => void
+	date: Date;
+	onBack: () => void;
 }
 
 export const Activities = ({ onBack, date }: ActivitiesProperties) => {
-	const { i18n, t } = useTranslation()
-	const translateMonthDay = monthDay(i18n.resolvedLanguage)
-	const translateWeekDay = weekDay(i18n.resolvedLanguage)
-	const { getActivities } = useActivities()
+	const { i18n, t } = useTranslation();
+	const translateMonthDay = monthDay(i18n.resolvedLanguage);
+	const translateWeekDay = weekDay(i18n.resolvedLanguage);
+	const { getActivities } = useActivities();
 	const allDateActivities = useMemo(
 		() => getActivities(date),
 		[date, getActivities],
-	)
+	);
 	const categoryIds = useMemo(
 		() =>
 			pipe(
@@ -41,36 +41,37 @@ export const Activities = ({ onBack, date }: ActivitiesProperties) => {
 				uniq,
 			)(allDateActivities),
 		[allDateActivities],
-	)
-	const [activities, setActivities] = useState<A[]>(allDateActivities)
+	);
+	const [activities, setActivities] = useState<A[]>(allDateActivities);
 
 	const handleBackClick: MouseEventHandler<HTMLDivElement> = (event) => {
-		event.preventDefault()
-		event.stopPropagation()
-		onBack()
-	}
+		event.preventDefault();
+		event.stopPropagation();
+		onBack();
+	};
 	const handleBackKeyUp: KeyboardEventHandler<HTMLDivElement> = (event) => {
 		if (event.key !== "Enter") {
-			return
+			return;
 		}
-		event.preventDefault()
-		event.stopPropagation()
-		onBack()
-	}
+		event.preventDefault();
+		event.stopPropagation();
+		onBack();
+	};
 	const onFilterChange = (category: Maybe<Category>) => {
 		fold(
 			() => setActivities(allDateActivities),
 			(c: Category) => {
-				setActivities(allDateActivities.filter((a) => a.categoryId === c.id))
+				setActivities(allDateActivities.filter((a) => a.categoryId === c.id));
 			},
-		)(category)
-	}
+		)(category);
+	};
 
 	return (
 		<>
 			<div className="flex flex-row justify-between align-center mb-4">
 				<div
 					aria-label={t("back") ?? "Volver"}
+					// biome-ignore lint/a11y/useSemanticElements: <explanation>
 					role="button"
 					tabIndex={0}
 					onKeyUp={handleBackKeyUp}
@@ -88,5 +89,5 @@ export const Activities = ({ onBack, date }: ActivitiesProperties) => {
 				items={mapActivities(activities)}
 			/>
 		</>
-	)
-}
+	);
+};

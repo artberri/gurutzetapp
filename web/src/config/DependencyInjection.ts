@@ -1,17 +1,17 @@
-import { ContainerBuilder } from "diod"
-import { Storage } from "../domain/Storage"
-import { LocalStorage } from "../infrastructure/LocalStorage"
-import { ActivityStorage } from "../domain/ActivityStorage"
-import { SentryTracer } from "../infrastructure/SentryTracer"
-import { Tracer } from "../domain/Tracer"
-import { DataFetcher } from "../domain/DataFetcher"
-import { ContentfulDataFetcher } from "../infrastructure/ContentfulDataFetcher"
-import { Syncronizer } from "../domain/Syncronizer"
-import { VenueStorage } from "../domain/VenueStorage"
-import { FavoriteStorage } from "../domain/FavoriteStorage"
-import { CategoryStorage } from "../domain/CategoryStorage"
-import { NetworkDetector } from "../domain/NetworkDetector"
-import { BrowserNetworkDetector } from "../infrastructure/BrowserNetworkDetector"
+import { ContainerBuilder } from "diod";
+import { ActivityStorage } from "../domain/ActivityStorage";
+import { CategoryStorage } from "../domain/CategoryStorage";
+import { DataFetcher } from "../domain/DataFetcher";
+import { FavoriteStorage } from "../domain/FavoriteStorage";
+import { NetworkDetector } from "../domain/NetworkDetector";
+import { Storage } from "../domain/Storage";
+import { Syncronizer } from "../domain/Syncronizer";
+import { Tracer } from "../domain/Tracer";
+import { VenueStorage } from "../domain/VenueStorage";
+import { BrowserNetworkDetector } from "../infrastructure/BrowserNetworkDetector";
+import { ContentfulDataFetcher } from "../infrastructure/ContentfulDataFetcher";
+import { LocalStorage } from "../infrastructure/LocalStorage";
+import { SentryTracer } from "../infrastructure/SentryTracer";
 
 export const registerDomainDependencies = (
 	builder: ContainerBuilder,
@@ -19,16 +19,19 @@ export const registerDomainDependencies = (
 	builder
 		.registerAndUse(ActivityStorage)
 		.withDependencies([Storage])
-		.asSingleton()
+		.asSingleton();
 	builder
 		.registerAndUse(CategoryStorage)
 		.withDependencies([Storage])
-		.asSingleton()
-	builder.registerAndUse(VenueStorage).withDependencies([Storage]).asSingleton()
+		.asSingleton();
+	builder
+		.registerAndUse(VenueStorage)
+		.withDependencies([Storage])
+		.asSingleton();
 	builder
 		.registerAndUse(FavoriteStorage)
 		.withDependencies([Storage])
-		.asSingleton()
+		.asSingleton();
 	builder
 		.registerAndUse(Syncronizer)
 		.withDependencies([
@@ -37,20 +40,20 @@ export const registerDomainDependencies = (
 			CategoryStorage,
 			VenueStorage,
 		])
-		.asSingleton()
+		.asSingleton();
 
-	return builder
-}
+	return builder;
+};
 
-const builder = new ContainerBuilder()
+const builder = new ContainerBuilder();
 
-builder.register(Storage).use(LocalStorage).asSingleton()
-builder.register(Tracer).use(SentryTracer).asSingleton()
+builder.register(Storage).use(LocalStorage).asSingleton();
+builder.register(Tracer).use(SentryTracer).asSingleton();
 builder
 	.register(DataFetcher)
 	.use(ContentfulDataFetcher)
 	.withDependencies([Storage])
-	.asSingleton()
-builder.register(NetworkDetector).use(BrowserNetworkDetector).asSingleton()
+	.asSingleton();
+builder.register(NetworkDetector).use(BrowserNetworkDetector).asSingleton();
 
-export const container = registerDomainDependencies(builder).build()
+export const container = registerDomainDependencies(builder).build();

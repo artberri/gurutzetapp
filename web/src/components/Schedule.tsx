@@ -1,18 +1,18 @@
-import { fold } from "../cross-cutting/Maybe"
-import { useAppState } from "../utils/AppStateUtils"
-import { Activities } from "./Activities"
-import { Days } from "./Days"
+import { fold } from "../cross-cutting/Maybe";
+import { useAppState } from "../utils/AppStateUtils";
+import { Activities } from "./Activities";
+import { Days } from "./Days";
 
 export const Schedule = () => {
-	const { date, goBack, goToDay } = useAppState()
+	const { date, goBack, goToDay } = useAppState();
 
 	const handleDayClick = (day: Date) => {
-		goToDay(day)
-	}
+		goToDay(day);
+	};
 
 	const handleBack = () => {
-		goBack()
-	}
+		goBack();
+	};
 
 	return (
 		<div className="w-full h-full px-3 flex flex-col">
@@ -23,5 +23,5 @@ export const Schedule = () => {
 				)(date)}
 			</div>
 		</div>
-	)
-}
+	);
+};

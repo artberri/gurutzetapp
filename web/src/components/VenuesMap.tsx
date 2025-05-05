@@ -1,17 +1,17 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
-import "leaflet/dist/leaflet.css"
-import { divIcon } from "leaflet"
-import { map } from "ramda"
-import { useTranslation } from "react-i18next"
-import { useVenues } from "../utils/VenueUtils"
-import { Venue, VenueCategory } from "../domain/Venue"
-import { useAppState } from "../utils/AppStateUtils"
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import { divIcon } from "leaflet";
+import { map } from "ramda";
+import { useTranslation } from "react-i18next";
+import type { Venue, VenueCategory } from "../domain/Venue";
+import { useAppState } from "../utils/AppStateUtils";
+import { useVenues } from "../utils/VenueUtils";
 
 const iconColor: Record<VenueCategory, string> = {
 	official: "#25B750",
 	business: "#EAB308",
 	public: "#8B5CF6",
-}
+};
 
 const icon = (category: VenueCategory) =>
 	divIcon({
@@ -21,7 +21,7 @@ const icon = (category: VenueCategory) =>
 		className: "",
 		iconAnchor: [16, 33],
 		popupAnchor: [0, -33],
-	})
+	});
 
 const mapActivities = (lang: "es" | "eu") =>
 	map((venue: Venue) => (
@@ -32,14 +32,14 @@ const mapActivities = (lang: "es" | "eu") =>
 		>
 			<Popup>{venue.name[lang]}</Popup>
 		</Marker>
-	))
+	));
 
 export const VenuesMap = () => {
-	const { i18n } = useTranslation()
-	const { venues } = useVenues()
+	const { i18n } = useTranslation();
+	const { venues } = useVenues();
 	const {
 		map: { center, zoom },
-	} = useAppState()
+	} = useAppState();
 
 	return (
 		<MapContainer className="w-full h-full" center={center} zoom={zoom}>
@@ -49,5 +49,5 @@ export const VenuesMap = () => {
 			/>
 			{mapActivities(i18n.resolvedLanguage as "es" | "eu")(venues)}
 		</MapContainer>
-	)
-}
+	);
+};

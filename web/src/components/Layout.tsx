@@ -1,8 +1,8 @@
-import { ReactNode } from "react"
-import { Header } from "./Header"
+import type { ReactNode } from "react";
+import { Header } from "./Header";
 
 export interface LayoutProperties {
-	children: ReactNode
+	children: ReactNode;
 }
 
 export const Layout = ({ children }: LayoutProperties) => (
@@ -12,4 +12,4 @@ export const Layout = ({ children }: LayoutProperties) => (
 			{children}
 		</main>
 	</div>
-)
+);

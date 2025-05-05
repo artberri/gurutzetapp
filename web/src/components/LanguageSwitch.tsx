@@ -1,17 +1,17 @@
-import { Switch } from "@headlessui/react"
-import { useTranslation } from "react-i18next"
+import { Switch } from "@headlessui/react";
+import { useTranslation } from "react-i18next";
 
 export const LanguageSwitch = () => {
-	const { i18n } = useTranslation()
-	const checked = i18n.resolvedLanguage === "es"
+	const { i18n } = useTranslation();
+	const checked = i18n.resolvedLanguage === "es";
 
 	const toggleLanguage = () => {
 		if (checked) {
-			void i18n.changeLanguage("eu")
+			void i18n.changeLanguage("eu");
 		} else {
-			void i18n.changeLanguage("es")
+			void i18n.changeLanguage("es");
 		}
-	}
+	};
 
 	return (
 		<div className="flex items-center text-slate-500 h-full">
@@ -30,5 +30,5 @@ export const LanguageSwitch = () => {
 			</Switch>
 			<div className="pl-1">ES</div>
 		</div>
-	)
-}
+	);
+};

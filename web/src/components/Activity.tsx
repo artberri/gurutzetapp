@@ -1,39 +1,39 @@
-import { useTranslation } from "react-i18next"
-import { fold as foldE, left } from "../cross-cutting/Either"
-import { fold } from "../cross-cutting/Maybe"
-import { Activity as A } from "../domain/Activity"
-import { Category } from "../domain/Category"
-import { LocalizedText } from "../domain/LocalizedText"
-import { Tracer } from "../domain/Tracer"
-import { Venue } from "../domain/Venue"
-import { useCategories } from "../utils/CategoryUtils"
-import { getHHmm } from "../utils/DateUtils"
-import { useService } from "../utils/ServiceUtils"
-import { useVenues } from "../utils/VenueUtils"
-import { FavoriteButton } from "./FavoriteButton"
-import { LocationButton } from "./LocationButton"
+import { useTranslation } from "react-i18next";
+import { fold as foldE, left } from "../cross-cutting/Either";
+import { fold } from "../cross-cutting/Maybe";
+import type { Activity as A } from "../domain/Activity";
+import type { Category } from "../domain/Category";
+import type { LocalizedText } from "../domain/LocalizedText";
+import { Tracer } from "../domain/Tracer";
+import type { Venue } from "../domain/Venue";
+import { useCategories } from "../utils/CategoryUtils";
+import { getHHmm } from "../utils/DateUtils";
+import { useService } from "../utils/ServiceUtils";
+import { useVenues } from "../utils/VenueUtils";
+import { FavoriteButton } from "./FavoriteButton";
+import { LocationButton } from "./LocationButton";
 
 export interface ActivityProperties {
-	activity: A
+	activity: A;
 }
 
 export const Activity = ({ activity }: ActivityProperties) => {
-	const { i18n } = useTranslation()
-	const { getCategory } = useCategories()
-	const { getVenue } = useVenues()
-	const tracer = useService(Tracer)
-	const category = getCategory(activity.categoryId)
-	const language = i18n.resolvedLanguage as keyof LocalizedText
+	const { i18n } = useTranslation();
+	const { getCategory } = useCategories();
+	const { getVenue } = useVenues();
+	const tracer = useService(Tracer);
+	const category = getCategory(activity.categoryId);
+	const language = i18n.resolvedLanguage as keyof LocalizedText;
 	const venue = fold(
 		() => left<Venue>(new Error("Activity withou venue")),
 		getVenue,
-	)(activity.venueId)
+	)(activity.venueId);
 
-	let borderColor = "border-l-slate-200"
+	let borderColor = "border-l-slate-200";
 	if (activity.type === "important") {
-		borderColor = "border-l-highlight"
+		borderColor = "border-l-highlight";
 	} else if (activity.type === "official") {
-		borderColor = "border-l-primary"
+		borderColor = "border-l-primary";
 	}
 
 	return (
@@ -55,8 +55,8 @@ export const Activity = ({ activity }: ActivityProperties) => {
 				</div>
 				{foldE(
 					(error: Error) => {
-						tracer.trace(error)
-						return null
+						tracer.trace(error);
+						return null;
 					},
 					(c: Category) => (
 						<div className="text-slate-500 first-letter:capitalize">
@@ -73,5 +73,5 @@ export const Activity = ({ activity }: ActivityProperties) => {
 				)(venue)}
 			</div>
 		</div>
-	)
-}
+	);
+};

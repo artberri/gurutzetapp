@@ -1,25 +1,25 @@
-import { Listbox, Transition } from "@headlessui/react"
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/24/solid"
-import { filter, map, pipe, prepend, sort } from "ramda"
-import { Fragment, useMemo, useState } from "react"
-import { useTranslation } from "react-i18next"
-import { Either, isRight, option } from "../cross-cutting/Either"
-import { Maybe, fold, just, nothing } from "../cross-cutting/Maybe"
-import { Category } from "../domain/Category"
-import { useCategories } from "../utils/CategoryUtils"
+import { Listbox, Transition } from "@headlessui/react";
+import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/24/solid";
+import { filter, map, pipe, prepend, sort } from "ramda";
+import { Fragment, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { type Either, isRight, option } from "../cross-cutting/Either";
+import { type Maybe, fold, just, nothing } from "../cross-cutting/Maybe";
+import type { Category } from "../domain/Category";
+import { useCategories } from "../utils/CategoryUtils";
 
 export interface ActivityFilterProperties {
-	categoryIds: string[]
-	onChange: (categoryId: Maybe<Category>) => void
+	categoryIds: string[];
+	onChange: (categoryId: Maybe<Category>) => void;
 }
 
 export const ActivityFilter = ({
 	categoryIds,
 	onChange,
 }: ActivityFilterProperties) => {
-	const { i18n, t } = useTranslation()
-	const lang = i18n.resolvedLanguage as "es" | "eu"
-	const { getCategory } = useCategories()
+	const { i18n, t } = useTranslation();
+	const lang = i18n.resolvedLanguage as "es" | "eu";
+	const { getCategory } = useCategories();
 
 	const categories = useMemo(
 		() =>
@@ -34,24 +34,24 @@ export const ActivityFilter = ({
 				prepend(nothing()),
 			)(categoryIds),
 		[categoryIds, getCategory, lang],
-	)
+	);
 
-	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-	const [selected, setSelected] = useState(categories[0]!)
+	// biome-ignore lint/style/noNonNullAssertion: <explanation>
+	const [selected, setSelected] = useState(categories[0]!);
 
 	const getCategoryId = fold(
 		() => "placeholder",
 		(category: Category) => category.id,
-	)
+	);
 	const getCategoryName = fold(
 		() => t("nofilters"),
 		(category: Category) => category.name[lang],
-	)
+	);
 
 	const handleChange = (category: Maybe<Category>) => {
-		setSelected(category)
-		onChange(category)
-	}
+		setSelected(category);
+		onChange(category);
+	};
 
 	return (
 		<Listbox value={selected} onChange={handleChange}>
@@ -104,5 +104,5 @@ export const ActivityFilter = ({
 				</Transition>
 			</div>
 		</Listbox>
-	)
-}
+	);
+};

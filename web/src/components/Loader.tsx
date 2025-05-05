@@ -1,11 +1,11 @@
-import "./Loader.css"
+import "./Loader.css";
 
 export interface LoaderProperties {
-	primary?: boolean
+	primary?: boolean;
 }
 
 export const Loader = ({ primary = false }: LoaderProperties) => {
-	const color = primary ? "bg-primary" : "bg-white"
+	const color = primary ? "bg-primary" : "bg-white";
 	return (
 		<div className="Loader">
 			<div className={color} />
@@ -13,5 +13,5 @@ export const Loader = ({ primary = false }: LoaderProperties) => {
 			<div className={color} />
 			<div className={color} />
 		</div>
-	)
-}
+	);
+};
