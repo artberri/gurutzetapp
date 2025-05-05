@@ -1,5 +1,6 @@
 import {
 	type ContentfulClientApi,
+	type Entry,
 	type SyncCollection,
 	createClient,
 } from "contentful";
@@ -20,26 +21,32 @@ import type { Storage } from "../domain/Storage";
 import type { Venue } from "../domain/Venue";
 import { parseError } from "../utils/ErrorUtils";
 import type {
-	ContentfulActivityEntry,
-	ContentfulCategoryEntry,
-	ContentfulEntry,
-	ContentfulVenueEntry,
+	ActivityEntrySkeleton,
+	CategoryEntrySkeleton,
 	DeletedEntry,
+	GurutzetaEntrySkeleton,
+	VenueEntrySkeleton,
 } from "./ContentfulModels";
 import { getEnv } from "./GetEnv";
 
+type Client = ContentfulClientApi<undefined>;
+
 const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2024";
 
-const mapActivity = (entry: ContentfulActivityEntry): Activity => ({
+const mapActivity = (
+	entry: Entry<ActivityEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,
+): Activity => ({
 	id: entry.sys.id,
-	date: new Date(entry.fields.date.es),
-	dateEnd: entry.fields.dateEnd ? new Date(entry.fields.dateEnd.es) : undefined,
+	date: new Date(entry.fields.date.es ?? new Date("2025-05-17")),
+	dateEnd: entry.fields.dateEnd?.es
+		? new Date(entry.fields.dateEnd.es)
+		: undefined,
 	description: {
-		es: entry.fields.description.es,
-		eu: entry.fields.description.eu,
+		es: entry.fields.description.es ?? "N/A",
+		eu: entry.fields.description.eu ?? "N/A",
 	},
-	categoryId: entry.fields.category.es.sys.id,
-	venueId: entry.fields.venue?.es.sys.id
+	categoryId: entry.fields.category?.es?.sys.id ?? "N/A",
+	venueId: entry.fields.venue?.es?.sys.id
 		? just(entry.fields.venue?.es.sys.id)
 		: nothing(),
 	type: entry.fields.type?.es ?? "normal",
@@ -57,12 +64,14 @@ const mapRemovedActivity = (entry: DeletedEntry): Activity => ({
 	type: "normal",
 });
 
-const mapCategory = (entry: ContentfulCategoryEntry): Category => ({
+const mapCategory = (
+	entry: Entry<CategoryEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,
+): Category => ({
 	id: entry.sys.id,
-	label: entry.fields.label.es,
+	label: entry.fields.label.es ?? "N/A",
 	name: {
-		es: entry.fields.name.es,
-		eu: entry.fields.name.eu,
+		es: entry.fields.name.es ?? "N/A",
+		eu: entry.fields.name.eu ?? "N/A",
 	},
 });
 
@@ -75,16 +84,18 @@ const mapRemovedCategory = (entry: DeletedEntry): Category => ({
 	label: "",
 });
 
-const mapVenue = (entry: ContentfulVenueEntry): Venue => ({
+const mapVenue = (
+	entry: Entry<VenueEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,
+): Venue => ({
 	id: entry.sys.id,
 	name: {
-		es: entry.fields.name.es,
-		eu: entry.fields.name.eu,
+		es: entry.fields.name.es ?? "N/A",
+		eu: entry.fields.name.eu ?? "N/A",
 	},
-	category: entry.fields.category.es,
+	category: entry.fields.category.es ?? "business",
 	location: {
-		lat: entry.fields.location.es.lat,
-		lng: entry.fields.location.es.lon,
+		lat: entry.fields.location.es?.lat ?? 0,
+		lng: entry.fields.location.es?.lon ?? 0,
 	},
 });
 
@@ -102,53 +113,48 @@ const mapRemovedVenue = (entry: DeletedEntry): Venue => ({
 });
 
 const isActivity = (
-	entry: ContentfulEntry,
-): entry is ContentfulActivityEntry => {
-	const activity = entry as ContentfulActivityEntry;
+	entry: Entry<GurutzetaEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,
+): entry is Entry<ActivityEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu"> => {
 	return (
-		activity?.sys?.type === "Entry" &&
-		activity?.sys?.contentType?.sys?.id === "activity"
+		entry?.sys?.type === "Entry" &&
+		entry?.sys?.contentType?.sys?.id === "activity"
 	);
 };
 
 const isCategory = (
-	entry: ContentfulEntry,
-): entry is ContentfulCategoryEntry => {
-	const category = entry as ContentfulCategoryEntry;
+	entry: Entry<GurutzetaEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,
+): entry is Entry<CategoryEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu"> => {
 	return (
-		category?.sys?.type === "Entry" &&
-		category?.sys?.contentType?.sys?.id === "category"
+		entry?.sys?.type === "Entry" &&
+		entry?.sys?.contentType?.sys?.id === "category"
 	);
 };
 
-const isVenue = (entry: ContentfulEntry): entry is ContentfulVenueEntry => {
-	const venue = entry as ContentfulVenueEntry;
+const isVenue = (
+	entry: Entry<GurutzetaEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,
+): entry is Entry<VenueEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu"> => {
 	return (
-		venue?.sys?.type === "Entry" && venue?.sys?.contentType?.sys?.id === "venue"
+		entry?.sys?.type === "Entry" && entry?.sys?.contentType?.sys?.id === "venue"
 	);
 };
 
 const getActivities = pipe(
-	(entries: ContentfulEntry[]) => filter(isActivity)(entries),
+	(entries: Entry<GurutzetaEntrySkeleton>[]) => filter(isActivity)(entries),
 	map(mapActivity),
 );
 
 const getCategories = pipe(
-	(entries: ContentfulEntry[]) => filter(isCategory)(entries),
+	(entries: Entry<GurutzetaEntrySkeleton>[]) => filter(isCategory)(entries),
 	map(mapCategory),
 );
 
 const getVenues = pipe(
-	(entries: ContentfulEntry[]) => filter(isVenue)(entries),
+	(entries: Entry<GurutzetaEntrySkeleton>[]) => filter(isVenue)(entries),
 	map(mapVenue),
 );
 
-const parseData = (response: SyncCollection): Data => {
-	const responseObject = JSON.parse(response.stringifySafe()) as {
-		readonly entries: ContentfulEntry[];
-		readonly deletedEntries: DeletedEntry[];
-	};
-	const { entries, deletedEntries } = responseObject;
+const parseData = (response: SyncCollection<GurutzetaEntrySkeleton>): Data => {
+	const { entries, deletedEntries } = response;
 
 	return {
 		modified: {
@@ -164,10 +170,10 @@ const parseData = (response: SyncCollection): Data => {
 	};
 };
 
-const fetchInitial = (client: ContentfulClientApi) => () =>
-	attemptP<Error, { data: Data; token: string }>(() =>
+const fetchInitial = (client: Client) => () =>
+	attemptP<Error, { data: Data; token: string | undefined }>(() =>
 		client
-			.sync({
+			.sync<GurutzetaEntrySkeleton>({
 				initial: true,
 			})
 			.then((response) => ({
@@ -179,10 +185,10 @@ const fetchInitial = (client: ContentfulClientApi) => () =>
 			}),
 	);
 
-const fetchNext = (client: ContentfulClientApi) => (token: string) =>
-	attemptP<Error, { data: Data; token: string }>(() =>
+const fetchNext = (client: Client) => (token: string | undefined) =>
+	attemptP<Error, { data: Data; token: string | undefined }>(() =>
 		client
-			.sync({
+			.sync<GurutzetaEntrySkeleton>({
 				nextSyncToken: token,
 			})
 			.then((response) => ({
@@ -195,35 +201,39 @@ const fetchNext = (client: ContentfulClientApi) => (token: string) =>
 	);
 
 const fetchOnce =
-	(client: ContentfulClientApi) => (nextToken: Either<Error, string>) =>
+	(client: Client) => (nextToken: Either<Error, string | undefined>) =>
 		fold(fetchInitial(client), fetchNext(client))(nextToken);
 
 const fetchLoop =
-	(client: ContentfulClientApi) =>
+	(client: Client) =>
 	(
-		nextToken: Either<Error, string>,
+		nextToken: Either<Error, string | undefined>,
 		previousData: Data = {} as Data,
 	): FutureInstance<
 		Error,
 		{
 			data: Data;
-			token: string;
+			token: string | undefined;
 		}
 	> =>
-		chain<Error, { data: Data; token: string }, { data: Data; token: string }>(
-			({ data, token }) => {
-				const oldToken = option(() => "")(nextToken);
-				const mergedData = mergeDeepWith(concat, previousData, data) as Data;
-				if (oldToken === token) {
-					return resolve({ data: mergedData, token });
-				}
+		chain<
+			Error,
+			{ data: Data; token: string | undefined },
+			{ data: Data; token: string | undefined }
+		>(({ data, token }) => {
+			const oldToken = option<string | undefined, Error>(() => undefined)(
+				nextToken,
+			);
+			const mergedData = mergeDeepWith(concat, previousData, data) as Data;
+			if (oldToken === token) {
+				return resolve({ data: mergedData, token });
+			}
 
-				return fetchLoop(client)(right(token), mergedData);
-			},
-		)(fetchOnce(client)(nextToken));
+			return fetchLoop(client)(right(token), mergedData);
+		})(fetchOnce(client)(nextToken));
 
 export class ContentfulDataFetcher implements DataFetcher {
-	private readonly client: ContentfulClientApi;
+	private readonly client: Client;
 
 	public constructor(private readonly storage: Storage) {
 		this.client = createClient({
@@ -236,10 +246,12 @@ export class ContentfulDataFetcher implements DataFetcher {
 
 	public fetch() {
 		const nextToken = this.storage.getItem<string>(nextTokenKey);
-		return mapF(({ data, token }: { data: Data; token: string }) => {
-			this.storage.setItem(nextTokenKey, token);
-			return data;
-		})(fetchLoop(this.client)(nextToken));
+		return mapF(
+			({ data, token }: { data: Data; token: string | undefined }) => {
+				this.storage.setItem(nextTokenKey, token);
+				return data;
+			},
+		)(fetchLoop(this.client)(nextToken));
 	}
 
 	public clear() {
