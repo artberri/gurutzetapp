@@ -49,7 +49,7 @@ export const Activity = ({ activity }: ActivityProperties) => {
 					</>
 				)}
 			</div>
-			<div className="flex-grow">
+			<div className="grow">
 				<div className="font-medium text-slate-700 first-letter:capitalize">
 					{activity.description[language]}
 				</div>

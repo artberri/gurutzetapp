@@ -80,7 +80,7 @@ export const Activities = ({ onBack, date }: ActivitiesProperties) => {
 				>
 					<ArrowLeftIcon />
 				</div>
-				<div className="text-primary w-12 p-2 flex flex-grow justify-center align-center bg-white rounded-xl shadow-lg divide-x">
+				<div className="text-primary w-12 p-2 flex grow justify-center align-center bg-white rounded-xl shadow-lg divide-x">
 					<ActivityFilter categoryIds={categoryIds} onChange={onFilterChange} />
 				</div>
 			</div>
