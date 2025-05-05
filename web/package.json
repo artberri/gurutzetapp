@@ -39,7 +39,7 @@
 		"build": "tsc -b && vite build",
 		"preview": "vite preview",
 		"lint": "biome check",
-		"qa": "tsc --noEmit -p ./tsconfig.json && pnpm run lint",
+		"qa": "tsc --noEmit -p ./tsconfig.app.json && pnpm run lint",
 		"deploy": "wrangler pages deploy dist --project-name gurutzeta"
 	},
 	"browserslist": {

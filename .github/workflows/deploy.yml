@@ -24,10 +24,10 @@ jobs:
         working-directory: ./web
         run: pnpm run build
         env:
-          REACT_APP_CONTENTFUL_SPACE_ID: ${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }}
-          REACT_APP_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}
-          REACT_APP_SENTRY_DSN: ${{ secrets.REACT_APP_SENTRY_DSN }}
-          REACT_APP_SENTRY_RELEASE: ${{ secrets.REACT_APP_SENTRY_RELEASE }}
+          VITE_CONTENTFUL_SPACE_ID: ${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }}
+          VITE_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}
+          VITE_SENTRY_DSN: ${{ secrets.REACT_APP_SENTRY_DSN }}
+          VITE_SENTRY_RELEASE: ${{ secrets.REACT_APP_SENTRY_RELEASE }}
       - name: Deploy
         working-directory: ./web
         run: pnpm run deploy

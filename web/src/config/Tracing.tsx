@@ -19,10 +19,10 @@ export const configTracing = () =>
 				integrations: [browserTracingIntegration()],
 				tracesSampleRate: 1,
 				debug: option(() => "none")(getEnv("NODE_ENV")) === "development",
-				release: option(() => "none")(getEnv("REACT_APP_SENTRY_RELEASE")),
+				release: option(() => "none")(getEnv("VITE_APP_SENTRY_RELEASE")),
 				initialScope: {
 					tags: { app: "gurutzetapp" },
 				},
 			});
 		},
-	)(getEnv("REACT_APP_SENTRY_DSN"));
+	)(getEnv("VITE_SENTRY_DSN"));

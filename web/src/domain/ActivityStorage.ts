@@ -17,7 +17,11 @@ const fixActivityData = (activity: Activity) =>
 	})(activity) as Activity;
 
 export class ActivityStorage {
-	public constructor(private readonly storage: Storage) {}
+	private readonly storage: Storage;
+
+	public constructor(storage: Storage) {
+		this.storage = storage;
+	}
 
 	public get() {
 		const activities = this.storage.getItem<Activity[]>(activityStorageKey);

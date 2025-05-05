@@ -2,9 +2,9 @@
 <html lang="es" translate="no">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="%PUBLIC_URL%/favicon.ico" sizes="any" />
-		<link rel="icon" href="%PUBLIC_URL%/icon.svg" type="image/svg+xml" />
-		<link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
 		<meta
 			name="viewport"
@@ -17,7 +17,7 @@
 			name="description"
 			content="Aplicación de fiestas de Gurutzetako Jaiak 2024"
 		/>
-		<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+		<link rel="manifest" href="/manifest.json" />
 		<meta
 			http-equiv="Content-Security-Policy"
 			content="default-src 'self'
@@ -55,6 +55,7 @@
         ;
   "
 		/>
+		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="white" />
 		<title>Gurutzetako Jaiak 2024</title>
@@ -95,6 +96,7 @@
 	<body>
 		<noscript>Necesitas JavaScript para utilizar esta app.</noscript>
 		<div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
 		<!-- Cloudflare Web Analytics -->
 		<script
 			defer

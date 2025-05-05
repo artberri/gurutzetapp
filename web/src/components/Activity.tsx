@@ -29,7 +29,7 @@ export const Activity = ({ activity }: ActivityProperties) => {
 		getVenue,
 	)(activity.venueId);
 
-	let borderColor = "border-l-slate-200";
+	let borderColor = "border-l-white";
 	if (activity.type === "important") {
 		borderColor = "border-l-highlight";
 	} else if (activity.type === "official") {

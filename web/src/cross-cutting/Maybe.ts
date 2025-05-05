@@ -1,16 +1,21 @@
 import { isNil } from "ramda";
 
-enum MaybeType {
-	Nothing = "Nothing",
-	Just = "Just",
-}
+export const MaybeType = {
+	Nothing: "Nothing",
+	Just: "Just",
+} as const;
+export type MaybeType = (typeof MaybeType)[keyof typeof MaybeType];
 
-type Nothing = { type: MaybeType.Nothing };
-type Just<T> = { type: MaybeType.Just; value: T };
+type Nothing = { type: typeof MaybeType.Nothing };
+type Just<T> = { type: typeof MaybeType.Just; value: T };
 type MaybeValue<T> = Nothing | Just<T>;
 
 class Maybe<ValueType> {
-	private constructor(private readonly data: MaybeValue<ValueType>) {}
+	private readonly data: MaybeValue<ValueType>;
+
+	private constructor(data: MaybeValue<ValueType>) {
+		this.data = data;
+	}
 
 	public static just<T>(value: T): Maybe<T> {
 		return new Maybe({ type: MaybeType.Just, value });
