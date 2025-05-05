@@ -1,6 +1,6 @@
 {
 	"name": "web",
-	"version": "2024.0.1",
+	"version": "2025.0.1",
 	"private": true,
 	"dependencies": {
 		"@fontsource/ubuntu": "^5.2.5",
@@ -40,7 +40,8 @@
 		"preview": "vite preview",
 		"lint": "biome check",
 		"qa": "tsc --noEmit -p ./tsconfig.app.json && pnpm run lint",
-		"deploy": "wrangler pages deploy dist --project-name gurutzeta"
+		"deploy": "wrangler pages deploy dist --project-name gurutzeta",
+		"generate-pwa-assets": "pwa-assets-generator --preset minimal-2023 public/icon.svg"
 	},
 	"browserslist": {
 		"production": [">0.2%", "not dead", "not op_mini all"],
@@ -58,6 +59,7 @@
 		"@types/ramda": "^0.30.2",
 		"@types/react": "^19.1.2",
 		"@types/react-dom": "^19.1.2",
+		"@vite-pwa/assets-generator": "^1.0.0",
 		"@vitejs/plugin-react-swc": "^3.9.0",
 		"add": "^2.0.6",
 		"globals": "^16.0.0",
@@ -66,6 +68,7 @@
 		"tailwindcss": "^4.1.5",
 		"typescript": "^5.8.3",
 		"vite": "^6.3.5",
+		"vite-plugin-pwa": "^1.0.0",
 		"wrangler": "^4.14.1"
 	},
 	"pnpm": {

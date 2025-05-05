@@ -4,7 +4,7 @@ import { just, nothing } from "../cross-cutting/Maybe";
 import type { Activity } from "./Activity";
 import type { Storage } from "./Storage";
 
-const activityStorageKey = "GURUTZETAPP_ACTIVITIES_2024";
+const activityStorageKey = "GURUTZETAPP_ACTIVITIES_2025";
 
 const fixActivityData = (activity: Activity) =>
 	evolve({

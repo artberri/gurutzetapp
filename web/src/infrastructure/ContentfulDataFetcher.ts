@@ -31,7 +31,7 @@ import { getEnv } from "./GetEnv";
 
 type Client = ContentfulClientApi<undefined>;
 
-const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2024";
+const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2025";
 
 const mapActivity = (
 	entry: Entry<ActivityEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,

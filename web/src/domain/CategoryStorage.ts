@@ -3,7 +3,7 @@ import { option } from "../cross-cutting/Either";
 import type { Category } from "./Category";
 import type { Storage } from "./Storage";
 
-const categoryStorageKey = "GURUTZETAPP_CATEGORIES_2024";
+const categoryStorageKey = "GURUTZETAPP_CATEGORIES_2025";
 
 export class CategoryStorage {
 	private readonly storage: Storage;
