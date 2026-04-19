@@ -18,9 +18,8 @@ VITE_SENTRY_RELEASE=dev
 Place the `berriart.jks` keystore file in the `android` folder. Then:
 
 ```sh
-npm i -g @bubblewrap/cli
 cd android
-export BUBBLEWRAP_KEYSTORE_PASSWORD='XXXXXXXXXXXX'
-export BUBBLEWRAP_KEY_PASSWORD='XXXXXXXXXXXX'
-bubblewrap build
+export BUBBLEWRAP_KEYSTORE_PASSWORD='XXXXXXXXXXXX' # You might need to escape $ char
+export BUBBLEWRAP_KEY_PASSWORD='XXXXXXXXXXXX' # You might need to escape $ char
+pnpx @bubblewrap/cli build
 ```
