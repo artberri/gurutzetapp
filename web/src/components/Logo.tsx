@@ -7,7 +7,6 @@ export const Logo = ({ color = "white", width = 200 }: LogoProperties) => {
 	const fill = color === "white" ? "#fff" : "#25B750";
 
 	return (
-		// biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
 		<svg width={width} version="1.1" viewBox="0 0 210 210">
 			<path
 				fill={fill}

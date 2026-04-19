@@ -1,0 +1,49 @@
+{
+	"$schema": "./node_modules/oxlint/configuration_schema.json",
+	"plugins": ["typescript", "unicorn", "oxc"],
+	"categories": {
+		"correctness": "error",
+		"suspicious": "error",
+		"pedantic": "error",
+		"perf": "error",
+		"style": "error",
+		"nursery": "error",
+		"restriction": "error"
+	},
+	"rules": {
+		"sort-imports": "off",
+		"no-ternary": "off",
+		"id-length": "off",
+		"capitalized-comments": "off",
+		"new-cap": "off",
+		"no-inline-comments": "off",
+		"max-lines-per-function": "off",
+		"max-statements": "off",
+		"max-params": "off",
+		"no-optional-chaining": "off",
+		"no-undefined": "off",
+		"no-magic-numbers": "off",
+		"no-rest-spread-properties": "off",
+		"typescript/consistent-type-definitions": "off",
+		"typescript/prefer-readonly-parameter-types": "off",
+		"typescript/no-unnecessary-condition": "off",
+		"typescript/no-unsafe-type-assertion": "off",
+		"typescript/no-deprecated": "off",
+		"typescript/no-confusing-void-expression": "off",
+		"typescript/no-unsafe-assignment": "off",
+		"typescript/strict-boolean-expressions": "off",
+		"typescript/promise-function-async": "off",
+		"typescript/explicit-module-boundary-types": "off",
+		"typescript/explicit-function-return-type": "off",
+		"unicorn/filename-case": "off"
+	},
+	"env": {
+		"builtin": true,
+		"browser": true
+	},
+	"options": {
+		"typeAware": true,
+		"typeCheck": true
+	},
+	"ignorePatterns": ["postcss.config.js"]
+}

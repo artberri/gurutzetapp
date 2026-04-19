@@ -4,9 +4,9 @@ import type { Category } from "./Category";
 import type { Venue } from "./Venue";
 
 interface FetchedData {
-	readonly activities: ReadonlyArray<Activity>;
-	readonly categories: ReadonlyArray<Category>;
-	readonly venues: ReadonlyArray<Venue>;
+	readonly activities: readonly Activity[];
+	readonly categories: readonly Category[];
+	readonly venues: readonly Venue[];
 }
 
 export interface Data {

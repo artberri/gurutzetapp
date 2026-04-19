@@ -9,7 +9,10 @@ export const configI18n = () =>
 		.use(initReactI18next)
 		.use(LanguageDetector)
 		.init({
-			supportedLngs: ["eu", "es"],
+			fallbackLng: "eu",
+			interpolation: {
+				escapeValue: false,
+			},
 			nonExplicitSupportedLngs: true,
 			resources: {
 				es: {
@@ -19,8 +22,5 @@ export const configI18n = () =>
 					translation: eu,
 				},
 			},
-			fallbackLng: "eu",
-			interpolation: {
-				escapeValue: false,
-			},
+			supportedLngs: ["eu", "es"],
 		});

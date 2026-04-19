@@ -32,7 +32,6 @@ export const LocationButton = ({ venue }: LocationButtonProperties) => {
 	return (
 		<div
 			aria-label={t("map.goto") ?? "Ver en el mapa"}
-			// biome-ignore lint/a11y/useSemanticElements: <explanation>
 			role="button"
 			tabIndex={0}
 			className="w-8 text-slate-300 cursor-pointer"

@@ -1,5 +1,4 @@
 import type { FutureInstance } from "fluture";
-
 import { Content } from "./Content";
 import { AppStateProvider } from "./utils/AppStateUtils";
 import { OnlineStatusProvider } from "./utils/OnlineStatusUtils";

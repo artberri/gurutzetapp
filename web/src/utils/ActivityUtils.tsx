@@ -35,9 +35,9 @@ export const ActivityContext = createContext<{
 	getActivities: (date: Date) => Activity[];
 	getActivitiesByIds: (ids: string[]) => Activity[];
 }>({
-	getActivityDays: () => [],
 	getActivities: () => [],
 	getActivitiesByIds: () => [],
+	getActivityDays: () => [],
 });
 
 export const ActivityProvider = ({ children }: { children: ReactNode }) => {
@@ -60,7 +60,7 @@ export const ActivityProvider = ({ children }: { children: ReactNode }) => {
 	);
 
 	const value = useMemo(
-		() => ({ getActivityDays, getActivities, getActivitiesByIds }),
+		() => ({ getActivities, getActivitiesByIds, getActivityDays }),
 		[getActivityDays, getActivities, getActivitiesByIds],
 	);
 

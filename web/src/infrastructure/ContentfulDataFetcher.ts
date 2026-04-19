@@ -36,7 +36,7 @@ const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2025";
 const mapActivity = (
 	entry: Entry<ActivityEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,
 ): Activity => ({
-	id: entry.sys.id,
+	categoryId: entry.fields.category?.es?.sys.id ?? "N/A",
 	date: new Date(entry.fields.date.es ?? new Date("2025-05-17")),
 	dateEnd: entry.fields.dateEnd?.es
 		? new Date(entry.fields.dateEnd.es)
@@ -45,23 +45,23 @@ const mapActivity = (
 		es: entry.fields.description.es ?? "N/A",
 		eu: entry.fields.description.eu ?? "N/A",
 	},
-	categoryId: entry.fields.category?.es?.sys.id ?? "N/A",
+	id: entry.sys.id,
+	type: entry.fields.type?.es ?? "normal",
 	venueId: entry.fields.venue?.es?.sys.id
 		? just(entry.fields.venue?.es.sys.id)
 		: nothing(),
-	type: entry.fields.type?.es ?? "normal",
 });
 
 const mapRemovedActivity = (entry: DeletedEntry): Activity => ({
-	id: entry.sys.id,
+	categoryId: "",
 	date: new Date(),
 	description: {
 		es: "",
 		eu: "",
 	},
-	categoryId: "",
-	venueId: nothing(),
+	id: entry.sys.id,
 	type: "normal",
+	venueId: nothing(),
 });
 
 const mapCategory = (
@@ -77,66 +77,57 @@ const mapCategory = (
 
 const mapRemovedCategory = (entry: DeletedEntry): Category => ({
 	id: entry.sys.id,
+	label: "",
 	name: {
 		es: "",
 		eu: "",
 	},
-	label: "",
 });
 
 const mapVenue = (
 	entry: Entry<VenueEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,
 ): Venue => ({
-	id: entry.sys.id,
-	name: {
-		es: entry.fields.name.es ?? "N/A",
-		eu: entry.fields.name.eu ?? "N/A",
-	},
 	category: entry.fields.category.es ?? "business",
+	id: entry.sys.id,
 	location: {
 		lat: entry.fields.location.es?.lat ?? 0,
 		lng: entry.fields.location.es?.lon ?? 0,
 	},
+	name: {
+		es: entry.fields.name.es ?? "N/A",
+		eu: entry.fields.name.eu ?? "N/A",
+	},
 });
 
 const mapRemovedVenue = (entry: DeletedEntry): Venue => ({
-	id: entry.sys.id,
-	name: {
-		es: "",
-		eu: "",
-	},
 	category: "official",
+	id: entry.sys.id,
 	location: {
 		lat: 0,
 		lng: 0,
+	},
+	name: {
+		es: "",
+		eu: "",
 	},
 });
 
 const isActivity = (
 	entry: Entry<GurutzetaEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,
-): entry is Entry<ActivityEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu"> => {
-	return (
-		entry?.sys?.type === "Entry" &&
-		entry?.sys?.contentType?.sys?.id === "activity"
-	);
-};
+): entry is Entry<ActivityEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu"> =>
+	entry?.sys?.type === "Entry" &&
+	entry?.sys?.contentType?.sys?.id === "activity";
 
 const isCategory = (
 	entry: Entry<GurutzetaEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,
-): entry is Entry<CategoryEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu"> => {
-	return (
-		entry?.sys?.type === "Entry" &&
-		entry?.sys?.contentType?.sys?.id === "category"
-	);
-};
+): entry is Entry<CategoryEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu"> =>
+	entry?.sys?.type === "Entry" &&
+	entry?.sys?.contentType?.sys?.id === "category";
 
 const isVenue = (
 	entry: Entry<GurutzetaEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,
-): entry is Entry<VenueEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu"> => {
-	return (
-		entry?.sys?.type === "Entry" && entry?.sys?.contentType?.sys?.id === "venue"
-	);
-};
+): entry is Entry<VenueEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu"> =>
+	entry?.sys?.type === "Entry" && entry?.sys?.contentType?.sys?.id === "venue";
 
 const getActivities = pipe(
 	(entries: Entry<GurutzetaEntrySkeleton>[]) => filter(isActivity)(entries),
@@ -180,7 +171,7 @@ const fetchInitial = (client: Client) => () =>
 				data: parseData(response),
 				token: response.nextSyncToken,
 			}))
-			.catch((error) => {
+			.catch((error: unknown) => {
 				throw parseError(error);
 			}),
 	);
@@ -195,7 +186,7 @@ const fetchNext = (client: Client) => (token: string | undefined) =>
 				data: parseData(response),
 				token: response.nextSyncToken,
 			}))
-			.catch((error) => {
+			.catch((error: unknown) => {
 				throw parseError(error);
 			}),
 	);
@@ -221,9 +212,9 @@ const fetchLoop =
 			{ data: Data; token: string | undefined },
 			{ data: Data; token: string | undefined }
 		>(({ data, token }) => {
-			const oldToken = option<string | undefined, Error>(() => undefined)(
-				nextToken,
-			);
+			const oldToken = option<string | undefined>(() => {
+				/* empty */
+			})(nextToken);
 			const mergedData = mergeDeepWith(concat, previousData, data) as Data;
 			if (oldToken === token) {
 				return resolve({ data: mergedData, token });
@@ -238,8 +229,8 @@ export class ContentfulDataFetcher implements DataFetcher {
 
 	public constructor(storage: Storage) {
 		this.client = createClient({
-			space: option(() => "")(getEnv("VITE_CONTENTFUL_SPACE_ID")),
 			accessToken: option(() => "")(getEnv("VITE_CONTENTFUL_ACCESS_TOKEN")),
+			space: option(() => "")(getEnv("VITE_CONTENTFUL_SPACE_ID")),
 		});
 		this.storage = storage;
 	}

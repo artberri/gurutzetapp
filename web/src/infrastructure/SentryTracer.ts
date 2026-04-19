@@ -8,10 +8,7 @@ export class SentryTracer implements Tracer {
 	private readonly isActive: boolean;
 
 	public constructor() {
-		this.isActive = fold(
-			() => false,
-			(value) => !!value,
-		)(getEnv("VITE_SENTRY_DSN"));
+		this.isActive = fold(() => false, Boolean)(getEnv("VITE_SENTRY_DSN"));
 	}
 
 	public trace(error: Error) {

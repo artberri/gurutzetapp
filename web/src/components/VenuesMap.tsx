@@ -1,24 +1,24 @@
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 import { divIcon } from "leaflet";
+import "leaflet/dist/leaflet.css";
 import { map } from "ramda";
 import { useTranslation } from "react-i18next";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import type { Venue, VenueCategory } from "../domain/Venue";
 import { useAppState } from "../utils/AppStateUtils";
 import { useVenues } from "../utils/VenueUtils";
 
 const iconColor: Record<VenueCategory, string> = {
-	official: "#25B750",
 	business: "#EAB308",
+	official: "#25B750",
 	public: "#8B5CF6",
 };
 
 const icon = (category: VenueCategory) =>
 	divIcon({
+		className: "",
 		html: `<svg style="filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="${iconColor[category]}" viewBox="0 0 20 20">
   <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
 </svg>`,
-		className: "",
 		iconAnchor: [16, 33],
 		popupAnchor: [0, -33],
 	});

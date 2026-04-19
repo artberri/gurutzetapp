@@ -1,7 +1,9 @@
 import type { HTMLProps } from "react";
 
-export interface ButtonProperties
-	extends Omit<HTMLProps<HTMLButtonElement>, "type"> {
+export interface ButtonProperties extends Omit<
+	HTMLProps<HTMLButtonElement>,
+	"type"
+> {
 	type?: "button" | "submit" | "reset";
 }
 

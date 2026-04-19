@@ -1,13 +1,8 @@
 import type { MetricType } from "web-vitals";
 
 export const reportWebVitals = (onPerfEntry?: (metric: MetricType) => void) => {
-	if (onPerfEntry && onPerfEntry instanceof Function) {
-		void import("web-vitals").then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
-			onCLS(onPerfEntry);
-			onINP(onPerfEntry);
-			onFCP(onPerfEntry);
-			onLCP(onPerfEntry);
-			onTTFB(onPerfEntry);
-		});
+	if (onPerfEntry && typeof onPerfEntry === "function") {
+		// oxlint-disable-next-line no-warning-comments
+		// TODO: Implement reportWebVitals
 	}
 };

@@ -22,7 +22,7 @@ export const FatalErrorDialog = ({ isOpen }: FatalErrorDialogProperties) => {
 
 	const onButtonClick: MouseEventHandler<HTMLButtonElement> = () => {
 		syncronizer.clear();
-		window?.location.reload();
+		globalThis?.location.reload();
 	};
 
 	return (

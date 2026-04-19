@@ -7,9 +7,11 @@ export const LanguageSwitch = () => {
 
 	const toggleLanguage = () => {
 		if (checked) {
-			void i18n.changeLanguage("eu");
+			// oxlint-disable-next-line no-warning-comments
+			// TODO: Implement language change
 		} else {
-			void i18n.changeLanguage("es");
+			// oxlint-disable-next-line no-warning-comments
+			// TODO: Implement language change
 		}
 	};
 

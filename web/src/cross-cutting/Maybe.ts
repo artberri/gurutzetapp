@@ -1,8 +1,8 @@
 import { isNil } from "ramda";
 
 export const MaybeType = {
-	Nothing: "Nothing",
 	Just: "Just",
+	Nothing: "Nothing",
 } as const;
 export type MaybeType = (typeof MaybeType)[keyof typeof MaybeType];
 

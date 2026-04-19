@@ -18,7 +18,7 @@ export class LocalStorage implements Storage {
 		}
 	}
 
-	public setItem<T>(key: string, value: T) {
+	public setItem(key: string, value: unknown) {
 		this.localStorage.setItem(key, JSON.stringify(value));
 	}
 

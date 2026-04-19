@@ -56,7 +56,7 @@ export const Activity = ({ activity }: ActivityProperties) => {
 				{foldE(
 					(error: Error) => {
 						tracer.trace(error);
-						return null;
+						return <></>;
 					},
 					(c: Category) => (
 						<div className="text-slate-500 first-letter:capitalize">
@@ -68,7 +68,7 @@ export const Activity = ({ activity }: ActivityProperties) => {
 			<div className="w-10 flex-none pl-2 flex flex-col justify-between">
 				<FavoriteButton activity={activity} />
 				{foldE(
-					() => null,
+					() => <></>,
 					(v: Venue) => <LocationButton venue={v} />,
 				)(venue)}
 			</div>
