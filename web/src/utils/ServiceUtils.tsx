@@ -1,6 +1,6 @@
 import { type ReactNode, createContext, useContext } from "react";
 
-// biome-ignore lint/complexity/noBannedTypes: <explanation>
+// oxlint-disable-next-line typescript/no-unsafe-function-type
 export interface Class<T> extends Function {
 	prototype: T;
 }

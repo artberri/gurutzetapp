@@ -71,7 +71,6 @@ export const Activities = ({ onBack, date }: ActivitiesProperties) => {
 			<div className="flex flex-row justify-between align-center mb-4">
 				<div
 					aria-label={t("back") ?? "Volver"}
-					// biome-ignore lint/a11y/useSemanticElements: <explanation>
 					role="button"
 					tabIndex={0}
 					onKeyUp={handleBackKeyUp}

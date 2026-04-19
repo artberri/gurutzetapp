@@ -17,10 +17,10 @@ const FavoritesContext = createContext<{
 	removeFavorite: (activityId: string) => void;
 	isFavorite: (activityId: string) => boolean;
 }>({
-	favorites: [],
 	addFavorite: noop,
-	removeFavorite: noop,
+	favorites: [],
 	isFavorite: () => false,
+	removeFavorite: noop,
 });
 
 export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
@@ -57,7 +57,7 @@ export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
 	);
 
 	const value = useMemo(
-		() => ({ favorites, addFavorite, removeFavorite, isFavorite }),
+		() => ({ addFavorite, favorites, isFavorite, removeFavorite }),
 		[favorites, addFavorite, removeFavorite, isFavorite],
 	);
 

@@ -27,7 +27,11 @@ export const ActivityFilter = ({
 				map((id: string) => getCategory(id)),
 				filter<Either<Error, Category>>((c) => isRight(c)),
 				map(
-					(c) => option<Category | undefined>(() => undefined)(c) as Category,
+					(c) =>
+						// oxlint-disable-next-line typescript/no-non-null-assertion
+						option<Category | undefined>(() => {
+							/* empty */
+						})(c)!,
 				),
 				sort((a, b) => (a.name[lang] < b.name[lang] ? -1 : 1)),
 				map(just),
@@ -36,7 +40,7 @@ export const ActivityFilter = ({
 		[categoryIds, getCategory, lang],
 	);
 
-	// biome-ignore lint/style/noNonNullAssertion: <explanation>
+	// oxlint-disable-next-line typescript/no-non-null-assertion
 	const [selected, setSelected] = useState(categories[0]!);
 
 	const getCategoryId = fold(

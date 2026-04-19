@@ -11,18 +11,18 @@ export interface BoundaryProperties {
 export const configTracing = () =>
 	fold(
 		() => {
-			console.log("Sentry is not configured");
+			/* empty */
 		},
 		(dsn: string) => {
 			init({
-				dsn,
-				integrations: [browserTracingIntegration()],
-				tracesSampleRate: 1,
 				debug: option(() => "none")(getEnv("NODE_ENV")) === "development",
-				release: option(() => "none")(getEnv("VITE_APP_SENTRY_RELEASE")),
+				dsn,
 				initialScope: {
 					tags: { app: "gurutzetapp" },
 				},
+				integrations: [browserTracingIntegration()],
+				release: option(() => "none")(getEnv("VITE_APP_SENTRY_RELEASE")),
+				tracesSampleRate: 1,
 			});
 		},
 	)(getEnv("VITE_SENTRY_DSN"));

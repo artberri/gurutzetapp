@@ -44,7 +44,6 @@ export const FavoriteButton = ({ activity }: FavoriteButtonProperties) => {
 	return favorite ? (
 		<div
 			aria-label={t("back") ?? "Volver"}
-			// biome-ignore lint/a11y/useSemanticElements: <explanation>
 			role="button"
 			tabIndex={0}
 			className="text-primary cursor-pointer"
@@ -56,7 +55,6 @@ export const FavoriteButton = ({ activity }: FavoriteButtonProperties) => {
 	) : (
 		<div
 			aria-label={t("favorites.add") ?? "Añadir favorito"}
-			// biome-ignore lint/a11y/useSemanticElements: <explanation>
 			role="button"
 			tabIndex={0}
 			className="text-primary cursor-pointer"

@@ -10,11 +10,11 @@ type EitherValue<L, R> = Left<L> | Right<R>;
 
 class Either<L, R> {
 	public static left<TL, TR>(value: TL): Either<TL, TR> {
-		return new Either<TL, TR>({ type: EitherType.Left, left: value });
+		return new Either<TL, TR>({ left: value, type: EitherType.Left });
 	}
 
 	public static right<TL, TR>(value: TR): Either<TL, TR> {
-		return new Either<TL, TR>({ type: EitherType.Right, right: value });
+		return new Either<TL, TR>({ right: value, type: EitherType.Right });
 	}
 
 	protected readonly data: EitherValue<L, R>;

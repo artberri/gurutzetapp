@@ -7,5 +7,5 @@ export const getEnv = (envName: string): Either<Error, string> => {
 		return left(new Error(`No ${envName} found in environment variables`));
 	}
 
-	return right(env);
+	return right(String(env));
 };

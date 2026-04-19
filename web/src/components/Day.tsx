@@ -28,7 +28,6 @@ export const Day = ({ date, onClick }: DayProperties) => {
 
 	return (
 		<div
-			// biome-ignore lint/a11y/useSemanticElements: <explanation>
 			role="button"
 			tabIndex={0}
 			onKeyUp={handleKeyUp}

@@ -12,8 +12,6 @@ import {
 import { type FutureInstance, fork } from "fluture";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import "./Content.css";
-import { ContentProviders } from "./ContentProviders";
 import { Favorites } from "./components/Favorites";
 import { Layout } from "./components/Layout";
 import { Loader } from "./components/Loader";
@@ -21,6 +19,8 @@ import { Logo } from "./components/Logo";
 import { MapComponent } from "./components/MapComponent";
 import { Schedule } from "./components/Schedule";
 import { type TabPage, Tabs } from "./components/Tabs";
+import "./Content.css";
+import { ContentProviders } from "./ContentProviders";
 import { noop } from "./cross-cutting/Noop";
 import { Syncronizer } from "./domain/Syncronizer";
 import { Tracer } from "./domain/Tracer";
@@ -41,8 +41,8 @@ export const Content = ({ getReady }: ContentProperties) => {
 	const syncronizer = useService(Syncronizer);
 	const tracer = useService(Tracer);
 	const onTabChange = useCallback(
-		(tab: number) => {
-			const tabEnum = Object.values(Tab).find((t) => t === tab);
+		(tabNumber: number) => {
+			const tabEnum = Object.values(Tab).find((t) => t === tabNumber);
 			if (tabEnum !== undefined) {
 				goToTab(tabEnum);
 			}
@@ -88,22 +88,22 @@ export const Content = ({ getReady }: ContentProperties) => {
 	const pages = useMemo<TabPage[]>(
 		() => [
 			{
-				id: "schedule",
 				content: <Schedule />,
 				icon: <CalendarIcon className="text-white" />,
 				iconSelected: <CalendarIconSelected className="text-white" />,
+				id: "schedule",
 			},
 			{
-				id: "favourites",
 				content: <Favorites onBack={() => goToScheduleTab()} />,
 				icon: <HeartIcon className="text-white" />,
 				iconSelected: <HeartIconSelected className="text-white" />,
+				id: "favourites",
 			},
 			{
-				id: "map",
 				content: <MapComponent />,
 				icon: <GlobeIcon className="text-white" />,
 				iconSelected: <GlobeIconSelected className="text-white" />,
+				id: "map",
 			},
 		],
 		[goToScheduleTab],

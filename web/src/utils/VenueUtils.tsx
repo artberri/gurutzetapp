@@ -14,8 +14,8 @@ export const VenueContext = createContext<{
 	getVenue: (id: string) => Either<Error, Venue>;
 	venues: readonly Venue[];
 }>({
-	venues: [],
 	getVenue: () => left<Venue>(new Error("Context not initialized")),
+	venues: [],
 });
 
 export const VenueProvider = ({ children }: { children: ReactNode }) => {

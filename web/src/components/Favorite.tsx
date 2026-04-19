@@ -68,7 +68,7 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
 				{fold(
 					(error: Error) => {
 						tracer.trace(error);
-						return null;
+						return <></>;
 					},
 					(c: Category) => (
 						<div className="text-slate-500 first-letter:capitalize">
@@ -80,7 +80,6 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
 			<div className="w-10 flex-none pl-2 flex flex-col justify-between">
 				<div
 					aria-label={t("favorites.remove") ?? "Quitar de favoritos"}
-					// biome-ignore lint/a11y/useSemanticElements: <explanation>
 					role="button"
 					tabIndex={0}
 					className="text-slate-500 cursor-pointer"
@@ -90,7 +89,7 @@ export const Favorite = ({ activity }: FavoriteProperties) => {
 					<TrashIcon />
 				</div>
 				{fold(
-					() => null,
+					() => <></>,
 					(v: Venue) => <LocationButton venue={v} />,
 				)(venue)}
 			</div>

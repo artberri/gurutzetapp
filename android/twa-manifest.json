@@ -1,45 +1,48 @@
 {
-	"packageId": "info.gurutzeta.app",
-	"host": "app.gurutzeta.info",
-	"name": "Gurutzetako Jaiak",
-	"launcherName": "Gurutzeta",
-	"display": "standalone",
-	"themeColor": "#25B750",
-	"navigationColor": "#000000",
-	"navigationColorDark": "#000000",
-	"navigationDividerColor": "#000000",
-	"navigationDividerColorDark": "#000000",
-	"backgroundColor": "#1BB559",
-	"enableNotifications": true,
-	"startUrl": "/",
-	"iconUrl": "https://app.gurutzeta.info/icon-512.png",
-	"maskableIconUrl": "https://app.gurutzeta.info/maskable-icon-192.png",
-	"splashScreenFadeOutDuration": 300,
-	"signingKey": {
-		"path": "./berriart.jks",
-		"alias": "gurutzeta"
-	},
-	"appVersionName": "202500001",
-	"appVersionCode": 202500001,
-	"shortcuts": [],
-	"generatorApp": "bubblewrap-cli",
-	"webManifestUrl": "https://app.gurutzeta.info/manifest.webmanifest",
-	"fallbackType": "customtabs",
-	"features": {},
-	"alphaDependencies": {
-		"enabled": false
-	},
-	"enableSiteSettingsShortcut": true,
-	"isChromeOSOnly": false,
-	"isMetaQuest": false,
-	"minSdkVersion": 19,
-	"orientation": "default",
-	"fingerprints": [
-		{
-			"value": "38:7A:4E:47:F7:A6:CA:A3:63:C6:0C:47:94:2C:12:EB:0A:D2:48:FA:9C:99:34:2B:FC:F1:F1:6A:12:29:8A:25"
-		}
-	],
-	"additionalTrustedOrigins": [],
-	"retainedBundles": [],
-	"appVersion": "202500001"
+  "packageId": "info.gurutzeta.app",
+  "host": "app.gurutzeta.info",
+  "name": "Gurutzetako Jaiak",
+  "launcherName": "Gurutzeta",
+  "display": "standalone",
+  "themeColor": "#25B750",
+  "themeColorDark": "#000000",
+  "navigationColor": "#000000",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#1BB559",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "https://app.gurutzeta.info/icon-512.png",
+  "maskableIconUrl": "https://app.gurutzeta.info/maskable-icon-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./berriart.jks",
+    "alias": "gurutzeta"
+  },
+  "appVersionName": "202500002",
+  "appVersionCode": 202500002,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://app.gurutzeta.info/manifest.webmanifest",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://app.gurutzeta.info/",
+  "minSdkVersion": 21,
+  "orientation": "portrait",
+  "fingerprints": [
+    {
+      "value": "38:7A:4E:47:F7:A6:CA:A3:63:C6:0C:47:94:2C:12:EB:0A:D2:48:FA:9C:99:34:2B:FC:F1:F1:6A:12:29:8A:25"
+    }
+  ],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "protocolHandlers": [],
+  "appVersion": "202500002"
 }

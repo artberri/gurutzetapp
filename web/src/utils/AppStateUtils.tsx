@@ -10,9 +10,9 @@ import { type Maybe, just, nothing } from "../cross-cutting/Maybe";
 import { noop } from "../cross-cutting/Noop";
 
 export const Tab = {
-	Schedule: 0,
 	Favorites: 1,
 	Map: 2,
+	Schedule: 0,
 } as const;
 export type Tab = (typeof Tab)[keyof typeof Tab];
 
@@ -51,12 +51,12 @@ const isHistoryState = (value: unknown): value is HistoryState => {
 const historyEventName = "historyupdated";
 
 const pushState = (historyState: HistoryState) => {
-	const rootElement = document.querySelector("#root") || undefined;
-	window.history.pushState(
+	const rootElement = document.querySelector("#root") ?? undefined;
+	globalThis.history.pushState(
 		{
+			date: historyState.date ? historyState.date.toISOString() : undefined,
 			map: historyState.map,
 			tab: historyState.tab,
-			date: historyState.date ? historyState.date.toISOString() : undefined,
 		},
 		document.title,
 	);
@@ -65,13 +65,13 @@ const pushState = (historyState: HistoryState) => {
 	);
 };
 
-const goBack = () => window.history.go(-1);
+const goBack = () => globalThis.history.go(-1);
 const goToTab = (tab: Tab, options: { map?: Map; date?: Date } = {}) => {
 	const { map, date } = options;
 	pushState({
-		tab,
-		map: map ?? defaultMap,
 		date,
+		map: map ?? defaultMap,
+		tab,
 	});
 };
 const goToScheduleTab = (date?: Date) => goToTab(Tab.Schedule, { date });
@@ -92,16 +92,16 @@ export interface AppState {
 }
 
 const AppStateContext = createContext<AppState>({
-	map: defaultMap,
-	zoomMapTo: noop,
-	tab: Tab.Schedule,
 	date: nothing(),
-	goToTab: noop,
-	goToScheduleTab: noop,
+	goBack: noop,
 	goToDay: noop,
 	goToFavoritesTab: noop,
 	goToMapTab: noop,
-	goBack: noop,
+	goToScheduleTab: noop,
+	goToTab: noop,
+	map: defaultMap,
+	tab: Tab.Schedule,
+	zoomMapTo: noop,
 });
 
 export const AppStateProvider = ({ children }: { children: ReactNode }) => {
@@ -111,11 +111,11 @@ export const AppStateProvider = ({ children }: { children: ReactNode }) => {
 
 	useEffect(() => {
 		const load = () => {
-			window.history.pushState(
+			globalThis.history.pushState(
 				{
-					tab: Tab.Schedule,
-					map: defaultMap,
 					date: undefined,
+					map: defaultMap,
+					tab: Tab.Schedule,
 				},
 				document.title,
 			);
@@ -133,34 +133,34 @@ export const AppStateProvider = ({ children }: { children: ReactNode }) => {
 			setState(event.state);
 		};
 
-		const rootElement = document.querySelector("#root") || undefined;
+		const rootElement = document.querySelector("#root") ?? undefined;
 		const historyupdated = (event: HistoryUpdatedEvent) => {
 			setState(event.detail);
 		};
 
 		window.addEventListener("load", load);
-		window.addEventListener("popstate", popstate);
+		globalThis.addEventListener("popstate", popstate);
 		rootElement?.addEventListener(historyEventName, historyupdated);
 
 		return () => {
 			window.removeEventListener("load", load);
-			window.removeEventListener("popstate", popstate);
+			globalThis.removeEventListener("popstate", popstate);
 			rootElement?.removeEventListener(historyEventName, historyupdated);
 		};
 	}, []);
 
 	const value = useMemo(
 		() => ({
-			map,
-			tab,
 			date,
-			goToTab,
-			goToScheduleTab: () => goToScheduleTab(),
+			goBack,
 			goToDay: (d: Date) => goToScheduleTab(d),
 			goToFavoritesTab,
 			goToMapTab: () => goToMapTab(),
-			zoomMapTo: (center: Coordinates) => goToMapTab({ zoom: 18, center }),
-			goBack,
+			goToScheduleTab: () => goToScheduleTab(),
+			goToTab,
+			map,
+			tab,
+			zoomMapTo: (center: Coordinates) => goToMapTab({ center, zoom: 18 }),
 		}),
 		[map, tab, date],
 	);

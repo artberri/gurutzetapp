@@ -1,7 +1,7 @@
 import type { CancelWatch, NetworkDetector } from "../domain/NetworkDetector";
 
 export class BrowserNetworkDetector implements NetworkDetector {
-	private readonly window = window;
+	private readonly window = globalThis;
 
 	public isOnLine(): boolean {
 		return this.window.navigator?.onLine ?? true;
