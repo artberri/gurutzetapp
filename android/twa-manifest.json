@@ -20,8 +20,8 @@
     "path": "./berriart.jks",
     "alias": "gurutzeta"
   },
-  "appVersionName": "202500002",
-  "appVersionCode": 202500002,
+  "appVersionName": "202600001",
+  "appVersionCode": 202600001,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://app.gurutzeta.info/manifest.webmanifest",
@@ -44,5 +44,5 @@
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
   "protocolHandlers": [],
-  "appVersion": "202500002"
+  "appVersion": "202600001"
 }
