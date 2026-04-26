@@ -31,13 +31,13 @@ import { getEnv } from "./GetEnv";
 
 type Client = ContentfulClientApi<undefined>;
 
-const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2025";
+const nextTokenKey = "GURUTZETAPP_NEXT_TOKEN_2026";
 
 const mapActivity = (
 	entry: Entry<ActivityEntrySkeleton, "WITH_ALL_LOCALES", "es" | "eu">,
 ): Activity => ({
 	categoryId: entry.fields.category?.es?.sys.id ?? "N/A",
-	date: new Date(entry.fields.date.es ?? new Date("2025-05-17")),
+	date: new Date(entry.fields.date.es ?? new Date("2026-05-15")),
 	dateEnd: entry.fields.dateEnd?.es
 		? new Date(entry.fields.dateEnd.es)
 		: undefined,

@@ -12,7 +12,7 @@ export default defineConfig({
 			},
 			manifest: {
 				background_color: "#ffffff",
-				description: "Aplicación de fiestas de Gurutzetako Jaiak 2025",
+				description: "Aplicación de fiestas de Gurutzetako Jaiak 2026",
 				dir: "ltr",
 				display: "standalone",
 				handle_links: "preferred",
@@ -42,7 +42,7 @@ export default defineConfig({
 						type: "image/png",
 					},
 				],
-				name: "Gurutzetako Jaiak 2025",
+				name: "Gurutzetako Jaiak 2026",
 				orientation: "portrait",
 				scope: "/",
 				short_name: "Gurutzeta",

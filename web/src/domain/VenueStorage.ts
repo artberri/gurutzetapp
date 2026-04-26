@@ -3,7 +3,7 @@ import { option } from "../cross-cutting/Either";
 import type { Storage } from "./Storage";
 import type { Venue } from "./Venue";
 
-const venueStorageKey = "GURUTZETAPP_VENUES_2025";
+const venueStorageKey = "GURUTZETAPP_VENUES_2026";
 
 export class VenueStorage {
 	private readonly storage: Storage;

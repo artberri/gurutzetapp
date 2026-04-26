@@ -63,7 +63,7 @@ Plain TS classes and interfaces describing Activities, Categories, Venues, Favor
 ### 2. `infrastructure/` — adapters for ports
 
 - `LocalStorage` implements `Storage` (browser localStorage, returning `Either<Error, T>` from `getItem`).
-- `ContentfulDataFetcher` implements `DataFetcher` using Contentful's delta-sync API. It persists a `nextSyncToken` in storage under `GURUTZETAPP_NEXT_TOKEN_2025` so reloads fetch only changes. Look here before adding any remote data source.
+- `ContentfulDataFetcher` implements `DataFetcher` using Contentful's delta-sync API. It persists a `nextSyncToken` in storage under `GURUTZETAPP_NEXT_TOKEN_2026` so reloads fetch only changes. Look here before adding any remote data source.
 - `SentryTracer` implements `Tracer`; `BrowserNetworkDetector` implements `NetworkDetector`.
 
 ### 3. `config/DependencyInjection.ts` — wiring
